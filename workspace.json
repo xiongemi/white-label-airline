@@ -1,0 +1,184 @@
+{
+  "version": 1,
+  "projects": {
+    "white-label-airline": {
+      "root": "apps/white-label-airline",
+      "sourceRoot": "apps/white-label-airline/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:build",
+          "options": {
+            "outputPath": "dist/apps/white-label-airline",
+            "index": "apps/white-label-airline/src/index.html",
+            "main": "apps/white-label-airline/src/main.tsx",
+            "polyfills": "apps/white-label-airline/src/polyfills.ts",
+            "tsConfig": "apps/white-label-airline/tsconfig.app.json",
+            "assets": [
+              "apps/white-label-airline/src/favicon.ico",
+              "apps/white-label-airline/src/assets"
+            ],
+            "styles": ["apps/white-label-airline/src/styles.css"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/white-label-airline/src/environments/environment.ts",
+                  "with": "apps/white-label-airline/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "white-label-airline:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "white-label-airline:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "apps/white-label-airline/tsconfig.app.json",
+              "apps/white-label-airline/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/white-label-airline/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/white-label-airline/jest.config.js",
+            "tsConfig": "apps/white-label-airline/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "white-label-airline-e2e": {
+      "root": "apps/white-label-airline-e2e",
+      "sourceRoot": "apps/white-label-airline-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/white-label-airline-e2e/cypress.json",
+            "tsConfig": "apps/white-label-airline-e2e/tsconfig.e2e.json",
+            "devServerTarget": "white-label-airline:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "white-label-airline:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": ["apps/white-label-airline-e2e/tsconfig.e2e.json"],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/white-label-airline-e2e/**/*"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
+  "schematics": {
+    "@nrwl/workspace": {
+      "library": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/cypress": {
+      "cypress-project": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/react": {
+      "application": {
+        "style": "css",
+        "linter": "eslint",
+        "babel": true
+      },
+      "library": {
+        "style": "css",
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      },
+      "component": {
+        "style": "css"
+      }
+    },
+    "@nrwl/next": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/web": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/node": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/nx-plugin": {
+      "plugin": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/nest": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/express": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      }
+    }
+  },
+  "defaultProject": "white-label-airline"
+}
