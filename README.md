@@ -1,4 +1,4 @@
-# WhiteLabelAirline
+# White Label Airline React
 
 This project was generated using [Nx](https://nx.dev).
 

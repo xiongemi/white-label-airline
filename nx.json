@@ -28,6 +28,12 @@
     "white-label-airline-e2e": {
       "tags": [],
       "implicitDependencies": ["white-label-airline"]
+    },
+    "store": {
+      "tags": []
+    },
+    "ui": {
+      "tags": []
     }
   }
 }
