@@ -17,7 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "@white-label-airline/store": ["libs/store/src/index.ts"],
-      "@white-label-airline/ui": ["libs/ui/src/index.ts"]
+      "@white-label-airline/ui": ["libs/ui/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

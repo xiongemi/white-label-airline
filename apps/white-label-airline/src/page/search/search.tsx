@@ -1,9 +1,7 @@
 import * as React from 'react';
 
-const Search: React.FunctionComponent<{
+export const Search: React.FunctionComponent<{
   count: number;
 }> = (props) => {
   return <h1>{props.count}</h1>;
 };
-
-export default Search;

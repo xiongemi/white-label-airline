@@ -1,6 +1,6 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import { searchSlice } from '../pages/search/search.slice';
+import { countriesSlice } from '../countries/countries.slice';
 
 export const rootReducer = combineReducers({
-  search: searchSlice.reducer,
+  countries: countriesSlice.reducer,
 });

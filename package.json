@@ -5,7 +5,7 @@
   "scripts": {
     "nx": "nx",
     "start": "nx serve",
-    "build": "nx build",
+    "build": "nx build --buildLibsFromSource",
     "test": "nx test",
     "lint": "nx workspace-lint && nx lint",
     "e2e": "nx e2e",
@@ -27,15 +27,20 @@
   },
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@reduxjs/toolkit": "^1.4.0",
     "document-register-element": "1.13.1",
     "formik": "^2.1.5",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-router-dom": "^5.2.0",
-    "@reduxjs/toolkit": "^1.4.0",
     "react-i18next": "^11.7.0",
+    "react-redux": "^7.2.1",
+    "react-router-dom": "^5.2.0",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-logger": "^3.0.6",
+    "redux-observable": "^1.2.0",
     "redux-thunk": "^2.3.0",
-    "@material-ui/core": "^4.11.0"
+    "reselect": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.9.6",
