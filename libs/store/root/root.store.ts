@@ -3,6 +3,7 @@ import { createEpicMiddleware } from 'redux-observable';
 import logger from 'redux-logger';
 import { rootReducer } from './root.reducer';
 import { RootState } from './root-state.interface';
+import { rootEpic } from './root.epic';
 
 const epicMiddleware = createEpicMiddleware();
 
@@ -13,6 +14,8 @@ export function configureAppStore(preloadedState?: RootState) {
     preloadedState,
     devTools: true,
   });
+
+  epicMiddleware.run(rootEpic);
 
   return store;
 }

@@ -1,3 +1,3 @@
-import Search from './search.container';
+import Search from './search';
 
-export { Search };
+export default Search;

@@ -1,4 +1,6 @@
-import { createSlice, Action } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+import { getCountriesError } from './countries.actions';
+
 export const countriesSlice = createSlice({
   name: 'countires',
   initialState: [],
@@ -11,3 +13,8 @@ export const countriesSlice = createSlice({
     },
   },
 });
+
+export const countriesActions = {
+  ...countriesSlice.actions,
+  getCountriesError,
+};

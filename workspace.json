@@ -113,7 +113,7 @@
     },
     "store": {
       "root": "libs/store",
-      "sourceRoot": "libs/store/src",
+      "sourceRoot": "libs/store",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -140,7 +140,7 @@
     },
     "ui": {
       "root": "libs/ui",
-      "sourceRoot": "libs/ui/src",
+      "sourceRoot": "libs/ui",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -160,6 +160,33 @@
           "options": {
             "jestConfig": "libs/ui/jest.config.js",
             "tsConfig": "libs/ui/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "services": {
+      "root": "libs/services",
+      "sourceRoot": "libs/services",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/services/tsconfig.lib.json",
+              "libs/services/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/services/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/services/jest.config.js",
+            "tsConfig": "libs/services/tsconfig.spec.json",
             "passWithNoTests": true
           }
         }
