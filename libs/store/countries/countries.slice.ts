@@ -1,15 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getCountriesError } from './countries.actions';
 
-export const countriesSlice = createSlice({
-  name: 'countires',
+const countriesSlice = createSlice({
+  name: 'countries',
   initialState: [],
   reducers: {
     getCountries(state) {
       state = [];
     },
     getCountriesSuccess(state, action) {
-      state = action.payload;
+      return action.payload;
     },
   },
 });
@@ -18,3 +18,5 @@ export const countriesActions = {
   ...countriesSlice.actions,
   getCountriesError,
 };
+
+export const countriesReducer = countriesSlice.reducer;

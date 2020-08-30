@@ -6,28 +6,32 @@ import { useTranslation } from 'react-i18next';
 import {
   mapStateToProps,
   mapDispatchToProps,
-  mapStateToPropsType,
-  mapDispatchToPropsType,
+  SearchProps,
 } from './search.props';
 import { connect } from 'react-redux';
 
-const Search: React.FunctionComponent<mapStateToPropsType> = (
-  props: mapStateToPropsType & mapDispatchToPropsType
-) => {
+const Search: React.FunctionComponent<SearchProps> = (props: SearchProps) => {
   const { t } = useTranslation();
 
   useEffect(() => {
     props.getCountries();
-  });
+  }, []);
 
   return (
     <form>
-      <InputLabel>{t('countries')}</InputLabel>
-      <Select labelId="demo-simple-select-label" id="demo-simple-select">
-        <MenuItem value={10}>Ten</MenuItem>
-        <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem>
-      </Select>
+      <InputLabel>{t('search.country')}</InputLabel>
+
+      {props.countries && props.countries.length && (
+        <Select labelId="country-label">
+          {props.countries.map((country, index) => {
+            return (
+              <MenuItem key={country.Code} value={country.Code}>
+                {country.Name}
+              </MenuItem>
+            );
+          })}
+        </Select>
+      )}
     </form>
   );
 };

@@ -1,11 +1,11 @@
 import { getApiHeaders } from '../api/api.service';
-import { CountriesResponse } from './countries-responose.interface';
+import { CountriesResponse } from './countries-response.interface';
 
-function getCountries(apiKey: string): Promise<CountriesResponse> {
+function getCountries(): Promise<CountriesResponse> {
   return fetch(
     'https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/reference/v1.0/countries/en-US',
     {
-      headers: getApiHeaders(apiKey),
+      headers: getApiHeaders(),
     }
   ).then((response: Response) => {
     if (response.ok) {

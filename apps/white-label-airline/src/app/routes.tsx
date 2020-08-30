@@ -1,21 +1,8 @@
-import React, { lazy, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import {
-  mapStateToProps,
-  mapDispatchToProps,
-  RouteProps,
-} from './routes.props';
-import { connect } from 'react-redux';
 import Search from '@white-label-airline/ui/search';
-import { environment } from '../environments/environment';
 
-export const Routes: React.FunctionComponent<RouteProps> = (
-  props: RouteProps
-) => {
-  useEffect(() => {
-    props.setApiKey(environment.apiKey);
-  });
-
+export const Routes: React.FunctionComponent = () => {
   return (
     <Router>
       <Switch>
@@ -27,4 +14,4 @@ export const Routes: React.FunctionComponent<RouteProps> = (
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Routes);
+export default Routes;

@@ -19,7 +19,8 @@
       "@white-label-airline/store": ["libs/store"],
       "@white-label-airline/ui/*": ["libs/ui/*"],
       "@white-label-airline/services/*": ["libs/services/*"]
-    }
+    },
+    "resolveJsonModule": true
   },
   "exclude": ["node_modules", "tmp"]
 }

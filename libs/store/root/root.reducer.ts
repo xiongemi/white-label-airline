@@ -1,8 +1,7 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import { countriesSlice } from '../countries/countries.slice';
-import { apiSlice } from '../api/api.slice';
+import { countriesReducer } from '../countries/countries.slice';
+import { RootState } from './root-state.interface';
 
-export const rootReducer = combineReducers({
-  countries: countriesSlice.reducer,
-  api: apiSlice.reducer,
+export const rootReducer = combineReducers<RootState>({
+  countries: countriesReducer,
 });

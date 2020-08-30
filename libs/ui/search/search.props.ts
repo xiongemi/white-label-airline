@@ -19,5 +19,7 @@ export const mapDispatchToProps = (dispatch: Dispatch) => {
   };
 };
 
-export type mapStateToPropsType = ReturnType<typeof mapStateToProps>;
-export type mapDispatchToPropsType = ReturnType<typeof mapDispatchToProps>;
+type mapStateToPropsType = ReturnType<typeof mapStateToProps>;
+type mapDispatchToPropsType = ReturnType<typeof mapDispatchToProps>;
+
+export type SearchProps = mapStateToPropsType & mapDispatchToPropsType;

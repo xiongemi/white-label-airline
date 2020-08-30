@@ -39,4 +39,4 @@ testem.log
 Thumbs.db
 
 # environment file
-**/environments/
+**/.env
