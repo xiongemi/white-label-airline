@@ -10,8 +10,10 @@ export function setI18n(loadPath: string) {
     .use(HttpApi)
     .init({
       backend: { loadPath },
-      lng: 'en',
-      fallbackLng: 'en',
+      lng: 'en-GB',
+      fallbackLng: {
+        'en-GB': ['en'],
+      },
       debug: true,
 
       interpolation: {

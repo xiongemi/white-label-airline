@@ -1,28 +1,34 @@
-import { countriesActions } from './countries.slice';
 import { Action } from '@reduxjs/toolkit';
 import {
   ofType,
   ActionsObservable,
-  StateObservable,
   Epic,
+  StateObservable,
 } from 'redux-observable';
-import { map, catchError, switchMap } from 'rxjs/operators';
+import { map, catchError, switchMap, withLatestFrom } from 'rxjs/operators';
 import { from, of } from 'rxjs';
 import {
   countriesService,
   CountriesResponse,
 } from '@white-label-airline/services/countries';
-import { RootState } from '../root/root-state.interface';
+import { languageSelectors } from '../language/language.selectors';
+import { RootState } from '../root';
+import { countriesSlice } from './countries.slice';
+import { errorSlice } from '../error/error.slice';
 
-const getCountriesEpic: Epic = (action$: ActionsObservable<Action>) =>
+const getCountriesEpic: Epic = (
+  action$: ActionsObservable<Action>,
+  states$: StateObservable<RootState>
+) =>
   action$.pipe(
-    ofType(countriesActions.getCountries.type),
-    switchMap(() => {
-      return from(countriesService.getCountries()).pipe(
+    ofType(countriesSlice.actions.getCountries.type),
+    withLatestFrom(states$.pipe(map(languageSelectors.getLanguage))),
+    switchMap(([_, language]) => {
+      return from(countriesService.getCountries(language)).pipe(
         map((response: CountriesResponse) =>
-          countriesActions.getCountriesSuccess(response.Countries)
+          countriesSlice.actions.getCountriesSuccess(response.Countries)
         ),
-        catchError((error) => of(countriesActions.getCountriesError(error)))
+        catchError((error) => of(errorSlice.actions.handleError(error)))
       );
     })
   );

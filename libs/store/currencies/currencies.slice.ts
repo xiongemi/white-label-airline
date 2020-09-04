@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const countriesSlice = createSlice({
-  name: 'countries',
+export const currenciesSlice = createSlice({
+  name: 'currencies',
   initialState: [],
   reducers: {
-    getCountries(state) {
+    getCurrencies(state) {
       state = [];
     },
-    getCountriesSuccess(_, action) {
+    getCurrenciesSuccess(_, action) {
       return action.payload;
     },
   },
