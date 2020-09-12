@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+
 import { SearchForm, SearchTripType } from './search-form.interface';
 
 export const initSearchForm: SearchForm = {

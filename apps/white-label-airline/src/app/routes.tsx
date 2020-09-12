@@ -1,5 +1,5 @@
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Search from '@white-label-airline/ui/search';
 
 export const Routes: React.FunctionComponent = () => {

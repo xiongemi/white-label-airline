@@ -4,7 +4,6 @@ import {
   currenciesSlice,
 } from '@white-label-airline/store';
 import { Dispatch } from '@reduxjs/toolkit';
-import { Currency } from '@white-label-airline/services/currencies';
 
 export const mapStateToProps = (state: RootState) => {
   return {
@@ -25,7 +24,5 @@ type mapDispatchToPropsType = ReturnType<typeof mapDispatchToProps>;
 
 export type CurrencyProps = mapStateToPropsType &
   mapDispatchToPropsType & {
-    onChange: any;
-    value: Currency;
     name: string;
   };

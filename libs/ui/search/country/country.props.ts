@@ -25,7 +25,5 @@ type mapDispatchToPropsType = ReturnType<typeof mapDispatchToProps>;
 
 export type CountryProps = mapStateToPropsType &
   mapDispatchToPropsType & {
-    onChange: any;
-    value: Country;
     name: string;
   };

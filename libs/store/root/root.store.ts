@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { createEpicMiddleware } from 'redux-observable';
 import logger from 'redux-logger';
+
 import { rootReducer } from './root.reducer';
 import { RootState } from './root-state.interface';
 import { rootEpic } from './root.epic';

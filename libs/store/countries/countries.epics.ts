@@ -11,10 +11,12 @@ import {
   countriesService,
   CountriesResponse,
 } from '@white-label-airline/services/countries';
+
 import { languageSelectors } from '../language/language.selectors';
 import { RootState } from '../root';
-import { countriesSlice } from './countries.slice';
 import { errorSlice } from '../error/error.slice';
+
+import { countriesSlice } from './countries.slice';
 
 const getCountriesEpic: Epic = (
   action$: ActionsObservable<Action>,

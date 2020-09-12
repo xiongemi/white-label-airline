@@ -6,8 +6,10 @@ import {
   currenciesService,
   CurrenciesResponse,
 } from '@white-label-airline/services/currencies';
-import { currenciesSlice } from './currencies.slice';
+
 import { errorSlice } from '../error/error.slice';
+
+import { currenciesSlice } from './currencies.slice';
 
 const getCurrenciesEpic: Epic = (action$: ActionsObservable<Action>) =>
   action$.pipe(

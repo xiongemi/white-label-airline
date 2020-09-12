@@ -6,15 +6,19 @@ import {
 import { Dispatch } from '@reduxjs/toolkit';
 import { Country } from '@white-label-airline/services/countries';
 import { Currency } from '@white-label-airline/services/currencies';
-import { Place } from '@white-label-airline/services/places';
+import { Place as PlaceInterface } from '@white-label-airline/services/places';
 
-export const mapStateToProps = (state: RootState) => {
+export const mapStateToProps = (
+  state: RootState
+): { places: PlaceInterface[] } => {
   return {
     places: placesSelectors.getPlaces(state),
   };
 };
 
-export const mapDispatchToProps = (dispatch: Dispatch) => {
+export const mapDispatchToProps = (
+  dispatch: Dispatch
+): { getPlaces: Function } => {
   return {
     getPlaces({
       country,
@@ -44,7 +48,5 @@ export type PlaceProps = mapStateToPropsType &
     label: string;
     country: Country;
     currency: Currency;
-    onChange: any;
-    value: Place;
     name: string;
   };

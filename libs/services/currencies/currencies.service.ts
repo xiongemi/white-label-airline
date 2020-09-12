@@ -1,4 +1,5 @@
 import { getApiHeaders } from '../api/api.service';
+
 import { CurrenciesResponse } from './currencies-response.interface';
 
 declare const process;

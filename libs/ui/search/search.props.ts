@@ -1,5 +1,5 @@
-import { RootState } from '@white-label-airline/store';
 import { Dispatch } from '@reduxjs/toolkit';
+import { RootState } from '@white-label-airline/store';
 
 export const mapStateToProps = (state: RootState) => {
   return {};
