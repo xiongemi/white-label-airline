@@ -1,11 +1,11 @@
-import { Country } from '@white-label-airline/services/countries';
-import { Currency } from '@white-label-airline/services/currencies';
-import { Place } from '@white-label-airline/services/places/place.interface';
+import { CountryInterface } from '@white-label-airline/services/countries';
+import { CurrencyInterface } from '@white-label-airline/services/currencies';
+import { PlaceInterface } from '@white-label-airline/services/places/place.interface';
 
 export interface RootState {
   language: string;
-  countries?: Country[];
-  currencies?: Currency[];
+  countries?: CountryInterface[];
+  currencies?: CurrencyInterface[];
   error?: unknown;
-  places?: Place[];
+  places?: PlaceInterface[];
 }

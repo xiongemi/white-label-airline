@@ -1,6 +1,6 @@
 import { getApiHeaders } from '../api/api.service';
 
-import { PlacesResponse } from './places-response.interface';
+import { PlacesResponseInterface } from './places-response.interface';
 
 declare const process;
 
@@ -9,11 +9,11 @@ function getPlaces(
   currency: string,
   locale: string,
   query: string
-): Promise<PlacesResponse> {
+): Promise<PlacesResponseInterface> {
   const url = new URL(
-    `${process.env.NX_API_PLACES_URL}/${country}/${currency}/${locale}`
+    `${process.env.NX_API_PLACES_URL}/${country}/${currency}/${locale}/`
   );
-  url.searchParams.set(query, query);
+  url.searchParams.set('query', query);
 
   return fetch(url.toString(), {
     headers: getApiHeaders(),

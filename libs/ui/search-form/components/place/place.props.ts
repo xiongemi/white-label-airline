@@ -4,9 +4,10 @@ import {
   placesSlice,
 } from '@white-label-airline/store';
 import { Dispatch } from '@reduxjs/toolkit';
-import { Country } from '@white-label-airline/services/countries';
-import { Currency } from '@white-label-airline/services/currencies';
-import { Place as PlaceInterface } from '@white-label-airline/services/places';
+import { CountryInterface } from '@white-label-airline/services/countries';
+import { CurrencyInterface } from '@white-label-airline/services/currencies';
+import { PlaceInterface } from '@white-label-airline/services/places';
+import { FormFieldProps } from '@white-label-airline/ui/types/form-field-props.interface';
 
 export const mapStateToProps = (
   state: RootState
@@ -25,8 +26,8 @@ export const mapDispatchToProps = (
       currency,
       query,
     }: {
-      country: Country;
-      currency: Currency;
+      country: CountryInterface;
+      currency: CurrencyInterface;
       query: string;
     }) {
       dispatch(
@@ -44,9 +45,8 @@ type mapStateToPropsType = ReturnType<typeof mapStateToProps>;
 type mapDispatchToPropsType = ReturnType<typeof mapDispatchToProps>;
 
 export type PlaceProps = mapStateToPropsType &
-  mapDispatchToPropsType & {
-    label: string;
-    country: Country;
-    currency: Currency;
-    name: string;
+  mapDispatchToPropsType &
+  FormFieldProps & {
+    country: CountryInterface;
+    currency: CurrencyInterface;
   };

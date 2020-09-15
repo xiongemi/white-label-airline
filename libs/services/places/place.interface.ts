@@ -1,4 +1,4 @@
-export interface Place {
+export interface PlaceInterface {
   PlaceId: string;
   PlaceName: string;
   CountryId: string;
@@ -7,6 +7,6 @@ export interface Place {
   CountryName: string;
 }
 
-export function getPlaceLabel(place: Place): string {
+export function getPlaceLabel(place: PlaceInterface): string {
   return `${place.PlaceName} (${place.PlaceId})`;
 }

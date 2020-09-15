@@ -1,4 +1,6 @@
-export const mockCurrency = {
+import { CurrencyInterface } from './currency.interface';
+
+export const mockCurrency: CurrencyInterface = {
   Code: 'ZAR',
   Symbol: 'R',
   ThousandsSeparator: ',',

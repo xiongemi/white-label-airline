@@ -1,5 +1,5 @@
-import { Country } from './country.interface';
+import { CountryInterface } from './country.interface';
 
 export interface CountriesResponse {
-  Countries: Country[];
+  Countries: CountryInterface[];
 }

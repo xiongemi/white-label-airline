@@ -4,6 +4,7 @@ import {
   currenciesSlice,
 } from '@white-label-airline/store';
 import { Dispatch } from '@reduxjs/toolkit';
+import { FormFieldProps } from '@white-label-airline/ui/types/form-field-props.interface';
 
 export const mapStateToProps = (state: RootState) => {
   return {
@@ -23,6 +24,5 @@ type mapStateToPropsType = ReturnType<typeof mapStateToProps>;
 type mapDispatchToPropsType = ReturnType<typeof mapDispatchToProps>;
 
 export type CurrencyProps = mapStateToPropsType &
-  mapDispatchToPropsType & {
-    name: string;
-  };
+  mapDispatchToPropsType &
+  FormFieldProps;

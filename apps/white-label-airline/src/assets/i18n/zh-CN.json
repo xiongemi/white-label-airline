@@ -1,6 +1,11 @@
 {
   "search": {
     "country": "国家",
-    "currency": "货币"
-  }
+    "currency": "货币",
+    "search": "搜索",
+    "oneWay": "单程",
+    "roundTrip": "往返",
+    "tripType": "Trip Type"
+  },
+  "loading": "加载中……"
 }

@@ -4,7 +4,7 @@ import { map, catchError, switchMap } from 'rxjs/operators';
 import { from, of } from 'rxjs';
 import {
   currenciesService,
-  CurrenciesResponse,
+  CurrenciesResponseInterface,
 } from '@white-label-airline/services/currencies';
 
 import { errorSlice } from '../error/error.slice';
@@ -16,7 +16,7 @@ const getCurrenciesEpic: Epic = (action$: ActionsObservable<Action>) =>
     ofType(currenciesSlice.actions.getCurrencies.type),
     switchMap(() => {
       return from(currenciesService.getCurrencies()).pipe(
-        map((response: CurrenciesResponse) =>
+        map((response: CurrenciesResponseInterface) =>
           currenciesSlice.actions.getCurrenciesSuccess(response.Currencies)
         ),
         catchError((error) => of(errorSlice.actions.handleError(error)))

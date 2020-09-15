@@ -16,14 +16,13 @@ import {
 import { from, of } from 'rxjs';
 import { placesService } from '@white-label-airline/services/places';
 import { equals } from 'ramda';
-import { PlacesResponse } from '@white-label-airline/services/places/places-response.interface';
+import { PlacesResponseInterface } from '@white-label-airline/services/places/places-response.interface';
 
 import { errorSlice } from '../error/error.slice';
 import { RootState } from '../root/root-state.interface';
 import { languageSelectors } from '../language/language.selectors';
 
 import { placesSlice, GetPlacesPayload } from './places.slice';
-
 
 const getPlacesEpic: Epic = (
   action$: ActionsObservable<PayloadAction<GetPlacesPayload>>,
@@ -43,7 +42,7 @@ const getPlacesEpic: Epic = (
           action.payload.query
         )
       ).pipe(
-        map((response: PlacesResponse) =>
+        map((response: PlacesResponseInterface) =>
           placesSlice.actions.getPlacesSuccess(response.Places)
         ),
         catchError((error) => of(errorSlice.actions.handleError(error)))

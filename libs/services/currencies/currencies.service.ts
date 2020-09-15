@@ -1,10 +1,10 @@
 import { getApiHeaders } from '../api/api.service';
 
-import { CurrenciesResponse } from './currencies-response.interface';
+import { CurrenciesResponseInterface } from './currencies-response.interface';
 
 declare const process;
 
-function getCurrencies(): Promise<CurrenciesResponse> {
+function getCurrencies(): Promise<CurrenciesResponseInterface> {
   return fetch(process.env.NX_API_CURRENCIES_URL, {
     headers: getApiHeaders(),
   }).then((response: Response) => {

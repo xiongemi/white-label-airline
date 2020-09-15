@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import TextField from '@material-ui/core/TextField';
-import Autocomplete, {
+import {
+  Autocomplete,
   AutocompleteRenderInputParams,
-} from '@material-ui/lab/Autocomplete';
-import { Currency as CurrencyInterface } from '@white-label-airline/services/currencies';
+} from 'formik-material-ui-lab';
+import { CurrencyInterface } from '@white-label-airline/services/currencies';
 import { connect } from 'react-redux';
 import { Field } from 'formik';
 
@@ -17,8 +17,6 @@ import {
 const Currency: React.FunctionComponent<CurrencyProps> = (
   props: CurrencyProps
 ) => {
-  const { t } = useTranslation();
-
   useEffect(() => {
     props.getCurrencies();
   }, []);
@@ -29,13 +27,13 @@ const Currency: React.FunctionComponent<CurrencyProps> = (
       component={Autocomplete}
       options={props.currencies}
       getOptionLabel={(option: CurrencyInterface) => option.Code}
-      name={props.name || 'currency'}
+      getOptionSelected={(
+        option: CurrencyInterface,
+        value: CurrencyInterface
+      ) => option.Code === value.Code}
+      name={props.name}
       renderInput={(params: AutocompleteRenderInputParams) => (
-        <TextField
-          {...params}
-          label={t('search.currency')}
-          variant="outlined"
-        />
+        <TextField {...params} label={props.label} />
       )}
     />
   );

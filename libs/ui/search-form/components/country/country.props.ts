@@ -4,9 +4,12 @@ import {
   countriesSlice,
 } from '@white-label-airline/store';
 import { Dispatch } from '@reduxjs/toolkit';
-import { Country } from '@white-label-airline/services/countries';
+import { CountryInterface } from '@white-label-airline/services/countries';
+import { FormFieldProps } from '@white-label-airline/ui/types/form-field-props.interface';
 
-export const mapStateToProps = (state: RootState) => {
+export const mapStateToProps = (
+  state: RootState
+): { countries: CountryInterface[] } => {
   return {
     countries: countriesSelectors.getCountries(state),
   };
@@ -24,6 +27,5 @@ type mapStateToPropsType = ReturnType<typeof mapStateToProps>;
 type mapDispatchToPropsType = ReturnType<typeof mapDispatchToProps>;
 
 export type CountryProps = mapStateToPropsType &
-  mapDispatchToPropsType & {
-    name: string;
-  };
+  mapDispatchToPropsType &
+  FormFieldProps;

@@ -1,5 +1,5 @@
-import { Place } from './place.interface';
+import { PlaceInterface } from './place.interface';
 
-export interface PlacesResponse {
-  Places: Place[];
+export interface PlacesResponseInterface {
+  Places: PlaceInterface[];
 }

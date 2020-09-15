@@ -1,6 +1,11 @@
 {
   "search": {
     "country": "Country",
-    "currency": "Currency"
-  }
+    "currency": "Currency",
+    "search": "Search",
+    "oneWay": "One Way",
+    "roundTrip": "Round Trip",
+    "tripType": "Trip Type"
+  },
+  "loading": "Loading..."
 }

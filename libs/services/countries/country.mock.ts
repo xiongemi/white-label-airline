@@ -1,6 +1,6 @@
-import { Country } from './country.interface';
+import { CountryInterface } from './country.interface';
 
-export const mockCountry: Country = {
+export const mockCountry: CountryInterface = {
   Code: 'AE',
   Name: 'United Arab Emirates',
 };

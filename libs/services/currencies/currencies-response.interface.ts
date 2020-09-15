@@ -1,5 +1,5 @@
-import { Currency } from './currency.interface';
+import { CurrencyInterface } from './currency.interface';
 
-export interface CurrenciesResponse {
-  Currencies: Currency[];
+export interface CurrenciesResponseInterface {
+  Currencies: CurrencyInterface[];
 }
