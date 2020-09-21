@@ -5,7 +5,14 @@
     "search": "Search",
     "oneWay": "One Way",
     "roundTrip": "Round Trip",
-    "tripType": "Trip Type"
+    "tripType": "Trip Type",
+    "departDate": "Depart Date",
+    "arrivalDate": "Arrival Date",
+    "from": "From",
+    "to": "To"
+  },
+  "messages": {
+    "required": "{{ field }} is required."
   },
   "loading": "Loading..."
 }

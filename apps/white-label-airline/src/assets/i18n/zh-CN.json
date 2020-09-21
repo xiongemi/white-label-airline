@@ -5,7 +5,14 @@
     "search": "搜索",
     "oneWay": "单程",
     "roundTrip": "往返",
-    "tripType": "Trip Type"
+    "tripType": "旅行种类",
+    "departDate": "出发日",
+    "arrivalDate": "回来日",
+    "from": "出发地",
+    "to": "到达地"
+  },
+  "messages": {
+    "required": "{{ field }} is required."
   },
   "loading": "加载中……"
 }

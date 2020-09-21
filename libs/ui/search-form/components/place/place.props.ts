@@ -8,6 +8,9 @@ import { CountryInterface } from '@white-label-airline/services/countries';
 import { CurrencyInterface } from '@white-label-airline/services/currencies';
 import { PlaceInterface } from '@white-label-airline/services/places';
 import { FormFieldProps } from '@white-label-airline/ui/types/form-field-props.interface';
+import { FormikProps } from 'formik';
+
+import { SearchFormInterface } from '../../types/search-form.interface';
 
 export const mapStateToProps = (
   state: RootState
@@ -46,7 +49,8 @@ type mapDispatchToPropsType = ReturnType<typeof mapDispatchToProps>;
 
 export type PlaceProps = mapStateToPropsType &
   mapDispatchToPropsType &
-  FormFieldProps & {
+  FormFieldProps &
+  Partial<FormikProps<SearchFormInterface>> & {
     country: CountryInterface;
     currency: CurrencyInterface;
   };

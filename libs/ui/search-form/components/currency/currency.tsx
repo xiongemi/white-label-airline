@@ -6,7 +6,8 @@ import {
 } from 'formik-material-ui-lab';
 import { CurrencyInterface } from '@white-label-airline/services/currencies';
 import { connect } from 'react-redux';
-import { Field } from 'formik';
+import { Field, getIn } from 'formik';
+import { useTranslation } from 'react-i18next';
 
 import {
   mapStateToProps,
@@ -14,26 +15,41 @@ import {
   CurrencyProps,
 } from './currency.props';
 
-const Currency: React.FunctionComponent<CurrencyProps> = (
-  props: CurrencyProps
-) => {
+const Currency: React.FunctionComponent<CurrencyProps> = ({
+  currencies,
+  errors,
+  touched,
+  name,
+  label,
+  getCurrencies,
+}: CurrencyProps) => {
+  const { t } = useTranslation();
+
   useEffect(() => {
-    props.getCurrencies();
+    getCurrencies();
   }, []);
+
+  const error = getIn(errors, name);
+  touched = getIn(touched, name);
 
   return (
     <Field
-      loading={!props.currencies || !props.currencies.length}
+      loading={!currencies || !currencies.length}
       component={Autocomplete}
-      options={props.currencies}
+      options={currencies}
       getOptionLabel={(option: CurrencyInterface) => option.Code}
       getOptionSelected={(
         option: CurrencyInterface,
         value: CurrencyInterface
       ) => option.Code === value.Code}
-      name={props.name}
+      name={name}
       renderInput={(params: AutocompleteRenderInputParams) => (
-        <TextField {...params} label={props.label} />
+        <TextField
+          {...params}
+          label={label}
+          error={touched && !!error}
+          helperText={t(error, { field: label })}
+        />
       )}
     />
   );

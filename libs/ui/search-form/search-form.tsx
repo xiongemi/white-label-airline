@@ -1,9 +1,9 @@
 import React from 'react';
-import { Form, Formik, Field } from 'formik';
+import { Form, Formik, Field, getIn, ErrorMessage } from 'formik';
 import { connect } from 'react-redux';
-import { Button, Box } from '@material-ui/core';
+import { Button, Grid } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
-import { DatePicker } from 'formik-material-ui-pickers';
+import { KeyboardDatePicker } from 'formik-material-ui-pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 
@@ -13,10 +13,11 @@ import {
   SearchProps,
 } from './search-form.props';
 import Currency from './components/currency/currency';
-import Country from './components/country/country';
 import Place from './components/place/place';
 import { initSearchForm } from './types/search-form-init.const';
 import TripType from './components/trip-type/trip-type';
+import { TripTypeEnum } from './types/trip-type.enum';
+import { getSearchFormSchema } from './types/search-form.schema';
 
 const SearchForm: React.FunctionComponent<SearchProps> = (
   props: SearchProps
@@ -27,43 +28,86 @@ const SearchForm: React.FunctionComponent<SearchProps> = (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Formik
         initialValues={props.initSearchForm || initSearchForm}
+        validationSchema={getSearchFormSchema}
         onSubmit={(event) => {
           console.log(event);
         }}
       >
-        {({ handleSubmit, values }) => (
-          <Form onSubmit={handleSubmit}>
-            <Box
-              display="flex"
-              flexDirection="row"
-              justifyContent="space-between"
-            >
-              <Box width="45%">
-                <Currency name="currency" label={t('search.currency')} />
-              </Box>
-              <Box width="45%">
-                <TripType
-                  name="tripType"
-                  label={t('search.tripType')}
-                ></TripType>
-              </Box>
-            </Box>
+        {({ handleSubmit, values, errors, touched }) => (
+          <>
+            <div>{JSON.stringify(errors)}</div>
+            <Form onSubmit={handleSubmit}>
+              <Grid container spacing={3}>
+                <Grid item xs={6} md={3}>
+                  <Currency
+                    name="currency"
+                    label={t('search.currency')}
+                    errors={errors}
+                    touched={touched}
+                  />
+                </Grid>
 
-            <Country name="from.country" label={t('search.country')} />
-            <Place
-              label={t('search.place')}
-              name="from.place"
-              country={values.from.country}
-              currency={values.currency}
-            />
-            <Field component={DatePicker} name="from.date" label="date" />
+                <Grid item xs={6} md={3}>
+                  <TripType
+                    name="tripType"
+                    label={t('search.tripType')}
+                  ></TripType>
+                </Grid>
+              </Grid>
 
-            <Country name="to.country" label={t('search.country')} />
+              <Grid container spacing={3}>
+                <Grid item xs={6} md={3}>
+                  <Place
+                    label={t('search.from')}
+                    name={'from.place'}
+                    country={props.country}
+                    currency={values.currency}
+                    errors={errors}
+                    touched={touched}
+                  />
+                </Grid>
 
-            <Button variant="contained" type="submit">
-              {t('search.search')}
-            </Button>
-          </Form>
+                <Grid item xs={6} md={3}>
+                  <Place
+                    label={t('search.to')}
+                    name="to.place"
+                    country={props.country}
+                    currency={values.currency}
+                    errors={errors}
+                    touched={touched}
+                  />
+                </Grid>
+                <Grid item xs={6} md={3}>
+                  <Field
+                    fullWidth={true}
+                    component={KeyboardDatePicker}
+                    name="from.date"
+                    label={t('search.departDate')}
+                    helperText={t(getIn(errors, 'to.date'), {
+                      field: t('search.arrivalDate'),
+                    })}
+                  />
+                </Grid>
+                {values.tripType === TripTypeEnum.RoundTrip && (
+                  <Grid item xs={6} md={3}>
+                    <Field
+                      fullWidth={true}
+                      component={KeyboardDatePicker}
+                      name="to.date"
+                      label={t('search.arrivalDate')}
+                      helperText={t(getIn(errors, 'to.date'), {
+                        field: t('search.arrivalDate'),
+                      })}
+                    />
+                  </Grid>
+                )}
+              </Grid>
+
+              <Button variant="contained" type="submit">
+                {t('search.search')}
+              </Button>
+            </Form>
+          </>
         )}
       </Formik>
     </MuiPickersUtilsProvider>
