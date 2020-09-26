@@ -1,5 +1,6 @@
 import SearchForm from './search-form';
-import { SearchFormInterface } from './types/search-form.interface';
+import { SearchFormInterface } from './models/search-form.interface';
+import { TripTypeEnum } from './models/trip-type.enum';
 
 export default SearchForm;
-export { SearchFormInterface };
+export { SearchFormInterface, TripTypeEnum };

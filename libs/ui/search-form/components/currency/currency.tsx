@@ -27,7 +27,7 @@ const Currency: React.FunctionComponent<CurrencyProps> = ({
 
   useEffect(() => {
     getCurrencies();
-  }, []);
+  }, [getCurrencies]);
 
   const error = getIn(errors, name);
   touched = getIn(touched, name);

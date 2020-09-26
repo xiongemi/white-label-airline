@@ -14,25 +14,28 @@ import {
   CountryProps,
 } from './country.props';
 
-const Country: React.FunctionComponent<CountryProps> = (
-  props: CountryProps
-) => {
+const Country: React.FunctionComponent<CountryProps> = ({
+  getCountries,
+  countries,
+  name,
+  label,
+}: CountryProps) => {
   useEffect(() => {
-    props.getCountries();
-  }, []);
+    getCountries();
+  }, [getCountries]);
 
   return (
     <Field
-      loading={!props.countries || !props.countries.length}
+      loading={!countries || !countries.length}
       component={Autocomplete}
-      options={props.countries}
+      options={countries}
       getOptionLabel={(option: CountryInterface) => option.Name}
       getOptionSelected={(option: CountryInterface, value: CountryInterface) =>
         option.Code === value.Code
       }
-      name={props.name}
+      name={name}
       renderInput={(params: AutocompleteRenderInputParams) => (
-        <TextField {...params} label={props.label} />
+        <TextField {...params} label={label} />
       )}
     />
   );

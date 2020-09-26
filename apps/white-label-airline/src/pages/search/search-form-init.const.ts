@@ -1,7 +1,10 @@
 import { SearchFormInterface } from '@white-label-airline/ui/search-form';
-import { TripTypeEnum } from '@white-label-airline/ui/search-form/types/trip-type.enum';
+import { TripTypeEnum } from '@white-label-airline/ui/search-form/models/trip-type.enum';
+
+import { country } from './country.const';
 
 export const initSearchForm: SearchFormInterface = {
+  country,
   tripType: TripTypeEnum.RoundTrip,
   currency: {
     Code: 'CAD',

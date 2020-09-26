@@ -1,4 +1,4 @@
-import { Action, PayloadAction } from '@reduxjs/toolkit';
+import { PayloadAction } from '@reduxjs/toolkit';
 import {
   ofType,
   ActionsObservable,

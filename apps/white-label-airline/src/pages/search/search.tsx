@@ -5,7 +5,7 @@ import { country } from './country.const';
 import { initSearchForm } from './search-form-init.const';
 
 const Search: React.FunctionComponent<{}> = () => {
-  return <SearchForm initSearchForm={initSearchForm} country={country} />;
+  return <SearchForm initSearchForm={initSearchForm} />;
 };
 
 export default Search;

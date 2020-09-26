@@ -4,10 +4,10 @@ import {
   currenciesSlice,
 } from '@white-label-airline/store';
 import { Dispatch } from '@reduxjs/toolkit';
-import { FormFieldProps } from '@white-label-airline/ui/types/form-field-props.interface';
 import { FormikProps } from 'formik';
 
-import { SearchFormInterface } from '../../types/search-form.interface';
+import { SearchFormInterface } from '../../models/search-form.interface';
+import { FormFieldProps } from '../../../models/form-field-props.interface';
 
 export const mapStateToProps = (state: RootState) => {
   return {

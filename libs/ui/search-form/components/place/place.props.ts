@@ -7,10 +7,10 @@ import { Dispatch } from '@reduxjs/toolkit';
 import { CountryInterface } from '@white-label-airline/services/countries';
 import { CurrencyInterface } from '@white-label-airline/services/currencies';
 import { PlaceInterface } from '@white-label-airline/services/places';
-import { FormFieldProps } from '@white-label-airline/ui/types/form-field-props.interface';
 import { FormikProps } from 'formik';
 
-import { SearchFormInterface } from '../../types/search-form.interface';
+import { SearchFormInterface } from '../../models/search-form.interface';
+import { FormFieldProps } from '../../../models/form-field-props.interface';
 
 export const mapStateToProps = (
   state: RootState
