@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { KeyboardDatePicker } from 'formik-material-ui-pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
-import { Feature } from '@paralleldrive/react-feature-toggles';
+import { FeatureToggle } from 'react-feature-toggles';
 
 import { IsScreenSizeSm } from '../hooks/screen-size.hook';
 import { FeatureToggleNames } from '../models/feature-toggle-names.enum';
@@ -44,19 +44,16 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
         {({ handleSubmit, values, errors, touched }) => (
           <Form onSubmit={handleSubmit}>
             <Grid container spacing={3}>
-              <Feature
-                name={FeatureToggleNames.ShowCountry}
-                activeComponent={() => (
-                  <Grid item xs={6} md={3}>
-                    <Country
-                      name="country"
-                      label={t('search.country')}
-                      errors={errors}
-                      touched={touched}
-                    />
-                  </Grid>
-                )}
-              />
+              <FeatureToggle featureName={FeatureToggleNames.ShowCountry}>
+                <Grid item xs={6} md={3}>
+                  <Country
+                    name="country"
+                    label={t('search.country')}
+                    errors={errors}
+                    touched={touched}
+                  />
+                </Grid>
+              </FeatureToggle>
 
               <Grid item xs={6} md={3}>
                 <Currency
