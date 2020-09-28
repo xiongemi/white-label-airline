@@ -8,12 +8,8 @@ export interface SearchFormInterface {
   country: CountryInterface;
   tripType: TripTypeEnum;
   currency: CurrencyInterface;
-  from: {
-    place: PlaceInterface;
-    date: Date;
-  };
-  to: {
-    place: PlaceInterface;
-    date: Date;
-  };
+  from: PlaceInterface;
+  departDate: Date;
+  to: PlaceInterface;
+  returnDate: Date;
 }

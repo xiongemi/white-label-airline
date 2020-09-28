@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Field } from 'formik';
+import { Field, getIn } from 'formik';
 import {
   Autocomplete,
   AutocompleteRenderInputParams,
 } from 'formik-material-ui-lab';
 import { CountryInterface } from '@white-label-airline/services/countries';
 import { TextField } from '@material-ui/core';
+import { useTranslation } from 'react-i18next';
 
 import {
   mapStateToProps,
@@ -19,10 +20,17 @@ const Country: React.FunctionComponent<CountryProps> = ({
   countries,
   name,
   label,
+  touched,
+  errors,
 }: CountryProps) => {
+  const { t } = useTranslation();
+
   useEffect(() => {
     getCountries();
   }, [getCountries]);
+
+  const error = getIn(errors, name);
+  touched = getIn(touched, name);
 
   return (
     <Field
@@ -35,7 +43,12 @@ const Country: React.FunctionComponent<CountryProps> = ({
       }
       name={name}
       renderInput={(params: AutocompleteRenderInputParams) => (
-        <TextField {...params} label={label} />
+        <TextField
+          {...params}
+          label={label}
+          error={touched && !!error}
+          helperText={t(error, { field: label })}
+        />
       )}
     />
   );

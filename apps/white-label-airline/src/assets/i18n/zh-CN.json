@@ -7,12 +7,13 @@
     "roundTrip": "往返",
     "tripType": "旅行种类",
     "departDate": "出发日",
-    "arrivalDate": "回来日",
+    "returnDate": "回来日",
     "from": "出发地",
     "to": "到达地"
   },
   "messages": {
-    "required": "{{ field }} is required."
+    "required": "{{ field }} is required.",
+    "minDate": "{{ returnDate }} should be before {{ departDate }}."
   },
   "loading": "加载中……"
 }

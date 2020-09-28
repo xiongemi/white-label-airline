@@ -16,12 +16,8 @@ export const initSearchForm: SearchFormInterface = {
     SymbolOnLeft: true,
     ThousandsSeparator: ',',
   },
-  from: {
-    date: new Date(),
-    place: null,
-  },
-  to: {
-    date: null,
-    place: null,
-  },
+  from: null,
+  departDate: new Date(),
+  to: null,
+  returnDate: null,
 };

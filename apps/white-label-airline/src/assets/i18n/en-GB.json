@@ -7,12 +7,13 @@
     "roundTrip": "Round Trip",
     "tripType": "Trip Type",
     "departDate": "Depart Date",
-    "arrivalDate": "Arrival Date",
+    "returnDate": "Return Date",
     "from": "From",
     "to": "To"
   },
   "messages": {
-    "required": "{{ field }} is required."
+    "required": "{{ field }} is required.",
+    "minDate": "{{ returnDate }} should be before {{ departDate }}."
   },
   "loading": "Loading..."
 }

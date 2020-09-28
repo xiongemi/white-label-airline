@@ -16,12 +16,13 @@ import {
   mapDispatchToProps,
   SearchProps,
 } from './search-form.props';
+import Country from './components/country/country';
 import Currency from './components/currency/currency';
 import Place from './components/place/place';
 import { defaultSearchForm } from './models/search-form-default.const';
 import TripType from './components/trip-type/trip-type';
 import { TripTypeEnum } from './models/trip-type.enum';
-import { getSearchFormSchema } from './models/search-form.schema';
+import { searchFormSchema } from './models/search-form.schema';
 
 const SearchForm: React.FunctionComponent<SearchProps> = ({
   initSearchForm,
@@ -35,7 +36,7 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Formik
         initialValues={initSearchForm || defaultSearchForm}
-        validationSchema={getSearchFormSchema}
+        validationSchema={searchFormSchema}
         onSubmit={(event) => {
           console.log(event);
         }}
@@ -47,7 +48,7 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
                 name={FeatureToggleNames.ShowCountry}
                 activeComponent={() => (
                   <Grid item xs={6} md={3}>
-                    <Currency
+                    <Country
                       name="country"
                       label={t('search.country')}
                       errors={errors}
@@ -78,7 +79,7 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
               <Grid item xs={6} md={3}>
                 <Place
                   label={t('search.from')}
-                  name={'from.place'}
+                  name="from"
                   country={values.country}
                   currency={values.currency}
                   errors={errors}
@@ -89,7 +90,7 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
               <Grid item xs={6} md={3}>
                 <Place
                   label={t('search.to')}
-                  name="to.place"
+                  name="to"
                   country={values.country}
                   currency={values.currency}
                   errors={errors}
@@ -100,10 +101,11 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
                 <Field
                   fullWidth={true}
                   component={KeyboardDatePicker}
-                  name="from.date"
+                  name="departDate"
                   label={t('search.departDate')}
-                  helperText={t(getIn(errors, 'to.date'), {
-                    field: t('search.arrivalDate'),
+                  minDate={Date.now()}
+                  helperText={t(getIn(errors, 'departDate'), {
+                    field: t('search.departDate'),
                   })}
                 />
               </Grid>
@@ -112,11 +114,15 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
                   <Field
                     fullWidth={true}
                     component={KeyboardDatePicker}
-                    name="to.date"
-                    label={t('search.arrivalDate')}
-                    min={values.from.date}
-                    helperText={t(getIn(errors, 'to.date'), {
-                      field: t('search.arrivalDate'),
+                    name="returnDate"
+                    label={t('search.returnDate')}
+                    minDate={values.departDate}
+                    minDateMessage={t('messages.minDate', {
+                      departDate: t('search.departDate'),
+                      returnDate: t('search.returnDate'),
+                    })}
+                    helperText={t(getIn(errors, 'returnDate'), {
+                      field: t('search.returnDate'),
                     })}
                   />
                 </Grid>
