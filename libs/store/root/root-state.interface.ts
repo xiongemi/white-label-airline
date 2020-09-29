@@ -7,5 +7,5 @@ export interface RootState {
   countries?: CountryInterface[];
   currencies?: CurrencyInterface[];
   error?: unknown;
-  places?: PlaceInterface[];
+  places?: { query: string; results: PlaceInterface[] };
 }

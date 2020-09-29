@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface GetPlacesPayload {
   country: string;
@@ -6,20 +6,28 @@ export interface GetPlacesPayload {
   query: string;
 }
 
+const initialState = {
+  query: null,
+  results: [],
+};
+
 export const placesSlice = createSlice({
   name: 'places',
-  initialState: [],
+  initialState,
   reducers: {
     getPlaces: {
-      reducer() {
-        return [];
+      reducer(_, action: PayloadAction<GetPlacesPayload>) {
+        return {
+          query: action.payload.query,
+          results: [],
+        };
       },
       prepare({ country, currency, query }: GetPlacesPayload) {
         return { payload: { country, currency, query } };
       },
     },
-    getPlacesSuccess(_, action) {
-      return action.payload;
+    getPlacesSuccess(state, action) {
+      return { ...state, results: action.payload };
     },
   },
 });

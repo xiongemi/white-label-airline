@@ -6,15 +6,12 @@ import {
 import { Dispatch } from '@reduxjs/toolkit';
 import { CountryInterface } from '@white-label-airline/services/countries';
 import { CurrencyInterface } from '@white-label-airline/services/currencies';
-import { PlaceInterface } from '@white-label-airline/services/places';
 import { FormikProps } from 'formik';
 
 import { SearchFormInterface } from '../../models/search-form.interface';
 import { FormFieldProps } from '../../../models/form-field-props.interface';
 
-export const mapStateToProps = (
-  state: RootState
-): { places: PlaceInterface[] } => {
+export const mapStateToProps = (state: RootState) => {
   return {
     places: placesSelectors.getPlaces(state),
   };

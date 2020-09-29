@@ -34,12 +34,13 @@ const getPlacesEpic: Epic = (
     distinctUntilChanged(equals),
     withLatestFrom(states$.pipe(map(languageSelectors.getLanguage))),
     switchMap(([action, language]) => {
+      const { payload } = action as PayloadAction<GetPlacesPayload>;
       return from(
         placesService.getPlaces(
-          action.payload.country,
-          action.payload.currency,
+          payload.country,
+          payload.currency,
           language,
-          action.payload.query
+          payload.query
         )
       ).pipe(
         map((response: PlacesResponseInterface) =>

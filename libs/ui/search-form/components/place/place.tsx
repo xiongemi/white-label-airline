@@ -1,4 +1,4 @@
-import React, { SyntheticEvent } from 'react';
+import React, { SyntheticEvent, useState, useEffect } from 'react';
 import TextField from '@material-ui/core/TextField';
 import {
   Autocomplete,
@@ -22,33 +22,45 @@ const Place: React.FunctionComponent<PlaceProps> = ({
   errors,
 }: PlaceProps) => {
   const { t } = useTranslation();
+  const [query, setQuery] = useState(null);
+  const [filteredPlaces, setFilteredPlaces] = useState([]);
 
   const handleChange = (event: SyntheticEvent) => {
     const element = event.currentTarget as HTMLInputElement;
-    const query = element.value;
-    if (query.length >= 3) {
-      getPlaces({
-        country: country,
-        currency: currency,
-        query,
-      });
+    const userInput = element.value;
+    if (userInput.length >= 3 && query !== userInput) {
+      setQuery(userInput);
     }
   };
+
+  useEffect(() => {
+    getPlaces({
+      country: country,
+      currency: currency,
+      query,
+    });
+  }, [country, currency, getPlaces, query]);
+
+  useEffect(() => {
+    if (places.query === query) {
+      setFilteredPlaces(places.results);
+    }
+  }, [query, places]);
 
   const error = getIn(errors, name);
   touched = getIn(touched, name);
 
   return (
     <Field
-      loading={!places || !places.length}
+      loading={!filteredPlaces || !filteredPlaces.length}
       component={Autocomplete}
       disabled={!currency || !country}
-      options={places}
+      options={filteredPlaces}
       getOptionLabel={(option: PlaceInterface) =>
         `${option.PlaceName} (${option.PlaceId})`
       }
       getOptionSelected={(option: PlaceInterface, value: PlaceInterface) =>
-        option.PlaceId === value.PlaceId
+        option?.PlaceId === value?.PlaceId
       }
       name={name}
       renderInput={(params: AutocompleteRenderInputParams) => (
