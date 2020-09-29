@@ -1,3 +1,3 @@
 export * from './currencies.service';
-export * from './currencies-response.interface';
-export * from './currency.interface';
+export * from './models/currencies-response.interface';
+export * from './models/currency.interface';

@@ -1,3 +1,3 @@
 export * from './countries.service';
-export * from './countries-response.interface';
-export * from './country.interface';
+export * from './models/countries-response.interface';
+export * from './models/country.interface';

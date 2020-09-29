@@ -23,10 +23,12 @@ import { defaultSearchForm } from './models/search-form-default.const';
 import TripType from './components/trip-type/trip-type';
 import { TripTypeEnum } from './models/trip-type.enum';
 import { searchFormSchema } from './models/search-form.schema';
+import { SearchFormInterface } from './models/search-form.interface';
 
 const SearchForm: React.FunctionComponent<SearchProps> = ({
   initSearchForm,
   bottonProps,
+  getQuotes,
 }: SearchProps) => {
   const { t } = useTranslation();
 
@@ -37,8 +39,9 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
       <Formik
         initialValues={initSearchForm || defaultSearchForm}
         validationSchema={searchFormSchema}
-        onSubmit={(event) => {
-          console.log(event);
+        onSubmit={(event: SearchFormInterface, { setSubmitting }) => {
+          getQuotes(event);
+          setSubmitting(true);
         }}
       >
         {({ handleSubmit, values, errors, touched }) => (
@@ -55,14 +58,16 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
                 </Grid>
               </FeatureToggle>
 
-              <Grid item xs={6} md={3}>
-                <Currency
-                  name="currency"
-                  label={t('search.currency')}
-                  errors={errors}
-                  touched={touched}
-                />
-              </Grid>
+              <FeatureToggle featureName={FeatureToggleNames.ShowCurrency}>
+                <Grid item xs={6} md={3}>
+                  <Currency
+                    name="currency"
+                    label={t('search.currency')}
+                    errors={errors}
+                    touched={touched}
+                  />
+                </Grid>
+              </FeatureToggle>
 
               <Grid item xs={6} md={3}>
                 <TripType
@@ -126,12 +131,13 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
               )}
             </Grid>
 
-            <Box mt={3}>
+            <Box mt={3} display="flex" justifyContent="center">
               <Button
                 variant="contained"
                 type="submit"
                 fullWidth={isScreenSizeSm}
                 color="primary"
+                size="large"
                 {...bottonProps}
               >
                 {t('search.search')}

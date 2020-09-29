@@ -1,6 +1,6 @@
 import { getApiHeaders } from '../api/api.service';
 
-import { CurrenciesResponseInterface } from './currencies-response.interface';
+import { CurrenciesResponseInterface } from './models/currencies-response.interface';
 
 declare const process;
 

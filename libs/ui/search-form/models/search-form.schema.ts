@@ -26,8 +26,11 @@ export const searchFormSchema = yup.object().shape({
     .typeError('messages.required'),
   departDate: yup.date().required('messages.required'),
   to: yup.object().nullable().required('messages.required'),
-  returnDate: yup.date().when('tripType', {
-    is: TripTypeEnum.RoundTrip,
-    then: yup.date().nullable().required('messages.required'),
-  }),
+  returnDate: yup
+    .date()
+    .nullable()
+    .when('tripType', {
+      is: TripTypeEnum.RoundTrip,
+      then: yup.date().required('messages.required'),
+    }),
 });

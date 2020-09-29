@@ -34,11 +34,13 @@ const Place: React.FunctionComponent<PlaceProps> = ({
   };
 
   useEffect(() => {
-    getPlaces({
-      country: country,
-      currency: currency,
-      query,
-    });
+    if (country && currency && query && getPlaces) {
+      getPlaces({
+        country: country,
+        currency: currency,
+        query,
+      });
+    }
   }, [country, currency, getPlaces, query]);
 
   useEffect(() => {

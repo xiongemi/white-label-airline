@@ -1,6 +1,7 @@
 import { CountryInterface } from '@white-label-airline/services/countries';
 import { CurrencyInterface } from '@white-label-airline/services/currencies';
-import { PlaceInterface } from '@white-label-airline/services/places/place.interface';
+import { PlaceInterface } from '@white-label-airline/services/places';
+import { QuotesResponseInterface } from '@white-label-airline/services/quotes';
 
 export interface RootState {
   language: string;
@@ -8,4 +9,5 @@ export interface RootState {
   currencies?: CurrencyInterface[];
   error?: unknown;
   places?: { query: string; results: PlaceInterface[] };
+  quotes: QuotesResponseInterface;
 }

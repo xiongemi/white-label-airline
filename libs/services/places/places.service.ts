@@ -1,6 +1,6 @@
 import { getApiHeaders } from '../api/api.service';
 
-import { PlacesResponseInterface } from './places-response.interface';
+import { PlacesResponseInterface } from './models/places-response.interface';
 
 declare const process;
 
