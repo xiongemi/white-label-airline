@@ -31,13 +31,16 @@ const Place: React.FunctionComponent<PlaceProps> = ({
     const userInput = element.value;
     if (userInput.length >= 3 && query !== userInput) {
       setQuery(userInput);
-      getPlaces({
-        country: country,
-        currency: currency,
-        query,
-      });
     }
   };
+
+  useEffect(() => {
+    getPlaces({
+      country: country,
+      currency: currency,
+      query,
+    });
+  }, [country, currency, query, getPlaces]);
 
   useEffect(() => {
     if (places.query === query) {

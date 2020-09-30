@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import { Form, Formik, Field, getIn, useFormikContext } from 'formik';
+import React, { useEffect } from 'react';
+import { Form, Field, getIn, withFormik, FormikProps } from 'formik';
 import { connect } from 'react-redux';
 import { Button, Grid, Box } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
@@ -27,118 +27,122 @@ import { searchFormSchema } from './models/search-form.schema';
 import { SearchFormInterface } from './models/search-form.interface';
 
 const SearchForm: React.FunctionComponent<SearchProps> = ({
-  initSearchForm,
   bottonProps,
-  getQuotes,
   quotesFetchStatus,
-}: SearchProps) => {
+  values,
+  errors,
+  setSubmitting,
+  submitSearch,
+}: SearchProps & FormikProps<SearchFormInterface>) => {
   const { t } = useTranslation();
+
+  useEffect(() => {
+    if (quotesFetchStatus === FetchStatus.Success) {
+      submitSearch();
+    } else if (quotesFetchStatus === FetchStatus.Error) {
+      setSubmitting(false);
+    }
+  }, [quotesFetchStatus, setSubmitting, submitSearch]);
 
   const isScreenSizeSm = IsScreenSizeSm();
 
-  const formikRef = useRef();
-
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <Formik
-        ref={formikRef}
-        initialValues={initSearchForm || defaultSearchForm}
-        validationSchema={searchFormSchema}
-        onSubmit={(event: SearchFormInterface, { setSubmitting }) => {
-          getQuotes(event);
-          setSubmitting(true);
-        }}
-      >
-        {({ values, errors }) => (
-          <Form>
-            <Grid container spacing={3}>
-              <FeatureToggle featureName={FeatureToggleNames.ShowCountry}>
-                <Grid item xs={6} md={3}>
-                  <Country name="country" label={t('search.country')} />
-                </Grid>
-              </FeatureToggle>
-
-              <FeatureToggle featureName={FeatureToggleNames.ShowCurrency}>
-                <Grid item xs={6} md={3}>
-                  <Currency name="currency" label={t('search.currency')} />
-                </Grid>
-              </FeatureToggle>
-
-              <Grid item xs={6} md={3}>
-                <TripType
-                  name="tripType"
-                  label={t('search.tripType')}
-                ></TripType>
-              </Grid>
+      <Form>
+        <Grid container spacing={3}>
+          <FeatureToggle featureName={FeatureToggleNames.ShowCountry}>
+            <Grid item xs={6} md={3}>
+              <Country name="country" label={t('search.country')} />
             </Grid>
+          </FeatureToggle>
 
-            <Grid container spacing={3}>
-              <Grid item xs={6} md={3}>
-                <Place
-                  label={t('search.from')}
-                  name="from"
-                  country={values.country}
-                  currency={values.currency}
-                />
-              </Grid>
-
-              <Grid item xs={6} md={3}>
-                <Place
-                  label={t('search.to')}
-                  name="to"
-                  country={values.country}
-                  currency={values.currency}
-                />
-              </Grid>
-              <Grid item xs={6} md={3}>
-                <Field
-                  fullWidth={true}
-                  component={KeyboardDatePicker}
-                  name="departDate"
-                  label={t('search.departDate')}
-                  minDate={Date.now()}
-                  helperText={t(getIn(errors, 'departDate'), {
-                    field: t('search.departDate'),
-                  })}
-                />
-              </Grid>
-              {values.tripType === TripTypeEnum.RoundTrip && (
-                <Grid item xs={6} md={3}>
-                  <Field
-                    fullWidth={true}
-                    component={KeyboardDatePicker}
-                    name="returnDate"
-                    label={t('search.returnDate')}
-                    minDate={values.departDate}
-                    minDateMessage={t('messages.minDate', {
-                      departDate: t('search.departDate'),
-                      returnDate: t('search.returnDate'),
-                    })}
-                    helperText={t(getIn(errors, 'returnDate'), {
-                      field: t('search.returnDate'),
-                    })}
-                  />
-                </Grid>
-              )}
+          <FeatureToggle featureName={FeatureToggleNames.ShowCurrency}>
+            <Grid item xs={6} md={3}>
+              <Currency name="currency" label={t('search.currency')} />
             </Grid>
+          </FeatureToggle>
 
-            <Box mt={3} display="flex" justifyContent="center">
-              <Button
-                variant="contained"
-                type="submit"
-                fullWidth={isScreenSizeSm}
-                color="primary"
-                size="large"
-                {...bottonProps}
-              >
-                {t('search.search')}
-              </Button>
-            </Box>
-          </Form>
-        )}
-      </Formik>
+          <Grid item xs={6} md={3}>
+            <TripType name="tripType" label={t('search.tripType')}></TripType>
+          </Grid>
+        </Grid>
+
+        <Grid container spacing={3}>
+          <Grid item xs={6} md={3}>
+            <Place
+              label={t('search.from')}
+              name="from"
+              country={values.country}
+              currency={values.currency}
+            />
+          </Grid>
+
+          <Grid item xs={6} md={3}>
+            <Place
+              label={t('search.to')}
+              name="to"
+              country={values.country}
+              currency={values.currency}
+            />
+          </Grid>
+          <Grid item xs={6} md={3}>
+            <Field
+              fullWidth={true}
+              component={KeyboardDatePicker}
+              name="departDate"
+              label={t('search.departDate')}
+              minDate={Date.now()}
+              helperText={t(getIn(errors, 'departDate'), {
+                field: t('search.departDate'),
+              })}
+            />
+          </Grid>
+          {values.tripType === TripTypeEnum.RoundTrip && (
+            <Grid item xs={6} md={3}>
+              <Field
+                fullWidth={true}
+                component={KeyboardDatePicker}
+                name="returnDate"
+                label={t('search.returnDate')}
+                minDate={values.departDate}
+                minDateMessage={t('messages.minDate', {
+                  departDate: t('search.departDate'),
+                  returnDate: t('search.returnDate'),
+                })}
+                helperText={t(getIn(errors, 'returnDate'), {
+                  field: t('search.returnDate'),
+                })}
+              />
+            </Grid>
+          )}
+        </Grid>
+
+        <Box mt={3} display="flex" justifyContent="center">
+          <Button
+            variant="contained"
+            type="submit"
+            fullWidth={isScreenSizeSm}
+            color="primary"
+            size="large"
+            {...bottonProps}
+          >
+            {t('search.search')}
+          </Button>
+        </Box>
+      </Form>
     </MuiPickersUtilsProvider>
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchForm);
+const SearchFormik = withFormik({
+  mapPropsToValues: (props: SearchProps): SearchFormInterface => {
+    return props.initSearchForm || defaultSearchForm;
+  },
+  validationSchema: searchFormSchema,
+  handleSubmit: (event: SearchFormInterface, { props, setSubmitting }) => {
+    props.getQuotes(event);
+    setSubmitting(true);
+  },
+})(SearchForm);
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchFormik);
