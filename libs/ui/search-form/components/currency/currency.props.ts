@@ -4,9 +4,7 @@ import {
   currenciesSlice,
 } from '@white-label-airline/store';
 import { Dispatch } from '@reduxjs/toolkit';
-import { FormikProps } from 'formik';
 
-import { SearchFormInterface } from '../../models/search-form.interface';
 import { FormFieldProps } from '../../../models/form-field-props.interface';
 
 export const mapStateToProps = (state: RootState) => {
@@ -28,5 +26,4 @@ type mapDispatchToPropsType = ReturnType<typeof mapDispatchToProps>;
 
 export type CurrencyProps = mapStateToPropsType &
   mapDispatchToPropsType &
-  FormFieldProps &
-  Partial<FormikProps<SearchFormInterface>>;
+  FormFieldProps;

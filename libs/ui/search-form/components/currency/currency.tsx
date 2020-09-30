@@ -6,8 +6,10 @@ import {
 } from 'formik-material-ui-lab';
 import { CurrencyInterface } from '@white-label-airline/services/currencies';
 import { connect } from 'react-redux';
-import { Field, getIn } from 'formik';
+import { Field } from 'formik';
 import { useTranslation } from 'react-i18next';
+
+import { useFieldErrorTouched } from '../../../hooks/field-errors-touched.hooks';
 
 import {
   mapStateToProps,
@@ -17,20 +19,16 @@ import {
 
 const Currency: React.FunctionComponent<CurrencyProps> = ({
   currencies,
-  errors,
-  touched,
   name,
   label,
   getCurrencies,
 }: CurrencyProps) => {
   const { t } = useTranslation();
+  const { fieldError, fieldTouched } = useFieldErrorTouched(name);
 
   useEffect(() => {
     getCurrencies();
   }, [getCurrencies]);
-
-  const error = getIn(errors, name);
-  touched = getIn(touched, name);
 
   return (
     <Field
@@ -47,8 +45,8 @@ const Currency: React.FunctionComponent<CurrencyProps> = ({
         <TextField
           {...params}
           label={label}
-          error={touched && !!error}
-          helperText={t(error, { field: label })}
+          error={fieldTouched && !!fieldError}
+          helperText={t(fieldError, { field: label })}
         />
       )}
     />

@@ -6,9 +6,7 @@ import {
 import { Dispatch } from '@reduxjs/toolkit';
 import { CountryInterface } from '@white-label-airline/services/countries';
 import { CurrencyInterface } from '@white-label-airline/services/currencies';
-import { FormikProps } from 'formik';
 
-import { SearchFormInterface } from '../../models/search-form.interface';
 import { FormFieldProps } from '../../../models/form-field-props.interface';
 
 export const mapStateToProps = (state: RootState) => {
@@ -46,8 +44,7 @@ type mapDispatchToPropsType = ReturnType<typeof mapDispatchToProps>;
 
 export type PlaceProps = mapStateToPropsType &
   mapDispatchToPropsType &
-  FormFieldProps &
-  Partial<FormikProps<SearchFormInterface>> & {
+  FormFieldProps & {
     country: CountryInterface;
     currency: CurrencyInterface;
   };

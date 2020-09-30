@@ -4,15 +4,14 @@ import { CurrenciesResponseInterface } from './models/currencies-response.interf
 
 declare const process;
 
-function getCurrencies(): Promise<CurrenciesResponseInterface> {
-  return fetch(process.env.NX_API_CURRENCIES_URL, {
+async function getCurrencies(): Promise<CurrenciesResponseInterface> {
+  const response = await fetch(process.env.NX_API_CURRENCIES_URL, {
     headers: getApiHeaders(),
-  }).then((response: Response) => {
-    if (response.ok) {
-      return response.json();
-    }
-    throw response;
   });
+  if (response.ok) {
+    return response.json();
+  }
+  throw response;
 }
 
 export const currenciesService = { getCurrencies };

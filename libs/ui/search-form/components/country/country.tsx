@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Field, getIn } from 'formik';
+import { Field } from 'formik';
 import {
   Autocomplete,
   AutocompleteRenderInputParams,
@@ -8,6 +8,8 @@ import {
 import { CountryInterface } from '@white-label-airline/services/countries';
 import { TextField } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
+
+import { useFieldErrorTouched } from '../../../hooks/field-errors-touched.hooks';
 
 import {
   mapStateToProps,
@@ -20,17 +22,13 @@ const Country: React.FunctionComponent<CountryProps> = ({
   countries,
   name,
   label,
-  touched,
-  errors,
 }: CountryProps) => {
   const { t } = useTranslation();
+  const { fieldError, fieldTouched } = useFieldErrorTouched(name);
 
   useEffect(() => {
     getCountries();
   }, [getCountries]);
-
-  const error = getIn(errors, name);
-  touched = getIn(touched, name);
 
   return (
     <Field
@@ -46,8 +44,8 @@ const Country: React.FunctionComponent<CountryProps> = ({
         <TextField
           {...params}
           label={label}
-          error={touched && !!error}
-          helperText={t(error, { field: label })}
+          error={fieldTouched && !!fieldError}
+          helperText={t(fieldError, { field: label })}
         />
       )}
     />

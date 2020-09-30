@@ -4,7 +4,7 @@ import { PlacesResponseInterface } from './models/places-response.interface';
 
 declare const process;
 
-function getPlaces(
+async function getPlaces(
   country: string,
   currency: string,
   locale: string,
@@ -15,14 +15,13 @@ function getPlaces(
   );
   url.searchParams.set('query', query);
 
-  return fetch(url.toString(), {
+  const response = await fetch(url.toString(), {
     headers: getApiHeaders(),
-  }).then((response: Response) => {
-    if (response.ok) {
-      return response.json();
-    }
-    throw response;
   });
+  if (response.ok) {
+    return response.json();
+  }
+  throw response;
 }
 
 export const placesService = { getPlaces };

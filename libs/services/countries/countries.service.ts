@@ -4,15 +4,17 @@ import { CountriesResponse } from './models/countries-response.interface';
 
 declare const process;
 
-function getCountries(locale: string): Promise<CountriesResponse> {
-  return fetch(process.env.NX_API_COUNTRIES_URL + '/' + locale, {
-    headers: getApiHeaders(),
-  }).then((response: Response) => {
-    if (response.ok) {
-      return response.json();
+async function getCountries(locale: string): Promise<CountriesResponse> {
+  const response = await fetch(
+    process.env.NX_API_COUNTRIES_URL + '/' + locale,
+    {
+      headers: getApiHeaders(),
     }
-    throw response;
-  });
+  );
+  if (response.ok) {
+    return response.json();
+  }
+  throw response;
 }
 
 export const countriesService = { getCountries };

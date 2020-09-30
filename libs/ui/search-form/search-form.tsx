@@ -1,5 +1,5 @@
-import React from 'react';
-import { Form, Formik, Field, getIn } from 'formik';
+import React, { useEffect, useRef } from 'react';
+import { Form, Formik, Field, getIn, useFormikContext } from 'formik';
 import { connect } from 'react-redux';
 import { Button, Grid, Box } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
@@ -7,6 +7,7 @@ import { KeyboardDatePicker } from 'formik-material-ui-pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { FeatureToggle } from 'react-feature-toggles';
+import { FetchStatus } from '@white-label-airline/store';
 
 import { IsScreenSizeSm } from '../hooks/screen-size.hook';
 import { FeatureToggleNames } from '../models/feature-toggle-names.enum';
@@ -29,14 +30,18 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
   initSearchForm,
   bottonProps,
   getQuotes,
+  quotesFetchStatus,
 }: SearchProps) => {
   const { t } = useTranslation();
 
   const isScreenSizeSm = IsScreenSizeSm();
 
+  const formikRef = useRef();
+
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Formik
+        ref={formikRef}
         initialValues={initSearchForm || defaultSearchForm}
         validationSchema={searchFormSchema}
         onSubmit={(event: SearchFormInterface, { setSubmitting }) => {
@@ -44,28 +49,18 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
           setSubmitting(true);
         }}
       >
-        {({ handleSubmit, values, errors, touched }) => (
-          <Form onSubmit={handleSubmit}>
+        {({ values, errors }) => (
+          <Form>
             <Grid container spacing={3}>
               <FeatureToggle featureName={FeatureToggleNames.ShowCountry}>
                 <Grid item xs={6} md={3}>
-                  <Country
-                    name="country"
-                    label={t('search.country')}
-                    errors={errors}
-                    touched={touched}
-                  />
+                  <Country name="country" label={t('search.country')} />
                 </Grid>
               </FeatureToggle>
 
               <FeatureToggle featureName={FeatureToggleNames.ShowCurrency}>
                 <Grid item xs={6} md={3}>
-                  <Currency
-                    name="currency"
-                    label={t('search.currency')}
-                    errors={errors}
-                    touched={touched}
-                  />
+                  <Currency name="currency" label={t('search.currency')} />
                 </Grid>
               </FeatureToggle>
 
@@ -84,8 +79,6 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
                   name="from"
                   country={values.country}
                   currency={values.currency}
-                  errors={errors}
-                  touched={touched}
                 />
               </Grid>
 
@@ -95,8 +88,6 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
                   name="to"
                   country={values.country}
                   currency={values.currency}
-                  errors={errors}
-                  touched={touched}
                 />
               </Grid>
               <Grid item xs={6} md={3}>
