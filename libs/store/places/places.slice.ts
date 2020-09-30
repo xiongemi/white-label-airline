@@ -1,19 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { initialPlacesState } from './places-state-initial.const';
+
 export interface GetPlacesPayload {
   country: string;
   currency: string;
   query: string;
 }
 
-const initialState = {
-  query: null,
-  results: [],
-};
-
 export const placesSlice = createSlice({
   name: 'places',
-  initialState,
+  initialState: initialPlacesState,
   reducers: {
     getPlaces: {
       reducer(_, action: PayloadAction<GetPlacesPayload>) {

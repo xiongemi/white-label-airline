@@ -1,11 +1,15 @@
 import { Dispatch } from '@reduxjs/toolkit';
-import { RootState, quotesSlice } from '@white-label-airline/store';
+import {
+  RootState,
+  quotesSlice,
+  quotesSelectors,
+} from '@white-label-airline/store';
 import { ButtonProps } from '@material-ui/core';
 
 import { SearchFormInterface } from './models/search-form.interface';
 
 export const mapStateToProps = (state: RootState) => {
-  return {};
+  return { quotesFetchStatus: quotesSelectors.getQuotesFetchStatus(state) };
 };
 
 export const mapDispatchToProps = (dispatch: Dispatch) => {
@@ -32,4 +36,5 @@ export type SearchProps = mapStateToPropsType &
   mapDispatchToPropsType & {
     initSearchForm?: SearchFormInterface;
     bottonProps?: Partial<ButtonProps>;
+    submitSearch?: Function;
   };

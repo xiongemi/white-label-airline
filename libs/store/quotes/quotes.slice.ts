@@ -1,4 +1,9 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { QuotesResponseInterface } from '@white-label-airline/services/quotes';
+
+import { FetchStatus } from '../models/fetch-status.enum';
+
+import { initialQuotesState } from './quotes-state-initial.const';
 
 export interface GetQuotesPayload {
   country: string;
@@ -11,11 +16,11 @@ export interface GetQuotesPayload {
 
 export const quotesSlice = createSlice({
   name: 'quotes',
-  initialState: null,
+  initialState: initialQuotesState,
   reducers: {
     getQuotes: {
       reducer() {
-        return { state: null };
+        return { response: null, fetchStatus: FetchStatus.Loading };
       },
       prepare({
         country,
@@ -30,8 +35,8 @@ export const quotesSlice = createSlice({
         };
       },
     },
-    getQuotesSuccess(_, action) {
-      return action.payload;
+    getQuotesSuccess(_, action: PayloadAction<QuotesResponseInterface>) {
+      return { response: action.payload, fetchStatus: FetchStatus.Success };
     },
   },
 });

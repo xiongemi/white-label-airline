@@ -20,6 +20,7 @@ const Place: React.FunctionComponent<PlaceProps> = ({
   label,
   touched,
   errors,
+  isSubmitting,
 }: PlaceProps) => {
   const { t } = useTranslation();
   const [query, setQuery] = useState(null);
@@ -56,7 +57,7 @@ const Place: React.FunctionComponent<PlaceProps> = ({
     <Field
       loading={!filteredPlaces || !filteredPlaces.length}
       component={Autocomplete}
-      disabled={!currency || !country}
+      disabled={!currency || !country || isSubmitting}
       options={filteredPlaces}
       getOptionLabel={(option: PlaceInterface) =>
         `${option.PlaceName} (${option.PlaceId})`
