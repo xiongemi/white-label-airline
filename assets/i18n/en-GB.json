@@ -1,0 +1,19 @@
+{
+  "search": {
+    "country": "Country",
+    "currency": "Currency",
+    "search": "Search",
+    "oneWay": "One Way",
+    "roundTrip": "Round Trip",
+    "tripType": "Trip Type",
+    "departDate": "Depart Date",
+    "returnDate": "Return Date",
+    "from": "From",
+    "to": "To"
+  },
+  "messages": {
+    "required": "{{ field }} is required.",
+    "minDate": "{{ returnDate }} should be before {{ departDate }}."
+  },
+  "loading": "Loading..."
+}

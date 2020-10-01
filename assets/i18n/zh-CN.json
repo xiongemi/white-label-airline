@@ -1,0 +1,19 @@
+{
+  "search": {
+    "country": "国家",
+    "currency": "货币",
+    "search": "搜索",
+    "oneWay": "单程",
+    "roundTrip": "往返",
+    "tripType": "旅行种类",
+    "departDate": "出发日",
+    "returnDate": "回来日",
+    "from": "出发地",
+    "to": "到达地"
+  },
+  "messages": {
+    "required": "{{ field }} is required.",
+    "minDate": "{{ returnDate }} should be before {{ departDate }}."
+  },
+  "loading": "加载中……"
+}
