@@ -10,6 +10,8 @@ export const Routes: React.FunctionComponent = () => {
         <Route path="/">
           <Search />
         </Route>
+
+        <Route path="/quotes"></Route>
       </Switch>
     </Router>
   );

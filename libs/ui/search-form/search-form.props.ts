@@ -23,6 +23,7 @@ export const mapDispatchToProps = (dispatch: Dispatch) => {
           to: searchForm.to.PlaceId,
           departDate: searchForm.departDate,
           returnDate: searchForm.returnDate,
+          isOutbound: true,
         })
       );
     },

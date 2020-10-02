@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { QuotesResponseInterface } from '@white-label-airline/services/quotes';
+import { QuotePerLegInterface } from '@white-label-airline/services/quotes';
 
 import { FetchStatus } from '../models/fetch-status.enum';
 
@@ -12,6 +12,12 @@ export interface GetQuotesPayload {
   to: string;
   departDate: Date;
   returnDate: Date;
+  isOutbound: boolean;
+}
+
+export interface GetQuotesSuccessPayload {
+  quotes: QuotePerLegInterface[];
+  isOutbound: boolean;
 }
 
 export const quotesSlice = createSlice({
@@ -20,7 +26,10 @@ export const quotesSlice = createSlice({
   reducers: {
     getQuotes: {
       reducer() {
-        return { response: null, fetchStatus: FetchStatus.Loading };
+        return {
+          quotes: {},
+          fetchStatus: FetchStatus.Loading,
+        };
       },
       prepare({
         country,
@@ -31,12 +40,24 @@ export const quotesSlice = createSlice({
         returnDate,
       }: GetQuotesPayload) {
         return {
-          payload: { country, currency, from, to, departDate, returnDate },
+          payload: {
+            country,
+            currency,
+            from,
+            to,
+            departDate,
+            returnDate,
+          },
         };
       },
     },
-    getQuotesSuccess(_, action: PayloadAction<QuotesResponseInterface>) {
-      return { response: action.payload, fetchStatus: FetchStatus.Success };
+    getQuotesSuccess(state, action: PayloadAction<GetQuotesSuccessPayload>) {
+      if (action.payload.isOutbound) {
+        state.quotes.outbound = action.payload.quotes;
+      } else {
+        state.quotes.inbound = action.payload.quotes;
+      }
+      state.fetchStatus = FetchStatus.Success;
     },
   },
 });

@@ -2,6 +2,7 @@
   "name": "white-label-airline",
   "version": "0.0.0",
   "license": "MIT",
+  "homepage": "http://xiongemi.github.io/white-label-airline",
   "scripts": {
     "nx": "nx",
     "start": "nx serve",
@@ -25,7 +26,9 @@
     "update": "nx migrate latest",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "predeploy": "npm run build -- --baseHref=/white-label-airline/",
+    "deploy": "gh-pages -d dist/apps/white-label-airline"
   },
   "private": false,
   "dependencies": {
@@ -90,6 +93,7 @@
     "eslint-plugin-jsx-a11y": "6.3.1",
     "eslint-plugin-react": "7.20.0",
     "eslint-plugin-react-hooks": "4.0.4",
+    "gh-pages": "^3.1.0",
     "jest": "26.2.2",
     "prettier": "2.0.4",
     "ts-jest": "26.1.4",

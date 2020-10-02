@@ -1,7 +1,6 @@
 import {
-  QuotesResponseInterface,
-  QuoteInterface,
-  CarrierInterface,
+  QuotePerLegInterface,
+  QuotesPerTrip,
 } from '@white-label-airline/services/quotes';
 
 import { RootState } from '../root';
@@ -15,18 +14,18 @@ const getQuotesState = (rootState: RootState): QuotesStateInterface =>
 const getQuotesFetchStatus = (rootState: RootState): FetchStatus =>
   getQuotesState(rootState).fetchStatus;
 
-const getQuotesResponse = (rootState: RootState): QuotesResponseInterface =>
-  getQuotesState(rootState).response;
+const getQuotes = (rootState: RootState): QuotesPerTrip =>
+  getQuotesState(rootState).quotes;
 
-const getCarriers = (rootState: RootState): CarrierInterface[] =>
-  getQuotesResponse(rootState).Carriers;
+const getOutboundQuotes = (rootState: RootState): QuotePerLegInterface[] =>
+  getQuotes(rootState).outbound;
 
-const getQuotes = (rootState: RootState): QuoteInterface[] =>
-  getQuotesResponse(rootState).Quotes;
+const getInboundQuotes = (rootState: RootState): QuotePerLegInterface[] =>
+  getQuotes(rootState).inbound;
 
 export const quotesSelectors = {
-  getQuotesResponse,
   getQuotesFetchStatus,
-  getCarriers,
   getQuotes,
+  getOutboundQuotes,
+  getInboundQuotes,
 };

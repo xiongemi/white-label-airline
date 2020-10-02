@@ -9,7 +9,8 @@ import { map, catchError, switchMap, withLatestFrom } from 'rxjs/operators';
 import { from, of } from 'rxjs';
 import {
   quotesService,
-  QuotesResponseInterface,
+  quotesDataTransfrom,
+  QuotePerLegInterface,
 } from '@white-label-airline/services/quotes';
 
 import { errorSlice } from '../error/error.slice';
@@ -38,8 +39,17 @@ const getQuotesEpic: Epic = (
           payload.returnDate
         )
       ).pipe(
-        map((response: QuotesResponseInterface) =>
-          quotesSlice.actions.getQuotesSuccess(response)
+        map((response) =>
+          quotesDataTransfrom.transformQuotesResponseToQuotes(
+            response,
+            payload.isOutbound
+          )
+        ),
+        map((quotes: QuotePerLegInterface[]) =>
+          quotesSlice.actions.getQuotesSuccess({
+            quotes,
+            isOutbound: payload.isOutbound,
+          })
         ),
         catchError((error) => of(errorSlice.actions.handleError(error)))
       );
