@@ -11,6 +11,10 @@
     "from": "From",
     "to": "To"
   },
+  "quotes": {
+    "direct": "Direct",
+    "layover": "Layover"
+  },
   "messages": {
     "required": "{{ field }} is required.",
     "minDate": "{{ returnDate }} should be before {{ departDate }}."

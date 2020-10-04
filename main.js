@@ -325,15 +325,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _quotes_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./quotes.service */ "../../../libs/services/quotes/quotes.service.ts");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "quotesService", function() { return _quotes_service__WEBPACK_IMPORTED_MODULE_0__["quotesService"]; });
 
-/* harmony import */ var _models_quotes_response_interface__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./models/quotes-response.interface */ "../../../libs/services/quotes/models/quotes-response.interface.ts");
-/* harmony import */ var _models_quotes_response_interface__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_models_quotes_response_interface__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _models_quotes_response_interface__WEBPACK_IMPORTED_MODULE_1__) if(["quotesService","default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _models_quotes_response_interface__WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _models_quote_interface__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./models/quote.interface */ "../../../libs/services/quotes/models/quote.interface.ts");
-/* harmony import */ var _models_quote_interface__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_models_quote_interface__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _models_quote_interface__WEBPACK_IMPORTED_MODULE_2__) if(["quotesService","default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _models_quote_interface__WEBPACK_IMPORTED_MODULE_2__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _models_carrier_interface__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./models/carrier.interface */ "../../../libs/services/quotes/models/carrier.interface.ts");
-/* harmony import */ var _models_carrier_interface__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_models_carrier_interface__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _models_carrier_interface__WEBPACK_IMPORTED_MODULE_3__) if(["quotesService","default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _models_carrier_interface__WEBPACK_IMPORTED_MODULE_3__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _quotes_data_transform__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./quotes.data-transform */ "../../../libs/services/quotes/quotes.data-transform.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "quotesDataTransfrom", function() { return _quotes_data_transform__WEBPACK_IMPORTED_MODULE_1__["quotesDataTransfrom"]; });
+
+/* harmony import */ var _models_quotes_response_interface__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./models/quotes-response.interface */ "../../../libs/services/quotes/models/quotes-response.interface.ts");
+/* harmony import */ var _models_quotes_response_interface__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_models_quotes_response_interface__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _models_quotes_response_interface__WEBPACK_IMPORTED_MODULE_2__) if(["quotesService","quotesDataTransfrom","default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _models_quotes_response_interface__WEBPACK_IMPORTED_MODULE_2__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _models_quote_per_leg_interface__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./models/quote-per-leg.interface */ "../../../libs/services/quotes/models/quote-per-leg.interface.ts");
+/* harmony import */ var _models_quote_per_leg_interface__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_models_quote_per_leg_interface__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _models_quote_per_leg_interface__WEBPACK_IMPORTED_MODULE_3__) if(["quotesService","quotesDataTransfrom","default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _models_quote_per_leg_interface__WEBPACK_IMPORTED_MODULE_3__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _models_quotes_per_trip_interface__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./models/quotes-per-trip.interface */ "../../../libs/services/quotes/models/quotes-per-trip.interface.ts");
+/* harmony import */ var _models_quotes_per_trip_interface__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_models_quotes_per_trip_interface__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _models_quotes_per_trip_interface__WEBPACK_IMPORTED_MODULE_4__) if(["quotesService","quotesDataTransfrom","default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _models_quotes_per_trip_interface__WEBPACK_IMPORTED_MODULE_4__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _models_carrier_interface__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./models/carrier.interface */ "../../../libs/services/quotes/models/carrier.interface.ts");
+/* harmony import */ var _models_carrier_interface__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_models_carrier_interface__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _models_carrier_interface__WEBPACK_IMPORTED_MODULE_5__) if(["quotesService","quotesDataTransfrom","default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _models_carrier_interface__WEBPACK_IMPORTED_MODULE_5__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
 
 
 
@@ -352,10 +360,21 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "../../../libs/services/quotes/models/quote.interface.ts":
-/*!******************************************************************************************************!*\
-  !*** /Users/emilyxiong/Documents/white-label-airline/libs/services/quotes/models/quote.interface.ts ***!
-  \******************************************************************************************************/
+/***/ "../../../libs/services/quotes/models/quote-per-leg.interface.ts":
+/*!**************************************************************************************************************!*\
+  !*** /Users/emilyxiong/Documents/white-label-airline/libs/services/quotes/models/quote-per-leg.interface.ts ***!
+  \**************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ "../../../libs/services/quotes/models/quotes-per-trip.interface.ts":
+/*!****************************************************************************************************************!*\
+  !*** /Users/emilyxiong/Documents/white-label-airline/libs/services/quotes/models/quotes-per-trip.interface.ts ***!
+  \****************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -371,6 +390,45 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports) {
 
 
+
+/***/ }),
+
+/***/ "../../../libs/services/quotes/quotes.data-transform.ts":
+/*!*****************************************************************************************************!*\
+  !*** /Users/emilyxiong/Documents/white-label-airline/libs/services/quotes/quotes.data-transform.ts ***!
+  \*****************************************************************************************************/
+/*! exports provided: quotesDataTransfrom */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "quotesDataTransfrom", function() { return quotesDataTransfrom; });
+/**
+ * Convert quotes response to quotes used by the app
+ * @param quotesResponse response got from quotes
+ * @param isOutbound whether is search for is outbound or not
+ * @return { QuotePerLegInterface[] }
+ */
+const transformQuotesResponseToQuotes = (quotesResponse, isOutbound = true) => {
+  const carriers = quotesResponse.Carriers;
+  return quotesResponse.Quotes.map(quote => {
+    const leg = isOutbound ? quote.OutboundLeg : quote.InboundLeg;
+    return {
+      id: quote.QuoteId,
+      minPrice: quote.MinPrice,
+      direct: quote.Direct,
+      carriers: leg.CarrierIds.map(carrierId => {
+        var _carriers$find;
+
+        return (_carriers$find = carriers.find(carrier => carrier.CarrierId === carrierId)) === null || _carriers$find === void 0 ? void 0 : _carriers$find.Name;
+      })
+    };
+  });
+};
+
+const quotesDataTransfrom = {
+  transformQuotesResponseToQuotes
+};
 
 /***/ }),
 
@@ -391,9 +449,13 @@ __webpack_require__.r(__webpack_exports__);
 
 async function getQuotes(country, currency, locale, from, to, departDate, returnDate) {
   const departDateString = Object(date_fns__WEBPACK_IMPORTED_MODULE_0__["format"])(departDate, 'yyyy-MM-dd');
-  const returnDateString = returnDate ? Object(date_fns__WEBPACK_IMPORTED_MODULE_0__["format"])(returnDate, 'yyyy-MM-dd') : '';
   const url = new URL(`${"https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0"}/${country}/${currency}/${locale}/${from}/${to}/${departDateString}`);
-  url.searchParams.set('query', returnDateString);
+
+  if (returnDate) {
+    const returnDateString = returnDate ? Object(date_fns__WEBPACK_IMPORTED_MODULE_0__["format"])(returnDate, 'yyyy-MM-dd') : '';
+    url.searchParams.set('query', returnDateString);
+  }
+
   const response = await fetch(url.toString(), {
     headers: Object(_api_api_service__WEBPACK_IMPORTED_MODULE_1__["getApiHeaders"])()
   });
@@ -690,8 +752,11 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony import */ var _root__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./root */ "../../../libs/store/root/index.ts");
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _root__WEBPACK_IMPORTED_MODULE_6__) if(["countriesSelectors","countriesSlice","currenciesSelectors","currenciesSlice","errorSlice","languageSelectors","languageSlice","quotesSlice","quotesSelectors","default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _root__WEBPACK_IMPORTED_MODULE_6__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _models_fetch_status_enum__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./models/fetch-status.enum */ "../../../libs/store/models/fetch-status.enum.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FetchStatus", function() { return _models_fetch_status_enum__WEBPACK_IMPORTED_MODULE_7__["FetchStatus"]; });
+/* harmony import */ var _search_form__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./search-form */ "../../../libs/store/search-form/index.ts");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _search_form__WEBPACK_IMPORTED_MODULE_7__) if(["countriesSelectors","countriesSlice","currenciesSelectors","currenciesSlice","errorSlice","languageSelectors","languageSlice","quotesSlice","quotesSelectors","default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _search_form__WEBPACK_IMPORTED_MODULE_7__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _models_fetch_status_enum__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./models/fetch-status.enum */ "../../../libs/store/models/fetch-status.enum.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FetchStatus", function() { return _models_fetch_status_enum__WEBPACK_IMPORTED_MODULE_8__["FetchStatus"]; });
+
 
 
 
@@ -988,7 +1053,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _models_fetch_status_enum__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../models/fetch-status.enum */ "../../../libs/store/models/fetch-status.enum.ts");
 
 const initialQuotesState = {
-  response: null,
+  quotes: {},
   fetchStatus: _models_fetch_status_enum__WEBPACK_IMPORTED_MODULE_0__["FetchStatus"].Initial
 };
 
@@ -1023,7 +1088,10 @@ const getQuotesEpic = (action$, states$) => action$.pipe(Object(redux_observable
   const {
     payload
   } = action;
-  return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["from"])(_white_label_airline_services_quotes__WEBPACK_IMPORTED_MODULE_3__["quotesService"].getQuotes(payload.country, payload.currency, language, payload.from, payload.to, payload.departDate, payload.returnDate)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(response => _quotes_slice__WEBPACK_IMPORTED_MODULE_6__["quotesSlice"].actions.getQuotesSuccess(response)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["catchError"])(error => Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(_error_error_slice__WEBPACK_IMPORTED_MODULE_4__["errorSlice"].actions.handleError(error))));
+  return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["from"])(_white_label_airline_services_quotes__WEBPACK_IMPORTED_MODULE_3__["quotesService"].getQuotes(payload.country, payload.currency, language, payload.from, payload.to, payload.departDate, payload.returnDate)).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(response => _white_label_airline_services_quotes__WEBPACK_IMPORTED_MODULE_3__["quotesDataTransfrom"].transformQuotesResponseToQuotes(response, payload.isOutbound)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(quotes => _quotes_slice__WEBPACK_IMPORTED_MODULE_6__["quotesSlice"].actions.getQuotesSuccess({
+    quotes,
+    isOutbound: payload.isOutbound
+  })), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["catchError"])(error => Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["from"])([_error_error_slice__WEBPACK_IMPORTED_MODULE_4__["errorSlice"].actions.handleError(error), _quotes_slice__WEBPACK_IMPORTED_MODULE_6__["quotesSlice"].actions.getQuotesError()])));
 }));
 
 const quotesEpics = [getQuotesEpic];
@@ -1044,17 +1112,17 @@ const getQuotesState = rootState => rootState.quotes;
 
 const getQuotesFetchStatus = rootState => getQuotesState(rootState).fetchStatus;
 
-const getQuotesResponse = rootState => getQuotesState(rootState).response;
+const getQuotes = rootState => getQuotesState(rootState).quotes;
 
-const getCarriers = rootState => getQuotesResponse(rootState).Carriers;
+const getOutboundQuotes = rootState => getQuotes(rootState).outbound;
 
-const getQuotes = rootState => getQuotesResponse(rootState).Quotes;
+const getInboundQuotes = rootState => getQuotes(rootState).inbound;
 
 const quotesSelectors = {
-  getQuotesResponse,
   getQuotesFetchStatus,
-  getCarriers,
-  getQuotes
+  getQuotes,
+  getOutboundQuotes,
+  getInboundQuotes
 };
 
 /***/ }),
@@ -1082,38 +1150,31 @@ const quotesSlice = Object(_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__["create
     getQuotes: {
       reducer() {
         return {
-          response: null,
+          quotes: {},
           fetchStatus: _models_fetch_status_enum__WEBPACK_IMPORTED_MODULE_1__["FetchStatus"].Loading
         };
       },
 
-      prepare({
-        country,
-        currency,
-        from,
-        to,
-        departDate,
-        returnDate
-      }) {
+      prepare(payload) {
         return {
-          payload: {
-            country,
-            currency,
-            from,
-            to,
-            departDate,
-            returnDate
-          }
+          payload
         };
       }
 
     },
 
-    getQuotesSuccess(_, action) {
-      return {
-        response: action.payload,
-        fetchStatus: _models_fetch_status_enum__WEBPACK_IMPORTED_MODULE_1__["FetchStatus"].Success
-      };
+    getQuotesSuccess(state, action) {
+      if (action.payload.isOutbound) {
+        state.quotes.outbound = action.payload.quotes;
+      } else {
+        state.quotes.inbound = action.payload.quotes;
+      }
+
+      state.fetchStatus = _models_fetch_status_enum__WEBPACK_IMPORTED_MODULE_1__["FetchStatus"].Success;
+    },
+
+    getQuotesError(state) {
+      state.fetchStatus = _models_fetch_status_enum__WEBPACK_IMPORTED_MODULE_1__["FetchStatus"].Error;
     }
 
   }
@@ -1193,6 +1254,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _currencies_currencies_slice__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../currencies/currencies.slice */ "../../../libs/store/currencies/currencies.slice.ts");
 /* harmony import */ var _places_places_slice__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../places/places.slice */ "../../../libs/store/places/places.slice.ts");
 /* harmony import */ var _quotes_quotes_slice__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../quotes/quotes.slice */ "../../../libs/store/quotes/quotes.slice.ts");
+/* harmony import */ var _search_form_search_form_slice__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../search-form/search-form.slice */ "../../../libs/store/search-form/search-form.slice.ts");
+
 
 
 
@@ -1206,7 +1269,8 @@ const rootReducer = Object(_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__["combin
   language: _language_language_slice__WEBPACK_IMPORTED_MODULE_3__["languageSlice"].reducer,
   places: _places_places_slice__WEBPACK_IMPORTED_MODULE_5__["placesSlice"].reducer,
   error: _error_error_slice__WEBPACK_IMPORTED_MODULE_2__["errorSlice"].reducer,
-  quotes: _quotes_quotes_slice__WEBPACK_IMPORTED_MODULE_6__["quotesSlice"].reducer
+  quotes: _quotes_quotes_slice__WEBPACK_IMPORTED_MODULE_6__["quotesSlice"].reducer,
+  searchForm: _search_form_search_form_slice__WEBPACK_IMPORTED_MODULE_7__["searchFormSlice"].reducer
 });
 
 /***/ }),
@@ -1243,6 +1307,113 @@ function configureAppStore(preloadedState) {
   epicMiddleware.run(_root_epic__WEBPACK_IMPORTED_MODULE_4__["rootEpic"]);
   return store;
 }
+
+/***/ }),
+
+/***/ "../../../libs/store/search-form/index.ts":
+/*!***************************************************************************************!*\
+  !*** /Users/emilyxiong/Documents/white-label-airline/libs/store/search-form/index.ts ***!
+  \***************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _search_form_interface__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./search-form.interface */ "../../../libs/store/search-form/search-form.interface.ts");
+/* harmony import */ var _search_form_interface__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_search_form_interface__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _search_form_interface__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _search_form_interface__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _trip_type_enum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./trip-type.enum */ "../../../libs/store/search-form/trip-type.enum.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TripTypeEnum", function() { return _trip_type_enum__WEBPACK_IMPORTED_MODULE_1__["TripTypeEnum"]; });
+
+/* harmony import */ var _search_form_slice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./search-form.slice */ "../../../libs/store/search-form/search-form.slice.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "searchFormSlice", function() { return _search_form_slice__WEBPACK_IMPORTED_MODULE_2__["searchFormSlice"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "../../../libs/store/search-form/search-form-initial.const.ts":
+/*!***********************************************************************************************************!*\
+  !*** /Users/emilyxiong/Documents/white-label-airline/libs/store/search-form/search-form-initial.const.ts ***!
+  \***********************************************************************************************************/
+/*! exports provided: initialSearchForm */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialSearchForm", function() { return initialSearchForm; });
+const initialSearchForm = {
+  country: null,
+  tripType: null,
+  currency: null,
+  from: null,
+  departDate: null,
+  to: null,
+  returnDate: null
+};
+
+/***/ }),
+
+/***/ "../../../libs/store/search-form/search-form.interface.ts":
+/*!*******************************************************************************************************!*\
+  !*** /Users/emilyxiong/Documents/white-label-airline/libs/store/search-form/search-form.interface.ts ***!
+  \*******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ "../../../libs/store/search-form/search-form.slice.ts":
+/*!***************************************************************************************************!*\
+  !*** /Users/emilyxiong/Documents/white-label-airline/libs/store/search-form/search-form.slice.ts ***!
+  \***************************************************************************************************/
+/*! exports provided: searchFormSlice */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "searchFormSlice", function() { return searchFormSlice; });
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @reduxjs/toolkit */ "../../../node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+/* harmony import */ var _search_form_initial_const__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./search-form-initial.const */ "../../../libs/store/search-form/search-form-initial.const.ts");
+
+
+const searchFormSlice = Object(_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__["createSlice"])({
+  name: 'searchForm',
+  initialState: _search_form_initial_const__WEBPACK_IMPORTED_MODULE_1__["initialSearchForm"],
+  reducers: {
+    setSearchForm(_, action) {
+      return action.payload;
+    },
+
+    resetSearchForm() {
+      return _search_form_initial_const__WEBPACK_IMPORTED_MODULE_1__["initialSearchForm"];
+    }
+
+  }
+});
+
+/***/ }),
+
+/***/ "../../../libs/store/search-form/trip-type.enum.ts":
+/*!************************************************************************************************!*\
+  !*** /Users/emilyxiong/Documents/white-label-airline/libs/store/search-form/trip-type.enum.ts ***!
+  \************************************************************************************************/
+/*! exports provided: TripTypeEnum */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TripTypeEnum", function() { return TripTypeEnum; });
+let TripTypeEnum;
+
+(function (TripTypeEnum) {
+  TripTypeEnum["OneWay"] = "search.oneWay";
+  TripTypeEnum["RoundTrip"] = "search.roundTrip";
+})(TripTypeEnum || (TripTypeEnum = {}));
 
 /***/ }),
 
@@ -1334,6 +1505,116 @@ let FeatureToggleNames;
   FeatureToggleNames["ShowCountry"] = "ShowCountry";
   FeatureToggleNames["ShowCurrency"] = "ShowCurrency";
 })(FeatureToggleNames || (FeatureToggleNames = {}));
+
+/***/ }),
+
+/***/ "../../../libs/ui/quotes-list/components/quote.tsx":
+/*!************************************************************************************************!*\
+  !*** /Users/emilyxiong/Documents/white-label-airline/libs/ui/quotes-list/components/quote.tsx ***!
+  \************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../../node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core */ "../../../node_modules/@material-ui/core/esm/index.js");
+// carriers
+// direct not direct
+// price
+
+
+
+const Quote = ({
+  quote
+}) => {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Grid"], {
+    container: true,
+    spacing: 3
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Grid"], {
+    item: true,
+    xs: 4
+  }, quote.carriers.join(', ')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Grid"], {
+    item: true,
+    xs: 4
+  }, quote.direct), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Grid"], {
+    item: true,
+    xs: 4
+  }, quote.minPrice));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Quote);
+
+/***/ }),
+
+/***/ "../../../libs/ui/quotes-list/index.ts":
+/*!************************************************************************************!*\
+  !*** /Users/emilyxiong/Documents/white-label-airline/libs/ui/quotes-list/index.ts ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _quotes_list__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./quotes-list */ "../../../libs/ui/quotes-list/quotes-list.tsx");
+
+/* harmony default export */ __webpack_exports__["default"] = (_quotes_list__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/***/ }),
+
+/***/ "../../../libs/ui/quotes-list/quotes-list.props.ts":
+/*!************************************************************************************************!*\
+  !*** /Users/emilyxiong/Documents/white-label-airline/libs/ui/quotes-list/quotes-list.props.ts ***!
+  \************************************************************************************************/
+/*! exports provided: mapStateToProps, mapDispatchToProps */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapStateToProps", function() { return mapStateToProps; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapDispatchToProps", function() { return mapDispatchToProps; });
+/* harmony import */ var _white_label_airline_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @white-label-airline/store */ "../../../libs/store/index.ts");
+
+const mapStateToProps = state => {
+  return {
+    quotes: _white_label_airline_store__WEBPACK_IMPORTED_MODULE_0__["quotesSelectors"].getQuotes(state)
+  };
+};
+const mapDispatchToProps = dispatch => {};
+
+/***/ }),
+
+/***/ "../../../libs/ui/quotes-list/quotes-list.tsx":
+/*!*******************************************************************************************!*\
+  !*** /Users/emilyxiong/Documents/white-label-airline/libs/ui/quotes-list/quotes-list.tsx ***!
+  \*******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../../node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "../../../node_modules/react-redux/es/index.js");
+/* harmony import */ var _quotes_list_props__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./quotes-list.props */ "../../../libs/ui/quotes-list/quotes-list.props.ts");
+/* harmony import */ var _components_quote__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/quote */ "../../../libs/ui/quotes-list/components/quote.tsx");
+
+
+
+
+
+const QuotesList = ({
+  quotes
+}) => {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, quotes.outbound.map(quote => {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_quote__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      quote: quote
+    });
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(_quotes_list_props__WEBPACK_IMPORTED_MODULE_2__["mapStateToProps"], _quotes_list_props__WEBPACK_IMPORTED_MODULE_2__["mapDispatchToProps"])(QuotesList));
 
 /***/ }),
 
@@ -1667,7 +1948,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_FormControl__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/FormControl */ "../../../node_modules/@material-ui/core/esm/FormControl/index.js");
 /* harmony import */ var formik_material_ui__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! formik-material-ui */ "../../../node_modules/formik-material-ui/dist/formik-material-ui.es6.js");
 /* harmony import */ var react_i18next__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-i18next */ "../../../node_modules/react-i18next/dist/es/index.js");
-/* harmony import */ var _models_trip_type_enum__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../models/trip-type.enum */ "../../../libs/ui/search-form/models/trip-type.enum.ts");
+/* harmony import */ var _white_label_airline_store__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @white-label-airline/store */ "../../../libs/store/index.ts");
 
 
 
@@ -1691,10 +1972,10 @@ const TripType = props => {
     id: props.name + count++,
     name: props.name
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    value: _models_trip_type_enum__WEBPACK_IMPORTED_MODULE_7__["TripTypeEnum"].OneWay
-  }, t(_models_trip_type_enum__WEBPACK_IMPORTED_MODULE_7__["TripTypeEnum"].OneWay)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    value: _models_trip_type_enum__WEBPACK_IMPORTED_MODULE_7__["TripTypeEnum"].RoundTrip
-  }, t(_models_trip_type_enum__WEBPACK_IMPORTED_MODULE_7__["TripTypeEnum"].RoundTrip))));
+    value: _white_label_airline_store__WEBPACK_IMPORTED_MODULE_7__["TripTypeEnum"].OneWay
+  }, t(_white_label_airline_store__WEBPACK_IMPORTED_MODULE_7__["TripTypeEnum"].OneWay)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_MenuItem__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    value: _white_label_airline_store__WEBPACK_IMPORTED_MODULE_7__["TripTypeEnum"].RoundTrip
+  }, t(_white_label_airline_store__WEBPACK_IMPORTED_MODULE_7__["TripTypeEnum"].RoundTrip))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (TripType);
@@ -1705,24 +1986,14 @@ const TripType = props => {
 /*!************************************************************************************!*\
   !*** /Users/emilyxiong/Documents/white-label-airline/libs/ui/search-form/index.ts ***!
   \************************************************************************************/
-/*! exports provided: default, SearchFormInterface, TripTypeEnum */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _search_form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./search-form */ "../../../libs/ui/search-form/search-form.tsx");
-/* harmony import */ var _models_search_form_interface__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./models/search-form.interface */ "../../../libs/ui/search-form/models/search-form.interface.ts");
-/* harmony import */ var _models_search_form_interface__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_models_search_form_interface__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SearchFormInterface", function() { return _models_search_form_interface__WEBPACK_IMPORTED_MODULE_1__["SearchFormInterface"]; });
-
-/* harmony import */ var _models_trip_type_enum__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./models/trip-type.enum */ "../../../libs/ui/search-form/models/trip-type.enum.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TripTypeEnum", function() { return _models_trip_type_enum__WEBPACK_IMPORTED_MODULE_2__["TripTypeEnum"]; });
-
-
-
 
 /* harmony default export */ __webpack_exports__["default"] = (_search_form__WEBPACK_IMPORTED_MODULE_0__["default"]);
-
 
 /***/ }),
 
@@ -1736,28 +2007,17 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultSearchForm", function() { return defaultSearchForm; });
-/* harmony import */ var _trip_type_enum__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./trip-type.enum */ "../../../libs/ui/search-form/models/trip-type.enum.ts");
+/* harmony import */ var _white_label_airline_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @white-label-airline/store */ "../../../libs/store/index.ts");
 
 const defaultSearchForm = {
   country: null,
-  tripType: _trip_type_enum__WEBPACK_IMPORTED_MODULE_0__["TripTypeEnum"].OneWay,
+  tripType: _white_label_airline_store__WEBPACK_IMPORTED_MODULE_0__["TripTypeEnum"].OneWay,
   currency: null,
   from: null,
   departDate: null,
   to: null,
   returnDate: null
 };
-
-/***/ }),
-
-/***/ "../../../libs/ui/search-form/models/search-form.interface.ts":
-/*!***********************************************************************************************************!*\
-  !*** /Users/emilyxiong/Documents/white-label-airline/libs/ui/search-form/models/search-form.interface.ts ***!
-  \***********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
 
 /***/ }),
 
@@ -1772,40 +2032,21 @@ const defaultSearchForm = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "searchFormSchema", function() { return searchFormSchema; });
 /* harmony import */ var yup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! yup */ "../../../node_modules/yup/es/index.js");
-/* harmony import */ var _trip_type_enum__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./trip-type.enum */ "../../../libs/ui/search-form/models/trip-type.enum.ts");
+/* harmony import */ var _white_label_airline_store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @white-label-airline/store */ "../../../libs/store/index.ts");
 
 
 const searchFormSchema = yup__WEBPACK_IMPORTED_MODULE_0__["object"]().shape({
   country: yup__WEBPACK_IMPORTED_MODULE_0__["object"]().nullable().required('messages.required').typeError('messages.required'),
-  tripType: yup__WEBPACK_IMPORTED_MODULE_0__["string"]().nullable().required('messages.required').oneOf([_trip_type_enum__WEBPACK_IMPORTED_MODULE_1__["TripTypeEnum"].OneWay, _trip_type_enum__WEBPACK_IMPORTED_MODULE_1__["TripTypeEnum"].RoundTrip]).typeError('messages.required'),
+  tripType: yup__WEBPACK_IMPORTED_MODULE_0__["string"]().nullable().required('messages.required').oneOf([_white_label_airline_store__WEBPACK_IMPORTED_MODULE_1__["TripTypeEnum"].OneWay, _white_label_airline_store__WEBPACK_IMPORTED_MODULE_1__["TripTypeEnum"].RoundTrip]).typeError('messages.required'),
   currency: yup__WEBPACK_IMPORTED_MODULE_0__["object"]().nullable().required('messages.required').typeError('messages.required'),
   from: yup__WEBPACK_IMPORTED_MODULE_0__["object"]().nullable().required('messages.required').typeError('messages.required'),
   departDate: yup__WEBPACK_IMPORTED_MODULE_0__["date"]().required('messages.required'),
   to: yup__WEBPACK_IMPORTED_MODULE_0__["object"]().nullable().required('messages.required'),
   returnDate: yup__WEBPACK_IMPORTED_MODULE_0__["date"]().nullable().when('tripType', {
-    is: _trip_type_enum__WEBPACK_IMPORTED_MODULE_1__["TripTypeEnum"].RoundTrip,
+    is: _white_label_airline_store__WEBPACK_IMPORTED_MODULE_1__["TripTypeEnum"].RoundTrip,
     then: yup__WEBPACK_IMPORTED_MODULE_0__["date"]().required('messages.required')
   })
 });
-
-/***/ }),
-
-/***/ "../../../libs/ui/search-form/models/trip-type.enum.ts":
-/*!****************************************************************************************************!*\
-  !*** /Users/emilyxiong/Documents/white-label-airline/libs/ui/search-form/models/trip-type.enum.ts ***!
-  \****************************************************************************************************/
-/*! exports provided: TripTypeEnum */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TripTypeEnum", function() { return TripTypeEnum; });
-let TripTypeEnum;
-
-(function (TripTypeEnum) {
-  TripTypeEnum["OneWay"] = "search.oneWay";
-  TripTypeEnum["RoundTrip"] = "search.roundTrip";
-})(TripTypeEnum || (TripTypeEnum = {}));
 
 /***/ }),
 
@@ -1836,8 +2077,13 @@ const mapDispatchToProps = dispatch => {
         from: searchForm.from.PlaceId,
         to: searchForm.to.PlaceId,
         departDate: searchForm.departDate,
-        returnDate: searchForm.returnDate
+        returnDate: searchForm.returnDate,
+        isOutbound: true
       }));
+    },
+
+    setSearchForm(searchForm) {
+      dispatch(_white_label_airline_store__WEBPACK_IMPORTED_MODULE_0__["searchFormSlice"].actions.setSearchForm(searchForm));
     }
 
   };
@@ -1874,9 +2120,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_place_place__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/place/place */ "../../../libs/ui/search-form/components/place/place.tsx");
 /* harmony import */ var _models_search_form_default_const__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./models/search-form-default.const */ "../../../libs/ui/search-form/models/search-form-default.const.ts");
 /* harmony import */ var _components_trip_type_trip_type__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/trip-type/trip-type */ "../../../libs/ui/search-form/components/trip-type/trip-type.tsx");
-/* harmony import */ var _models_trip_type_enum__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./models/trip-type.enum */ "../../../libs/ui/search-form/models/trip-type.enum.ts");
-/* harmony import */ var _models_search_form_schema__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./models/search-form.schema */ "../../../libs/ui/search-form/models/search-form.schema.ts");
-
+/* harmony import */ var _models_search_form_schema__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./models/search-form.schema */ "../../../libs/ui/search-form/models/search-form.schema.ts");
 
 
 
@@ -1980,7 +2224,7 @@ const SearchForm = ({
     helperText: t(Object(formik__WEBPACK_IMPORTED_MODULE_1__["getIn"])(errors, 'departDate'), {
       field: t('search.departDate')
     })
-  })), values.tripType === _models_trip_type_enum__WEBPACK_IMPORTED_MODULE_18__["TripTypeEnum"].RoundTrip && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Grid"], {
+  })), values.tripType === _white_label_airline_store__WEBPACK_IMPORTED_MODULE_9__["TripTypeEnum"].RoundTrip && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Grid"], {
     item: true,
     xs: 6,
     md: 3
@@ -2011,15 +2255,17 @@ const SearchForm = ({
 };
 
 const SearchFormik = Object(formik__WEBPACK_IMPORTED_MODULE_1__["withFormik"])({
+  displayName: 'SearchForm',
   mapPropsToValues: props => {
     return props.initSearchForm || _models_search_form_default_const__WEBPACK_IMPORTED_MODULE_16__["defaultSearchForm"];
   },
-  validationSchema: _models_search_form_schema__WEBPACK_IMPORTED_MODULE_19__["searchFormSchema"],
-  handleSubmit: (event, {
+  validationSchema: _models_search_form_schema__WEBPACK_IMPORTED_MODULE_18__["searchFormSchema"],
+  handleSubmit: (values, {
     props,
     setSubmitting
   }) => {
-    props.getQuotes(event);
+    props.getQuotes(values);
+    props.setSearchForm(values);
     setSubmitting(true);
   }
 })(SearchForm);
@@ -2053,7 +2299,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-Object(_white_label_airline_services_i18n__WEBPACK_IMPORTED_MODULE_3__["setI18n"])('/assets/i18n/{{lng}}.json');
+Object(_white_label_airline_services_i18n__WEBPACK_IMPORTED_MODULE_3__["setI18n"])('./assets/i18n/{{lng}}.json');
 const App = () => {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_feature_toggles__WEBPACK_IMPORTED_MODULE_4__["FeatureToggleProvider"], {
     featureToggleList: _features_const__WEBPACK_IMPORTED_MODULE_6__["features"]
@@ -2099,14 +2345,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../../node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "../../../node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _pages_search_search__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/search/search */ "./pages/search/search.tsx");
+/* harmony import */ var _pages_search_search_page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/search/search-page */ "./pages/search/search-page.tsx");
+/* harmony import */ var _pages_quotes_quotes_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/quotes/quotes-page */ "./pages/quotes/quotes-page.tsx");
+
 
 
 
 const Routes = () => {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    path: "/quotes"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_quotes_quotes_page__WEBPACK_IMPORTED_MODULE_3__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_search_search__WEBPACK_IMPORTED_MODULE_2__["default"], null))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_search_search_page__WEBPACK_IMPORTED_MODULE_2__["default"], null))));
 };
 /* harmony default export */ __webpack_exports__["default"] = (Routes);
 
@@ -2130,6 +2380,29 @@ __webpack_require__.r(__webpack_exports__);
 
 
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_app_app__WEBPACK_IMPORTED_MODULE_2__["default"], null), document.getElementById('root'));
+
+/***/ }),
+
+/***/ "./pages/quotes/quotes-page.tsx":
+/*!**************************************!*\
+  !*** ./pages/quotes/quotes-page.tsx ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../../node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _white_label_airline_ui_quotes_list__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @white-label-airline/ui/quotes-list */ "../../../libs/ui/quotes-list/index.ts");
+
+
+
+const QuotesPage = () => {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_white_label_airline_ui_quotes_list__WEBPACK_IMPORTED_MODULE_1__["default"], null);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (QuotesPage);
 
 /***/ }),
 
@@ -2160,13 +2433,13 @@ const country = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initSearchForm", function() { return initSearchForm; });
-/* harmony import */ var _white_label_airline_ui_search_form_models_trip_type_enum__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @white-label-airline/ui/search-form/models/trip-type.enum */ "../../../libs/ui/search-form/models/trip-type.enum.ts");
+/* harmony import */ var _white_label_airline_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @white-label-airline/store */ "../../../libs/store/index.ts");
 /* harmony import */ var _country_const__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./country.const */ "./pages/search/country.const.ts");
 
 
 const initSearchForm = {
   country: _country_const__WEBPACK_IMPORTED_MODULE_1__["country"],
-  tripType: _white_label_airline_ui_search_form_models_trip_type_enum__WEBPACK_IMPORTED_MODULE_0__["TripTypeEnum"].RoundTrip,
+  tripType: _white_label_airline_store__WEBPACK_IMPORTED_MODULE_0__["TripTypeEnum"].RoundTrip,
   currency: {
     Code: 'CAD',
     DecimalDigits: 2,
@@ -2185,10 +2458,10 @@ const initSearchForm = {
 
 /***/ }),
 
-/***/ "./pages/search/search.tsx":
-/*!*********************************!*\
-  !*** ./pages/search/search.tsx ***!
-  \*********************************/
+/***/ "./pages/search/search-page.tsx":
+/*!**************************************!*\
+  !*** ./pages/search/search-page.tsx ***!
+  \**************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2197,18 +2470,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "../../../node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _white_label_airline_ui_search_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @white-label-airline/ui/search-form */ "../../../libs/ui/search-form/index.ts");
-/* harmony import */ var _search_form_init_const__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./search-form-init.const */ "./pages/search/search-form-init.const.ts");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "../../../node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _search_form_init_const__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./search-form-init.const */ "./pages/search/search-form-init.const.ts");
 
 
 
 
-const Search = () => {
+
+const SearchPage = () => {
+  const history = Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["useHistory"])();
+
+  const submitSearch = () => history.push('/quotes');
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_white_label_airline_ui_search_form__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    initSearchForm: _search_form_init_const__WEBPACK_IMPORTED_MODULE_2__["initSearchForm"]
+    initSearchForm: _search_form_init_const__WEBPACK_IMPORTED_MODULE_3__["initSearchForm"],
+    submitSearch: submitSearch
   });
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Search);
+/* harmony default export */ __webpack_exports__["default"] = (SearchPage);
 
 /***/ }),
 
