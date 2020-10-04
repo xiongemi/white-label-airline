@@ -3,10 +3,10 @@ import {
   RootState,
   quotesSlice,
   quotesSelectors,
+  SearchFormInterface,
+  searchFormSlice,
 } from '@white-label-airline/store';
 import { ButtonProps } from '@material-ui/core';
-
-import { SearchFormInterface } from './models/search-form.interface';
 
 export const mapStateToProps = (state: RootState) => {
   return { quotesFetchStatus: quotesSelectors.getQuotesFetchStatus(state) };
@@ -26,6 +26,9 @@ export const mapDispatchToProps = (dispatch: Dispatch) => {
           isOutbound: true,
         })
       );
+    },
+    setSearchForm(searchForm: SearchFormInterface) {
+      dispatch(searchFormSlice.actions.setSearchForm(searchForm));
     },
   };
 };

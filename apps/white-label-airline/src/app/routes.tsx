@@ -1,17 +1,19 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
-import Search from '../pages/search/search';
+import SearchPage from '../pages/search/search-page';
+import QuotesPage from '../pages/quotes/quotes-page';
 
 export const Routes: React.FunctionComponent = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/">
-          <Search />
+        <Route path="/quotes">
+          <QuotesPage />
         </Route>
-
-        <Route path="/quotes"></Route>
+        <Route path="/">
+          <SearchPage />
+        </Route>
       </Switch>
     </Router>
   );

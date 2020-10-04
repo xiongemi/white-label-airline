@@ -5,8 +5,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import { Select } from 'formik-material-ui';
 import { useTranslation } from 'react-i18next';
+import { TripTypeEnum } from '@white-label-airline/store';
 
-import { TripTypeEnum } from '../../models/trip-type.enum';
 import { FormFieldProps } from '../../../models/form-field-props.interface';
 
 let count = 0;

@@ -51,7 +51,12 @@ const getQuotesEpic: Epic = (
             isOutbound: payload.isOutbound,
           })
         ),
-        catchError((error) => of(errorSlice.actions.handleError(error)))
+        catchError((error) =>
+          from([
+            errorSlice.actions.handleError(error),
+            quotesSlice.actions.getQuotesError(),
+          ])
+        )
       );
     })
   );

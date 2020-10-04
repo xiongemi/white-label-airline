@@ -1,5 +1,4 @@
-import { SearchFormInterface } from '@white-label-airline/ui/search-form';
-import { TripTypeEnum } from '@white-label-airline/ui/search-form/models/trip-type.enum';
+import { SearchFormInterface, TripTypeEnum } from '@white-label-airline/store';
 
 import { country } from './country.const';
 

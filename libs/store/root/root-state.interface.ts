@@ -3,6 +3,7 @@ import { CurrencyInterface } from '@white-label-airline/services/currencies';
 
 import { PlacesStateInterface } from '../places/places-state.interface';
 import { QuotesStateInterface } from '../quotes/quotes-state.interface';
+import { SearchFormInterface } from '../search-form/search-form.interface';
 
 export interface RootState {
   language: string;
@@ -11,4 +12,5 @@ export interface RootState {
   error?: unknown;
   places?: PlacesStateInterface;
   quotes: QuotesStateInterface;
+  searchForm: SearchFormInterface;
 }

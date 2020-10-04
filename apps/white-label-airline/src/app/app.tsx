@@ -7,7 +7,7 @@ import { FeatureToggleProvider } from 'react-feature-toggles';
 import Routes from './routes';
 import { features } from './features.const';
 
-setI18n('/assets/i18n/{{lng}}.json');
+setI18n('./assets/i18n/{{lng}}.json');
 
 export const App = () => {
   return (

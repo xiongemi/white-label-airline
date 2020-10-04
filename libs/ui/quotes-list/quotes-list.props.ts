@@ -4,7 +4,6 @@ import { Dispatch } from '@reduxjs/toolkit';
 export const mapStateToProps = (state: RootState) => {
   return {
     quotes: quotesSelectors.getQuotes(state),
-    carriers: quotesSelectors.getCarriers(state),
   };
 };
 

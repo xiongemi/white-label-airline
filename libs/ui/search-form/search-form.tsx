@@ -7,7 +7,11 @@ import { KeyboardDatePicker } from 'formik-material-ui-pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { FeatureToggle } from 'react-feature-toggles';
-import { FetchStatus } from '@white-label-airline/store';
+import {
+  FetchStatus,
+  SearchFormInterface,
+  TripTypeEnum,
+} from '@white-label-airline/store';
 
 import { IsScreenSizeSm } from '../hooks/screen-size.hook';
 import { FeatureToggleNames } from '../models/feature-toggle-names.enum';
@@ -22,9 +26,7 @@ import Currency from './components/currency/currency';
 import Place from './components/place/place';
 import { defaultSearchForm } from './models/search-form-default.const';
 import TripType from './components/trip-type/trip-type';
-import { TripTypeEnum } from './models/trip-type.enum';
 import { searchFormSchema } from './models/search-form.schema';
-import { SearchFormInterface } from './models/search-form.interface';
 
 const SearchForm: React.FunctionComponent<SearchProps> = ({
   bottonProps,
@@ -135,12 +137,14 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
 };
 
 const SearchFormik = withFormik({
+  displayName: 'SearchForm',
   mapPropsToValues: (props: SearchProps): SearchFormInterface => {
     return props.initSearchForm || defaultSearchForm;
   },
   validationSchema: searchFormSchema,
-  handleSubmit: (event: SearchFormInterface, { props, setSubmitting }) => {
-    props.getQuotes(event);
+  handleSubmit: (values: SearchFormInterface, { props, setSubmitting }) => {
+    props.getQuotes(values);
+    props.setSearchForm(values);
     setSubmitting(true);
   },
 })(SearchForm);

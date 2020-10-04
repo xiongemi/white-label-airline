@@ -16,12 +16,14 @@ async function getQuotes(
   returnDate?: Date
 ): Promise<QuotesResponseInterface> {
   const departDateString = format(departDate, 'yyyy-MM-dd');
-  const returnDateString = returnDate ? format(returnDate, 'yyyy-MM-dd') : '';
 
   const url = new URL(
     `${process.env.NX_API_BROWSE_QUOTES}/${country}/${currency}/${locale}/${from}/${to}/${departDateString}`
   );
-  url.searchParams.set('query', returnDateString);
+  if (returnDate) {
+    const returnDateString = returnDate ? format(returnDate, 'yyyy-MM-dd') : '';
+    url.searchParams.set('query', returnDateString);
+  }
 
   const response = await fetch(url.toString(), {
     headers: getApiHeaders(),

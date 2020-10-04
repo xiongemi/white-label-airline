@@ -4,6 +4,7 @@ import { QuotePerLegInterface } from '@white-label-airline/services/quotes';
 import { FetchStatus } from '../models/fetch-status.enum';
 
 import { initialQuotesState } from './quotes-state-initial.const';
+import { StateObservable } from 'redux-observable';
 
 export interface GetQuotesPayload {
   country: string;
@@ -31,23 +32,9 @@ export const quotesSlice = createSlice({
           fetchStatus: FetchStatus.Loading,
         };
       },
-      prepare({
-        country,
-        currency,
-        from,
-        to,
-        departDate,
-        returnDate,
-      }: GetQuotesPayload) {
+      prepare(payload: GetQuotesPayload) {
         return {
-          payload: {
-            country,
-            currency,
-            from,
-            to,
-            departDate,
-            returnDate,
-          },
+          payload,
         };
       },
     },
@@ -58,6 +45,9 @@ export const quotesSlice = createSlice({
         state.quotes.inbound = action.payload.quotes;
       }
       state.fetchStatus = FetchStatus.Success;
+    },
+    getQuotesError(state) {
+      state.fetchStatus = FetchStatus.Error;
     },
   },
 });

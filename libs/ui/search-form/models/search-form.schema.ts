@@ -1,6 +1,5 @@
 import * as yup from 'yup';
-
-import { TripTypeEnum } from './trip-type.enum';
+import { TripTypeEnum } from '@white-label-airline/store';
 
 export const searchFormSchema = yup.object().shape({
   country: yup

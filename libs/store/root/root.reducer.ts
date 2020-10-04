@@ -8,6 +8,7 @@ import { placesSlice } from '../places/places.slice';
 import { quotesSlice } from '../quotes/quotes.slice';
 
 import { RootState } from './root-state.interface';
+import { searchFormSlice } from '../search-form/search-form.slice';
 
 export const rootReducer = combineReducers<RootState>({
   countries: countriesSlice.reducer,
@@ -16,4 +17,5 @@ export const rootReducer = combineReducers<RootState>({
   places: placesSlice.reducer,
   error: errorSlice.reducer,
   quotes: quotesSlice.reducer,
+  searchForm: searchFormSlice.reducer,
 });
