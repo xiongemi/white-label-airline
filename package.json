@@ -58,6 +58,7 @@
     "react-feature-toggles": "^3.0.3",
     "react-i18next": "^11.7.1",
     "react-redux": "^7.2.1",
+    "react-router-cache-route": "^1.10.0",
     "react-router-dom": "^5.2.0",
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
