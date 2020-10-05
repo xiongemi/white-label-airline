@@ -1,5 +1,5 @@
 import {
-  RootState,
+  RootStateInterface,
   countriesSelectors,
   countriesSlice,
 } from '@white-label-airline/store';
@@ -9,7 +9,7 @@ import { CountryInterface } from '@white-label-airline/services/countries';
 import { FormFieldProps } from '../../../models/form-field-props.interface';
 
 export const mapStateToProps = (
-  state: RootState
+  state: RootStateInterface
 ): { countries: CountryInterface[] } => {
   return {
     countries: countriesSelectors.getCountries(state),

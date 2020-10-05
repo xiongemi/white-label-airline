@@ -27,8 +27,10 @@ const Currency: React.FunctionComponent<CurrencyProps> = ({
   const { fieldError, fieldTouched } = useFieldErrorTouched(name);
 
   useEffect(() => {
-    getCurrencies();
-  }, [getCurrencies]);
+    if (!currencies || !currencies.length) {
+      getCurrencies();
+    }
+  }, [currencies, getCurrencies]);
 
   return (
     <Field

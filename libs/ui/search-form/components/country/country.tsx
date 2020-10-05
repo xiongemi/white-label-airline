@@ -27,8 +27,10 @@ const Country: React.FunctionComponent<CountryProps> = ({
   const { fieldError, fieldTouched } = useFieldErrorTouched(name);
 
   useEffect(() => {
-    getCountries();
-  }, [getCountries]);
+    if (!countries || !countries.length) {
+      getCountries();
+    }
+  }, [getCountries, countries]);
 
   return (
     <Field

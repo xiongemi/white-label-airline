@@ -13,14 +13,14 @@ import {
 } from '@white-label-airline/services/countries';
 
 import { languageSelectors } from '../language/language.selectors';
-import { RootState } from '../root';
+import { RootStateInterface } from '../root';
 import { errorSlice } from '../error/error.slice';
 
 import { countriesSlice } from './countries.slice';
 
 const getCountriesEpic: Epic = (
   action$: ActionsObservable<Action>,
-  states$: StateObservable<RootState>
+  states$: StateObservable<RootStateInterface>
 ) =>
   action$.pipe(
     ofType(countriesSlice.actions.getCountries.type),

@@ -7,15 +7,13 @@ import { currenciesSlice } from '../currencies/currencies.slice';
 import { placesSlice } from '../places/places.slice';
 import { quotesSlice } from '../quotes/quotes.slice';
 
-import { RootState } from './root-state.interface';
-import { searchFormSlice } from '../search-form/search-form.slice';
+import { RootStateInterface } from './root-state.interface';
 
-export const rootReducer = combineReducers<RootState>({
+export const rootReducer = combineReducers<RootStateInterface>({
   countries: countriesSlice.reducer,
   currencies: currenciesSlice.reducer,
   language: languageSlice.reducer,
   places: placesSlice.reducer,
   error: errorSlice.reducer,
   quotes: quotesSlice.reducer,
-  searchForm: searchFormSlice.reducer,
 });

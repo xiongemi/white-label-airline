@@ -1,36 +1,20 @@
 import { Dispatch } from '@reduxjs/toolkit';
 import {
-  RootState,
-  quotesSlice,
+  RootStateInterface,
   quotesSelectors,
-  SearchFormInterface,
-  searchFormSlice,
 } from '@white-label-airline/store';
 import { ButtonProps } from '@material-ui/core';
 
-export const mapStateToProps = (state: RootState) => {
-  return { quotesFetchStatus: quotesSelectors.getQuotesFetchStatus(state) };
+import { SearchFormInterface } from './models/search-form.interface';
+
+export const mapStateToProps = (state: RootStateInterface) => {
+  return {
+    quotesFetchStatus: quotesSelectors.getQuotesFetchStatus(state),
+  };
 };
 
 export const mapDispatchToProps = (dispatch: Dispatch) => {
-  return {
-    getQuotes(searchForm: SearchFormInterface) {
-      dispatch(
-        quotesSlice.actions.getQuotes({
-          country: searchForm.country.Code,
-          currency: searchForm.currency.Code,
-          from: searchForm.from.PlaceId,
-          to: searchForm.to.PlaceId,
-          departDate: searchForm.departDate,
-          returnDate: searchForm.returnDate,
-          isOutbound: true,
-        })
-      );
-    },
-    setSearchForm(searchForm: SearchFormInterface) {
-      dispatch(searchFormSlice.actions.setSearchForm(searchForm));
-    },
-  };
+  return {};
 };
 
 type mapStateToPropsType = ReturnType<typeof mapStateToProps>;

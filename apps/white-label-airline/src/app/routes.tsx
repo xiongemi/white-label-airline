@@ -11,7 +11,7 @@ export const Routes: React.FunctionComponent = () => {
         <Route path="/quotes">
           <QuotesPage />
         </Route>
-        <Route path="/">
+        <Route path="/search">
           <SearchPage />
         </Route>
       </Switch>

@@ -4,15 +4,14 @@ import { QuotePerLegInterface } from '@white-label-airline/services/quotes';
 import { FetchStatus } from '../models/fetch-status.enum';
 
 import { initialQuotesState } from './quotes-state-initial.const';
-import { StateObservable } from 'redux-observable';
 
 export interface GetQuotesPayload {
   country: string;
   currency: string;
   from: string;
   to: string;
-  departDate: Date;
-  returnDate: Date;
+  departDate: string; // date in 'yyyy-MM-dd'
+  returnDate: string; // date in 'yyyy-MM-dd'
   isOutbound: boolean;
 }
 

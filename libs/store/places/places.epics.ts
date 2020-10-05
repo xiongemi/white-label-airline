@@ -21,14 +21,14 @@ import {
 import { equals } from 'ramda';
 
 import { errorSlice } from '../error/error.slice';
-import { RootState } from '../root/root-state.interface';
+import { RootStateInterface } from '../root/root-state.interface';
 import { languageSelectors } from '../language/language.selectors';
 
 import { placesSlice, GetPlacesPayload } from './places.slice';
 
 const getPlacesEpic: Epic = (
   action$: ActionsObservable<PayloadAction<GetPlacesPayload>>,
-  states$: StateObservable<RootState>
+  states$: StateObservable<RootStateInterface>
 ) =>
   action$.pipe(
     ofType(placesSlice.actions.getPlaces.type),

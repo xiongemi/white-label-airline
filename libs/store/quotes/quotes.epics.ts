@@ -14,14 +14,14 @@ import {
 } from '@white-label-airline/services/quotes';
 
 import { errorSlice } from '../error/error.slice';
-import { RootState } from '../root/root-state.interface';
+import { RootStateInterface } from '../root/root-state.interface';
 import { languageSelectors } from '../language/language.selectors';
 
 import { GetQuotesPayload, quotesSlice } from './quotes.slice';
 
 const getQuotesEpic: Epic = (
   action$: ActionsObservable<PayloadAction<GetQuotesPayload>>,
-  states$: StateObservable<RootState>
+  states$: StateObservable<RootStateInterface>
 ) =>
   action$.pipe(
     ofType(quotesSlice.actions.getQuotes.type),

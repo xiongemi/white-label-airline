@@ -3,12 +3,12 @@ import { createEpicMiddleware } from 'redux-observable';
 import logger from 'redux-logger';
 
 import { rootReducer } from './root.reducer';
-import { RootState } from './root-state.interface';
+import { RootStateInterface } from './root-state.interface';
 import { rootEpic } from './root.epic';
 
 const epicMiddleware = createEpicMiddleware();
 
-export function configureAppStore(preloadedState?: RootState) {
+export function configureAppStore(preloadedState?: RootStateInterface) {
   const store = configureStore({
     reducer: rootReducer,
     middleware: [epicMiddleware, logger],

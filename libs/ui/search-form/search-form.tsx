@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Form, Field, getIn, withFormik, FormikProps } from 'formik';
 import { connect } from 'react-redux';
 import { Button, Grid, Box } from '@material-ui/core';
@@ -7,11 +7,8 @@ import { KeyboardDatePicker } from 'formik-material-ui-pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { FeatureToggle } from 'react-feature-toggles';
-import {
-  FetchStatus,
-  SearchFormInterface,
-  TripTypeEnum,
-} from '@white-label-airline/store';
+import { GetQuotesPayload } from '@white-label-airline/store';
+import { format } from 'date-fns';
 
 import { IsScreenSizeSm } from '../hooks/screen-size.hook';
 import { FeatureToggleNames } from '../models/feature-toggle-names.enum';
@@ -27,24 +24,15 @@ import Place from './components/place/place';
 import { defaultSearchForm } from './models/search-form-default.const';
 import TripType from './components/trip-type/trip-type';
 import { searchFormSchema } from './models/search-form.schema';
+import { SearchFormInterface } from './models/search-form.interface';
+import { TripTypeEnum } from './models/trip-type.enum';
 
 const SearchForm: React.FunctionComponent<SearchProps> = ({
   bottonProps,
-  quotesFetchStatus,
   values,
   errors,
-  setSubmitting,
-  submitSearch,
 }: SearchProps & FormikProps<SearchFormInterface>) => {
   const { t } = useTranslation();
-
-  useEffect(() => {
-    if (quotesFetchStatus === FetchStatus.Success) {
-      submitSearch();
-    } else if (quotesFetchStatus === FetchStatus.Error) {
-      setSubmitting(false);
-    }
-  }, [quotesFetchStatus, setSubmitting, submitSearch]);
 
   const isScreenSizeSm = IsScreenSizeSm();
 
@@ -85,6 +73,7 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
               name="to"
               country={values.country}
               currency={values.currency}
+              invalidPlaces={values.from && [values.from]}
             />
           </Grid>
           <Grid item xs={6} md={3}>
@@ -142,9 +131,17 @@ const SearchFormik = withFormik({
     return props.initSearchForm || defaultSearchForm;
   },
   validationSchema: searchFormSchema,
-  handleSubmit: (values: SearchFormInterface, { props, setSubmitting }) => {
-    props.getQuotes(values);
-    props.setSearchForm(values);
+  handleSubmit: (searchForm: SearchFormInterface, { props, setSubmitting }) => {
+    props.submitSearch({
+      country: searchForm.country.Code,
+      currency: searchForm.currency.Code,
+      from: searchForm.from.PlaceId,
+      to: searchForm.to.PlaceId,
+      departDate: format(searchForm.departDate, 'yyyy-MM-dd'),
+      returnDate:
+        searchForm.returnDate && format(searchForm.returnDate, 'yyyy-MM-dd'),
+      isOutbound: true,
+    } as GetQuotesPayload);
     setSubmitting(true);
   },
 })(SearchForm);

@@ -18,6 +18,7 @@ const Place: React.FunctionComponent<PlaceProps> = ({
   country,
   currency,
   getPlaces,
+  invalidPlaces,
   name,
   label,
 }: PlaceProps) => {
@@ -30,23 +31,29 @@ const Place: React.FunctionComponent<PlaceProps> = ({
     const element = event.currentTarget as HTMLInputElement;
     const userInput = element.value;
     if (userInput.length >= 3 && query !== userInput) {
+      getPlaces({
+        country: country,
+        currency: currency,
+        query: userInput,
+      });
       setQuery(userInput);
     }
   };
 
   useEffect(() => {
-    getPlaces({
-      country: country,
-      currency: currency,
-      query,
-    });
-  }, [country, currency, query, getPlaces]);
-
-  useEffect(() => {
     if (places.query === query) {
-      setFilteredPlaces(places.results);
+      if (invalidPlaces && invalidPlaces.length) {
+        const invalidPlacesIds = invalidPlaces.map((place) => place.PlaceId);
+        setFilteredPlaces(
+          places.results.filter(
+            (place) => !invalidPlacesIds.includes(place.PlaceId)
+          )
+        );
+      } else {
+        setFilteredPlaces(places.results);
+      }
     }
-  }, [query, places]);
+  }, [query, places, invalidPlaces]);
 
   return (
     <Field

@@ -12,17 +12,14 @@ async function getQuotes(
   locale: string,
   from: string,
   to: string,
-  departDate: Date,
-  returnDate?: Date
+  departDate: string,
+  returnDate?: string
 ): Promise<QuotesResponseInterface> {
-  const departDateString = format(departDate, 'yyyy-MM-dd');
-
   const url = new URL(
-    `${process.env.NX_API_BROWSE_QUOTES}/${country}/${currency}/${locale}/${from}/${to}/${departDateString}`
+    `${process.env.NX_API_BROWSE_QUOTES}/${country}/${currency}/${locale}/${from}/${to}/${departDate}`
   );
   if (returnDate) {
-    const returnDateString = returnDate ? format(returnDate, 'yyyy-MM-dd') : '';
-    url.searchParams.set('query', returnDateString);
+    url.searchParams.set('query', returnDate);
   }
 
   const response = await fetch(url.toString(), {

@@ -1,5 +1,6 @@
 import * as yup from 'yup';
-import { TripTypeEnum } from '@white-label-airline/store';
+
+import { TripTypeEnum } from './trip-type.enum';
 
 export const searchFormSchema = yup.object().shape({
   country: yup
@@ -24,7 +25,11 @@ export const searchFormSchema = yup.object().shape({
     .required('messages.required')
     .typeError('messages.required'),
   departDate: yup.date().required('messages.required'),
-  to: yup.object().nullable().required('messages.required'),
+  to: yup
+    .object()
+    .nullable()
+    .required('messages.required')
+    .typeError('messages.required'),
   returnDate: yup
     .date()
     .nullable()

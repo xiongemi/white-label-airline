@@ -1,5 +1,5 @@
-import { RootState } from '../root';
+import { RootStateInterface } from '../root';
 
-const getCountries = (rootState: RootState) => rootState.countries;
+const getCountries = (rootState: RootStateInterface) => rootState.countries;
 
 export const countriesSelectors = { getCountries };

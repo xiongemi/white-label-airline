@@ -1,5 +1,6 @@
-import { RootState } from '../root';
+import { RootStateInterface } from '../root';
 
-const getLanguage = (rootState: RootState): string => rootState.language;
+const getLanguage = (rootState: RootStateInterface): string =>
+  rootState.language;
 
 export const languageSelectors = { getLanguage };

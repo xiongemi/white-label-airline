@@ -1,4 +1,5 @@
-import { SearchFormInterface, TripTypeEnum } from '@white-label-airline/store';
+import { SearchFormInterface } from './search-form.interface';
+import { TripTypeEnum } from './trip-type.enum';
 
 export const defaultSearchForm: SearchFormInterface = {
   country: null,
