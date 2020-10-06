@@ -13,7 +13,12 @@
   },
   "quotes": {
     "direct": "Direct",
-    "layover": "Layover"
+    "layover": "Layover",
+    "noFlightsFound": {
+      "title": "No Flights Found!",
+      "description": "No flights found for this route and date combination."
+    },
+    "modifySearch": "Modify Search"
   },
   "messages": {
     "required": "{{ field }} is required.",
