@@ -37,6 +37,13 @@
     },
     "services": {
       "tags": []
+    },
+    "abc-airline": {
+      "tags": []
+    },
+    "abc-airline-e2e": {
+      "tags": [],
+      "implicitDependencies": ["abc-airline"]
     }
   }
 }

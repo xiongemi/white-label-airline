@@ -1,0 +1,31 @@
+{
+  "header": {
+    "title": "ABC Airline"
+  },
+  "search": {
+    "country": "Country",
+    "currency": "Currency",
+    "search": "Search",
+    "oneWay": "One Way",
+    "roundTrip": "Round Trip",
+    "tripType": "Trip Type",
+    "departDate": "Depart Date",
+    "returnDate": "Return Date",
+    "from": "From",
+    "to": "To"
+  },
+  "quotes": {
+    "direct": "Direct",
+    "layover": "Layover",
+    "noFlightsFound": {
+      "title": "No Flights Found!",
+      "description": "No flights found for this route and date combination."
+    },
+    "modifySearch": "Modify Search"
+  },
+  "messages": {
+    "required": "{{ field }} is required.",
+    "minDate": "{{ returnDate }} should be before {{ departDate }}."
+  },
+  "loading": "Loading..."
+}

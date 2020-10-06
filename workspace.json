@@ -191,6 +191,105 @@
           }
         }
       }
+    },
+    "abc-airline": {
+      "root": "apps/abc-airline",
+      "sourceRoot": "apps/abc-airline/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:build",
+          "options": {
+            "outputPath": "dist/apps/abc-airline",
+            "index": "apps/abc-airline/src/index.html",
+            "main": "apps/abc-airline/src/main.tsx",
+            "polyfills": "apps/abc-airline/src/polyfills.ts",
+            "tsConfig": "apps/abc-airline/tsconfig.app.json",
+            "assets": [
+              "apps/abc-airline/src/favicon.ico",
+              "apps/abc-airline/src/assets"
+            ],
+            "styles": ["apps/abc-airline/src/styles.css"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/abc-airline/src/environments/environment.ts",
+                  "with": "apps/abc-airline/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "abc-airline:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "abc-airline:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/abc-airline/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/abc-airline/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "abc-airline-e2e": {
+      "root": "apps/abc-airline-e2e",
+      "sourceRoot": "apps/abc-airline-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/abc-airline-e2e/cypress.json",
+            "tsConfig": "apps/abc-airline-e2e/tsconfig.e2e.json",
+            "devServerTarget": "abc-airline:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "abc-airline:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/abc-airline-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
     }
   },
   "cli": {

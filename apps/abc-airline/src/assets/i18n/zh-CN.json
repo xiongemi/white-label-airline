@@ -1,0 +1,26 @@
+{
+  "header": {
+    "title": "ABC 航空"
+  },
+  "search": {
+    "country": "国家",
+    "currency": "货币",
+    "search": "搜索",
+    "oneWay": "单程",
+    "roundTrip": "往返",
+    "tripType": "旅行种类",
+    "departDate": "出发日",
+    "returnDate": "回来日",
+    "from": "出发地",
+    "to": "到达地"
+  },
+  "quotes": {
+    "direct": "直飞",
+    "layover": "转飞"
+  },
+  "messages": {
+    "required": "请填写{{ field }}",
+    "minDate": "{{ returnDate }}必须在{{ departDate }}前"
+  },
+  "loading": "加载中……"
+}
