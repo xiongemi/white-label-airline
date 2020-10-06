@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Quotes from '@white-label-airline/ui/quotes';
+import Quotes, { QuotesQueryParams } from '@white-label-airline/ui/quotes';
 import { useHistory, useLocation } from 'react-router-dom';
-import { GetQuotesPayload } from '@white-label-airline/store';
 import { parse } from 'query-string';
 
 import { RoutesPath } from '../../app/routes-path.enum';
@@ -9,11 +8,11 @@ import { RoutesPath } from '../../app/routes-path.enum';
 const QuotesPage: React.FunctionComponent = () => {
   const history = useHistory();
   const { search, pathname } = useLocation();
-  const [queryParams, setQueryParams] = useState<GetQuotesPayload>();
+  const [queryParams, setQueryParams] = useState<QuotesQueryParams>();
   const [isOutbound, setIsOutbound] = useState<boolean>();
 
   useEffect(() => {
-    setQueryParams((parse(search) as unknown) as GetQuotesPayload);
+    setQueryParams((parse(search) as unknown) as QuotesQueryParams);
   }, [search]);
 
   useEffect(() => {
@@ -39,7 +38,7 @@ const QuotesPage: React.FunctionComponent = () => {
   return (
     <Quotes
       modifySearch={modifySearch}
-      getQuotesPayload={queryParams}
+      queryParams={queryParams}
       isOutbound={isOutbound}
       selectQuote={selectQuote}
     />

@@ -8,6 +8,8 @@ import {
 import { Dispatch } from '@reduxjs/toolkit';
 import { QuotePerLegInterface } from '@white-label-airline/services/quotes';
 
+import { QuotesQueryParams } from './models/quotes-query-params.interface';
+
 export const mapStateToProps = (state: RootStateInterface) => {
   return {
     quotes: quotesSelectors.getQuotes(state),
@@ -29,7 +31,7 @@ type mapDispatchToPropsType = ReturnType<typeof mapDispatchToProps>;
 
 export type QuotesProps = mapStateToPropsType &
   mapDispatchToPropsType & {
-    getQuotesPayload: GetQuotesPayload;
+    queryParams: QuotesQueryParams;
     modifySearch?: () => void;
     isOutbound: boolean;
     selectQuote: (quote: QuotePerLegInterface) => void;

@@ -12,7 +12,7 @@ import QuotesList from './components/quotes-list/quotes-list';
 
 const Quotes: React.FunctionComponent<QuotesProps> = ({
   quotes,
-  getQuotesPayload,
+  queryParams,
   modifySearch,
   language,
   getQuotes,
@@ -21,17 +21,19 @@ const Quotes: React.FunctionComponent<QuotesProps> = ({
   selectQuote,
 }: QuotesProps) => {
   useEffect(() => {
-    if (getQuotesPayload) {
-      getQuotesPayload.isOutbound = isOutbound;
-      getQuotes(getQuotesPayload);
+    if (queryParams) {
+      getQuotes({
+        ...queryParams,
+        isOutbound,
+      });
     }
-  }, [getQuotes, getQuotesPayload, isOutbound]);
+  }, [getQuotes, queryParams, isOutbound]);
 
   return (
     <LoadingFetchStatus fetchStatus={quotesFetchStatus}>
       <QuotesList
         language={language}
-        currency={getQuotesPayload?.currency}
+        currency={queryParams?.currency}
         modifySearch={modifySearch}
         quotes={isOutbound ? quotes.outbound : quotes.inbound}
         selectQuote={selectQuote}

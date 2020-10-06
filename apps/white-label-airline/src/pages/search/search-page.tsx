@@ -3,12 +3,13 @@ import SearchForm, {
   SearchFormInterface,
   searchFormDataTransform,
 } from '@white-label-airline/ui/search-form';
+import { QuotesQueryParams } from '@white-label-airline/ui/quotes';
 import { useHistory, useLocation } from 'react-router-dom';
-import { GetQuotesPayload } from '@white-label-airline/store';
 import { parse } from 'query-string';
 
-import { initSearchForm } from './search-form-init.const';
 import { RoutesPath } from '../../app/routes-path.enum';
+
+import { initSearchForm } from './search-form-init.const';
 
 const SearchPage: React.FunctionComponent = () => {
   const history = useHistory();
@@ -17,8 +18,8 @@ const SearchPage: React.FunctionComponent = () => {
 
   useEffect(() => {
     if (search) {
-      const query = (parse(search) as unknown) as GetQuotesPayload;
-      const searchFormValuesFromQuery = searchFormDataTransform.transfromGetQuotesPayloadToSearchForm(
+      const query = (parse(search) as unknown) as QuotesQueryParams;
+      const searchFormValuesFromQuery = searchFormDataTransform.transfromQuotesQueryParamsToSearchFormValues(
         query
       );
       setQueryParams(searchFormValuesFromQuery);
@@ -30,7 +31,7 @@ const SearchPage: React.FunctionComponent = () => {
     { setSubmitting }
   ) => {
     const searchParams = new URLSearchParams();
-    const query = searchFormDataTransform.transformSearchFormValuesToGetQuotesPayload(
+    const query = searchFormDataTransform.transformSearchFormValuesToQuotesQueryParams(
       searchFormValues
     );
     for (const key in query) {

@@ -1,6 +1,7 @@
 import { format, parse } from 'date-fns';
-import { GetQuotesPayload } from '@white-label-airline/store';
-import { mergeDeepRight, reject, isNil } from 'ramda';
+import { mergeDeepRight } from 'ramda';
+
+import { QuotesQueryParams } from '../quotes/models/quotes-query-params.interface';
 
 import { SearchFormInterface } from './models/search-form.interface';
 import { defaultSearchForm } from './models/search-form-default.const';
@@ -8,49 +9,48 @@ import { TripTypeEnum } from './models/trip-type.enum';
 
 const dateFormat = 'yyyy-MM-dd';
 
-const transformSearchFormValuesToGetQuotesPayload = (
+const transformSearchFormValuesToQuotesQueryParams = (
   searchForm: SearchFormInterface
-): GetQuotesPayload => {
-  const getQuotesPayload = {
+): QuotesQueryParams => {
+  const quotesQueryParams = {
     country: searchForm.country.Code,
     currency: searchForm.currency.Code,
     from: searchForm.from.PlaceId,
     to: searchForm.to.PlaceId,
     departDate: format(searchForm.departDate, dateFormat),
+    tripType: searchForm.tripType,
   };
   if (searchForm.tripType === TripTypeEnum.RoundTrip && searchForm.returnDate) {
-    getQuotesPayload['returnDate'] = format(searchForm.returnDate, dateFormat);
+    quotesQueryParams['returnDate'] = format(searchForm.returnDate, dateFormat);
   }
-  return getQuotesPayload;
+  return quotesQueryParams;
 };
 
-const transfromGetQuotesPayloadToSearchForm = (
-  getQuotesPayload: GetQuotesPayload
+const transfromQuotesQueryParamsToSearchFormValues = (
+  quotesQueryParams: QuotesQueryParams
 ): SearchFormInterface => {
   return mergeDeepRight(defaultSearchForm, {
     country: {
-      Code: getQuotesPayload.country,
+      Code: quotesQueryParams.country,
     },
     currency: {
-      Code: getQuotesPayload.currency,
+      Code: quotesQueryParams.currency,
     },
     from: {
-      PlaceId: getQuotesPayload.from,
+      PlaceId: quotesQueryParams.from,
     },
     to: {
-      PlaceId: getQuotesPayload.to,
+      PlaceId: quotesQueryParams.to,
     },
-    departDate: parse(getQuotesPayload.departDate, dateFormat, new Date()),
+    departDate: parse(quotesQueryParams.departDate, dateFormat, new Date()),
     returnDate:
-      getQuotesPayload.returnDate &&
-      parse(getQuotesPayload.returnDate, dateFormat, new Date()),
-    tripType: getQuotesPayload.returnDate
-      ? TripTypeEnum.RoundTrip
-      : TripTypeEnum.OneWay,
+      quotesQueryParams.returnDate &&
+      parse(quotesQueryParams.returnDate, dateFormat, new Date()),
+    tripType: quotesQueryParams.tripType,
   });
 };
 
 export const searchFormDataTransform = {
-  transformSearchFormValuesToGetQuotesPayload,
-  transfromGetQuotesPayloadToSearchForm,
+  transformSearchFormValuesToQuotesQueryParams,
+  transfromQuotesQueryParamsToSearchFormValues,
 };
