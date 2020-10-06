@@ -62,7 +62,9 @@ const Place: React.FunctionComponent<PlaceProps> = ({
       disabled={!currency || !country || isSubmitting}
       options={filteredPlaces}
       getOptionLabel={(option: PlaceInterface) =>
-        `${option.PlaceName} (${option.PlaceId})`
+        option.PlaceName
+          ? `${option.PlaceName} (${option.PlaceId})`
+          : option.PlaceId
       }
       getOptionSelected={(option: PlaceInterface, value: PlaceInterface) =>
         option?.PlaceId === value?.PlaceId

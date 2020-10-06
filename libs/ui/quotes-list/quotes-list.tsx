@@ -11,6 +11,7 @@ import {
 } from './quotes-list.props';
 import Quote from './components/quote/quote';
 import NoFlightsFound from './components/no-flights-found/no-flight-found';
+import { List, Divider } from '@material-ui/core';
 
 const QuotesList: React.FunctionComponent<QuotesListProps> = ({
   quotes,
@@ -36,15 +37,20 @@ const QuotesList: React.FunctionComponent<QuotesListProps> = ({
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
       {quotes.outbound && quotes.outbound.length ? (
-        quotes.outbound.map((quote) => {
-          return (
-            <Quote
-              quote={quote}
-              currency={queryParams?.currency}
-              language={language}
-            />
-          );
-        })
+        <List>
+          {quotes.outbound.map((quote) => {
+            return (
+              <>
+                <Quote
+                  quote={quote}
+                  currency={queryParams?.currency}
+                  language={language}
+                />
+                <Divider />
+              </>
+            );
+          })}
+        </List>
       ) : (
         <NoFlightsFound modifySearch={modifySearch} />
       )}

@@ -10,4 +10,5 @@ module.exports = {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'html'],
   coverageDirectory: '../../coverage/apps/white-label-airline',
+  setupFilesAfterEnv: ['./jest.setup.js'],
 };

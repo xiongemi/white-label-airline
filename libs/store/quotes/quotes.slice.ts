@@ -11,8 +11,8 @@ export interface GetQuotesPayload {
   from: string;
   to: string;
   departDate: string; // date in 'yyyy-MM-dd'
-  returnDate: string; // date in 'yyyy-MM-dd'
-  isOutbound: boolean;
+  returnDate?: string; // date in 'yyyy-MM-dd'
+  isOutbound?: boolean;
 }
 
 export interface GetQuotesSuccessPayload {

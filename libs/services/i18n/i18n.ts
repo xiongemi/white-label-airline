@@ -3,7 +3,7 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpApi from 'i18next-http-backend';
 
-export function setI18n(loadPath: string) {
+export function setI18n(loadPath: string): typeof i18n {
   i18n
     .use(LanguageDetector)
     .use(initReactI18next)

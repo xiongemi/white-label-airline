@@ -125,13 +125,13 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
 
 const SearchFormik = withFormik({
   displayName: 'SearchForm',
+  enableReinitialize: true,
   mapPropsToValues: (props: SearchProps): SearchFormInterface => {
     return props.initSearchForm || defaultSearchForm;
   },
   validationSchema: searchFormSchema,
   handleSubmit: (searchForm: SearchFormInterface, { props, setSubmitting }) => {
-    props.submitSearch(searchForm);
-    setSubmitting(false);
+    props.submitSearch(searchForm, { setSubmitting });
   },
 })(SearchForm);
 

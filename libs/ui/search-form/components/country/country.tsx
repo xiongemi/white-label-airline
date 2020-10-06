@@ -37,7 +37,7 @@ const Country: React.FunctionComponent<CountryProps> = ({
       loading={!countries || !countries.length}
       component={Autocomplete}
       options={countries}
-      getOptionLabel={(option: CountryInterface) => option.Name}
+      getOptionLabel={(option: CountryInterface) => option.Name || option.Code}
       getOptionSelected={(option: CountryInterface, value: CountryInterface) =>
         option.Code === value.Code
       }

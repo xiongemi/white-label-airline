@@ -1,3 +1,92 @@
 import { QuotesResponseInterface } from './quotes-response.interface';
 
-export const mockQuotesResponse = {};
+export const mockQuotesResponse: QuotesResponseInterface = {
+  Quotes: [
+    {
+      QuoteId: 1,
+      MinPrice: 273.0,
+      Direct: false,
+      OutboundLeg: {
+        CarrierIds: [857],
+        OriginId: 96474,
+        DestinationId: 50290,
+        DepartureDate: '2020-10-08T00:00:00',
+      },
+      QuoteDateTime: '2020-10-04T02:26:00',
+    },
+    {
+      QuoteId: 2,
+      MinPrice: 345.0,
+      Direct: true,
+      OutboundLeg: {
+        CarrierIds: [835],
+        OriginId: 96474,
+        DestinationId: 65633,
+        DepartureDate: '2020-10-08T00:00:00',
+      },
+      QuoteDateTime: '2020-10-05T01:38:00',
+    },
+  ],
+  Places: [
+    {
+      PlaceId: 50290,
+      IataCode: 'EWR',
+      Name: 'New York Newark',
+      Type: 'Station',
+      SkyscannerCode: 'EWR',
+      CityName: 'New York',
+      CityId: 'NYCA',
+      CountryName: 'United States',
+    },
+    {
+      PlaceId: 60987,
+      IataCode: 'JFK',
+      Name: 'New York John F. Kennedy',
+      Type: 'Station',
+      SkyscannerCode: 'JFK',
+      CityName: 'New York',
+      CityId: 'NYCA',
+      CountryName: 'United States',
+    },
+    {
+      PlaceId: 65633,
+      IataCode: 'LGA',
+      Name: 'New York LaGuardia',
+      Type: 'Station',
+      SkyscannerCode: 'LGA',
+      CityName: 'New York',
+      CityId: 'NYCA',
+      CountryName: 'United States',
+    },
+    {
+      PlaceId: 96474,
+      IataCode: 'YYZ',
+      Name: 'Toronto Pearson International',
+      Type: 'Station',
+      SkyscannerCode: 'YYZ',
+      CityName: 'Toronto',
+      CityId: 'YTOA',
+      CountryName: 'Canada',
+    },
+  ],
+  Carriers: [
+    { CarrierId: 835, Name: 'Air Canada' },
+    { CarrierId: 857, Name: 'Finnair' },
+    { CarrierId: 1317, Name: 'Korean Air' },
+    { CarrierId: 1368, Name: 'Lufthansa' },
+    { CarrierId: 1793, Name: 'United' },
+    { CarrierId: 1907, Name: 'WestJet' },
+  ],
+  Currencies: [
+    {
+      Code: 'CAD',
+      Symbol: 'C$',
+      ThousandsSeparator: ',',
+      DecimalSeparator: '.',
+      SymbolOnLeft: true,
+      SpaceBetweenAmountAndSymbol: false,
+      RoundingCoefficient: 0,
+      DecimalDigits: 2,
+    },
+  ],
+};

@@ -1,6 +1,17 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
-import { useTranslation } from 'react-i18next';
+import {
+  ListItem,
+  Collapse,
+  ListItemSecondaryAction,
+  IconButton,
+  Divider,
+  Box,
+} from '@material-ui/core';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+
+import QuoteDetails from '../quote-details/quote-details';
+import QuoteHeader from '../quote-header/quote-header';
 
 import { QuoteProps } from './quote.props';
 
@@ -9,23 +20,33 @@ const Quote: React.FunctionComponent<QuoteProps> = ({
   language,
   currency,
 }: QuoteProps) => {
-  const { t } = useTranslation();
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(!open);
+  };
 
   return (
-    <Grid container spacing={3}>
-      <Grid item xs={4}>
-        {quote.carriers.join(', ')}
-      </Grid>
-      <Grid item xs={4}>
-        {t(quote.direct ? 'quotes.direct' : 'quotes.layover')}
-      </Grid>
-      <Grid item xs={4}>
-        {new Intl.NumberFormat(language, {
-          style: 'currency',
-          currency,
-        }).format(quote.minPrice)}
-      </Grid>
-    </Grid>
+    <>
+      <ListItem button onClick={handleClick}>
+        <QuoteHeader quote={quote} language={language} currency={currency} />
+        <ListItemSecondaryAction>
+          <IconButton
+            edge="end"
+            aria-label="view details"
+            onClick={handleClick}
+          >
+            {open ? <ExpandLess /> : <ExpandMore />}
+          </IconButton>
+        </ListItemSecondaryAction>
+      </ListItem>
+      <Collapse in={open} timeout="auto" unmountOnExit>
+        <Divider variant="middle" />
+        <Box p={3}>
+          <QuoteDetails quote={quote} />
+        </Box>
+      </Collapse>
+    </>
   );
 };
 
