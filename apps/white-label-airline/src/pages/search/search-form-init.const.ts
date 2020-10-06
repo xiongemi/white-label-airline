@@ -4,15 +4,15 @@ import {
 } from '@white-label-airline/ui/search-form';
 
 export const initSearchForm: SearchFormInterface = {
-  country: { Code: 'CN', Name: 'China' },
+  country: { Code: 'CA', Name: 'Canada' },
   tripType: TripTypeEnum.RoundTrip,
   currency: {
-    Code: 'CNY',
+    Code: 'CAD',
     DecimalDigits: 2,
     DecimalSeparator: '.',
     RoundingCoefficient: 0,
     SpaceBetweenAmountAndSymbol: false,
-    Symbol: '¥',
+    Symbol: 'C$',
     SymbolOnLeft: true,
     ThousandsSeparator: ',',
   },

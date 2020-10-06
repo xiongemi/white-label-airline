@@ -9,6 +9,8 @@ import {
   mapDispatchToProps,
 } from './quotes.props';
 import QuotesList from './components/quotes-list/quotes-list';
+import { Typography } from '@material-ui/core';
+import { useTranslation } from 'react-i18next';
 
 const Quotes: React.FunctionComponent<QuotesProps> = ({
   quotes,
@@ -20,6 +22,8 @@ const Quotes: React.FunctionComponent<QuotesProps> = ({
   isOutbound,
   selectQuote,
 }: QuotesProps) => {
+  const { t } = useTranslation();
+
   useEffect(() => {
     if (queryParams) {
       getQuotes({
@@ -31,6 +35,14 @@ const Quotes: React.FunctionComponent<QuotesProps> = ({
 
   return (
     <LoadingFetchStatus fetchStatus={quotesFetchStatus}>
+      <Typography gutterBottom variant="h6" component="h3">
+        {t(
+          isOutbound
+            ? 'quotes.selectDepartingFlights'
+            : 'quotes.selectReturnFlights'
+        )}{' '}
+        :
+      </Typography>
       <QuotesList
         language={language}
         currency={queryParams?.currency}

@@ -16,7 +16,14 @@
   },
   "quotes": {
     "direct": "直飞",
-    "layover": "转飞"
+    "layover": "转飞",
+    "noFlightsFound": {
+      "title": "没有找到航班",
+      "description": "没有找到所选日期的航班。"
+    },
+    "modifySearch": "修改搜索",
+    "selectDepartingFlights": "请选择你出发的航班",
+    "selectReturnFlights": "请选择你返回的航班"
   },
   "messages": {
     "required": "请填写{{ field }}",
