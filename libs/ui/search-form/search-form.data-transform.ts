@@ -18,7 +18,7 @@ const transformSearchFormValuesToGetQuotesPayload = (
     to: searchForm.to.PlaceId,
     departDate: format(searchForm.departDate, dateFormat),
   };
-  if (searchForm.returnDate) {
+  if (searchForm.tripType === TripTypeEnum.RoundTrip && searchForm.returnDate) {
     getQuotesPayload['returnDate'] = format(searchForm.returnDate, dateFormat);
   }
   return getQuotesPayload;

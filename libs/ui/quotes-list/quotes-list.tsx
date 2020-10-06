@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { parse } from 'query-string';
 import { GetQuotesPayload } from '@white-label-airline/store';
+import { List, Divider } from '@material-ui/core';
 
 import {
   QuotesListProps,
@@ -11,7 +12,6 @@ import {
 } from './quotes-list.props';
 import Quote from './components/quote/quote';
 import NoFlightsFound from './components/no-flights-found/no-flight-found';
-import { List, Divider } from '@material-ui/core';
 
 const QuotesList: React.FunctionComponent<QuotesListProps> = ({
   quotes,
