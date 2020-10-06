@@ -1,4 +1,7 @@
 {
+  "header": {
+    "title": "White Label Airline"
+  },
   "search": {
     "country": "Country",
     "currency": "Currency",
