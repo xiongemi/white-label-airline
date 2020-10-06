@@ -26,5 +26,8 @@ export const mapDispatchToProps = (dispatch: Dispatch) => {
 type mapStateToPropsType = ReturnType<typeof mapStateToProps>;
 type mapDispatchToPropsType = ReturnType<typeof mapDispatchToProps>;
 
-export type QuotesListProps = mapStateToPropsType &
-  mapDispatchToPropsType & { modifySearch?: Function };
+export type QuotesProps = mapStateToPropsType &
+  mapDispatchToPropsType & {
+    getQuotesPayload: GetQuotesPayload;
+    modifySearch?: () => void;
+  };
