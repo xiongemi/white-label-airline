@@ -8,6 +8,7 @@ import { GetQuotesPayload } from '@white-label-airline/store';
 import { parse } from 'query-string';
 
 import { initSearchForm } from './search-form-init.const';
+import { RoutesPath } from '../../app/routes-path.enum';
 
 const SearchPage: React.FunctionComponent = () => {
   const history = useHistory();
@@ -36,7 +37,10 @@ const SearchPage: React.FunctionComponent = () => {
       searchParams.set(key, query[key]);
     }
     setSubmitting(false);
-    history.push({ pathname: '/quotes', search: searchParams.toString() });
+    history.push({
+      pathname: RoutesPath.Outbound,
+      search: searchParams.toString(),
+    });
   };
 
   return (

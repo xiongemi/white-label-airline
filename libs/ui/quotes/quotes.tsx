@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import LoadingFetchStatus from '../loading-fetch-status/loading-fetch-status';
@@ -17,9 +17,9 @@ const Quotes: React.FunctionComponent<QuotesProps> = ({
   language,
   getQuotes,
   quotesFetchStatus,
+  isOutbound,
+  selectQuote,
 }: QuotesProps) => {
-  const [isOutbound, setIsOutbound] = useState<boolean>(true);
-
   useEffect(() => {
     if (getQuotesPayload) {
       getQuotesPayload.isOutbound = isOutbound;
@@ -34,6 +34,7 @@ const Quotes: React.FunctionComponent<QuotesProps> = ({
         currency={getQuotesPayload?.currency}
         modifySearch={modifySearch}
         quotes={isOutbound ? quotes.outbound : quotes.inbound}
+        selectQuote={selectQuote}
       />
     </LoadingFetchStatus>
   );

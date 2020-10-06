@@ -6,6 +6,7 @@ import {
   GetQuotesPayload,
 } from '@white-label-airline/store';
 import { Dispatch } from '@reduxjs/toolkit';
+import { QuotePerLegInterface } from '@white-label-airline/services/quotes';
 
 export const mapStateToProps = (state: RootStateInterface) => {
   return {
@@ -30,4 +31,6 @@ export type QuotesProps = mapStateToPropsType &
   mapDispatchToPropsType & {
     getQuotesPayload: GetQuotesPayload;
     modifySearch?: () => void;
+    isOutbound: boolean;
+    selectQuote: (quote: QuotePerLegInterface) => void;
   };

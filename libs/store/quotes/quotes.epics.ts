@@ -33,17 +33,14 @@ const getQuotesEpic: Epic = (
           payload.country,
           payload.currency,
           language,
-          payload.from,
-          payload.to,
-          payload.departDate,
+          payload.isOutbound ? payload.from : payload.to,
+          payload.isOutbound ? payload.to : payload.from,
+          payload.isOutbound ? payload.departDate : payload.returnDate,
           payload.returnDate
         )
       ).pipe(
         map((response) =>
-          quotesDataTransfrom.transformQuotesResponseToQuotes(
-            response,
-            payload.isOutbound
-          )
+          quotesDataTransfrom.transformQuotesResponseToQuotes(response)
         ),
         map((quotes: QuotePerLegInterface[]) =>
           quotesSlice.actions.getQuotesSuccess({

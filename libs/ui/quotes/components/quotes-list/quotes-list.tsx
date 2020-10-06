@@ -11,15 +11,21 @@ const QuotesList: React.FunctionComponent<QuotesListProps> = ({
   currency,
   language,
   modifySearch,
+  selectQuote,
 }: QuotesListProps) => {
   return quotes && quotes.length ? (
     <List>
       {quotes.map((quote) => {
         return (
-          <>
-            <Quote quote={quote} currency={currency} language={language} />
+          <div key={quote.id}>
+            <Quote
+              quote={quote}
+              currency={currency}
+              language={language}
+              selectQuote={selectQuote}
+            />
             <Divider />
-          </>
+          </div>
         );
       })}
     </List>

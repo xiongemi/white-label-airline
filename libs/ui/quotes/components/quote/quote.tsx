@@ -19,23 +19,24 @@ const Quote: React.FunctionComponent<QuoteProps> = ({
   quote,
   language,
   currency,
+  selectQuote,
 }: QuoteProps) => {
   const [open, setOpen] = React.useState(false);
 
-  const handleClick = () => {
+  const toggleOpen = () => {
     setOpen(!open);
+  };
+
+  const handleQuoteClick = () => {
+    selectQuote(quote);
   };
 
   return (
     <>
-      <ListItem button onClick={handleClick}>
+      <ListItem button onClick={handleQuoteClick}>
         <QuoteHeader quote={quote} language={language} currency={currency} />
         <ListItemSecondaryAction>
-          <IconButton
-            edge="end"
-            aria-label="view details"
-            onClick={handleClick}
-          >
+          <IconButton edge="end" aria-label="view details" onClick={toggleOpen}>
             {open ? <ExpandLess /> : <ExpandMore />}
           </IconButton>
         </ListItemSecondaryAction>

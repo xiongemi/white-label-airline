@@ -10,19 +10,18 @@ import { PlacePerQuoteInterface } from './models/place-per-quote.interface';
  * @return { QuotePerLegInterface[] }
  */
 const transformQuotesResponseToQuotes = (
-  quotesResponse: QuotesResponseInterface,
-  isOutbound = true
+  quotesResponse: QuotesResponseInterface
 ): QuotePerLegInterface[] => {
   const carriers = quotesResponse.Carriers;
   const places = quotesResponse.Places;
   return quotesResponse.Quotes.map(
     (quote: QuoteResponseInterface): QuotePerLegInterface => {
-      const leg = isOutbound ? quote.OutboundLeg : quote.InboundLeg;
+      const leg = quote.OutboundLeg;
       return {
         id: quote.QuoteId,
         minPrice: quote.MinPrice,
         direct: quote.Direct,
-        carriers: leg.CarrierIds.map(
+        carriers: leg?.CarrierIds.map(
           (carrierId) =>
             carriers.find((carrier) => carrier.CarrierId === carrierId)?.Name
         ),

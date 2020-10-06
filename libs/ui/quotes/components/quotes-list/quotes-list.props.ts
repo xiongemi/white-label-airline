@@ -4,5 +4,6 @@ export interface QuotesListProps {
   quotes: QuotePerLegInterface[];
   currency: string;
   language: string;
+  selectQuote: (quote: QuotePerLegInterface) => void;
   modifySearch?: () => void;
 }
