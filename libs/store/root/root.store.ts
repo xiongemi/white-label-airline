@@ -11,7 +11,10 @@ const epicMiddleware = createEpicMiddleware();
 export function configureAppStore(preloadedState?: RootStateInterface) {
   const store = configureStore({
     reducer: rootReducer,
-    middleware: [epicMiddleware, logger],
+    middleware:
+      process.env.NODE_ENV !== 'production'
+        ? [epicMiddleware, logger]
+        : [epicMiddleware],
     preloadedState,
     devTools: true,
   });

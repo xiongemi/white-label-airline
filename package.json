@@ -27,7 +27,7 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "predeploy": "npm run build -- --baseHref=/white-label-airline/",
+    "predeploy": "npm run build -- --prod --baseHref=/white-label-airline/",
     "deploy": "gh-pages -d dist/apps/white-label-airline"
   },
   "private": false,

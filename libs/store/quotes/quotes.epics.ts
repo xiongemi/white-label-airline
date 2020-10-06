@@ -6,7 +6,7 @@ import {
   StateObservable,
 } from 'redux-observable';
 import { map, catchError, switchMap, withLatestFrom } from 'rxjs/operators';
-import { from, of } from 'rxjs';
+import { from } from 'rxjs';
 import {
   quotesService,
   quotesDataTransfrom,
