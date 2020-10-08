@@ -1,8 +1,24 @@
 # White Label Airline React
 
-This project was generated using [Nx](https://nx.dev).
+This project is a sample flight search app generated using [Nx](https://nx.dev).
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+## Structure
+
+- libraries
+  - services: api services and response models
+  - store: redux store
+  - ui: common ui elements shared among the apps
+- applications
+  - white-label-airline: a sample app with all feature toggles and en-GB as default locale
+  - abc-airline: a sample app with all feature toggles off and zh-CN as default locale
+
+## Commands
+
+- deploy to GitHub Pages: `npm run deploy`
+- run lint for all libraries: `npm run lint:library`
+- run lint with fix for all libraries: `lint:library:fix`
+
+---
 
 🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
 
