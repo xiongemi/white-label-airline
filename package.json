@@ -5,7 +5,7 @@
   "homepage": "http://xiongemi.github.io/white-label-airline",
   "scripts": {
     "nx": "nx",
-    "start": "nx serve --baseHref=/white-label-airline/",
+    "start": "nx serve",
     "build": "nx build --buildLibsFromSource",
     "test": "nx test",
     "lint": "nx workspace-lint && nx lint",
@@ -27,7 +27,7 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "predeploy": "npm run build -- --prod --baseHref=/white-label-airline/",
+    "predeploy": "NX_BASE_HREF=/white-label-airline/ npm run build -- --prod --baseHref=/white-label-airline/",
     "deploy": "gh-pages -d dist/apps/white-label-airline"
   },
   "private": false,
