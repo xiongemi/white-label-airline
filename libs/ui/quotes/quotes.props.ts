@@ -1,7 +1,6 @@
 import {
   RootStateInterface,
   quotesSelectors,
-  languageSelectors,
   quotesSlice,
   GetQuotesPayload,
 } from '@white-label-airline/store';
@@ -13,7 +12,6 @@ import { QuotesQueryParams } from './models/quotes-query-params.interface';
 export const mapStateToProps = (state: RootStateInterface) => {
   return {
     quotes: quotesSelectors.getQuotes(state),
-    language: languageSelectors.getLanguage(state),
     quotesFetchStatus: quotesSelectors.getQuotesFetchStatus(state),
   };
 };

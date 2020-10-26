@@ -70,6 +70,7 @@ const Place: React.FunctionComponent<PlaceProps> = ({
         option?.PlaceId === value?.PlaceId
       }
       name={name}
+      loadingText={t('loading')}
       renderInput={(params: AutocompleteRenderInputParams) => (
         <TextField
           {...params}

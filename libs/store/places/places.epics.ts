@@ -11,18 +11,17 @@ import {
   switchMap,
   debounceTime,
   distinctUntilChanged,
-  withLatestFrom,
 } from 'rxjs/operators';
 import { from, of } from 'rxjs';
 import {
   placesService,
   PlacesResponseInterface,
 } from '@white-label-airline/services/places';
+import { getCurrentLanguage } from '@white-label-airline/services/i18n';
 import { equals } from 'ramda';
 
 import { errorSlice } from '../error/error.slice';
 import { RootStateInterface } from '../root/root-state.interface';
-import { languageSelectors } from '../language/language.selectors';
 
 import { placesSlice, GetPlacesPayload } from './places.slice';
 
@@ -34,14 +33,13 @@ const getPlacesEpic: Epic = (
     ofType(placesSlice.actions.getPlaces.type),
     debounceTime(500),
     distinctUntilChanged(equals),
-    withLatestFrom(states$.pipe(map(languageSelectors.getLanguage))),
-    switchMap(([action, language]) => {
+    switchMap((action: PayloadAction<GetPlacesPayload>) => {
       const { payload } = action as PayloadAction<GetPlacesPayload>;
       return from(
         placesService.getPlaces(
           payload.country,
           payload.currency,
-          language,
+          getCurrentLanguage(),
           payload.query
         )
       ).pipe(

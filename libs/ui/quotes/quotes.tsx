@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { Typography } from '@material-ui/core';
+import { useTranslation } from 'react-i18next';
+import { getCurrentLanguage } from '@white-label-airline/services/i18n';
 
 import LoadingFetchStatus from '../loading-fetch-status/loading-fetch-status';
 
@@ -9,20 +12,18 @@ import {
   mapDispatchToProps,
 } from './quotes.props';
 import QuotesList from './components/quotes-list/quotes-list';
-import { Typography } from '@material-ui/core';
-import { useTranslation } from 'react-i18next';
 
 const Quotes: React.FunctionComponent<QuotesProps> = ({
   quotes,
   queryParams,
   modifySearch,
-  language,
   getQuotes,
   quotesFetchStatus,
   isOutbound,
   selectQuote,
 }: QuotesProps) => {
   const { t } = useTranslation();
+  const language = getCurrentLanguage();
 
   useEffect(() => {
     if (queryParams) {

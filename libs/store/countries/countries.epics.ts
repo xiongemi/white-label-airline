@@ -5,14 +5,14 @@ import {
   Epic,
   StateObservable,
 } from 'redux-observable';
-import { map, catchError, switchMap, withLatestFrom } from 'rxjs/operators';
+import { map, catchError, switchMap } from 'rxjs/operators';
 import { from, of } from 'rxjs';
 import {
   countriesService,
   CountriesResponse,
 } from '@white-label-airline/services/countries';
+import { getCurrentLanguage } from '@white-label-airline/services/i18n';
 
-import { languageSelectors } from '../language/language.selectors';
 import { RootStateInterface } from '../root';
 import { errorSlice } from '../error/error.slice';
 
@@ -24,9 +24,8 @@ const getCountriesEpic: Epic = (
 ) =>
   action$.pipe(
     ofType(countriesSlice.actions.getCountries.type),
-    withLatestFrom(states$.pipe(map(languageSelectors.getLanguage))),
-    switchMap(([_, language]) => {
-      return from(countriesService.getCountries(language)).pipe(
+    switchMap(() => {
+      return from(countriesService.getCountries(getCurrentLanguage())).pipe(
         map((response: CountriesResponse) =>
           countriesSlice.actions.getCountriesSuccess(response.Countries)
         ),

@@ -3,22 +3,36 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpApi from 'i18next-http-backend';
 
-export function setI18n(
+declare const process;
+let appSupportedLanguages: string[];
+
+function initI18n(
   loadPath: string,
-  defaultLanguage = 'en-GB'
-): typeof i18n {
-  i18n
+  defaultLanguage = 'en-GB',
+  supportedLanguages: string[] = ['en-GB']
+) {
+  appSupportedLanguages = supportedLanguages;
+  return i18n
     .use(LanguageDetector)
     .use(initReactI18next)
     .use(HttpApi)
     .init({
       backend: { loadPath },
       lng: defaultLanguage,
-      debug: true,
-
-      interpolation: {
-        escapeValue: false, // not needed for react as it escapes by default
-      },
+      debug: process.env.NODE_ENV !== 'production',
     });
-  return i18n;
 }
+
+function getCurrentLanguage() {
+  return i18n.language;
+}
+
+function getSupportedLanguages(): string[] {
+  return appSupportedLanguages;
+}
+
+function changeLanguage(language: string) {
+  return i18n.changeLanguage(language);
+}
+
+export { initI18n, getCurrentLanguage, getSupportedLanguages, changeLanguage };

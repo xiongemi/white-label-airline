@@ -25,6 +25,10 @@
     "selectDepartingFlights": "请选择你出发的航班",
     "selectReturnFlights": "请选择你返回的航班"
   },
+  "language": {
+    "en-GB": "English",
+    "zh-CN": "中文"
+  },
   "messages": {
     "required": "请填写{{ field }}",
     "minDate": "{{ returnDate }}必须在{{ departDate }}前"

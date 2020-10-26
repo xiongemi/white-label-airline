@@ -25,6 +25,10 @@
     "selectDepartingFlights": "Select your departing flights",
     "selectReturnFlights": "Select your return flights"
   },
+  "language": {
+    "en-GB": "English",
+    "zh-CN": "中文"
+  },
   "messages": {
     "required": "{{ field }} is required.",
     "minDate": "{{ returnDate }} should be before {{ departDate }}."
