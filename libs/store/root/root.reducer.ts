@@ -5,6 +5,7 @@ import { errorSlice } from '../error/error.slice';
 import { currenciesSlice } from '../currencies/currencies.slice';
 import { placesSlice } from '../places/places.slice';
 import { quotesSlice } from '../quotes/quotes.slice';
+import { selectedQuotesSlice } from '../selected-quotes/selected-quotes.slice';
 
 import { RootStateInterface } from './root-state.interface';
 
@@ -14,4 +15,5 @@ export const rootReducer = combineReducers<RootStateInterface>({
   places: placesSlice.reducer,
   error: errorSlice.reducer,
   quotes: quotesSlice.reducer,
+  selectedQuotes: selectedQuotesSlice.reducer,
 });

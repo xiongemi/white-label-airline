@@ -20,6 +20,8 @@ const Quotes: React.FunctionComponent<QuotesProps> = ({
   getQuotes,
   quotesFetchStatus,
   isOutbound,
+  selectOutboundQuote,
+  selectInboundQuote,
   selectQuote,
 }: QuotesProps) => {
   const { t } = useTranslation();
@@ -33,6 +35,15 @@ const Quotes: React.FunctionComponent<QuotesProps> = ({
       });
     }
   }, [getQuotes, queryParams, isOutbound]);
+
+  const onSelectQuote = (quote) => {
+    if (isOutbound) {
+      selectOutboundQuote(quote);
+    } else {
+      selectInboundQuote(quote);
+    }
+    selectQuote(quote);
+  };
 
   return (
     <LoadingFetchStatus fetchStatus={quotesFetchStatus}>
@@ -49,7 +60,7 @@ const Quotes: React.FunctionComponent<QuotesProps> = ({
         currency={queryParams?.currency}
         modifySearch={modifySearch}
         quotes={isOutbound ? quotes.outbound : quotes.inbound}
-        selectQuote={selectQuote}
+        selectQuote={onSelectQuote}
       />
     </LoadingFetchStatus>
   );

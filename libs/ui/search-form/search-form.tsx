@@ -6,6 +6,7 @@ import { KeyboardDatePicker } from 'formik-material-ui-pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { FeatureToggle } from 'react-feature-toggles';
+import { PersistFormikValues } from 'formik-persist-values';
 
 import { IsScreenSizeSm } from '../hooks/screen-size.hook';
 import { FeatureToggleNames } from '../models/feature-toggle-names.enum';
@@ -118,6 +119,10 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
             {t('search.search')}
           </Button>
         </Box>
+        <PersistFormikValues
+          name="SearchForm"
+          storage="sessionStorage"
+        ></PersistFormikValues>
       </Form>
     </MuiPickersUtilsProvider>
   );
