@@ -10,9 +10,8 @@ import {
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 
-import QuoteDetails from '../quote-details/quote-details';
-import QuoteHeader from '../quote-header/quote-header';
-
+import QuoteDetails from './components/quote-details/quote-details';
+import QuoteHeader from './components/quote-header/quote-header';
 import { QuoteProps } from './quote.props';
 
 const Quote: React.FunctionComponent<QuoteProps> = ({
@@ -20,6 +19,8 @@ const Quote: React.FunctionComponent<QuoteProps> = ({
   language,
   currency,
   selectQuote,
+  headerButtonText,
+  headerButtonClick,
 }: QuoteProps) => {
   const [open, setOpen] = React.useState(false);
 
@@ -28,13 +29,23 @@ const Quote: React.FunctionComponent<QuoteProps> = ({
   };
 
   const handleQuoteClick = () => {
-    selectQuote(quote);
+    if (selectQuote) {
+      selectQuote(quote);
+    } else {
+      toggleOpen();
+    }
   };
 
   return (
     <>
       <ListItem button onClick={handleQuoteClick}>
-        <QuoteHeader quote={quote} language={language} currency={currency} />
+        <QuoteHeader
+          quote={quote}
+          language={language}
+          currency={currency}
+          buttonText={headerButtonText}
+          buttonClick={headerButtonClick || handleQuoteClick}
+        />
         <ListItemSecondaryAction>
           <IconButton edge="end" aria-label="view details" onClick={toggleOpen}>
             {open ? <ExpandLess /> : <ExpandMore />}

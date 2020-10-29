@@ -3,12 +3,12 @@ import {
   quotesSelectors,
   quotesSlice,
   GetQuotesPayload,
+  selectedQuotesSlice,
 } from '@white-label-airline/store';
 import { Dispatch } from '@reduxjs/toolkit';
 import { QuotePerLegInterface } from '@white-label-airline/services/quotes';
 
-import { QuotesQueryParams } from './models/quotes-query-params.interface';
-import { selectedQuotesSlice } from 'libs/store/selected-quotes/selected-quotes.slice';
+import { QuotesQueryParams } from '../models/quotes-query-params.interface';
 
 export const mapStateToProps = (state: RootStateInterface) => {
   return {

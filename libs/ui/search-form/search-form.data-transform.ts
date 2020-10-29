@@ -1,7 +1,7 @@
 import { format, parse } from 'date-fns';
 import { mergeDeepRight } from 'ramda';
 
-import { QuotesQueryParams } from '../quotes/models/quotes-query-params.interface';
+import { QuotesQueryParams } from '../models/quotes-query-params.interface';
 
 import { SearchFormInterface } from './models/search-form.interface';
 import { defaultSearchForm } from './models/search-form-default.const';
@@ -17,11 +17,17 @@ const transformSearchFormValuesToQuotesQueryParams = (
     currency: searchForm.currency.Code,
     from: searchForm.from.PlaceId,
     to: searchForm.to.PlaceId,
-    departDate: format(searchForm.departDate, dateFormat),
+    departDate:
+      typeof searchForm.departDate === 'string'
+        ? format(new Date(searchForm.departDate), dateFormat)
+        : format(searchForm.departDate, dateFormat),
     tripType: searchForm.tripType,
   };
   if (searchForm.tripType === TripTypeEnum.RoundTrip && searchForm.returnDate) {
-    quotesQueryParams['returnDate'] = format(searchForm.returnDate, dateFormat);
+    quotesQueryParams['returnDate'] =
+      typeof searchForm.returnDate === 'string'
+        ? format(new Date(searchForm.returnDate), dateFormat)
+        : format(searchForm.returnDate, dateFormat);
   }
   return quotesQueryParams;
 };

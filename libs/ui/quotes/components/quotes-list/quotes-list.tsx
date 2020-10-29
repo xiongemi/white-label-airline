@@ -1,7 +1,8 @@
 import React from 'react';
 import { List, Divider } from '@material-ui/core';
+import { useTranslation } from 'react-i18next';
 
-import Quote from '../quote/quote';
+import Quote from '../../../quote/quote';
 import NoFlightsFound from '../no-flights-found/no-flight-found';
 
 import { QuotesListProps } from './quotes-list.props';
@@ -13,6 +14,8 @@ const QuotesList: React.FunctionComponent<QuotesListProps> = ({
   modifySearch,
   selectQuote,
 }: QuotesListProps) => {
+  const { t } = useTranslation();
+
   return quotes && quotes.length ? (
     <List>
       {quotes.map((quote) => {
@@ -23,6 +26,7 @@ const QuotesList: React.FunctionComponent<QuotesListProps> = ({
               currency={currency}
               language={language}
               selectQuote={selectQuote}
+              headerButtonText={t('quote.selectFlight')}
             />
             <Divider />
           </div>

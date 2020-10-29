@@ -14,6 +14,10 @@
     "from": "出发地",
     "to": "到达地"
   },
+  "quote": {
+    "selectFlight": "选择航班",
+    "changeFlight": "更换航班"
+  },
   "quotes": {
     "direct": "直飞",
     "layover": "转飞",

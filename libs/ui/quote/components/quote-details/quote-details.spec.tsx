@@ -1,18 +1,15 @@
 import React from 'react';
-
 import { mockQuotePerLeg } from '@white-label-airline/services/quotes';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import { render } from '@testing-library/react';
 
-import QuoteHeader from './quote-header';
+import QuoteDetails from './quote-details';
 
 expect.extend(toHaveNoViolations);
 
-describe('Quote Header', () => {
-  test('should not have accessitliby violations', async () => {
-    const { container } = render(
-      <QuoteHeader quote={mockQuotePerLeg} language="en" currency="CAD" />
-    );
+describe('Quote Details', () => {
+  test('should not have accessibility violations', async () => {
+    const { container } = render(<QuoteDetails quote={mockQuotePerLeg} />);
 
     expect(await axe(container)).toHaveNoViolations();
   });

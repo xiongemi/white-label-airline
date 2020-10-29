@@ -1,22 +1,24 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { createEpicMiddleware } from 'redux-observable';
 import logger from 'redux-logger';
+import { History } from 'history';
 
-import { rootReducer } from './root.reducer';
+import { createRootReducer } from './root.reducer';
 import { RootStateInterface } from './root-state.interface';
 import { rootEpic } from './root.epic';
 
 const epicMiddleware = createEpicMiddleware();
+const isProduction = process.env.NODE_ENV === 'production';
 
-export function configureAppStore(preloadedState?: RootStateInterface) {
+export function configureAppStore(
+  history: History,
+  preloadedState?: RootStateInterface
+) {
   const store = configureStore({
-    reducer: rootReducer,
-    middleware:
-      process.env.NODE_ENV !== 'production'
-        ? [epicMiddleware, logger]
-        : [epicMiddleware],
+    reducer: createRootReducer(history),
+    middleware: isProduction ? [epicMiddleware] : [epicMiddleware, logger],
     preloadedState,
-    devTools: true,
+    devTools: !isProduction,
   });
 
   epicMiddleware.run(rootEpic);

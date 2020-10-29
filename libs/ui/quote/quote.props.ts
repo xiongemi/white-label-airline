@@ -4,5 +4,7 @@ export interface QuoteProps {
   quote: QuotePerLegInterface;
   currency: string;
   language: string;
-  selectQuote: (quote: QuotePerLegInterface) => void;
+  selectQuote?: (quote: QuotePerLegInterface) => void;
+  headerButtonText: string;
+  headerButtonClick?: (quote: QuotePerLegInterface) => void;
 }

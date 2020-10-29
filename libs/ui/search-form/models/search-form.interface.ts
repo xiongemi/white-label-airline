@@ -9,7 +9,7 @@ export interface SearchFormInterface {
   tripType: TripTypeEnum;
   currency: CurrencyInterface;
   from: PlaceInterface;
-  departDate: Date;
+  departDate: Date | string;
   to: PlaceInterface;
-  returnDate: Date;
+  returnDate: Date | string;
 }

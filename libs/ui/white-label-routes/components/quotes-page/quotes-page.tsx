@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { parse } from 'query-string';
 
-import Quotes, { QuotesQueryParams } from '../../../quotes';
+import Quotes from '../../../quotes';
+import { QuotesQueryParams } from '../../../models/quotes-query-params.interface';
 import { RoutesPath } from '../../models/routes-path.enum';
 
 const QuotesPage: React.FunctionComponent = () => {
@@ -30,7 +31,12 @@ const QuotesPage: React.FunctionComponent = () => {
     if (queryParams.returnDate && isOutbound) {
       history.push({
         pathname: RoutesPath.Inbound,
-        search: search,
+        search,
+      });
+    } else {
+      history.push({
+        pathname: RoutesPath.Booking,
+        search,
       });
     }
   };
