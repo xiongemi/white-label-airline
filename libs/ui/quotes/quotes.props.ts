@@ -4,6 +4,7 @@ import {
   quotesSlice,
   GetQuotesPayload,
   selectedQuotesSlice,
+  SearchFormInterface,
 } from '@white-label-airline/store';
 import { Dispatch } from '@reduxjs/toolkit';
 import { QuotePerLegInterface } from '@white-label-airline/services/quotes';

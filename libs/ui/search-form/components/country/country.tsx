@@ -9,7 +9,7 @@ import { CountryInterface } from '@white-label-airline/services/countries';
 import { TextField } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 
-import { useFieldErrorTouched } from '../../../hooks/field-errors-touched.hooks';
+import { useFieldErrorTouched } from '../../../hooks/use-field-errors-touched.hook';
 
 import {
   mapStateToProps,

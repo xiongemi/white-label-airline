@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
-import { parse } from 'query-string';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+import { SearchFormInterface } from '@white-label-airline/store';
 
-import SearchForm, {
-  SearchFormInterface,
-  searchFormDataTransform,
-} from '../../../search-form';
-import { QuotesQueryParams } from '../../../quotes';
+import SearchForm, { searchFormDataTransform } from '../../../search-form';
 import { RoutesPath } from '../../models/routes-path.enum';
+import { useQueryParamsAsSearchForm } from '../../../hooks/use-query-params.hook';
 
 import { SearchPageProps } from './search-page.props';
 
@@ -15,18 +12,7 @@ const SearchPage: React.FunctionComponent<SearchPageProps> = ({
   initSearchForm,
 }: SearchPageProps) => {
   const history = useHistory();
-  const { search } = useLocation();
-  const [queryParams, setQueryParams] = useState<SearchFormInterface>();
-
-  useEffect(() => {
-    if (search) {
-      const query = (parse(search) as unknown) as QuotesQueryParams;
-      const searchFormValuesFromQuery = searchFormDataTransform.transfromQuotesQueryParamsToSearchFormValues(
-        query
-      );
-      setQueryParams(searchFormValuesFromQuery);
-    }
-  }, [search]);
+  const { searchForm } = useQueryParamsAsSearchForm();
 
   const submitSearch = (
     searchFormValues: SearchFormInterface,
@@ -48,7 +34,7 @@ const SearchPage: React.FunctionComponent<SearchPageProps> = ({
 
   return (
     <SearchForm
-      initSearchForm={queryParams || initSearchForm}
+      initSearchForm={searchForm || initSearchForm}
       submitSearch={submitSearch}
     />
   );

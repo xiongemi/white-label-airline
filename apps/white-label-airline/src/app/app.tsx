@@ -8,6 +8,7 @@ import { Container, Box } from '@material-ui/core';
 import Loading from '@white-label-airline/ui/loading';
 import Header from '@white-label-airline/ui/header';
 import WhiteLabelRoutes from '@white-label-airline/ui/white-label-routes';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import { initSearchForm } from '../models/search-form-init.const';
 
@@ -21,18 +22,22 @@ const history: History = createBrowserHistory({
   basename: process.env.NX_BASE_HREF,
 });
 
+const { store, persistor } = configureAppStore(history);
+
 export const App: React.FunctionComponent = () => {
   return (
-    <Suspense fallback={Loading}>
+    <Suspense fallback={<Loading />}>
       <FeatureToggleProvider featureToggleList={features}>
-        <Provider store={configureAppStore(history)}>
-          <Header />
-          <Box mt={3} component={Container}>
-            <WhiteLabelRoutes
-              initSearchForm={initSearchForm}
-              history={history}
-            />
-          </Box>
+        <Provider store={store}>
+          <PersistGate loading={<Loading />} persistor={persistor}>
+            <Header />
+            <Box mt={3} component={Container}>
+              <WhiteLabelRoutes
+                initSearchForm={initSearchForm}
+                history={history}
+              />
+            </Box>
+          </PersistGate>
         </Provider>
       </FeatureToggleProvider>
     </Suspense>

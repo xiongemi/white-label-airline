@@ -1,11 +1,12 @@
 import { format, parse } from 'date-fns';
 import { mergeDeepRight } from 'ramda';
+import {
+  TripTypeEnum,
+  SearchFormInterface,
+  defaultSearchForm,
+} from '@white-label-airline/store';
 
 import { QuotesQueryParams } from '../models/quotes-query-params.interface';
-
-import { SearchFormInterface } from './models/search-form.interface';
-import { defaultSearchForm } from './models/search-form-default.const';
-import { TripTypeEnum } from './models/trip-type.enum';
 
 const dateFormat = 'yyyy-MM-dd';
 

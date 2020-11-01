@@ -5,6 +5,7 @@ import { CurrencyInterface } from '@white-label-airline/services/currencies';
 import { PlacesStateInterface } from '../places/places-state.interface';
 import { QuotesStateInterface } from '../quotes/quotes-state.interface';
 import { SelectedQuotesStateInterface } from '../selected-quotes/selected-quotes-state.interface';
+import { SearchFormInterface } from '../search-form/search-form.interface';
 
 export interface RootStateInterface {
   router: RouterState;
@@ -13,5 +14,6 @@ export interface RootStateInterface {
   error?: unknown;
   places?: PlacesStateInterface;
   quotes: QuotesStateInterface;
+  searchForm: SearchFormInterface;
   selectedQuotes: SelectedQuotesStateInterface;
 }

@@ -1,7 +1,4 @@
-import {
-  SearchFormInterface,
-  TripTypeEnum,
-} from '@white-label-airline/ui/search-form';
+import { SearchFormInterface, TripTypeEnum } from '@white-label-airline/store';
 
 export const initSearchForm: SearchFormInterface = {
   country: { Code: 'CA', Name: 'Canada' },

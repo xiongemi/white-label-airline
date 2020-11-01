@@ -1,10 +1,5 @@
 import { PayloadAction } from '@reduxjs/toolkit';
-import {
-  ofType,
-  ActionsObservable,
-  Epic,
-  StateObservable,
-} from 'redux-observable';
+import { ofType, ActionsObservable, Epic } from 'redux-observable';
 import { map, catchError, switchMap } from 'rxjs/operators';
 import { from } from 'rxjs';
 import {
@@ -15,7 +10,6 @@ import {
 import { getCurrentLanguage } from '@white-label-airline/services/i18n';
 
 import { errorSlice } from '../error/error.slice';
-import { RootStateInterface } from '../root/root-state.interface';
 
 import { GetQuotesPayload, quotesSlice } from './quotes.slice';
 

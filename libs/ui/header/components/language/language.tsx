@@ -30,7 +30,7 @@ const Language: React.FunctionComponent<LanguageProps> = ({
       disableUnderline
     >
       {supportedLanguages.map((supportedLanguage) => (
-        <MenuItem value={supportedLanguage}>
+        <MenuItem value={supportedLanguage} key={supportedLanguage}>
           {t('language.' + supportedLanguage)}
         </MenuItem>
       ))}

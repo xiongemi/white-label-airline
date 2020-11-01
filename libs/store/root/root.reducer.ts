@@ -10,6 +10,7 @@ import { quotesSlice } from '../quotes/quotes.slice';
 import { selectedQuotesSlice } from '../selected-quotes/selected-quotes.slice';
 
 import { RootStateInterface } from './root-state.interface';
+import { searchFormSlice } from '../search-form';
 
 export const createRootReducer = (history: History) =>
   combineReducers<RootStateInterface>({
@@ -19,5 +20,6 @@ export const createRootReducer = (history: History) =>
     places: placesSlice.reducer,
     error: errorSlice.reducer,
     quotes: quotesSlice.reducer,
+    searchForm: searchFormSlice.reducer,
     selectedQuotes: selectedQuotesSlice.reducer,
   });

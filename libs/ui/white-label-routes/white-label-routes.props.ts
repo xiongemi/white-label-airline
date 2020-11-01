@@ -1,6 +1,5 @@
 import { History } from 'history';
-
-import { SearchFormInterface } from '../search-form';
+import { SearchFormInterface } from '@white-label-airline/store';
 
 export interface WhiteLabelRoutesProps {
   initSearchForm?: SearchFormInterface;

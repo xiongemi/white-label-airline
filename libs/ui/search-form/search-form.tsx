@@ -6,20 +6,22 @@ import { KeyboardDatePicker } from 'formik-material-ui-pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import { FeatureToggle } from 'react-feature-toggles';
-import { PersistFormikValues } from 'formik-persist-values';
+import { SearchFormInterface, TripTypeEnum } from '@white-label-airline/store';
+import { connect } from 'react-redux';
 
 import { IsScreenSizeSm } from '../hooks/screen-size.hook';
 import { FeatureToggleNames } from '../models/feature-toggle-names.enum';
 
-import { SearchProps } from './search-form.props';
+import {
+  SearchProps,
+  mapStateToProps,
+  mapDispatchToProps,
+} from './search-form.props';
 import Country from './components/country/country';
 import Currency from './components/currency/currency';
 import Place from './components/place/place';
-import { defaultSearchForm } from './models/search-form-default.const';
 import TripType from './components/trip-type/trip-type';
 import { searchFormSchema } from './models/search-form.schema';
-import { SearchFormInterface } from './models/search-form.interface';
-import { TripTypeEnum } from './models/trip-type.enum';
 
 const SearchForm: React.FunctionComponent<SearchProps> = ({
   bottonProps,
@@ -119,10 +121,6 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
             {t('search.search')}
           </Button>
         </Box>
-        <PersistFormikValues
-          name="SearchForm"
-          storage="sessionStorage"
-        ></PersistFormikValues>
       </Form>
     </MuiPickersUtilsProvider>
   );
@@ -132,7 +130,7 @@ const SearchFormik = withFormik({
   displayName: 'SearchForm',
   enableReinitialize: true,
   mapPropsToValues: (props: SearchProps): SearchFormInterface => {
-    return props.initSearchForm || defaultSearchForm;
+    return props.initSearchForm || props.searchFormValues;
   },
   validationSchema: searchFormSchema,
   handleSubmit: (searchForm: SearchFormInterface, { props, setSubmitting }) => {
@@ -140,4 +138,4 @@ const SearchFormik = withFormik({
   },
 })(SearchForm);
 
-export default SearchFormik;
+export default connect(mapStateToProps, mapDispatchToProps)(SearchFormik);

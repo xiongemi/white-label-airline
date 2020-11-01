@@ -7,7 +7,7 @@ import { Select } from 'formik-material-ui';
 import { useTranslation } from 'react-i18next';
 
 import { FormFieldProps } from '../../../models/form-field-props.interface';
-import { TripTypeEnum } from '../../models/trip-type.enum';
+import { TripTypeEnum } from '@white-label-airline/store';
 
 let count = 0;
 

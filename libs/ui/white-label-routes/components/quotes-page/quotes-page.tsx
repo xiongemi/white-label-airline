@@ -1,20 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { parse } from 'query-string';
 
 import Quotes from '../../../quotes';
-import { QuotesQueryParams } from '../../../models/quotes-query-params.interface';
 import { RoutesPath } from '../../models/routes-path.enum';
+import { useQueryParamsAsSearchForm } from '../../../../ui/hooks/use-query-params.hook';
 
 const QuotesPage: React.FunctionComponent = () => {
   const history = useHistory();
   const { search, pathname } = useLocation();
-  const [queryParams, setQueryParams] = useState<QuotesQueryParams>();
   const [isOutbound, setIsOutbound] = useState<boolean>();
 
-  useEffect(() => {
-    setQueryParams((parse(search) as unknown) as QuotesQueryParams);
-  }, [search]);
+  const { queryParams } = useQueryParamsAsSearchForm();
 
   useEffect(() => {
     setIsOutbound(pathname === RoutesPath.Outbound);
