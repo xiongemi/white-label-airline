@@ -15,6 +15,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 const persistConfig = {
   key: 'root',
   storage: sessionStorage,
+  whitelist: ['searchForm', 'selectedQuotes'],
 };
 
 export function configureAppStore(

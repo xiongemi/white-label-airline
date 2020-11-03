@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import { getCurrentLanguage } from '@white-label-airline/services/i18n';
+import { FetchStatus } from '@white-label-airline/store';
+import { QuotePerLegInterface } from '@white-label-airline/services/quotes';
 
 import LoadingFetchStatus from '../loading-fetch-status/loading-fetch-status';
 
@@ -26,6 +28,7 @@ const Quotes: React.FunctionComponent<QuotesProps> = ({
 }: QuotesProps) => {
   const { t } = useTranslation();
   const language = getCurrentLanguage();
+  const [quotesList, setQuotesList] = useState<QuotePerLegInterface[]>([]);
 
   useEffect(() => {
     if (queryParams) {
@@ -35,6 +38,12 @@ const Quotes: React.FunctionComponent<QuotesProps> = ({
       });
     }
   }, [getQuotes, queryParams, isOutbound]);
+
+  useEffect(() => {
+    if (quotesFetchStatus === FetchStatus.Success) {
+      setQuotesList(isOutbound ? quotes.outbound : quotes.inbound);
+    }
+  }, [isOutbound, quotes, quotesFetchStatus]);
 
   const onSelectQuote = (quote) => {
     if (isOutbound) {
@@ -59,7 +68,7 @@ const Quotes: React.FunctionComponent<QuotesProps> = ({
         language={language}
         currency={queryParams?.currency}
         modifySearch={modifySearch}
-        quotes={isOutbound ? quotes.outbound : quotes.inbound}
+        quotes={quotesList}
         selectQuote={onSelectQuote}
       />
     </LoadingFetchStatus>

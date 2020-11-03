@@ -130,11 +130,12 @@ const SearchFormik = withFormik({
   displayName: 'SearchForm',
   enableReinitialize: true,
   mapPropsToValues: (props: SearchProps): SearchFormInterface => {
-    return props.initSearchForm || props.searchFormValues;
+    return props.searchFormValues || props.initSearchForm;
   },
   validationSchema: searchFormSchema,
   handleSubmit: (searchForm: SearchFormInterface, { props, setSubmitting }) => {
     props.submitSearch(searchForm, { setSubmitting });
+    props.setSearchFormValues(searchForm);
   },
 })(SearchForm);
 

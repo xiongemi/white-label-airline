@@ -1,16 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { defaultSearchForm } from './search-form-default.const';
-
 export const searchFormSlice = createSlice({
   name: 'searchForm',
-  initialState: defaultSearchForm,
+  initialState: null,
   reducers: {
-    setSearchFormValues(state, action) {
-      state = action.payload;
+    setSearchFormValues(_, action) {
+      return action.payload;
     },
     resetSearchFormValues(state) {
-      state = defaultSearchForm;
+      state = null;
     },
   },
 });
