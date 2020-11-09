@@ -22,8 +22,11 @@
       "description": "No flights found for this route and date combination."
     },
     "modifySearch": "Modify Search",
-    "selectDepartingFlights": "Select your departing flights",
+    "selectDepartFlights": "Select your departing flights",
     "selectReturnFlights": "Select your return flights"
+  },
+  "booking": {
+    "title": "Booking"
   },
   "messages": {
     "required": "{{ field }} is required.",

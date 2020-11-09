@@ -42,24 +42,24 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
       <Form>
         <Grid container spacing={3}>
           <FeatureToggle featureName={FeatureToggleNames.ShowCountry}>
-            <Grid item xs={6} md={3}>
+            <Grid item xs={12} sm={6} md={3}>
               <Country name="country" label={t('search.country')} />
             </Grid>
           </FeatureToggle>
 
           <FeatureToggle featureName={FeatureToggleNames.ShowCurrency}>
-            <Grid item xs={6} md={3}>
+            <Grid item xs={12} sm={6} md={3}>
               <Currency name="currency" label={t('search.currency')} />
             </Grid>
           </FeatureToggle>
 
-          <Grid item xs={6} md={3}>
+          <Grid item xs={12} sm={6} md={3}>
             <TripType name="tripType" label={t('search.tripType')}></TripType>
           </Grid>
         </Grid>
 
         <Grid container spacing={3}>
-          <Grid item xs={6} md={3}>
+          <Grid item xs={12} sm={6} md={3}>
             <Place
               label={t('search.from')}
               name="from"
@@ -68,7 +68,7 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
             />
           </Grid>
 
-          <Grid item xs={6} md={3}>
+          <Grid item xs={12} sm={6} md={3}>
             <Place
               label={t('search.to')}
               name="to"
@@ -77,7 +77,7 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
               invalidPlaces={values.from && [values.from]}
             />
           </Grid>
-          <Grid item xs={6} md={3}>
+          <Grid item xs={12} sm={6} md={3}>
             <Field
               fullWidth={true}
               component={KeyboardDatePicker}
@@ -90,7 +90,7 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
             />
           </Grid>
           {values.tripType === TripTypeEnum.RoundTrip && (
-            <Grid item xs={6} md={3}>
+            <Grid item xs={12} sm={6} md={3}>
               <Field
                 fullWidth={true}
                 component={KeyboardDatePicker}

@@ -1,7 +1,8 @@
+export interface BreadcrumbLink {
+  text: string;
+  url: string;
+}
+
 export interface SearchBreadcrumbsProps {
-  previousBreadcrumbs: {
-    text: string;
-    url: string;
-  }[];
-  currentBreadcrumb: string;
+  breadcrumbs: BreadcrumbLink[];
 }

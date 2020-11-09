@@ -5,5 +5,6 @@ export interface QuoteHeaderProps {
   currency: string;
   language: string;
   buttonText: string;
+  date?: Date;
   buttonClick: (quote: QuotePerLegInterface) => void;
 }

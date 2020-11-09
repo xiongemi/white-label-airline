@@ -2,6 +2,12 @@
   "header": {
     "title": "White Label Airline"
   },
+  "breadcrumbs": {
+    "search": "Search",
+    "departFlight": "Departing Flight",
+    "returnFlight": "Returning Flight",
+    "booking": "Booking"
+  },
   "search": {
     "country": "Country",
     "currency": "Currency",
@@ -26,8 +32,8 @@
       "description": "No flights found for this route and date combination."
     },
     "modifySearch": "Modify Search",
-    "selectDepartingFlights": "Select your departing flights",
-    "selectReturnFlights": "Select your return flights"
+    "selectDepartFlight": "Select your departing flight",
+    "selectReturnFlight": "Select your returning flight"
   },
   "language": {
     "en-GB": "English",

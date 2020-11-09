@@ -18,6 +18,7 @@ const Quote: React.FunctionComponent<QuoteProps> = ({
   quote,
   language,
   currency,
+  date,
   selectQuote,
   headerButtonText,
   headerButtonClick,
@@ -38,11 +39,12 @@ const Quote: React.FunctionComponent<QuoteProps> = ({
 
   return (
     <>
-      <ListItem button onClick={handleQuoteClick}>
+      <ListItem button onClick={handleQuoteClick} data-testid="quote-list-item">
         <QuoteHeader
           quote={quote}
           language={language}
           currency={currency}
+          date={date}
           buttonText={headerButtonText}
           buttonClick={headerButtonClick || handleQuoteClick}
         />

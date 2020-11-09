@@ -58,9 +58,7 @@ const Quotes: React.FunctionComponent<QuotesProps> = ({
     <LoadingFetchStatus fetchStatus={quotesFetchStatus}>
       <Typography gutterBottom variant="h6" component="h3">
         {t(
-          isOutbound
-            ? 'quotes.selectDepartingFlights'
-            : 'quotes.selectReturnFlights'
+          isOutbound ? 'quotes.selectDepartFlight' : 'quotes.selectReturnFlight'
         )}{' '}
         :
       </Typography>

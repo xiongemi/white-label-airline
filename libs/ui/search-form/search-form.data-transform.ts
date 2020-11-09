@@ -10,6 +10,16 @@ import { QuotesQueryParams } from '../models/quotes-query-params.interface';
 
 const dateFormat = 'yyyy-MM-dd';
 
+const parseQueryParamsDate = (date: string): Date => {
+  return parse(date, dateFormat, new Date());
+};
+
+const formatQueryParamsDate = (date: string | Date): string => {
+  return typeof date === 'string'
+    ? format(new Date(date), dateFormat)
+    : format(date, dateFormat);
+};
+
 const transformSearchFormValuesToQuotesQueryParams = (
   searchForm: SearchFormInterface
 ): QuotesQueryParams => {
@@ -18,17 +28,13 @@ const transformSearchFormValuesToQuotesQueryParams = (
     currency: searchForm.currency.Code,
     from: searchForm.from.PlaceId,
     to: searchForm.to.PlaceId,
-    departDate:
-      typeof searchForm.departDate === 'string'
-        ? format(new Date(searchForm.departDate), dateFormat)
-        : format(searchForm.departDate, dateFormat),
+    departDate: formatQueryParamsDate(searchForm.departDate),
     tripType: searchForm.tripType,
   };
   if (searchForm.tripType === TripTypeEnum.RoundTrip && searchForm.returnDate) {
-    quotesQueryParams['returnDate'] =
-      typeof searchForm.returnDate === 'string'
-        ? format(new Date(searchForm.returnDate), dateFormat)
-        : format(searchForm.returnDate, dateFormat);
+    quotesQueryParams['returnDate'] = formatQueryParamsDate(
+      searchForm.returnDate
+    );
   }
   return quotesQueryParams;
 };
@@ -49,15 +55,17 @@ const transfromQuotesQueryParamsToSearchFormValues = (
     to: {
       PlaceId: quotesQueryParams.to,
     },
-    departDate: parse(quotesQueryParams.departDate, dateFormat, new Date()),
+    departDate: parseQueryParamsDate(quotesQueryParams.departDate),
     returnDate:
       quotesQueryParams.returnDate &&
-      parse(quotesQueryParams.returnDate, dateFormat, new Date()),
+      parseQueryParamsDate(quotesQueryParams.returnDate),
     tripType: quotesQueryParams.tripType,
   });
 };
 
 export const searchFormDataTransform = {
+  parseQueryParamsDate,
+  formatQueryParamsDate,
   transformSearchFormValuesToQuotesQueryParams,
   transfromQuotesQueryParamsToSearchFormValues,
 };

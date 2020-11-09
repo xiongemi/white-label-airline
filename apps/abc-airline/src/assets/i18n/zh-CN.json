@@ -22,8 +22,11 @@
       "description": "没有找到所选日期的航班。"
     },
     "modifySearch": "修改搜索",
-    "selectDepartingFlights": "请选择你出发的航班",
+    "selectDepartFlights": "请选择你出发的航班",
     "selectReturnFlights": "请选择你返回的航班"
+  },
+  "booking": {
+    "title": "Booking"
   },
   "messages": {
     "required": "请填写{{ field }}",

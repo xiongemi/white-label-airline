@@ -10,7 +10,13 @@ expect.extend(toHaveNoViolations);
 describe('Quote Header', () => {
   test('should not have accessibility violations', async () => {
     const { container } = render(
-      <QuoteHeader quote={mockQuotePerLeg} language="en" currency="CAD" />
+      <QuoteHeader
+        quote={mockQuotePerLeg}
+        language="en"
+        currency="CAD"
+        buttonText="button"
+        buttonClick={console.log}
+      />
     );
 
     expect(await axe(container)).toHaveNoViolations();

@@ -2,6 +2,12 @@
   "header": {
     "title": "贴牌航空"
   },
+  "breadcrumbs": {
+    "search": "搜索",
+    "departFlight": "出发的航班",
+    "returnFlight": "返回的航班",
+    "booking": "Booking"
+  },
   "search": {
     "country": "国家",
     "currency": "货币",
@@ -26,8 +32,8 @@
       "description": "没有找到所选日期的航班。"
     },
     "modifySearch": "修改搜索",
-    "selectDepartingFlights": "请选择你出发的航班",
-    "selectReturnFlights": "请选择你返回的航班"
+    "selectDepartFlight": "请选择你出发的航班",
+    "selectReturnFlight": "请选择你返回的航班"
   },
   "language": {
     "en-GB": "English",

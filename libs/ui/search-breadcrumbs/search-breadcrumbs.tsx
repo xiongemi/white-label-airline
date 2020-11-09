@@ -1,22 +1,35 @@
 import React from 'react';
-import { Typography, Breadcrumbs, Link } from '@material-ui/core';
-import { Link as RouterLink } from 'react-router-dom';
+import { Typography, Breadcrumbs, Link, Box } from '@material-ui/core';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { SearchBreadcrumbsProps } from './search-breadcrumbs.props';
 
 const SearchBreadcrumbs: React.FunctionComponent<SearchBreadcrumbsProps> = ({
-  previousBreadcrumbs,
-  currentBreadcrumb,
+  breadcrumbs,
 }: SearchBreadcrumbsProps) => {
+  const { t } = useTranslation();
+  const { search } = useLocation();
+  const lastBreadcrumb = breadcrumbs.pop();
+
   return (
-    <Breadcrumbs aria-label="breadcrumb">
-      {previousBreadcrumbs.map((breadcrumb) => (
-        <RouterLink to={breadcrumb.url} component={Link} color="inherit">
-          {breadcrumb.text}
-        </RouterLink>
-      ))}
-      <Typography color="textPrimary">{currentBreadcrumb}</Typography>
-    </Breadcrumbs>
+    lastBreadcrumb && (
+      <Box mb={3}>
+        <Breadcrumbs aria-label="breadcrumb">
+          {breadcrumbs.map((breadcrumb) => (
+            <RouterLink
+              to={{ pathname: breadcrumb.url, search }}
+              component={Link}
+              color="inherit"
+              key={breadcrumb.text}
+            >
+              {t(breadcrumb.text)}
+            </RouterLink>
+          ))}
+          <Typography color="textPrimary">{t(lastBreadcrumb.text)}</Typography>
+        </Breadcrumbs>
+      </Box>
+    )
   );
 };
 

@@ -1,20 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 
+import { useQueryParamsAsSearchForm } from '../../../hooks/use-query-params.hook';
 import Quotes from '../../../quotes';
 import { RoutesPath } from '../../models/routes-path.enum';
-import { useQueryParamsAsSearchForm } from '../../../../ui/hooks/use-query-params.hook';
+import { BreadcrumbLink, SearchBreadcrumbs } from '../../../search-breadcrumbs';
+import {
+  inboundBreadcrumb,
+  outboundBreadcrumb,
+  searchBreadcrumb,
+} from '../../models/breadcrumbs.const';
 
 const QuotesPage: React.FunctionComponent = () => {
   const history = useHistory();
   const { search, pathname } = useLocation();
-  const [isOutbound, setIsOutbound] = useState<boolean>();
+  const [isOutbound, setIsOutbound] = useState<boolean>(true);
+  const [breadcrumbs, setBreadcrumbs] = useState<BreadcrumbLink[]>([]);
 
   const { queryParams } = useQueryParamsAsSearchForm();
 
   useEffect(() => {
     setIsOutbound(pathname === RoutesPath.Outbound);
   }, [pathname]);
+
+  useEffect(() => {
+    setBreadcrumbs(
+      isOutbound
+        ? [searchBreadcrumb, outboundBreadcrumb]
+        : [searchBreadcrumb, outboundBreadcrumb, inboundBreadcrumb]
+    );
+  }, [isOutbound]);
 
   const modifySearch = () => {
     history.push({
@@ -38,12 +53,17 @@ const QuotesPage: React.FunctionComponent = () => {
   };
 
   return (
-    <Quotes
-      modifySearch={modifySearch}
-      queryParams={queryParams}
-      isOutbound={isOutbound}
-      selectQuote={selectQuote}
-    />
+    <>
+      {breadcrumbs && breadcrumbs.length && (
+        <SearchBreadcrumbs breadcrumbs={breadcrumbs} />
+      )}
+      <Quotes
+        modifySearch={modifySearch}
+        queryParams={queryParams}
+        isOutbound={isOutbound}
+        selectQuote={selectQuote}
+      />
+    </>
   );
 };
 
