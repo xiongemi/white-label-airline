@@ -7,4 +7,5 @@ export interface QuotePerLegInterface {
   carriers: string[];
   origin: PlacePerQuoteInterface;
   destination: PlacePerQuoteInterface;
+  showDetails?: boolean;
 }

@@ -1,9 +1,10 @@
 import React from 'react';
 import { List, Divider } from '@material-ui/core';
-import { useTranslation } from 'react-i18next';
+import { QuotePerLegInterface } from '@white-label-airline/services/quotes';
 
 import Quote from '../../../quote/quote';
 import NoFlightsFound from '../no-flights-found/no-flight-found';
+import QuoteHeader from '../quote-header/quote-header';
 
 import { QuotesListProps } from './quotes-list.props';
 
@@ -14,8 +15,6 @@ const QuotesList: React.FunctionComponent<QuotesListProps> = ({
   modifySearch,
   selectQuote,
 }: QuotesListProps) => {
-  const { t } = useTranslation();
-
   return quotes && quotes.length ? (
     <List>
       {quotes.map((quote) => {
@@ -23,10 +22,15 @@ const QuotesList: React.FunctionComponent<QuotesListProps> = ({
           <div key={quote.id}>
             <Quote
               quote={quote}
-              currency={currency}
-              language={language}
-              selectQuote={selectQuote}
-              headerButtonText={t('quote.selectFlight')}
+              onQuoteClick={selectQuote}
+              header={
+                <QuoteHeader
+                  quote={quote}
+                  language={language}
+                  currency={currency}
+                  buttonClick={selectQuote}
+                />
+              }
             />
             <Divider />
           </div>

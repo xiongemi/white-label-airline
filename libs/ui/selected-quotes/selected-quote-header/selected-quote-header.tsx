@@ -3,16 +3,15 @@ import { Grid, Typography, Button, Box } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import { format } from 'date-fns';
 
-import { QuoteHeaderProps } from './quote-header.props';
+import { SelectedQuoteHeaderProps } from './selected-quote-header.props';
 
-const QuoteHeader: React.FunctionComponent<QuoteHeaderProps> = ({
+const SelectedQuoteHeader: React.FunctionComponent<SelectedQuoteHeaderProps> = ({
   quote,
   language,
   currency,
-  buttonText,
   buttonClick,
   date,
-}: QuoteHeaderProps) => {
+}: SelectedQuoteHeaderProps) => {
   const { t } = useTranslation();
 
   const onButtonClick = (event) => {
@@ -22,38 +21,53 @@ const QuoteHeader: React.FunctionComponent<QuoteHeaderProps> = ({
 
   return (
     <Grid container spacing={3}>
-      {date && (
-        <Grid item xs={6} md={2}>
-          <Box display="flex" alignItems="center" height={1}>
-            <Typography variant="subtitle1">
-              {format(date, 'E, MMM d')}
-            </Typography>
-          </Box>
-        </Grid>
-      )}
       <Grid item xs={6} md={2}>
-        <Box display="flex" alignItems="center" height={1}>
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          height={1}
+        >
+          <Typography variant="subtitle1">
+            {format(date, 'E, MMM d')}
+          </Typography>
+        </Box>
+      </Grid>
+      <Grid item xs={6} md={2}>
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          height={1}
+        >
           <Typography variant="subtitle1">
             {quote.carriers.join(', ')}
           </Typography>
         </Box>
       </Grid>
       <Grid item xs={6} md={2}>
-        <Box display="flex" alignItems="center" height={1}>
+        <Box
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+          height={1}
+        >
           <Typography variant="subtitle2">
             {quote.origin.IataCode} - {quote.destination.IataCode}
           </Typography>
-        </Box>
-      </Grid>
-      <Grid item xs={6} md={2}>
-        <Box display="flex" alignItems="center" height={1}>
           <Typography variant="subtitle2">
             {t(quote.direct ? 'quotes.direct' : 'quotes.layover')}
           </Typography>
         </Box>
       </Grid>
       <Grid item xs={6} md={2}>
-        <Box display="flex" alignItems="center" height={1}>
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          height={1}
+        >
           <Typography variant="body1">
             {new Intl.NumberFormat(language, {
               style: 'currency',
@@ -62,7 +76,7 @@ const QuoteHeader: React.FunctionComponent<QuoteHeaderProps> = ({
           </Typography>
         </Box>
       </Grid>
-      <Grid item xs={12} md={date ? 2 : 4}>
+      <Grid item xs={12} md={4}>
         <Box
           display="flex"
           alignItems="center"
@@ -70,7 +84,7 @@ const QuoteHeader: React.FunctionComponent<QuoteHeaderProps> = ({
           height={1}
         >
           <Button onClick={onButtonClick} color="primary">
-            {buttonText}
+            {t('quote.changeFlight')}
           </Button>
         </Box>
       </Grid>
@@ -78,4 +92,4 @@ const QuoteHeader: React.FunctionComponent<QuoteHeaderProps> = ({
   );
 };
 
-export default QuoteHeader;
+export default SelectedQuoteHeader;
