@@ -1,3 +1,3 @@
 export interface NoFilghtsFoundProps {
-  modifySearch?: Function;
+  modifySearch?: () => void;
 }

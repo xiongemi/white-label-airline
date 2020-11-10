@@ -1,12 +1,12 @@
+import { Dispatch } from '@reduxjs/toolkit';
+import { CountryInterface } from '@white-label-airline/services/countries';
+import { CurrencyInterface } from '@white-label-airline/services/currencies';
+import { PlaceInterface } from '@white-label-airline/services/places';
 import {
   RootStateInterface,
   placesSelectors,
   placesSlice,
 } from '@white-label-airline/store';
-import { Dispatch } from '@reduxjs/toolkit';
-import { CountryInterface } from '@white-label-airline/services/countries';
-import { CurrencyInterface } from '@white-label-airline/services/currencies';
-import { PlaceInterface } from '@white-label-airline/services/places';
 
 import { FormFieldProps } from '../../../models/form-field-props.interface';
 
@@ -16,9 +16,7 @@ export const mapStateToProps = (state: RootStateInterface) => {
   };
 };
 
-export const mapDispatchToProps = (
-  dispatch: Dispatch
-): { getPlaces: Function } => {
+export const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
     getPlaces({
       country,

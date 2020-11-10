@@ -1,20 +1,20 @@
 import { Action } from '@reduxjs/toolkit';
 import {
-  ofType,
+  CountriesResponse,
+  countriesService,
+} from '@white-label-airline/services/countries';
+import { getCurrentLanguage } from '@white-label-airline/services/i18n';
+import {
   ActionsObservable,
   Epic,
   StateObservable,
+  ofType,
 } from 'redux-observable';
-import { map, catchError, switchMap } from 'rxjs/operators';
 import { from, of } from 'rxjs';
-import {
-  countriesService,
-  CountriesResponse,
-} from '@white-label-airline/services/countries';
-import { getCurrentLanguage } from '@white-label-airline/services/i18n';
+import { catchError, map, switchMap } from 'rxjs/operators';
 
-import { RootStateInterface } from '../root';
 import { errorSlice } from '../error/error.slice';
+import { RootStateInterface } from '../root';
 
 import { countriesSlice } from './countries.slice';
 

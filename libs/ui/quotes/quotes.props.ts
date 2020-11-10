@@ -1,13 +1,12 @@
+import { Dispatch } from '@reduxjs/toolkit';
+import { QuotePerLegInterface } from '@white-label-airline/services/quotes';
 import {
   RootStateInterface,
   quotesSelectors,
   quotesSlice,
   GetQuotesPayload,
   selectedQuotesSlice,
-  SearchFormInterface,
 } from '@white-label-airline/store';
-import { Dispatch } from '@reduxjs/toolkit';
-import { QuotePerLegInterface } from '@white-label-airline/services/quotes';
 
 import { QuotesQueryParams } from '../models/quotes-query-params.interface';
 

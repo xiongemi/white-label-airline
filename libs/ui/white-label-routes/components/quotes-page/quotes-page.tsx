@@ -3,13 +3,13 @@ import { useHistory, useLocation } from 'react-router-dom';
 
 import { useQueryParamsAsSearchForm } from '../../../hooks/use-query-params.hook';
 import Quotes from '../../../quotes';
-import { RoutesPath } from '../../models/routes-path.enum';
 import { BreadcrumbLink, SearchBreadcrumbs } from '../../../search-breadcrumbs';
 import {
   inboundBreadcrumb,
   outboundBreadcrumb,
   searchBreadcrumb,
 } from '../../models/breadcrumbs.const';
+import { RoutesPath } from '../../models/routes-path.enum';
 
 const QuotesPage: React.FunctionComponent = () => {
   const history = useHistory();

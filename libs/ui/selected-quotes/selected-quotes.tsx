@@ -1,15 +1,14 @@
-import React from 'react';
-import { getCurrentLanguage } from '@white-label-airline/services/i18n';
-import { connect } from 'react-redux';
 import { Divider, List } from '@material-ui/core';
+import { getCurrentLanguage } from '@white-label-airline/services/i18n';
+import React from 'react';
+import { connect } from 'react-redux';
 
-import { QuotePerLegInterface } from '@white-label-airline/services/quotes';
-import Quote from '../quote/quote';
 import Loading from '../loading';
-
-import { SelectedQuotesProps, mapStateToProps } from './selected-quotes.props';
+import Quote from '../quote/quote';
 import { searchFormDataTransform } from '../search-form/search-form.data-transform';
+
 import SelectedQuoteHeader from './selected-quote-header/selected-quote-header';
+import { SelectedQuotesProps, mapStateToProps } from './selected-quotes.props';
 
 const SelectedQuotes: React.FunctionComponent<SelectedQuotesProps> = ({
   selectedQuotes,

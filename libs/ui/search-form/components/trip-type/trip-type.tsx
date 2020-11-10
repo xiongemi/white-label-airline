@@ -1,13 +1,13 @@
-import React from 'react';
-import { Field } from 'formik';
-import MenuItem from '@material-ui/core/MenuItem';
-import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import { TripTypeEnum } from '@white-label-airline/store';
+import { Field } from 'formik';
 import { Select } from 'formik-material-ui';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { FormFieldProps } from '../../../models/form-field-props.interface';
-import { TripTypeEnum } from '@white-label-airline/store';
 
 let count = 0;
 

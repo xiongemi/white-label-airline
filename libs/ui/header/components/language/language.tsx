@@ -1,5 +1,5 @@
-import React from 'react';
 import { MenuItem, Select, withStyles } from '@material-ui/core';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { LanguageProps } from './language.props';

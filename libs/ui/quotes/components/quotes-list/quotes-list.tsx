@@ -1,6 +1,5 @@
-import React from 'react';
 import { List, Divider } from '@material-ui/core';
-import { QuotePerLegInterface } from '@white-label-airline/services/quotes';
+import React from 'react';
 
 import Quote from '../../../quote/quote';
 import NoFlightsFound from '../no-flights-found/no-flight-found';

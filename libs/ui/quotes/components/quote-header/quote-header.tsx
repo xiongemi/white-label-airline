@@ -1,5 +1,5 @@
-import React from 'react';
 import { Grid, Typography, Button, Box } from '@material-ui/core';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { QuoteHeaderProps } from './quote-header.props';

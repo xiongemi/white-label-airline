@@ -1,10 +1,10 @@
-import { format, parse } from 'date-fns';
-import { mergeDeepRight } from 'ramda';
 import {
   TripTypeEnum,
   SearchFormInterface,
   defaultSearchForm,
 } from '@white-label-airline/store';
+import { format, parse } from 'date-fns';
+import { mergeDeepRight } from 'ramda';
 
 import { QuotesQueryParams } from '../models/quotes-query-params.interface';
 

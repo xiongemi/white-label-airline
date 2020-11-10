@@ -1,10 +1,10 @@
+import { Dispatch } from '@reduxjs/toolkit';
+import { CountryInterface } from '@white-label-airline/services/countries';
 import {
   RootStateInterface,
   countriesSelectors,
   countriesSlice,
 } from '@white-label-airline/store';
-import { Dispatch } from '@reduxjs/toolkit';
-import { CountryInterface } from '@white-label-airline/services/countries';
 
 import { FormFieldProps } from '../../../models/form-field-props.interface';
 

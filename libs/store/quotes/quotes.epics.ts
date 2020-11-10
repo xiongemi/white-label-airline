@@ -1,13 +1,13 @@
 import { PayloadAction } from '@reduxjs/toolkit';
-import { ofType, ActionsObservable, Epic } from 'redux-observable';
-import { map, catchError, switchMap } from 'rxjs/operators';
-import { from } from 'rxjs';
-import {
-  quotesService,
-  quotesDataTransfrom,
-  QuotePerLegInterface,
-} from '@white-label-airline/services/quotes';
 import { getCurrentLanguage } from '@white-label-airline/services/i18n';
+import {
+  QuotePerLegInterface,
+  quotesDataTransfrom,
+  quotesService,
+} from '@white-label-airline/services/quotes';
+import { ActionsObservable, Epic, ofType } from 'redux-observable';
+import { from } from 'rxjs';
+import { catchError, map, switchMap } from 'rxjs/operators';
 
 import { errorSlice } from '../error/error.slice';
 

@@ -1,7 +1,7 @@
-import React from 'react';
 import { Typography, Breadcrumbs, Link, Box } from '@material-ui/core';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 
 import { SearchBreadcrumbsProps } from './search-breadcrumbs.props';
 

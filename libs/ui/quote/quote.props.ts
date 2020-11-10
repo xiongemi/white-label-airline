@@ -1,5 +1,5 @@
-import React from 'react';
 import { QuotePerLegInterface } from '@white-label-airline/services/quotes';
+import React from 'react';
 
 export interface QuoteProps {
   quote: QuotePerLegInterface;

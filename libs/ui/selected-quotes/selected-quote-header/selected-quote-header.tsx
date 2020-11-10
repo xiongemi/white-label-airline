@@ -1,7 +1,7 @@
-import React from 'react';
 import { Grid, Typography, Button, Box } from '@material-ui/core';
-import { useTranslation } from 'react-i18next';
 import { format } from 'date-fns';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { SelectedQuoteHeaderProps } from './selected-quote-header.props';
 

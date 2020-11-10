@@ -1,11 +1,11 @@
 import { Action } from '@reduxjs/toolkit';
-import { ofType, ActionsObservable, Epic } from 'redux-observable';
-import { map, catchError, switchMap } from 'rxjs/operators';
-import { from, of } from 'rxjs';
 import {
-  currenciesService,
   CurrenciesResponseInterface,
+  currenciesService,
 } from '@white-label-airline/services/currencies';
+import { ActionsObservable, Epic, ofType } from 'redux-observable';
+import { from, of } from 'rxjs';
+import { catchError, map, switchMap } from 'rxjs/operators';
 
 import { errorSlice } from '../error/error.slice';
 

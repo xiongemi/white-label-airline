@@ -1,5 +1,5 @@
-import React from 'react';
 import { FetchStatus } from '@white-label-airline/store';
+import React from 'react';
 
 import Loading from '../loading/loading';
 

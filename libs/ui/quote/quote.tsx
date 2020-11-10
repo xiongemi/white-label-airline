@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import {
   ListItem,
   Collapse,
@@ -9,6 +8,7 @@ import {
 } from '@material-ui/core';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
+import React, { useState } from 'react';
 
 import QuoteDetails from './components/quote-details/quote-details';
 import { QuoteProps } from './quote.props';

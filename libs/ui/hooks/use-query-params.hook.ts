@@ -1,10 +1,10 @@
-import { useLocation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import { SearchFormInterface } from '@white-label-airline/store';
 import { parse } from 'query-string';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
-import { searchFormDataTransform } from '../search-form/search-form.data-transform';
 import { QuotesQueryParams } from '../models/quotes-query-params.interface';
+import { searchFormDataTransform } from '../search-form/search-form.data-transform';
 
 export function useQueryParamsAsSearchForm(): {
   queryParams: QuotesQueryParams;

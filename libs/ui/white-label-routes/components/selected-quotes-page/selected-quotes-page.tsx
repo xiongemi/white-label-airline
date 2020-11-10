@@ -1,17 +1,17 @@
+import { parse } from 'query-string';
 import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { parse } from 'query-string';
 
-import SelectedQuotes from '../../../selected-quotes';
 import { QuotesQueryParams } from '../../../models/quotes-query-params.interface';
-import { RoutesPath } from '../../models/routes-path.enum';
+import { BreadcrumbLink, SearchBreadcrumbs } from '../../../search-breadcrumbs';
+import SelectedQuotes from '../../../selected-quotes';
 import {
   bookingBreadcrumb,
   inboundBreadcrumb,
   outboundBreadcrumb,
   searchBreadcrumb,
 } from '../../models/breadcrumbs.const';
-import { BreadcrumbLink, SearchBreadcrumbs } from '../../../search-breadcrumbs';
+import { RoutesPath } from '../../models/routes-path.enum';
 
 const SelectedQuotesPage: React.FunctionComponent = () => {
   const history = useHistory();

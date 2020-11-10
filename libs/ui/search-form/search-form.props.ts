@@ -1,12 +1,12 @@
 import { ButtonProps } from '@material-ui/core';
-import { FormikBag } from 'formik';
+import { Dispatch } from '@reduxjs/toolkit';
 import {
   searchFormSlice,
   SearchFormInterface,
   searchFormSelectors,
   RootStateInterface,
 } from '@white-label-airline/store';
-import { Dispatch } from '@reduxjs/toolkit';
+import { FormikBag } from 'formik';
 
 export const mapStateToProps = (state: RootStateInterface) => {
   return {

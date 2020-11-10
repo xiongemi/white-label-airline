@@ -1,29 +1,29 @@
 import { PayloadAction } from '@reduxjs/toolkit';
+import { getCurrentLanguage } from '@white-label-airline/services/i18n';
 import {
-  ofType,
+  PlacesResponseInterface,
+  placesService,
+} from '@white-label-airline/services/places';
+import { equals } from 'ramda';
+import {
   ActionsObservable,
   Epic,
   StateObservable,
+  ofType,
 } from 'redux-observable';
-import {
-  map,
-  catchError,
-  switchMap,
-  debounceTime,
-  distinctUntilChanged,
-} from 'rxjs/operators';
 import { from, of } from 'rxjs';
 import {
-  placesService,
-  PlacesResponseInterface,
-} from '@white-label-airline/services/places';
-import { getCurrentLanguage } from '@white-label-airline/services/i18n';
-import { equals } from 'ramda';
+  catchError,
+  debounceTime,
+  distinctUntilChanged,
+  map,
+  switchMap,
+} from 'rxjs/operators';
 
 import { errorSlice } from '../error/error.slice';
 import { RootStateInterface } from '../root/root-state.interface';
 
-import { placesSlice, GetPlacesPayload } from './places.slice';
+import { GetPlacesPayload, placesSlice } from './places.slice';
 
 const getPlacesEpic: Epic = (
   action$: ActionsObservable<PayloadAction<GetPlacesPayload>>,

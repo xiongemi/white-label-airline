@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { QuotePerLegInterface } from '@white-label-airline/services/quotes';
 
 import { FetchStatus } from '../models/fetch-status.enum';

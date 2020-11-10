@@ -3,8 +3,8 @@ import {
   QuotesPerTripInterface,
 } from '@white-label-airline/services/quotes';
 
-import { RootStateInterface } from '../root';
 import { FetchStatus } from '../models/fetch-status.enum';
+import { RootStateInterface } from '../root';
 
 import { QuotesStateInterface } from './quotes-state.interface';
 

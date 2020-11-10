@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
 import { Typography } from '@material-ui/core';
-import { useTranslation } from 'react-i18next';
 import { getCurrentLanguage } from '@white-label-airline/services/i18n';
-import { FetchStatus } from '@white-label-airline/store';
 import { QuotePerLegInterface } from '@white-label-airline/services/quotes';
+import { FetchStatus } from '@white-label-airline/store';
+import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { connect } from 'react-redux';
 
 import LoadingFetchStatus from '../loading-fetch-status/loading-fetch-status';
 
+import QuotesList from './components/quotes-list/quotes-list';
 import {
   QuotesProps,
   mapStateToProps,
   mapDispatchToProps,
 } from './quotes.props';
-import QuotesList from './components/quotes-list/quotes-list';
 
 const Quotes: React.FunctionComponent<QuotesProps> = ({
   quotes,

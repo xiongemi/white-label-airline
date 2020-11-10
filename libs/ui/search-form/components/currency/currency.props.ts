@@ -1,9 +1,9 @@
+import { Dispatch } from '@reduxjs/toolkit';
 import {
   RootStateInterface,
   currenciesSelectors,
   currenciesSlice,
 } from '@white-label-airline/store';
-import { Dispatch } from '@reduxjs/toolkit';
 
 import { FormFieldProps } from '../../../models/form-field-props.interface';
 

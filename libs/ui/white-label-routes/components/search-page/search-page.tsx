@@ -1,10 +1,10 @@
+import { SearchFormInterface } from '@white-label-airline/store';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { SearchFormInterface } from '@white-label-airline/store';
 
+import { useQueryParamsAsSearchForm } from '../../../hooks/use-query-params.hook';
 import SearchForm, { searchFormDataTransform } from '../../../search-form';
 import { RoutesPath } from '../../models/routes-path.enum';
-import { useQueryParamsAsSearchForm } from '../../../hooks/use-query-params.hook';
 
 import { SearchPageProps } from './search-page.props';
 

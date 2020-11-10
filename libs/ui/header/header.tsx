@@ -1,11 +1,11 @@
-import { useTranslation } from 'react-i18next';
-import React from 'react';
 import { AppBar, Toolbar, Typography, Box } from '@material-ui/core';
 import {
   getSupportedLanguages,
   changeLanguage,
   getCurrentLanguage,
 } from '@white-label-airline/services/i18n';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import Language from './components/language/language';
 

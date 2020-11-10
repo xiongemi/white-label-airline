@@ -1,6 +1,6 @@
+import { Typography, Button, Box } from '@material-ui/core';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Typography, Button, Box } from '@material-ui/core';
 
 import { NoFilghtsFoundProps } from './no-flight-found.props';
 

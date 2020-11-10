@@ -9,9 +9,7 @@ import Loading from '@white-label-airline/ui/loading';
 import Header from '@white-label-airline/ui/header';
 import WhiteLabelRoutes from '@white-label-airline/ui/white-label-routes';
 import { PersistGate } from 'redux-persist/integration/react';
-
 import { initSearchForm } from '../models/search-form-init.const';
-
 import { features } from './features.const';
 
 const defaultLanguage = 'en-GB';

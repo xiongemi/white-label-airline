@@ -1,27 +1,27 @@
-import React, { useEffect } from 'react';
-import { Form, Field, getIn, withFormik, FormikProps } from 'formik';
-import { Button, Grid, Box } from '@material-ui/core';
-import { useTranslation } from 'react-i18next';
-import { KeyboardDatePicker } from 'formik-material-ui-pickers';
 import DateFnsUtils from '@date-io/date-fns';
+import { Button, Grid, Box } from '@material-ui/core';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
-import { FeatureToggle } from 'react-feature-toggles';
 import { SearchFormInterface, TripTypeEnum } from '@white-label-airline/store';
+import { Form, Field, getIn, withFormik, FormikProps } from 'formik';
+import { KeyboardDatePicker } from 'formik-material-ui-pickers';
+import React, { useEffect } from 'react';
+import { FeatureToggle } from 'react-feature-toggles';
+import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 
 import { IsScreenSizeSm } from '../hooks/screen-size.hook';
 import { FeatureToggleNames } from '../models/feature-toggle-names.enum';
 
-import {
-  SearchProps,
-  mapStateToProps,
-  mapDispatchToProps,
-} from './search-form.props';
 import Country from './components/country/country';
 import Currency from './components/currency/currency';
 import Place from './components/place/place';
 import TripType from './components/trip-type/trip-type';
 import { searchFormSchema } from './models/search-form.schema';
+import {
+  SearchProps,
+  mapStateToProps,
+  mapDispatchToProps,
+} from './search-form.props';
 
 const SearchForm: React.FunctionComponent<SearchProps> = ({
   bottonProps,

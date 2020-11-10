@@ -1,5 +1,3 @@
-import { format } from 'date-fns';
-
 import { getApiHeaders } from '../api/api.service';
 
 import { QuotesResponseInterface } from './models/quotes-response.interface';

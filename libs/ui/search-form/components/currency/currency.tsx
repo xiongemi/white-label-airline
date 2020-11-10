@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
 import TextField from '@material-ui/core/TextField';
+import { CurrencyInterface } from '@white-label-airline/services/currencies';
+import { Field } from 'formik';
 import {
   Autocomplete,
   AutocompleteRenderInputParams,
 } from 'formik-material-ui-lab';
-import { CurrencyInterface } from '@white-label-airline/services/currencies';
-import { connect } from 'react-redux';
-import { Field } from 'formik';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { connect } from 'react-redux';
 
 import { useFieldErrorTouched } from '../../../hooks/use-field-errors-touched.hook';
 
