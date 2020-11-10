@@ -2,6 +2,7 @@ import { render } from '@testing-library/react';
 import { mockQuotePerLeg } from '@white-label-airline/services/quotes';
 import { axe, toHaveNoViolations } from 'jest-axe';
 import React from 'react';
+import '@white-label-airline/services/i18n/i18n.mock';
 
 import SelectedQuoteHeader from './selected-quote-header';
 
@@ -14,7 +15,7 @@ describe('Selected Quote Header', () => {
         quote={mockQuotePerLeg}
         language="en"
         currency="CAD"
-        buttonText="button"
+        date={new Date()}
         buttonClick={console.log}
       />
     );

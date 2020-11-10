@@ -1,8 +1,8 @@
 import { CurrencyInterface } from '../../currencies';
 
-import { QuoteResponseInterface } from './quote-response.interface';
 import { CarrierInterface } from './carrier.interface';
 import { PlacePerQuoteInterface } from './place-per-quote.interface';
+import { QuoteResponseInterface } from './quote-response.interface';
 
 export interface QuotesResponseInterface {
   Quotes: QuoteResponseInterface[];

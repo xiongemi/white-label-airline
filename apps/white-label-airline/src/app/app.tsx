@@ -1,15 +1,17 @@
-import { Provider } from 'react-redux';
-import React, { Suspense } from 'react';
-import { configureAppStore } from '@white-label-airline/store';
-import { initI18n } from '@white-label-airline/services/i18n';
-import { FeatureToggleProvider } from 'react-feature-toggles';
-import { createBrowserHistory, History } from 'history';
 import { Container, Box } from '@material-ui/core';
-import Loading from '@white-label-airline/ui/loading';
+import { initI18n } from '@white-label-airline/services/i18n';
+import { configureAppStore } from '@white-label-airline/store';
 import Header from '@white-label-airline/ui/header';
+import Loading from '@white-label-airline/ui/loading';
 import WhiteLabelRoutes from '@white-label-airline/ui/white-label-routes';
+import { createBrowserHistory, History } from 'history';
+import React, { Suspense } from 'react';
+import { FeatureToggleProvider } from 'react-feature-toggles';
+import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+
 import { initSearchForm } from '../models/search-form-init.const';
+
 import { features } from './features.const';
 
 const defaultLanguage = 'en-GB';

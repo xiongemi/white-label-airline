@@ -10,7 +10,7 @@ import { rootEpic } from './root.epic';
 import { createRootReducer } from './root.reducer';
 
 const epicMiddleware = createEpicMiddleware();
-const isProduction = process.env.NODE_ENV === 'production';
+const isDevelopment = process.env.NODE_ENV === 'development';
 
 const persistConfig = {
   key: 'root',
@@ -24,9 +24,9 @@ export function configureAppStore(
 ) {
   const store = configureStore({
     reducer: persistReducer(persistConfig, createRootReducer(history)),
-    middleware: isProduction ? [epicMiddleware] : [epicMiddleware, logger],
+    middleware: isDevelopment ? [epicMiddleware, logger] : [epicMiddleware],
     preloadedState,
-    devTools: !isProduction,
+    devTools: isDevelopment,
   });
 
   epicMiddleware.run(rootEpic);

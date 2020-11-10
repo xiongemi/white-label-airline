@@ -1,7 +1,7 @@
-import { QuotesResponseInterface } from './models/quotes-response.interface';
-import { QuoteResponseInterface } from './models/quote-response.interface';
-import { QuotePerLegInterface } from './models/quote-per-leg.interface';
 import { PlacePerQuoteInterface } from './models/place-per-quote.interface';
+import { QuotePerLegInterface } from './models/quote-per-leg.interface';
+import { QuoteResponseInterface } from './models/quote-response.interface';
+import { QuotesResponseInterface } from './models/quotes-response.interface';
 
 /**
  * Convert quotes response to quotes used by the app
