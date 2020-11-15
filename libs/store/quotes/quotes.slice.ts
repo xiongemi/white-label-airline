@@ -1,24 +1,10 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { QuotePerLegInterface } from '@white-label-airline/services/quotes';
 
 import { FetchStatus } from '../models/fetch-status.enum';
 
+import { GetQuotesPayload } from './models/get-quotes-payload.interface';
+import { GetQuotesSuccessPayload } from './models/get-quotes-success-payload.interface';
 import { initialQuotesState } from './quotes-state-initial.const';
-
-export interface GetQuotesPayload {
-  country: string;
-  currency: string;
-  from: string;
-  to: string;
-  departDate: string; // date in 'yyyy-MM-dd'
-  returnDate?: string; // date in 'yyyy-MM-dd'
-  isOutbound?: boolean;
-}
-
-export interface GetQuotesSuccessPayload {
-  quotes: QuotePerLegInterface[];
-  isOutbound: boolean;
-}
 
 export const quotesSlice = createSlice({
   name: 'quotes',

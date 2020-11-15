@@ -15,8 +15,17 @@ This project is a sample flight search app generated using [Nx](https://nx.dev).
 ## Commands
 
 - deploy to GitHub Pages: `npm run deploy`
-- run lint for all libraries: `npm run lint:library`
-- run lint with fix for all libraries: `lint:library:fix`
+- test the application: `nx test white-label-airline`
+
+### Unit Test
+
+- test all files: `npm run test`
+- test watch all files: `npm run test:watch`
+
+### Lint
+
+- run lint for all libraries and applications: `npm run lint`
+- run lint with fix for all libraries and applications: `npm run lint:fix`
 
 ---
 
