@@ -27,5 +27,8 @@ export const selectedQuotesSlice = createSlice({
         };
       },
     },
+    reset() {
+      return initialSelectedQuotesState;
+    },
   },
 });

@@ -11,6 +11,7 @@
     "test:watch": "npm run test -- --watch",
     "lint": "nx run-many --all --target=lint --only-failed",
     "lint:fix": "npm run lint -- --fix",
+    "lint:affected": "nx affected:lint --parallel --uncommitted",
     "e2e": "nx e2e",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
@@ -109,5 +110,11 @@
     "ts-node": "~7.0.0",
     "tslint": "~6.0.0",
     "typescript": "~3.9.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint:affected",
+      "pre-push": "npm run lint && npm test"
+    }
   }
 }
