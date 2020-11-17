@@ -4,8 +4,8 @@ export const countriesSlice = createSlice({
   name: 'countries',
   initialState: [],
   reducers: {
-    getCountries(state) {
-      state = [];
+    getCountries() {
+      return [];
     },
     getCountriesSuccess(_, action) {
       return action.payload;

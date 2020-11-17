@@ -1,6 +1,8 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { PlaceInterface } from '@white-label-airline/services/places';
 
 import { initialPlacesState } from './places-state-initial.const';
+import { PlacesStateInterface } from './places-state.interface';
 
 export interface GetPlacesPayload {
   country: string;
@@ -19,11 +21,14 @@ export const placesSlice = createSlice({
           results: [],
         };
       },
-      prepare({ country, currency, query }: GetPlacesPayload) {
-        return { payload: { country, currency, query } };
+      prepare(payload: GetPlacesPayload) {
+        return { payload };
       },
     },
-    getPlacesSuccess(state, action) {
+    getPlacesSuccess(
+      state: PlacesStateInterface,
+      action: PayloadAction<PlaceInterface[]>
+    ) {
       return { ...state, results: action.payload };
     },
   },

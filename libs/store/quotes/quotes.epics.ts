@@ -14,7 +14,7 @@ import { errorSlice } from '../error/error.slice';
 import { GetQuotesPayload } from './models/get-quotes-payload.interface';
 import { quotesSlice } from './quotes.slice';
 
-const getQuotesEpic: Epic = (
+export const getQuotesEpic = (
   action$: ActionsObservable<PayloadAction<GetQuotesPayload>>
 ) =>
   action$.pipe(
@@ -51,4 +51,4 @@ const getQuotesEpic: Epic = (
     })
   );
 
-export const quotesEpics = [getQuotesEpic];
+export const quotesEpics: Epic[] = [getQuotesEpic];

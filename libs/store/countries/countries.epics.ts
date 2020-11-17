@@ -4,24 +4,15 @@ import {
   countriesService,
 } from '@white-label-airline/services/countries';
 import { getCurrentLanguage } from '@white-label-airline/services/i18n';
-import {
-  ActionsObservable,
-  Epic,
-  StateObservable,
-  ofType,
-} from 'redux-observable';
+import { ActionsObservable, Epic, ofType } from 'redux-observable';
 import { from, of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 
 import { errorSlice } from '../error/error.slice';
-import { RootStateInterface } from '../root';
 
 import { countriesSlice } from './countries.slice';
 
-const getCountriesEpic: Epic = (
-  action$: ActionsObservable<Action>,
-  states$: StateObservable<RootStateInterface>
-) =>
+export const getCountriesEpic = (action$: ActionsObservable<Action>) =>
   action$.pipe(
     ofType(countriesSlice.actions.getCountries.type),
     switchMap(() => {
@@ -34,4 +25,4 @@ const getCountriesEpic: Epic = (
     })
   );
 
-export const countriesEpics = [getCountriesEpic];
+export const countriesEpics: Epic[] = [getCountriesEpic];

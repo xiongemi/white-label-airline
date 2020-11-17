@@ -11,7 +11,7 @@ import { errorSlice } from '../error/error.slice';
 
 import { currenciesSlice } from './currencies.slice';
 
-const getCurrenciesEpic: Epic = (action$: ActionsObservable<Action>) =>
+export const getCurrenciesEpic = (action$: ActionsObservable<Action>) =>
   action$.pipe(
     ofType(currenciesSlice.actions.getCurrencies.type),
     switchMap(() => {
@@ -24,4 +24,4 @@ const getCurrenciesEpic: Epic = (action$: ActionsObservable<Action>) =>
     })
   );
 
-export const currenciesEpics = [getCurrenciesEpic];
+export const currenciesEpics: Epic[] = [getCurrenciesEpic];

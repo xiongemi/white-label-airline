@@ -7,8 +7,8 @@ export const searchFormSlice = createSlice({
     setSearchFormValues(_, action) {
       return action.payload;
     },
-    resetSearchFormValues(state) {
-      state = null;
+    resetSearchFormValues() {
+      return null;
     },
   },
 });

@@ -23,7 +23,7 @@ function initI18n(
     });
 }
 
-function getCurrentLanguage() {
+function getCurrentLanguage(): string {
   return i18n.language;
 }
 

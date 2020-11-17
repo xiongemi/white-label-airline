@@ -21,13 +21,11 @@ import {
 } from 'rxjs/operators';
 
 import { errorSlice } from '../error/error.slice';
-import { RootStateInterface } from '../root/root-state.interface';
 
 import { GetPlacesPayload, placesSlice } from './places.slice';
 
-const getPlacesEpic: Epic = (
-  action$: ActionsObservable<PayloadAction<GetPlacesPayload>>,
-  states$: StateObservable<RootStateInterface>
+export const getPlacesEpic = (
+  action$: ActionsObservable<PayloadAction<GetPlacesPayload>>
 ) =>
   action$.pipe(
     ofType(placesSlice.actions.getPlaces.type),
@@ -51,4 +49,4 @@ const getPlacesEpic: Epic = (
     })
   );
 
-export const placesEpics = [getPlacesEpic];
+export const placesEpics: Epic[] = [getPlacesEpic];
