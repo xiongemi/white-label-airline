@@ -1,5 +1,3 @@
-/* eslint-disable import/first */
-jest.mock('@white-label-airline/services/currencies');
 import { Action } from '@reduxjs/toolkit';
 import {
   currenciesService,
@@ -13,6 +11,8 @@ import { errorSlice } from '../error/error.slice';
 
 import { getCurrenciesEpic } from './currencies.epics';
 import { currenciesSlice } from './currencies.slice';
+
+jest.mock('@white-label-airline/services/currencies');
 
 describe('Currencies Epics', () => {
   describe('getCurrenciesEpic', () => {
@@ -42,7 +42,7 @@ describe('Currencies Epics', () => {
       });
     });
 
-    test('should map to success action if service returns valid response', (done) => {
+    test('should map to error action if service throws an error', (done) => {
       const mockError = new Error('random error');
       currenciesService.getCurrencies = jest
         .fn()

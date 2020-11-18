@@ -6,7 +6,7 @@ import {
 import { FetchStatus } from '../models/fetch-status.enum';
 import { RootStateInterface } from '../root';
 
-import { QuotesStateInterface } from './quotes-state.interface';
+import { QuotesStateInterface } from './models/quotes-state.interface';
 
 const getQuotesState = (rootState: RootStateInterface): QuotesStateInterface =>
   rootState.quotes;

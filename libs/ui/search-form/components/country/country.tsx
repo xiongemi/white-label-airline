@@ -1,5 +1,6 @@
 import { TextField } from '@material-ui/core';
 import { CountryInterface } from '@white-label-airline/services/countries';
+import { FetchStatus } from '@white-label-airline/store';
 import { Field } from 'formik';
 import {
   Autocomplete,
@@ -20,6 +21,7 @@ import {
 const Country: React.FunctionComponent<CountryProps> = ({
   getCountries,
   countries,
+  countriesFetchStatus,
   name,
   label,
 }: CountryProps) => {
@@ -27,10 +29,13 @@ const Country: React.FunctionComponent<CountryProps> = ({
   const { fieldError, fieldTouched } = useFieldErrorTouched(name);
 
   useEffect(() => {
-    if (!countries || !countries.length) {
+    if (
+      countriesFetchStatus === FetchStatus.Initial &&
+      (!countries || !countries.length)
+    ) {
       getCountries();
     }
-  }, [getCountries, countries]);
+  }, [countriesFetchStatus, getCountries, countries]);
 
   return (
     <Field

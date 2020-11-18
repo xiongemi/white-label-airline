@@ -1,17 +1,29 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { CurrencyInterface } from '@white-label-airline/services/currencies';
 
-const initialState: CurrencyInterface[] = [];
+import { FetchStatus } from '../models/fetch-status.enum';
+
+import { initialCurrenciesState } from './models/currencies-state.init';
+import { CurrenciesStateInterface } from './models/currencies-state.interface';
 
 export const currenciesSlice = createSlice({
   name: 'currencies',
-  initialState,
+  initialState: initialCurrenciesState,
   reducers: {
     getCurrencies() {
-      return [];
+      return {
+        fetchStatus: FetchStatus.Loading,
+        currencies: [],
+      };
     },
-    getCurrenciesSuccess(_, action) {
-      return action.payload;
+    getCurrenciesSuccess(_, action: PayloadAction<CurrencyInterface[]>) {
+      return {
+        fetchStatus: FetchStatus.Success,
+        currencies: action.payload,
+      };
+    },
+    getCurrenciesError(state: CurrenciesStateInterface) {
+      state.fetchStatus = FetchStatus.Error;
     },
   },
 });

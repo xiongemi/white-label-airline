@@ -3,7 +3,7 @@ import React from 'react';
 
 const Loading: React.FunctionComponent = () => {
   return (
-    <Box textAlign="center">
+    <Box textAlign="center" data-testid="loading">
       <CircularProgress />
     </Box>
   );

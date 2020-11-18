@@ -1,8 +1,8 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { PlaceInterface } from '@white-label-airline/services/places';
 
-import { initialPlacesState } from './places-state-initial.const';
-import { PlacesStateInterface } from './places-state.interface';
+import { initialPlacesState } from './models/places-state-initial.const';
+import { PlacesStateInterface } from './models/places-state.interface';
 
 export interface GetPlacesPayload {
   country: string;

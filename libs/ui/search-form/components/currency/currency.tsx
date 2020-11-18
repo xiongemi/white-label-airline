@@ -1,5 +1,6 @@
 import TextField from '@material-ui/core/TextField';
 import { CurrencyInterface } from '@white-label-airline/services/currencies';
+import { FetchStatus } from '@white-label-airline/store';
 import { Field } from 'formik';
 import {
   Autocomplete,
@@ -22,15 +23,19 @@ const Currency: React.FunctionComponent<CurrencyProps> = ({
   name,
   label,
   getCurrencies,
+  currenciesFetchStatus,
 }: CurrencyProps) => {
   const { t } = useTranslation();
   const { fieldError, fieldTouched } = useFieldErrorTouched(name);
 
   useEffect(() => {
-    if (!currencies || !currencies.length) {
+    if (
+      currenciesFetchStatus === FetchStatus.Initial &&
+      (!currencies || !currencies.length)
+    ) {
       getCurrencies();
     }
-  }, [currencies, getCurrencies]);
+  }, [currenciesFetchStatus, currencies, getCurrencies]);
 
   return (
     <Field

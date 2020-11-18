@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { QuotePerLegInterface } from '@white-label-airline/services/quotes';
 
-import { initialSelectedQuotesState } from './selected-quotes-state-initial.const';
+import { initialSelectedQuotesState } from './models/selected-quotes-state-initial.const';
 
 export const selectedQuotesSlice = createSlice({
   name: 'quotes',

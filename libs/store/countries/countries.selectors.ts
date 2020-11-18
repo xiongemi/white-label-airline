@@ -1,5 +1,18 @@
-import { RootStateInterface } from '../root';
+import { CountryInterface } from '@white-label-airline/services/countries';
 
-const getCountries = (rootState: RootStateInterface) => rootState.countries;
+import { FetchStatus } from '../models/fetch-status.enum';
+import { RootStateInterface } from '../root/root-state.interface';
 
-export const countriesSelectors = { getCountries };
+import { CountriesStateInterface } from './models/countries-state.interface';
+
+const getCountriesState = (
+  rootState: RootStateInterface
+): CountriesStateInterface => rootState.countries;
+
+const getCountries = (rootState: RootStateInterface): CountryInterface[] =>
+  getCountriesState(rootState).countries;
+
+const getCountriesFetchStatus = (rootState: RootStateInterface): FetchStatus =>
+  getCountriesState(rootState).fetchStatus;
+
+export const countriesSelectors = { getCountries, getCountriesFetchStatus };

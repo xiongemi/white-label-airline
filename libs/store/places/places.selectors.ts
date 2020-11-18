@@ -1,6 +1,6 @@
 import { RootStateInterface } from '../root';
 
-import { PlacesStateInterface } from './places-state.interface';
+import { PlacesStateInterface } from './models/places-state.interface';
 
 const getPlaces = (rootState: RootStateInterface): PlacesStateInterface =>
   rootState.places;

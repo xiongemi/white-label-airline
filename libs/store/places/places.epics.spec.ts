@@ -1,6 +1,6 @@
 /* eslint-disable import/first */
 jest.mock('@white-label-airline/services/places');
-import { Action, PayloadAction } from '@reduxjs/toolkit';
+import { PayloadAction } from '@reduxjs/toolkit';
 import {
   placesService,
   mockPlacesResponse,

@@ -5,12 +5,7 @@ import {
   placesService,
 } from '@white-label-airline/services/places';
 import { equals } from 'ramda';
-import {
-  ActionsObservable,
-  Epic,
-  StateObservable,
-  ofType,
-} from 'redux-observable';
+import { ActionsObservable, Epic, ofType } from 'redux-observable';
 import { from, of } from 'rxjs';
 import {
   catchError,

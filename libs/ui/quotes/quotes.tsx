@@ -45,7 +45,7 @@ const Quotes: React.FunctionComponent<QuotesProps> = ({
     }
   }, [isOutbound, quotes, quotesFetchStatus]);
 
-  const onSelectQuote = (quote) => {
+  const onSelectQuote = (quote: QuotePerLegInterface) => {
     if (isOutbound) {
       selectOutboundQuote(quote);
     } else {

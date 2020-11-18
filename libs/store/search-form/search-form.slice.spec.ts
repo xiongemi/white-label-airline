@@ -1,6 +1,4 @@
-import { mockCurrency } from '@white-label-airline/services/currencies';
-
-import { defaultSearchForm } from './search-form-default.const';
+import { defaultSearchForm } from './models/search-form-default.const';
 import { searchFormSlice } from './search-form.slice';
 
 describe('Search Form Slice', () => {

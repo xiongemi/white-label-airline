@@ -10,6 +10,7 @@ import { FormFieldProps } from '../../../models/form-field-props.interface';
 export const mapStateToProps = (state: RootStateInterface) => {
   return {
     currencies: currenciesSelectors.getCurrencies(state),
+    currenciesFetchStatus: currenciesSelectors.getCurrenciesFetchStatus(state),
   };
 };
 

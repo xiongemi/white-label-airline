@@ -5,7 +5,7 @@ import {
 } from '@white-label-airline/services/countries';
 import { getCurrentLanguage } from '@white-label-airline/services/i18n';
 import { ActionsObservable, Epic, ofType } from 'redux-observable';
-import { from, of } from 'rxjs';
+import { from } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 
 import { errorSlice } from '../error/error.slice';
@@ -20,7 +20,12 @@ export const getCountriesEpic = (action$: ActionsObservable<Action>) =>
         map((response: CountriesResponse) =>
           countriesSlice.actions.getCountriesSuccess(response.Countries)
         ),
-        catchError((error) => of(errorSlice.actions.handleError(error)))
+        catchError((error) =>
+          from([
+            countriesSlice.actions.getCountriesError(),
+            errorSlice.actions.handleError(error),
+          ])
+        )
       );
     })
   );

@@ -3,7 +3,7 @@ import { mockQuotePerLeg } from '@white-label-airline/services/quotes';
 import { FetchStatus } from '../models/fetch-status.enum';
 
 import { mockGetQuotesPayload } from './models/get-quotes-payload.mock';
-import { initialQuotesState } from './quotes-state-initial.const';
+import { initialQuotesState } from './models/quotes-state-initial.const';
 import { quotesSlice } from './quotes.slice';
 
 describe('Quotes Slice', () => {

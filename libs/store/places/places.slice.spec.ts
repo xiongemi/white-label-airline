@@ -1,7 +1,6 @@
-import { mockCurrency } from '@white-label-airline/services/currencies';
 import { mockPlace } from '@white-label-airline/services/places';
 
-import { initialPlacesState } from './places-state-initial.const';
+import { initialPlacesState } from './models/places-state-initial.const';
 import { placesSlice } from './places.slice';
 
 describe('Places Slice', () => {

@@ -4,7 +4,7 @@ import {
   currenciesService,
 } from '@white-label-airline/services/currencies';
 import { ActionsObservable, Epic, ofType } from 'redux-observable';
-import { from, of } from 'rxjs';
+import { from } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 
 import { errorSlice } from '../error/error.slice';
@@ -19,7 +19,12 @@ export const getCurrenciesEpic = (action$: ActionsObservable<Action>) =>
         map((response: CurrenciesResponseInterface) =>
           currenciesSlice.actions.getCurrenciesSuccess(response.Currencies)
         ),
-        catchError((error) => of(errorSlice.actions.handleError(error)))
+        catchError((error) =>
+          from([
+            errorSlice.actions.handleError(error),
+            currenciesSlice.actions.getCurrenciesError(),
+          ])
+        )
       );
     })
   );

@@ -1,5 +1,3 @@
-/* eslint-disable import/first */
-jest.mock('@white-label-airline/services/countries');
 import { Action } from '@reduxjs/toolkit';
 import {
   countriesService,
@@ -9,10 +7,10 @@ import { ActionsObservable } from 'redux-observable';
 import { of } from 'rxjs';
 import '@white-label-airline/services/i18n/i18n.mock';
 
-import { errorSlice } from '../error/error.slice';
-
 import { getCountriesEpic } from './countries.epics';
 import { countriesSlice } from './countries.slice';
+
+jest.mock('@white-label-airline/services/countries');
 
 describe('Countries Epics', () => {
   describe('getCountriesEpic', () => {
@@ -42,7 +40,7 @@ describe('Countries Epics', () => {
       });
     });
 
-    test('should map to success action if service returns valid response', (done) => {
+    test('should map to error action if service throws an error', (done) => {
       const mockError = new Error('random error');
       countriesService.getCountries = jest
         .fn()
@@ -50,7 +48,7 @@ describe('Countries Epics', () => {
 
       getCountriesEpic(action$).subscribe({
         next: (action) => {
-          expect(action).toEqual(errorSlice.actions.handleError(mockError));
+          expect(action).toEqual(countriesSlice.actions.getCountriesError());
           done();
         },
       });

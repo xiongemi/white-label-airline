@@ -1,4 +1,4 @@
-import { FetchStatus } from '../models/fetch-status.enum';
+import { FetchStatus } from '../../models/fetch-status.enum';
 
 import { QuotesStateInterface } from './quotes-state.interface';
 

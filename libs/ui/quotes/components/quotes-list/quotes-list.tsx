@@ -15,7 +15,7 @@ const QuotesList: React.FunctionComponent<QuotesListProps> = ({
   selectQuote,
 }: QuotesListProps) => {
   return quotes && quotes.length ? (
-    <List>
+    <List data-testid="quotes-list">
       {quotes.map((quote) => {
         return (
           <div key={quote.id}>
