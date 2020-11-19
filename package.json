@@ -12,14 +12,13 @@
     "test:clear": "npm run test -- --clearCache",
     "lint": "nx run-many --all --target=lint --parallel",
     "lint:fix": "npm run lint -- --fix",
-    "lint:affected": "nx affected:lint --parallel --uncommitted --only-failed",
     "e2e": "nx e2e",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
     "affected:build": "nx affected:build",
     "affected:e2e": "nx affected:e2e",
     "affected:test": "nx affected:test",
-    "affected:lint": "nx affected:lint",
+    "affected:lint": "nx affected:lint --parallel --uncommitted --only-failed",
     "affected:dep-graph": "nx affected:dep-graph",
     "affected": "nx affected",
     "format": "nx format:write",
@@ -116,8 +115,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint:affected",
-      "pre-push": "npm run lint && npm test"
+      "pre-commit": "npm run affected:lint",
+      "pre-push": "npm run lint && npm run test"
     }
   }
 }

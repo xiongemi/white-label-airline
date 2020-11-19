@@ -4,7 +4,7 @@ import { FetchStatus } from '../models/fetch-status.enum';
 
 import { GetQuotesPayload } from './models/get-quotes-payload.interface';
 import { GetQuotesSuccessPayload } from './models/get-quotes-success-payload.interface';
-import { initialQuotesState } from './models/quotes-state-initial.const';
+import { initialQuotesState } from './models/quotes-state.initial';
 import { QuotesStateInterface } from './models/quotes-state.interface';
 
 export const quotesSlice = createSlice({

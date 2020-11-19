@@ -3,7 +3,7 @@ import { CurrencyInterface } from '@white-label-airline/services/currencies';
 
 import { FetchStatus } from '../models/fetch-status.enum';
 
-import { initialCurrenciesState } from './models/currencies-state.init';
+import { initialCurrenciesState } from './models/currencies-state.initial';
 import { CurrenciesStateInterface } from './models/currencies-state.interface';
 
 export const currenciesSlice = createSlice({

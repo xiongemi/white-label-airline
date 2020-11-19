@@ -3,7 +3,7 @@ import { mockCurrency } from '@white-label-airline/services/currencies';
 import { FetchStatus } from '../models/fetch-status.enum';
 
 import { currenciesSlice } from './currencies.slice';
-import { initialCurrenciesState } from './models/currencies-state.init';
+import { initialCurrenciesState } from './models/currencies-state.initial';
 
 describe('Currencies Slice', () => {
   test('should reset state when get currencies', () => {

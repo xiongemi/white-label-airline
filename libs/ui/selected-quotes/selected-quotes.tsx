@@ -19,21 +19,25 @@ const SelectedQuotes: React.FunctionComponent<SelectedQuotesProps> = ({
   const language = getCurrentLanguage();
   return queryParams && selectedQuotes ? (
     <List>
-      <Quote
-        quote={selectedQuotes.outbound}
-        header={
-          <SelectedQuoteHeader
+      {selectedQuotes.outbound && (
+        <>
+          <Quote
             quote={selectedQuotes.outbound}
-            language={language}
-            currency={queryParams?.currency}
-            date={searchFormDataTransform.parseQueryParamsDate(
-              queryParams?.departDate
-            )}
-            buttonClick={modifyOutboundQuote}
+            header={
+              <SelectedQuoteHeader
+                quote={selectedQuotes.outbound}
+                language={language}
+                currency={queryParams?.currency}
+                date={searchFormDataTransform.parseQueryParamsDate(
+                  queryParams?.departDate
+                )}
+                buttonClick={modifyOutboundQuote}
+              />
+            }
           />
-        }
-      />
-      <Divider />
+          <Divider />
+        </>
+      )}
       {selectedQuotes.inbound && (
         <>
           <Quote

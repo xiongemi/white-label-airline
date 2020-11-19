@@ -3,7 +3,7 @@ import { mockCountry } from '@white-label-airline/services/countries';
 import { FetchStatus } from '../models/fetch-status.enum';
 
 import { countriesSlice } from './countries.slice';
-import { initialCountriesState } from './models/countries-state.init';
+import { initialCountriesState } from './models/countries-state.initial';
 
 describe('Countries Slice', () => {
   test('should reset state when get countries', () => {

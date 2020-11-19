@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
-import { mockCountry } from '@white-label-airline/services/countries';
+import { mockCurrency } from '@white-label-airline/services/currencies';
 import {
-  countriesSlice,
+  currenciesSlice,
   defaultSearchForm,
   FetchStatus,
-  initialCountriesState,
+  initialCurrenciesState,
 } from '@white-label-airline/store';
 import { Formik } from 'formik';
 import { axe } from 'jest-axe';
@@ -13,17 +13,17 @@ import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import '@white-label-airline/services/i18n/i18n.mock';
 
-import Country from './country';
+import Currency from './currency';
 
 const mockStore = configureStore([]);
 
-describe('Country', () => {
+describe('Currency', () => {
   let store;
 
   describe('initial state', () => {
     beforeEach(() => {
       store = mockStore({
-        countries: initialCountriesState,
+        currencies: initialCurrenciesState,
       });
 
       store.dispatch = jest.fn();
@@ -33,7 +33,7 @@ describe('Country', () => {
       const { container } = render(
         <Provider store={store}>
           <Formik initialValues={defaultSearchForm} onSubmit={console.log}>
-            <Country name="country" label="country" />
+            <Currency name="currency" label="currency" />
           </Formik>
         </Provider>
       );
@@ -41,17 +41,17 @@ describe('Country', () => {
       expect(await axe(container)).toHaveNoViolations();
     });
 
-    test('should dipatch action to get countries', () => {
+    test('should dipatch action to get currencies', () => {
       render(
         <Provider store={store}>
           <Formik initialValues={defaultSearchForm} onSubmit={console.log}>
-            <Country name="country" label="country" />
+            <Currency name="currency" label="currency" />
           </Formik>
         </Provider>
       );
 
       expect(store.dispatch).toBeCalledWith(
-        countriesSlice.actions.getCountries()
+        currenciesSlice.actions.getCurrencies()
       );
     });
   });
@@ -59,29 +59,29 @@ describe('Country', () => {
   describe('state with success fetch status', () => {
     beforeEach(() => {
       store = mockStore({
-        countries: {
+        currencies: {
           fetchStatus: FetchStatus.Success,
-          countries: [mockCountry],
+          currencies: [mockCurrency],
         },
       });
 
       store.dispatch = jest.fn();
     });
 
-    test('should not dispatch action to get countries', async () => {
+    test('should not dispatch action to get currencies', async () => {
       render(
         <Provider store={store}>
           <Formik
-            initialValues={{ country: mockCountry }}
+            initialValues={{ currency: mockCurrency }}
             onSubmit={console.log}
           >
-            <Country name="country" label="country" />
+            <Currency name="currency" label="currency" />
           </Formik>
         </Provider>
       );
 
       expect(store.dispatch).not.toBeCalledWith(
-        countriesSlice.actions.getCountries()
+        currenciesSlice.actions.getCurrencies()
       );
     });
 
@@ -89,16 +89,16 @@ describe('Country', () => {
       const { queryByLabelText } = render(
         <Provider store={store}>
           <Formik
-            initialValues={{ country: mockCountry }}
+            initialValues={{ currency: mockCurrency }}
             onSubmit={console.log}
           >
-            <Country name="country" label="country" />
+            <Currency name="currency" label="currency" />
           </Formik>
         </Provider>
       );
 
-      expect((queryByLabelText('country') as HTMLInputElement).value).toEqual(
-        mockCountry.Name
+      expect((queryByLabelText('currency') as HTMLInputElement).value).toEqual(
+        mockCurrency.Code
       );
     });
   });

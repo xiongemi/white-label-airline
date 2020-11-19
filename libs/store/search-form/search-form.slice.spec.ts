@@ -1,4 +1,4 @@
-import { defaultSearchForm } from './models/search-form-default.const';
+import { defaultSearchForm } from './models/search-form.default';
 import { searchFormSlice } from './search-form.slice';
 
 describe('Search Form Slice', () => {
