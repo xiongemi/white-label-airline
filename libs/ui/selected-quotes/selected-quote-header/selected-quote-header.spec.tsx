@@ -14,7 +14,7 @@ describe('Selected Quote Header', () => {
         language="en"
         currency="CAD"
         date={new Date()}
-        buttonClick={console.log}
+        buttonClick={jest.fn()}
       />
     );
 

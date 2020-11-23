@@ -11,7 +11,7 @@ export interface RootStateInterface {
   router: RouterState;
   countries?: CountriesStateInterface;
   currencies?: CurrenciesStateInterface;
-  error?: unknown;
+  error?: string | Error;
   places?: PlacesStateInterface;
   quotes: QuotesStateInterface;
   searchForm: SearchFormInterface;

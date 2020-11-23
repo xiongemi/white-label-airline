@@ -32,7 +32,7 @@ describe('Currency', () => {
     test('should not have accessibility violations', async () => {
       const { container } = render(
         <Provider store={store}>
-          <Formik initialValues={defaultSearchForm} onSubmit={console.log}>
+          <Formik initialValues={defaultSearchForm} onSubmit={jest.fn()}>
             <Currency name="currency" label="currency" />
           </Formik>
         </Provider>
@@ -44,7 +44,7 @@ describe('Currency', () => {
     test('should dipatch action to get currencies', () => {
       render(
         <Provider store={store}>
-          <Formik initialValues={defaultSearchForm} onSubmit={console.log}>
+          <Formik initialValues={defaultSearchForm} onSubmit={jest.fn()}>
             <Currency name="currency" label="currency" />
           </Formik>
         </Provider>
@@ -73,7 +73,7 @@ describe('Currency', () => {
         <Provider store={store}>
           <Formik
             initialValues={{ currency: mockCurrency }}
-            onSubmit={console.log}
+            onSubmit={jest.fn()}
           >
             <Currency name="currency" label="currency" />
           </Formik>
@@ -90,7 +90,7 @@ describe('Currency', () => {
         <Provider store={store}>
           <Formik
             initialValues={{ currency: mockCurrency }}
-            onSubmit={console.log}
+            onSubmit={jest.fn()}
           >
             <Currency name="currency" label="currency" />
           </Formik>

@@ -18,7 +18,8 @@
     "departDate": "出发日",
     "returnDate": "回来日",
     "from": "出发地",
-    "to": "到达地"
+    "to": "到达地",
+    "changeDate": "更换日期"
   },
   "quote": {
     "selectFlight": "选择航班",
@@ -41,7 +42,8 @@
   },
   "messages": {
     "required": "请填写{{ field }}",
-    "minDate": "{{ returnDate }}必须在{{ departDate }}前"
+    "minDate": "{{ returnDate }}必须在{{ departDate }}前",
+    "error": "出现问题了～请刷新页面从新再试一次。"
   },
   "loading": "加载中……"
 }

@@ -31,7 +31,7 @@ describe('Quotes', () => {
           <Quotes
             queryParams={mockQuotesQueryParams}
             isOutbound={true}
-            selectQuote={console.log}
+            selectQuote={jest.fn()}
           />
         </Provider>
       );
@@ -45,7 +45,7 @@ describe('Quotes', () => {
           <Quotes
             queryParams={mockQuotesQueryParams}
             isOutbound={true}
-            selectQuote={console.log}
+            selectQuote={jest.fn()}
           />
         </Provider>
       );
@@ -74,7 +74,7 @@ describe('Quotes', () => {
           <Quotes
             queryParams={mockQuotesQueryParams}
             isOutbound={true}
-            selectQuote={console.log}
+            selectQuote={jest.fn()}
           />
         </Provider>
       );
@@ -102,7 +102,7 @@ describe('Quotes', () => {
           <Quotes
             queryParams={mockQuotesQueryParams}
             isOutbound={true}
-            selectQuote={console.log}
+            selectQuote={jest.fn()}
           />
         </Provider>
       );

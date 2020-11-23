@@ -32,7 +32,7 @@ describe('Country', () => {
     test('should not have accessibility violations', async () => {
       const { container } = render(
         <Provider store={store}>
-          <Formik initialValues={defaultSearchForm} onSubmit={console.log}>
+          <Formik initialValues={defaultSearchForm} onSubmit={jest.fn()}>
             <Country name="country" label="country" />
           </Formik>
         </Provider>
@@ -44,7 +44,7 @@ describe('Country', () => {
     test('should dipatch action to get countries', () => {
       render(
         <Provider store={store}>
-          <Formik initialValues={defaultSearchForm} onSubmit={console.log}>
+          <Formik initialValues={defaultSearchForm} onSubmit={jest.fn()}>
             <Country name="country" label="country" />
           </Formik>
         </Provider>
@@ -71,10 +71,7 @@ describe('Country', () => {
     test('should not dispatch action to get countries', async () => {
       render(
         <Provider store={store}>
-          <Formik
-            initialValues={{ country: mockCountry }}
-            onSubmit={console.log}
-          >
+          <Formik initialValues={{ country: mockCountry }} onSubmit={jest.fn()}>
             <Country name="country" label="country" />
           </Formik>
         </Provider>
@@ -88,10 +85,7 @@ describe('Country', () => {
     test('should set the input value if form initial value is set to be one of the options', async () => {
       const { queryByLabelText } = render(
         <Provider store={store}>
-          <Formik
-            initialValues={{ country: mockCountry }}
-            onSubmit={console.log}
-          >
+          <Formik initialValues={{ country: mockCountry }} onSubmit={jest.fn()}>
             <Country name="country" label="country" />
           </Formik>
         </Provider>

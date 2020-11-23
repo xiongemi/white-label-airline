@@ -1,4 +1,3 @@
-import { ButtonProps } from '@material-ui/core';
 import { Dispatch } from '@reduxjs/toolkit';
 import {
   searchFormSlice,
@@ -6,7 +5,6 @@ import {
   searchFormSelectors,
   RootStateInterface,
 } from '@white-label-airline/store';
-import { FormikBag } from 'formik';
 
 export const mapStateToProps = (state: RootStateInterface) => {
   return {
@@ -30,10 +28,6 @@ type mapDispatchToPropsType = ReturnType<typeof mapDispatchToProps>;
 
 export type SearchProps = mapStateToPropsType &
   mapDispatchToPropsType & {
-    initSearchForm?: SearchFormInterface;
-    bottonProps?: Partial<ButtonProps>;
-    submitSearch: (
-      values: SearchFormInterface,
-      formikBag: Partial<FormikBag<SearchProps, SearchFormInterface>>
-    ) => void;
+    initSearchForm: SearchFormInterface;
+    submitSearch: (values: SearchFormInterface) => void;
   };

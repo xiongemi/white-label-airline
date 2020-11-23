@@ -18,7 +18,8 @@
     "departDate": "Depart Date",
     "returnDate": "Return Date",
     "from": "From",
-    "to": "To"
+    "to": "To",
+    "changeDate": "Change Date"
   },
   "quote": {
     "selectFlight": "Select Flight",
@@ -41,7 +42,8 @@
   },
   "messages": {
     "required": "{{ field }} is required.",
-    "minDate": "{{ returnDate }} should be before {{ departDate }}."
+    "minDate": "{{ returnDate }} should be before {{ departDate }}.",
+    "error": "Oops~ Something went wrong. Please refresh the page."
   },
   "loading": "Loading..."
 }

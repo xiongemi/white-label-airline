@@ -14,10 +14,7 @@ const SearchPage: React.FunctionComponent<SearchPageProps> = ({
   const history = useHistory();
   const { searchForm } = useQueryParamsAsSearchForm();
 
-  const submitSearch = (
-    searchFormValues: SearchFormInterface,
-    { setSubmitting }
-  ) => {
+  const submitSearch = (searchFormValues: SearchFormInterface) => {
     const searchParams = new URLSearchParams();
     const query = searchFormDataTransform.transformSearchFormValuesToQuotesQueryParams(
       searchFormValues
@@ -25,7 +22,6 @@ const SearchPage: React.FunctionComponent<SearchPageProps> = ({
     for (const key in query) {
       searchParams.set(key, query[key]);
     }
-    setSubmitting(false);
     history.push({
       pathname: RoutesPath.Outbound,
       search: searchParams.toString(),

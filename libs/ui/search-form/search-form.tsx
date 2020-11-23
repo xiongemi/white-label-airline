@@ -24,7 +24,6 @@ import {
 } from './search-form.props';
 
 const SearchForm: React.FunctionComponent<SearchProps> = ({
-  bottonProps,
   values,
   errors,
   setSubmitting,
@@ -79,6 +78,7 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <Field
+              aria-label={t('search.departDate')}
               fullWidth={true}
               component={KeyboardDatePicker}
               name="departDate"
@@ -87,11 +87,15 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
               helperText={t(getIn(errors, 'departDate'), {
                 field: t('search.departDate'),
               })}
+              KeyboardButtonProps={{
+                'aria-label': t('search.changeDate'),
+              }}
             />
           </Grid>
           {values.tripType === TripTypeEnum.RoundTrip && (
             <Grid item xs={12} sm={6} md={3}>
               <Field
+                aria-label={t('search.returnDate')}
                 fullWidth={true}
                 component={KeyboardDatePicker}
                 name="returnDate"
@@ -104,6 +108,9 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
                 helperText={t(getIn(errors, 'returnDate'), {
                   field: t('search.returnDate'),
                 })}
+                KeyboardButtonProps={{
+                  'aria-label': t('search.changeDate'),
+                }}
               />
             </Grid>
           )}
@@ -111,12 +118,12 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
 
         <Box mt={3} display="flex" justifyContent="center">
           <Button
+            data-testid="search-form-submit"
             variant="contained"
             type="submit"
             fullWidth={isScreenSizeSm}
             color="primary"
             size="large"
-            {...bottonProps}
           >
             {t('search.search')}
           </Button>
@@ -133,8 +140,8 @@ const SearchFormik = withFormik({
     return props.searchFormValues || props.initSearchForm;
   },
   validationSchema: searchFormSchema,
-  handleSubmit: (searchForm: SearchFormInterface, { props, setSubmitting }) => {
-    props.submitSearch(searchForm, { setSubmitting });
+  handleSubmit: (searchForm: SearchFormInterface, { props }) => {
+    props.submitSearch(searchForm);
     props.setSearchFormValues(searchForm);
   },
 })(SearchForm);

@@ -13,7 +13,7 @@ describe('Quote Header', () => {
         quote={mockQuotePerLeg}
         language="en"
         currency="CAD"
-        buttonClick={console.log}
+        buttonClick={jest.fn()}
       />
     );
 

@@ -18,8 +18,9 @@ function initI18n(
     .use(HttpApi)
     .init({
       backend: { loadPath },
-      lng: defaultLanguage,
-      debug: process.env.NODE_ENV !== 'production',
+      fallbackLng: defaultLanguage,
+      load: 'currentOnly',
+      debug: process.env.NODE_ENV === 'development',
     });
 }
 

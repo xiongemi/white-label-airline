@@ -30,8 +30,8 @@ describe('Selected Quotes', () => {
         <Provider store={store}>
           <SelectedQuotes
             queryParams={mockQuotesQueryParams}
-            modifyOutboundQuote={console.log}
-            modifyInboundQuote={console.log}
+            modifyOutboundQuote={jest.fn()}
+            modifyInboundQuote={jest.fn()}
           />
         </Provider>
       );
@@ -44,8 +44,8 @@ describe('Selected Quotes', () => {
         <Provider store={store}>
           <SelectedQuotes
             queryParams={mockQuotesQueryParams}
-            modifyOutboundQuote={console.log}
-            modifyInboundQuote={console.log}
+            modifyOutboundQuote={jest.fn()}
+            modifyInboundQuote={jest.fn()}
           />
         </Provider>
       );
@@ -70,8 +70,8 @@ describe('Selected Quotes', () => {
         <Provider store={store}>
           <SelectedQuotes
             queryParams={mockQuotesQueryParams}
-            modifyOutboundQuote={console.log}
-            modifyInboundQuote={console.log}
+            modifyOutboundQuote={jest.fn()}
+            modifyInboundQuote={jest.fn()}
           />
         </Provider>
       );
@@ -97,8 +97,8 @@ describe('Selected Quotes', () => {
         <Provider store={store}>
           <SelectedQuotes
             queryParams={mockQuotesQueryParams}
-            modifyOutboundQuote={console.log}
-            modifyInboundQuote={console.log}
+            modifyOutboundQuote={jest.fn()}
+            modifyInboundQuote={jest.fn()}
           />
         </Provider>
       );

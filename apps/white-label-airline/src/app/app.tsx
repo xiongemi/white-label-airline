@@ -1,6 +1,7 @@
 import { Container, Box } from '@material-ui/core';
 import { initI18n } from '@white-label-airline/services/i18n';
 import { configureAppStore } from '@white-label-airline/store';
+import ErrorSnackbar from '@white-label-airline/ui/error-snackbar';
 import Header from '@white-label-airline/ui/header';
 import Loading from '@white-label-airline/ui/loading';
 import WhiteLabelRoutes from '@white-label-airline/ui/white-label-routes';
@@ -37,6 +38,7 @@ export const App: React.FunctionComponent = () => {
                 history={history}
               />
             </Box>
+            <ErrorSnackbar />
           </PersistGate>
         </Provider>
       </FeatureToggleProvider>
