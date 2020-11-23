@@ -25,7 +25,7 @@ describe('Quotes', () => {
       store.dispatch = jest.fn();
     });
 
-    test('should not have accessibility violations', async () => {
+    it('should not have accessibility violations', async () => {
       const { container } = render(
         <Provider store={store}>
           <Quotes
@@ -39,7 +39,7 @@ describe('Quotes', () => {
       expect(await axe(container)).toHaveNoViolations();
     });
 
-    test('should show loading spinner for initial store state', () => {
+    it('should show loading spinner for initial store state', () => {
       const { queryByTestId } = render(
         <Provider store={store}>
           <Quotes
@@ -68,7 +68,7 @@ describe('Quotes', () => {
       store.dispatch = jest.fn();
     });
 
-    test('should show quotes list', () => {
+    it('should show quotes list', () => {
       const { queryByTestId } = render(
         <Provider store={store}>
           <Quotes
@@ -96,7 +96,7 @@ describe('Quotes', () => {
       store.dispatch = jest.fn();
     });
 
-    test('should show not show loading spinner nor quotes list', () => {
+    it('should show not show loading spinner nor quotes list', () => {
       const { queryByTestId } = render(
         <Provider store={store}>
           <Quotes

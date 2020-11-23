@@ -22,7 +22,7 @@ describe('Countries Epics', () => {
       );
     });
 
-    test('should map to success action if service returns valid response', (done) => {
+    it('should map to success action if service returns valid response', (done) => {
       countriesService.getCountries = jest
         .fn()
         .mockImplementation(() => Promise.resolve(mockCountriesResponse));
@@ -40,7 +40,7 @@ describe('Countries Epics', () => {
       });
     });
 
-    test('should map to error action if service throws an error', (done) => {
+    it('should map to error action if service throws an error', (done) => {
       const mockError = new Error('random error');
       countriesService.getCountries = jest
         .fn()

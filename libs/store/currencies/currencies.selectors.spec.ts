@@ -5,14 +5,14 @@ import { currenciesSelectors } from './currencies.selectors';
 
 describe('Currencies Selectors', () => {
   describe('initial state', () => {
-    test('should return countries', () => {
+    it('should return countries', () => {
       const actual = currenciesSelectors.getCurrencies(mockInitialRootState);
       const expected = [];
 
       expect(actual).toEqual(expected);
     });
 
-    test('should return countries fetch status', () => {
+    it('should return countries fetch status', () => {
       const actual = currenciesSelectors.getCurrenciesFetchStatus(
         mockInitialRootState
       );

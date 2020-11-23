@@ -29,7 +29,7 @@ describe('Country', () => {
       store.dispatch = jest.fn();
     });
 
-    test('should not have accessibility violations', async () => {
+    it('should not have accessibility violations', async () => {
       const { container } = render(
         <Provider store={store}>
           <Formik initialValues={defaultSearchForm} onSubmit={jest.fn()}>
@@ -41,7 +41,7 @@ describe('Country', () => {
       expect(await axe(container)).toHaveNoViolations();
     });
 
-    test('should dipatch action to get countries', () => {
+    it('should dipatch action to get countries', () => {
       render(
         <Provider store={store}>
           <Formik initialValues={defaultSearchForm} onSubmit={jest.fn()}>
@@ -68,7 +68,7 @@ describe('Country', () => {
       store.dispatch = jest.fn();
     });
 
-    test('should not dispatch action to get countries', async () => {
+    it('should not dispatch action to get countries', async () => {
       render(
         <Provider store={store}>
           <Formik initialValues={{ country: mockCountry }} onSubmit={jest.fn()}>
@@ -82,7 +82,7 @@ describe('Country', () => {
       );
     });
 
-    test('should set the input value if form initial value is set to be one of the options', async () => {
+    it('should set the input value if form initial value is set to be one of the options', async () => {
       const { queryByLabelText } = render(
         <Provider store={store}>
           <Formik initialValues={{ country: mockCountry }} onSubmit={jest.fn()}>

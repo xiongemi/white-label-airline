@@ -30,7 +30,7 @@ describe('Currencies Epics', () => {
       );
     });
 
-    test('should map to success action if service returns valid response', (done) => {
+    it('should map to success action if service returns valid response', (done) => {
       placesService.getPlaces = jest
         .fn()
         .mockImplementation(() => Promise.resolve(mockPlacesResponse));
@@ -46,7 +46,7 @@ describe('Currencies Epics', () => {
       });
     });
 
-    test('should map to success action if service returns valid response', (done) => {
+    it('should map to success action if service returns valid response', (done) => {
       const mockError = new Error('random error');
       placesService.getPlaces = jest
         .fn()

@@ -7,7 +7,7 @@ import '@white-label-airline/services/i18n/i18n.mock';
 import SelectedQuoteHeader from './selected-quote-header';
 
 describe('Selected Quote Header', () => {
-  test('should not have accessibility violations', async () => {
+  it('should not have accessibility violations', async () => {
     const { container } = render(
       <SelectedQuoteHeader
         quote={mockQuotePerLeg}

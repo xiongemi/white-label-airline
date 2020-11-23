@@ -6,7 +6,7 @@ import React from 'react';
 import QuoteDetails from './quote-details';
 
 describe('Quote Details', () => {
-  test('should not have accessibility violations', async () => {
+  it('should not have accessibility violations', async () => {
     const { container } = render(<QuoteDetails quote={mockQuotePerLeg} />);
 
     expect(await axe(container)).toHaveNoViolations();

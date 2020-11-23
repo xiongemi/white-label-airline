@@ -29,7 +29,7 @@ describe('Currency', () => {
       store.dispatch = jest.fn();
     });
 
-    test('should not have accessibility violations', async () => {
+    it('should not have accessibility violations', async () => {
       const { container } = render(
         <Provider store={store}>
           <Formik initialValues={defaultSearchForm} onSubmit={jest.fn()}>
@@ -41,7 +41,7 @@ describe('Currency', () => {
       expect(await axe(container)).toHaveNoViolations();
     });
 
-    test('should dipatch action to get currencies', () => {
+    it('should dipatch action to get currencies', () => {
       render(
         <Provider store={store}>
           <Formik initialValues={defaultSearchForm} onSubmit={jest.fn()}>
@@ -68,7 +68,7 @@ describe('Currency', () => {
       store.dispatch = jest.fn();
     });
 
-    test('should not dispatch action to get currencies', async () => {
+    it('should not dispatch action to get currencies', async () => {
       render(
         <Provider store={store}>
           <Formik
@@ -85,7 +85,7 @@ describe('Currency', () => {
       );
     });
 
-    test('should set the input value if form initial value is set to be one of the options', async () => {
+    it('should set the input value if form initial value is set to be one of the options', async () => {
       const { queryByLabelText } = render(
         <Provider store={store}>
           <Formik

@@ -27,7 +27,7 @@ describe('Quotes Epics', () => {
       );
     });
 
-    test('should map to success action if service returns valid response', (done) => {
+    it('should map to success action if service returns valid response', (done) => {
       quotesService.getQuotes = jest
         .fn()
         .mockImplementation(() => Promise.resolve(mockQuotesResponse));
@@ -48,7 +48,7 @@ describe('Quotes Epics', () => {
       });
     });
 
-    test('should map to error action if service throws an error', (done) => {
+    it('should map to error action if service throws an error', (done) => {
       const mockError = new Error('random error');
       quotesService.getQuotes = jest
         .fn()

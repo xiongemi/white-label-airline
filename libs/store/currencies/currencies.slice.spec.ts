@@ -6,7 +6,7 @@ import { currenciesSlice } from './currencies.slice';
 import { initialCurrenciesState } from './models/currencies-state.initial';
 
 describe('Currencies Slice', () => {
-  test('should reset state when get currencies', () => {
+  it('should reset state when get currencies', () => {
     const action = currenciesSlice.actions.getCurrencies();
     const state = currenciesSlice.reducer(initialCurrenciesState, action);
     expect(state).toEqual({
@@ -15,7 +15,7 @@ describe('Currencies Slice', () => {
     });
   });
 
-  test('should set state when get currencies success', () => {
+  it('should set state when get currencies success', () => {
     const action = currenciesSlice.actions.getCurrenciesSuccess([mockCurrency]);
     const state = currenciesSlice.reducer(initialCurrenciesState, action);
     expect(state).toEqual({
@@ -24,7 +24,7 @@ describe('Currencies Slice', () => {
     });
   });
 
-  test('should set state when get currencies failed', () => {
+  it('should set state when get currencies failed', () => {
     const action = currenciesSlice.actions.getCurrenciesError();
     const state = currenciesSlice.reducer(initialCurrenciesState, action);
     expect(state).toEqual({

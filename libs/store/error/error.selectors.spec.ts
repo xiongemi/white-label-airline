@@ -4,7 +4,7 @@ import { errorSelectors } from './error.selectors';
 
 describe('Error Selectors', () => {
   describe('initial state', () => {
-    test('should return null for error', () => {
+    it('should return null for error', () => {
       const actual = errorSelectors.getError(mockInitialRootState);
       const expected = null;
 

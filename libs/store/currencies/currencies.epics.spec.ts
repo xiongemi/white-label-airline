@@ -24,7 +24,7 @@ describe('Currencies Epics', () => {
       );
     });
 
-    test('should map to success action if service returns valid response', (done) => {
+    it('should map to success action if service returns valid response', (done) => {
       currenciesService.getCurrencies = jest
         .fn()
         .mockImplementation(() => Promise.resolve(mockCurrenciesResponse));
@@ -42,7 +42,7 @@ describe('Currencies Epics', () => {
       });
     });
 
-    test('should map to error action if service throws an error', (done) => {
+    it('should map to error action if service throws an error', (done) => {
       const mockError = new Error('random error');
       currenciesService.getCurrencies = jest
         .fn()

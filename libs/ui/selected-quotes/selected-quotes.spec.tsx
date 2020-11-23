@@ -25,7 +25,7 @@ describe('Selected Quotes', () => {
       store.dispatch = jest.fn();
     });
 
-    test('should not have accessibility violations', async () => {
+    it('should not have accessibility violations', async () => {
       const { container } = render(
         <Provider store={store}>
           <SelectedQuotes
@@ -39,7 +39,7 @@ describe('Selected Quotes', () => {
       expect(await axe(container)).toHaveNoViolations();
     });
 
-    test('should not show any quote', () => {
+    it('should not show any quote', () => {
       const { queryAllByTestId } = render(
         <Provider store={store}>
           <SelectedQuotes
@@ -65,7 +65,7 @@ describe('Selected Quotes', () => {
       store.dispatch = jest.fn();
     });
 
-    test('should show outbound quote', () => {
+    it('should show outbound quote', () => {
       const { queryAllByTestId } = render(
         <Provider store={store}>
           <SelectedQuotes
@@ -92,7 +92,7 @@ describe('Selected Quotes', () => {
       store.dispatch = jest.fn();
     });
 
-    test('should show both inbound and outbound quote', () => {
+    it('should show both inbound and outbound quote', () => {
       const { queryAllByTestId } = render(
         <Provider store={store}>
           <SelectedQuotes

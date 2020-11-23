@@ -5,35 +5,35 @@ import { quotesSelectors } from './quotes.selectors';
 
 describe('Quotes Selectors', () => {
   describe('initial state', () => {
-    test('should return quotes', () => {
+    it('should return quotes', () => {
       const actual = quotesSelectors.getQuotes(mockInitialRootState);
       const expected = {};
 
       expect(actual).toEqual(expected);
     });
 
-    test('should return quotes fetch status', () => {
+    it('should return quotes fetch status', () => {
       const actual = quotesSelectors.getQuotesFetchStatus(mockInitialRootState);
       const expected = FetchStatus.Initial;
 
       expect(actual).toEqual(expected);
     });
 
-    test('should return quotes fetch status', () => {
+    it('should return quotes fetch status', () => {
       const actual = quotesSelectors.getQuotesFetchStatus(mockInitialRootState);
       const expected = FetchStatus.Initial;
 
       expect(actual).toEqual(expected);
     });
 
-    test('should return outbound quotes', () => {
+    it('should return outbound quotes', () => {
       const actual = quotesSelectors.getOutboundQuotes(mockInitialRootState);
       const expected = undefined;
 
       expect(actual).toEqual(expected);
     });
 
-    test('should return inbound quotes', () => {
+    it('should return inbound quotes', () => {
       const actual = quotesSelectors.getInboundQuotes(mockInitialRootState);
       const expected = undefined;
 

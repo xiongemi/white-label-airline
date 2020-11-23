@@ -4,7 +4,7 @@ import { placesSelectors } from './places.selectors';
 
 describe('Places Selectors', () => {
   describe('initial state', () => {
-    test('should return places', () => {
+    it('should return places', () => {
       const actual = placesSelectors.getPlaces(mockInitialRootState);
       const expected = { query: null, results: [] };
 

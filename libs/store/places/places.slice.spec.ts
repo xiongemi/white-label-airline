@@ -4,7 +4,7 @@ import { initialPlacesState } from './models/places-state-initial.const';
 import { placesSlice } from './places.slice';
 
 describe('Places Slice', () => {
-  test('should reset state when query for places', () => {
+  it('should reset state when query for places', () => {
     const action = placesSlice.actions.getPlaces({
       query: 'toronto',
       country: 'CA',
@@ -14,7 +14,7 @@ describe('Places Slice', () => {
     expect(state).toEqual({ query: 'toronto', results: [] });
   });
 
-  test('should set state when get currencies success', () => {
+  it('should set state when get currencies success', () => {
     const getPlacesAction = placesSlice.actions.getPlaces({
       query: 'toronto',
       country: 'CA',

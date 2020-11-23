@@ -21,7 +21,7 @@ describe('Error Snackbar', () => {
       store.dispatch = jest.fn();
     });
 
-    test('should not have accessibility violations', async () => {
+    it('should not have accessibility violations', async () => {
       const { container } = render(
         <Provider store={store}>
           <ErrorSnackbar />

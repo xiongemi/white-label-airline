@@ -6,7 +6,7 @@ import { countriesSlice } from './countries.slice';
 import { initialCountriesState } from './models/countries-state.initial';
 
 describe('Countries Slice', () => {
-  test('should reset state when get countries', () => {
+  it('should reset state when get countries', () => {
     const action = countriesSlice.actions.getCountries();
     const state = countriesSlice.reducer(initialCountriesState, action);
     expect(state).toEqual({
@@ -15,7 +15,7 @@ describe('Countries Slice', () => {
     });
   });
 
-  test('should set state when get countries success', () => {
+  it('should set state when get countries success', () => {
     const action = countriesSlice.actions.getCountriesSuccess([mockCountry]);
     const state = countriesSlice.reducer(initialCountriesState, action);
     expect(state).toEqual({
@@ -24,7 +24,7 @@ describe('Countries Slice', () => {
     });
   });
 
-  test('should set state when get countries failed', () => {
+  it('should set state when get countries failed', () => {
     const action = countriesSlice.actions.getCountriesError();
     const state = countriesSlice.reducer(initialCountriesState, action);
     expect(state).toEqual({
