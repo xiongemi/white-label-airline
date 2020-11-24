@@ -4,7 +4,7 @@ import { configureAppStore } from '@white-label-airline/store';
 import Header from '@white-label-airline/ui/header';
 import Loading from '@white-label-airline/ui/loading';
 import WhiteLabelRoutes from '@white-label-airline/ui/white-label-routes';
-import { createBrowserHistory, History } from 'history';
+import { createHashHistory, History } from 'history';
 import React, { Suspense } from 'react';
 import { FeatureToggleProvider } from 'react-feature-toggles';
 import { Provider } from 'react-redux';
@@ -17,9 +17,7 @@ import { theme } from './theme';
 
 initI18n('./assets/i18n/{{lng}}.json', 'zh-CN');
 
-const history: History = createBrowserHistory({
-  basename: process.env.NX_BASE_HREF,
-});
+const history: History = createHashHistory();
 
 const { store, persistor } = configureAppStore(history);
 

@@ -6,13 +6,22 @@
     "sourceType": "module",
     "project": "./tsconfig.*?.json"
   },
-  "plugins": ["@typescript-eslint", "@nrwl/nx", "jsx-a11y", "import"],
+  "plugins": [
+    "@typescript-eslint",
+    "@nrwl/nx",
+    "jsx-a11y",
+    "import",
+    "testing-library"
+  ],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier",
     "prettier/@typescript-eslint",
+    "plugin:react-hooks/recommended",
+    "plugin:jest-dom/recommended",
+    "plugin:testing-library/react",
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:import/typescript",
