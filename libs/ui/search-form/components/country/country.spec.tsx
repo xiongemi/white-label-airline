@@ -11,7 +11,6 @@ import { axe } from 'jest-axe';
 import React from 'react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import '@white-label-airline/services/i18n/i18n.mock';
 
 import Country from './country';
 
@@ -41,7 +40,7 @@ describe('Country', () => {
       expect(await axe(container)).toHaveNoViolations();
     });
 
-    it('should dipatch action to get countries', () => {
+    it('should dispatch action to get countries', () => {
       render(
         <Provider store={store}>
           <Formik initialValues={defaultSearchForm} onSubmit={jest.fn()}>
@@ -52,6 +51,20 @@ describe('Country', () => {
 
       expect(store.dispatch).toBeCalledWith(
         countriesSlice.actions.getCountries()
+      );
+    });
+
+    it('should not set the input value if form initial value is empty', () => {
+      const { queryByLabelText } = render(
+        <Provider store={store}>
+          <Formik initialValues={defaultSearchForm} onSubmit={jest.fn()}>
+            <Country name="country" label="country" />
+          </Formik>
+        </Provider>
+      );
+
+      expect((queryByLabelText('country') as HTMLInputElement).value).toEqual(
+        ''
       );
     });
   });
@@ -68,7 +81,7 @@ describe('Country', () => {
       store.dispatch = jest.fn();
     });
 
-    it('should not dispatch action to get countries', async () => {
+    it('should not dispatch action to get countries', () => {
       render(
         <Provider store={store}>
           <Formik initialValues={{ country: mockCountry }} onSubmit={jest.fn()}>
@@ -82,7 +95,7 @@ describe('Country', () => {
       );
     });
 
-    it('should set the input value if form initial value is set to be one of the options', async () => {
+    it('should set the input value if form initial value is set to be one of the options', () => {
       const { queryByLabelText } = render(
         <Provider store={store}>
           <Formik initialValues={{ country: mockCountry }} onSubmit={jest.fn()}>

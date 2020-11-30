@@ -7,7 +7,6 @@ import {
 } from '@white-label-airline/services/places';
 import { ActionsObservable } from 'redux-observable';
 import { of } from 'rxjs';
-import '@white-label-airline/services/i18n/i18n.mock';
 
 import { errorSlice } from '../error/error.slice';
 

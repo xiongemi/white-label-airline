@@ -11,7 +11,6 @@ import { axe } from 'jest-axe';
 import React from 'react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import '@white-label-airline/services/i18n/i18n.mock';
 
 import Currency from './currency';
 
@@ -68,7 +67,7 @@ describe('Currency', () => {
       store.dispatch = jest.fn();
     });
 
-    it('should not dispatch action to get currencies', async () => {
+    it('should not dispatch action to get currencies', () => {
       render(
         <Provider store={store}>
           <Formik
@@ -85,7 +84,7 @@ describe('Currency', () => {
       );
     });
 
-    it('should set the input value if form initial value is set to be one of the options', async () => {
+    it('should set the input value if form initial value is set to be one of the options', () => {
       const { queryByLabelText } = render(
         <Provider store={store}>
           <Formik

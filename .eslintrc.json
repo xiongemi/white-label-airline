@@ -6,13 +6,7 @@
     "sourceType": "module",
     "project": "./tsconfig.*?.json"
   },
-  "plugins": [
-    "@typescript-eslint",
-    "@nrwl/nx",
-    "jsx-a11y",
-    "import",
-    "testing-library"
-  ],
+  "plugins": ["@typescript-eslint", "@nrwl/nx"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",

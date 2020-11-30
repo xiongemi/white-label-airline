@@ -1,7 +1,6 @@
 import { render } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import React from 'react';
-import '@white-label-airline/services/i18n/i18n.mock';
 
 import Header from './header';
 

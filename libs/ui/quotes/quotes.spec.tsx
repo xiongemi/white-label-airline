@@ -1,11 +1,14 @@
 import { render } from '@testing-library/react';
 import { mockQuotePerLeg } from '@white-label-airline/services/quotes';
-import { FetchStatus, initialQuotesState } from '@white-label-airline/store';
+import {
+  FetchStatus,
+  initialQuotesState,
+  quotesSlice,
+} from '@white-label-airline/store';
 import { axe } from 'jest-axe';
 import React from 'react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import '@white-label-airline/services/i18n/i18n.mock';
 
 import { mockQuotesQueryParams } from '../models/quotes-query-params.mock';
 
@@ -39,7 +42,7 @@ describe('Quotes', () => {
       expect(await axe(container)).toHaveNoViolations();
     });
 
-    it('should show loading spinner for initial store state', () => {
+    it('should show loading spinner', () => {
       const { queryByTestId } = render(
         <Provider store={store}>
           <Quotes
@@ -51,6 +54,25 @@ describe('Quotes', () => {
       );
 
       expect(queryByTestId('loading')).toBeTruthy();
+    });
+
+    it('should dispatch action to load quotes', () => {
+      render(
+        <Provider store={store}>
+          <Quotes
+            queryParams={mockQuotesQueryParams}
+            isOutbound={true}
+            selectQuote={jest.fn()}
+          />
+        </Provider>
+      );
+
+      expect(store.dispatch).toBeCalledWith(
+        quotesSlice.actions.getQuotes({
+          ...mockQuotesQueryParams,
+          isOutbound: true,
+        })
+      );
     });
   });
 
