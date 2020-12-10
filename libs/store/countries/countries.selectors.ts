@@ -1,7 +1,7 @@
 import { WlaCountry } from '@white-label-airline/services/countries';
 
 import { FetchStatus } from '../models/fetch-status.enum';
-import { WlaRootState } from '../root/root-state.interface';
+import { WlaRootState } from '../root/models/root-state.interface';
 
 import { WlaCountriesState } from './models/countries-state.interface';
 

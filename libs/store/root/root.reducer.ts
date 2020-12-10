@@ -10,7 +10,7 @@ import { quotesSlice } from '../quotes/quotes.slice';
 import { searchFormSlice } from '../search-form';
 import { selectedQuotesSlice } from '../selected-quotes/selected-quotes.slice';
 
-import { WlaRootState } from './root-state.interface';
+import { WlaRootState } from './models/root-state.interface';
 
 export const createRootReducer = (history: History) =>
   combineReducers<WlaRootState>({

@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { WlaPlace } from '@white-label-airline/services/places';
 
-import { initialPlacesState } from './models/places-state-initial.const';
+import { initialPlacesState } from './models/places-state.initial';
 import { PlacesStateInterface } from './models/places-state.interface';
 
 export interface GetPlacesPayload {

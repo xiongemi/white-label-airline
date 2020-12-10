@@ -16,7 +16,7 @@ const ErrorSnackbar: React.FunctionComponent<ErrorSnackbarProps> = ({
 }: ErrorSnackbarProps) => {
   const { t } = useTranslation();
 
-  const [errorMessage, setErrorMessage] = useState('messages.error');
+  const [errorMessage, setErrorMessage] = useState<string>('messages.error');
 
   useEffect(() => {
     if (error && typeof error === 'string') {

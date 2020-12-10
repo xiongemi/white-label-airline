@@ -1,4 +1,4 @@
-import { WlaRootState } from '../root/root-state.interface';
+import { WlaRootState } from '../root/models/root-state.interface';
 
 import { WlaSelectedQuotesState } from './models/selected-quotes-state.interface';
 

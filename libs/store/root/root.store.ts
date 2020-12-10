@@ -5,7 +5,7 @@ import { createEpicMiddleware } from 'redux-observable';
 import { persistReducer, persistStore } from 'redux-persist';
 import sessionStorage from 'redux-persist/lib/storage/session'; // defaults to localStorage for web
 
-import { WlaRootState } from './root-state.interface';
+import { WlaRootState } from './models/root-state.interface';
 import { rootEpic } from './root.epic';
 import { createRootReducer } from './root.reducer';
 
