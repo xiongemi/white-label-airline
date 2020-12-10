@@ -1,8 +1,8 @@
 import { FetchStatus } from '../../models/fetch-status.enum';
 
-import { CurrenciesStateInterface } from './currencies-state.interface';
+import { WlaCurrenciesState } from './currencies-state.interface';
 
-export const initialCurrenciesState: CurrenciesStateInterface = {
+export const initialCurrenciesState: WlaCurrenciesState = {
   fetchStatus: FetchStatus.Initial,
   currencies: [],
 };

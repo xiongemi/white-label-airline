@@ -1,9 +1,8 @@
-import { RootStateInterface } from '../root/root-state.interface';
+import { WlaRootState } from '../root/root-state.interface';
 
-import { SearchFormInterface } from './models/search-form.interface';
+import { WlaSearchForm } from './models/search-form.interface';
 
-const getSearchFormValues = (
-  rootState: RootStateInterface
-): SearchFormInterface => rootState.searchForm;
+const getSearchFormValues = (rootState: WlaRootState): WlaSearchForm =>
+  rootState.searchForm;
 
 export const searchFormSelectors = { getSearchFormValues };

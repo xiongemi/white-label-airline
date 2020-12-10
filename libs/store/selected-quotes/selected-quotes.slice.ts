@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { QuotePerLegInterface } from '@white-label-airline/services/quotes';
+import { WlaQuotePerLeg } from '@white-label-airline/services/quotes';
 
 import { initialSelectedQuotesState } from './models/selected-quotes-state.initial';
 
@@ -8,20 +8,20 @@ export const selectedQuotesSlice = createSlice({
   initialState: initialSelectedQuotesState,
   reducers: {
     selectOutboundQuote: {
-      reducer(state, action: PayloadAction<QuotePerLegInterface>) {
+      reducer(state, action: PayloadAction<WlaQuotePerLeg>) {
         state.outbound = action.payload;
       },
-      prepare(payload: QuotePerLegInterface) {
+      prepare(payload: WlaQuotePerLeg) {
         return {
           payload,
         };
       },
     },
     selectInboundQuote: {
-      reducer(state, action: PayloadAction<QuotePerLegInterface>) {
+      reducer(state, action: PayloadAction<WlaQuotePerLeg>) {
         state.inbound = action.payload;
       },
-      prepare(payload: QuotePerLegInterface) {
+      prepare(payload: WlaQuotePerLeg) {
         return {
           payload,
         };

@@ -1,6 +1,6 @@
 import { mockPlace } from './place.mock';
-import { PlacesResponseInterface } from './places-response.interface';
+import { WlaPlaceResponse } from './places-response.interface';
 
-export const mockPlacesResponse: PlacesResponseInterface = {
+export const mockPlacesResponse: WlaPlaceResponse = {
   Places: [mockPlace],
 };

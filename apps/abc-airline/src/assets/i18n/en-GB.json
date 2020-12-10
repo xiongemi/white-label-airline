@@ -32,5 +32,9 @@
     "required": "{{ field }} is required.",
     "minDate": "{{ returnDate }} should be before {{ departDate }}."
   },
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "language": {
+    "en-GB": "English",
+    "zh-CN": "中文"
+  }
 }

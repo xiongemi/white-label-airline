@@ -4,9 +4,9 @@ import { initialPlacesState } from '../places/models/places-state-initial.const'
 import { initialQuotesState } from '../quotes';
 import { initialSelectedQuotesState } from '../selected-quotes';
 
-import { RootStateInterface } from './root-state.interface';
+import { WlaRootState } from './root-state.interface';
 
-export const mockInitialRootState: RootStateInterface = {
+export const mockInitialRootState: WlaRootState = {
   router: null,
   countries: initialCountriesState,
   currencies: initialCurrenciesState,

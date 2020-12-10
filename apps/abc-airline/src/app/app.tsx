@@ -15,7 +15,10 @@ import { initSearchForm } from '../models/search-form-init.const';
 import { features } from './features.const';
 import { theme } from './theme';
 
-initI18n('./assets/i18n/{{lng}}.json', 'zh-CN');
+const defaultLanguage = 'zh-CN';
+const supportedLanguages = [defaultLanguage, 'en-GB'];
+
+initI18n('./assets/i18n/{{lng}}.json', defaultLanguage, supportedLanguages);
 
 const history: History = createHashHistory();
 

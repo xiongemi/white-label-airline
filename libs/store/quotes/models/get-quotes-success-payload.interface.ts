@@ -1,6 +1,6 @@
-import { QuotePerLegInterface } from '@white-label-airline/services/quotes';
+import { WlaQuotePerLeg } from '@white-label-airline/services/quotes';
 
 export interface GetQuotesSuccessPayload {
-  quotes: QuotePerLegInterface[];
+  quotes: WlaQuotePerLeg[];
   isOutbound: boolean;
 }

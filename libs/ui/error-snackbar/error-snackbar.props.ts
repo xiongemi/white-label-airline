@@ -2,10 +2,10 @@ import { Dispatch } from '@reduxjs/toolkit';
 import {
   errorSelectors,
   errorSlice,
-  RootStateInterface,
+  WlaRootState,
 } from '@white-label-airline/store';
 
-export const mapStateToProps = (state: RootStateInterface) => {
+export const mapStateToProps = (state: WlaRootState) => {
   return {
     error: errorSelectors.getError(state),
   };

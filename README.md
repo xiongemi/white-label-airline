@@ -4,23 +4,26 @@ This project is a sample flight search app generated using [Nx](https://nx.dev).
 
 ## Structure
 
-- libraries
-  - services: api services and response models
-  - store: redux store
-  - ui: common ui elements shared among the apps
-- applications
+- libs: commonly shared files
+  - services: API services, response models, or wrapper for third-party libraries (i18n)
+  - store: state management related files
+  - ui: commonly shared UI components
+- apps: applications that consume, in this example
   - white-label-airline: a sample app with all feature toggles and en-GB as default locale
   - abc-airline: a sample app with all feature toggles off and zh-CN as default locale
 
 ## Commands
 
 - deploy to GitHub Pages: `npm run deploy`
-- test the application: `nx test white-label-airline`
+- run apps locally: `npm run serve` (white-label-airline) or `nx serve abc-airline`
 
 ### Unit Test
 
+- test apps: `nx test white-label-airline` or `nx test abc-airline`
+- test libraries: `nx test ui` or `nx test services` or `nx test store`
 - test all files: `npm run test`
 - test watch all files: `npm run test:watch`
+- clear cache: `npm run test:clear`
 
 ### Lint
 

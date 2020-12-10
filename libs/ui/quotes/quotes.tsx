@@ -1,6 +1,6 @@
 import { Typography } from '@material-ui/core';
 import { getCurrentLanguage } from '@white-label-airline/services/i18n';
-import { QuotePerLegInterface } from '@white-label-airline/services/quotes';
+import { WlaQuotePerLeg } from '@white-label-airline/services/quotes';
 import { FetchStatus } from '@white-label-airline/store';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -28,7 +28,7 @@ const Quotes: React.FunctionComponent<QuotesProps> = ({
 }: QuotesProps) => {
   const { t } = useTranslation();
   const language = getCurrentLanguage();
-  const [quotesList, setQuotesList] = useState<QuotePerLegInterface[]>([]);
+  const [quotesList, setQuotesList] = useState<WlaQuotePerLeg[]>([]);
 
   useEffect(() => {
     if (queryParams) {
@@ -45,7 +45,7 @@ const Quotes: React.FunctionComponent<QuotesProps> = ({
     }
   }, [isOutbound, quotes, quotesFetchStatus]);
 
-  const onSelectQuote = (quote: QuotePerLegInterface) => {
+  const onSelectQuote = (quote: WlaQuotePerLeg) => {
     if (isOutbound) {
       selectOutboundQuote(quote);
     } else {

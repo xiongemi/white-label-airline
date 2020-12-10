@@ -1,18 +1,17 @@
-import { CountryInterface } from '@white-label-airline/services/countries';
+import { WlaCountry } from '@white-label-airline/services/countries';
 
 import { FetchStatus } from '../models/fetch-status.enum';
-import { RootStateInterface } from '../root/root-state.interface';
+import { WlaRootState } from '../root/root-state.interface';
 
-import { CountriesStateInterface } from './models/countries-state.interface';
+import { WlaCountriesState } from './models/countries-state.interface';
 
-const getCountriesState = (
-  rootState: RootStateInterface
-): CountriesStateInterface => rootState.countries;
+const getCountriesState = (rootState: WlaRootState): WlaCountriesState =>
+  rootState.countries;
 
-const getCountries = (rootState: RootStateInterface): CountryInterface[] =>
+const getCountries = (rootState: WlaRootState): WlaCountry[] =>
   getCountriesState(rootState).countries;
 
-const getCountriesFetchStatus = (rootState: RootStateInterface): FetchStatus =>
+const getCountriesFetchStatus = (rootState: WlaRootState): FetchStatus =>
   getCountriesState(rootState).fetchStatus;
 
 export const countriesSelectors = { getCountries, getCountriesFetchStatus };

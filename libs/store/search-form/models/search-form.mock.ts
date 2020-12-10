@@ -1,7 +1,7 @@
-import { SearchFormInterface } from './search-form.interface';
+import { WlaSearchForm } from './search-form.interface';
 import { TripTypeEnum } from './trip-type.enum';
 
-export const mockSearchForm: SearchFormInterface = {
+export const mockSearchForm: WlaSearchForm = {
   country: { Code: 'CA', Name: 'Canada' },
   tripType: TripTypeEnum.RoundTrip,
   currency: {

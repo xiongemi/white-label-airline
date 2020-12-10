@@ -1,5 +1,5 @@
 import TextField from '@material-ui/core/TextField';
-import { PlaceInterface } from '@white-label-airline/services/places';
+import { WlaPlace } from '@white-label-airline/services/places';
 import { Field } from 'formik';
 import {
   Autocomplete,
@@ -61,12 +61,12 @@ const Place: React.FunctionComponent<PlaceProps> = ({
       component={Autocomplete}
       disabled={!currency || !country || isSubmitting}
       options={filteredPlaces}
-      getOptionLabel={(option: PlaceInterface) =>
+      getOptionLabel={(option: WlaPlace) =>
         option.PlaceName
           ? `${option.PlaceName} (${option.PlaceId})`
           : option.PlaceId
       }
-      getOptionSelected={(option: PlaceInterface, value: PlaceInterface) =>
+      getOptionSelected={(option: WlaPlace, value: WlaPlace) =>
         option?.PlaceId === value?.PlaceId
       }
       name={name}

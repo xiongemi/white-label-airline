@@ -1,4 +1,4 @@
-import { SearchFormInterface } from '@white-label-airline/store';
+import { WlaSearchForm } from '@white-label-airline/store';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
@@ -14,7 +14,7 @@ const SearchPage: React.FunctionComponent<SearchPageProps> = ({
   const history = useHistory();
   const { searchForm } = useQueryParamsAsSearchForm();
 
-  const submitSearch = (searchFormValues: SearchFormInterface) => {
+  const submitSearch = (searchFormValues: WlaSearchForm) => {
     const searchParams = new URLSearchParams();
     const query = searchFormDataTransform.transformSearchFormValuesToQuotesQueryParams(
       searchFormValues

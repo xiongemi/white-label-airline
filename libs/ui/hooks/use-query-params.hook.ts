@@ -1,4 +1,4 @@
-import { SearchFormInterface } from '@white-label-airline/store';
+import { WlaSearchForm } from '@white-label-airline/store';
 import { parse } from 'query-string';
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -8,11 +8,11 @@ import { searchFormDataTransform } from '../search-form/search-form.data-transfo
 
 export function useQueryParamsAsSearchForm(): {
   queryParams: QuotesQueryParams;
-  searchForm: SearchFormInterface;
+  searchForm: WlaSearchForm;
 } {
   const { search } = useLocation();
   const [queryParams, setQueryParams] = useState<QuotesQueryParams>();
-  const [searchForm, setSearchForm] = useState<SearchFormInterface>();
+  const [searchForm, setSearchForm] = useState<WlaSearchForm>();
 
   useEffect(() => {
     if (search) {

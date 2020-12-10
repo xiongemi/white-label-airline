@@ -1,7 +1,7 @@
-import { SearchFormInterface } from './search-form.interface';
+import { WlaSearchForm } from './search-form.interface';
 import { TripTypeEnum } from './trip-type.enum';
 
-export const defaultSearchForm: SearchFormInterface = {
+export const defaultSearchForm: WlaSearchForm = {
   country: null,
   tripType: TripTypeEnum.OneWay,
   currency: null,

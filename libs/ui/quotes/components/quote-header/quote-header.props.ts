@@ -1,8 +1,8 @@
-import { QuotePerLegInterface } from '@white-label-airline/services/quotes';
+import { WlaQuotePerLeg } from '@white-label-airline/services/quotes';
 
 export interface QuoteHeaderProps {
-  quote: QuotePerLegInterface;
+  quote: WlaQuotePerLeg;
   currency: string;
   language: string;
-  buttonClick: (quote: QuotePerLegInterface) => void;
+  buttonClick: (quote: WlaQuotePerLeg) => void;
 }

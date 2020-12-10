@@ -15,7 +15,7 @@ jest.mock('formik', () => ({
   },
 }));
 
-fdescribe('Use Field Errors Touched Hook', () => {
+describe('Use Field Errors Touched Hook', () => {
   test('should set field error and touched', () => {
     const { result } = renderHook(() => useFieldErrorTouched('fieldName'));
     expect(result.current.fieldError).toEqual('random error');

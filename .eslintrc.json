@@ -39,6 +39,14 @@
         ]
       }
     ],
+    "@typescript-eslint/naming-convention": [
+      "warn",
+      {
+        "selector": "interface",
+        "format": ["PascalCase"],
+        "prefix": ["Wla", "Abc"]
+      }
+    ],
     "no-console": "warn",
     "import/no-unresolved": "off",
     "import/named": "warn",

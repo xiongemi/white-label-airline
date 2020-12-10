@@ -1,6 +1,6 @@
-import { QuotePerLegInterface } from './quote-per-leg.interface';
+import { WlaQuotePerLeg } from './quote-per-leg.interface';
 
-export interface QuotesPerTripInterface {
-  outbound?: QuotePerLegInterface[];
-  inbound?: QuotePerLegInterface[];
+export interface WlaQuotePerTrip {
+  outbound?: WlaQuotePerLeg[];
+  inbound?: WlaQuotePerLeg[];
 }

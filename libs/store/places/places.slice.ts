@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { PlaceInterface } from '@white-label-airline/services/places';
+import { WlaPlace } from '@white-label-airline/services/places';
 
 import { initialPlacesState } from './models/places-state-initial.const';
 import { PlacesStateInterface } from './models/places-state.interface';
@@ -27,7 +27,7 @@ export const placesSlice = createSlice({
     },
     getPlacesSuccess(
       state: PlacesStateInterface,
-      action: PayloadAction<PlaceInterface[]>
+      action: PayloadAction<WlaPlace[]>
     ) {
       return { ...state, results: action.payload };
     },

@@ -1,6 +1,5 @@
-import { RootStateInterface } from '../root';
+import { WlaRootState } from '../root';
 
-const getError = (rootState: RootStateInterface): Error | string =>
-  rootState.error;
+const getError = (rootState: WlaRootState): Error | string => rootState.error;
 
 export const errorSelectors = { getError };

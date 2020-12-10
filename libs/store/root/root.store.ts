@@ -5,7 +5,7 @@ import { createEpicMiddleware } from 'redux-observable';
 import { persistReducer, persistStore } from 'redux-persist';
 import sessionStorage from 'redux-persist/lib/storage/session'; // defaults to localStorage for web
 
-import { RootStateInterface } from './root-state.interface';
+import { WlaRootState } from './root-state.interface';
 import { rootEpic } from './root.epic';
 import { createRootReducer } from './root.reducer';
 
@@ -20,7 +20,7 @@ const persistConfig = {
 
 export function configureAppStore(
   history: History,
-  preloadedState?: RootStateInterface
+  preloadedState?: WlaRootState
 ) {
   const store = configureStore({
     reducer: persistReducer(persistConfig, createRootReducer(history)),

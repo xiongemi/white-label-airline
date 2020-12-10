@@ -1,16 +1,16 @@
 import { Dispatch } from '@reduxjs/toolkit';
-import { CountryInterface } from '@white-label-airline/services/countries';
+import { WlaCountry } from '@white-label-airline/services/countries';
 import { CurrencyInterface } from '@white-label-airline/services/currencies';
-import { PlaceInterface } from '@white-label-airline/services/places';
+import { WlaPlace } from '@white-label-airline/services/places';
 import {
-  RootStateInterface,
+  WlaRootState,
   placesSelectors,
   placesSlice,
 } from '@white-label-airline/store';
 
 import { FormFieldProps } from '../../../models/form-field-props.interface';
 
-export const mapStateToProps = (state: RootStateInterface) => {
+export const mapStateToProps = (state: WlaRootState) => {
   return {
     places: placesSelectors.getPlaces(state),
   };
@@ -23,7 +23,7 @@ export const mapDispatchToProps = (dispatch: Dispatch) => {
       currency,
       query,
     }: {
-      country: CountryInterface;
+      country: WlaCountry;
       currency: CurrencyInterface;
       query: string;
     }) {
@@ -44,7 +44,7 @@ type mapDispatchToPropsType = ReturnType<typeof mapDispatchToProps>;
 export type PlaceProps = mapStateToPropsType &
   mapDispatchToPropsType &
   FormFieldProps & {
-    country: CountryInterface;
+    country: WlaCountry;
     currency: CurrencyInterface;
-    invalidPlaces?: PlaceInterface[];
+    invalidPlaces?: WlaPlace[];
   };

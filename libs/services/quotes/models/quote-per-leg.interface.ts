@@ -1,11 +1,11 @@
-import { PlacePerQuoteInterface } from './place-per-quote.interface';
+import { WlaPlacePerQuote } from './place-per-quote.interface';
 
-export interface QuotePerLegInterface {
+export interface WlaQuotePerLeg {
   id: number;
   minPrice: number;
   direct: boolean;
   carriers: string[];
-  origin: PlacePerQuoteInterface;
-  destination: PlacePerQuoteInterface;
+  origin: WlaPlacePerQuote;
+  destination: WlaPlacePerQuote;
   showDetails?: boolean;
 }

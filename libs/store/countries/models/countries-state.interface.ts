@@ -1,8 +1,8 @@
-import { CountryInterface } from '@white-label-airline/services/countries';
+import { WlaCountry } from '@white-label-airline/services/countries';
 
 import { FetchStatus } from '../../models/fetch-status.enum';
 
-export interface CountriesStateInterface {
+export interface WlaCountriesState {
   fetchStatus: FetchStatus;
-  countries: CountryInterface[];
+  countries: WlaCountry[];
 }

@@ -32,5 +32,9 @@
     "required": "请填写{{ field }}",
     "minDate": "{{ returnDate }}必须在{{ departDate }}前"
   },
-  "loading": "加载中……"
+  "loading": "加载中……",
+  "language": {
+    "en-GB": "English",
+    "zh-CN": "中文"
+  }
 }

@@ -1,13 +1,13 @@
 import { Dispatch } from '@reduxjs/toolkit';
 import {
-  RootStateInterface,
+  WlaRootState,
   countriesSelectors,
   countriesSlice,
 } from '@white-label-airline/store';
 
 import { FormFieldProps } from '../../../models/form-field-props.interface';
 
-export const mapStateToProps = (state: RootStateInterface) => {
+export const mapStateToProps = (state: WlaRootState) => {
   return {
     countries: countriesSelectors.getCountries(state),
     countriesFetchStatus: countriesSelectors.getCountriesFetchStatus(state),

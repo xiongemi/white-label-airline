@@ -1,6 +1,6 @@
 import {
   TripTypeEnum,
-  SearchFormInterface,
+  WlaSearchForm,
   defaultSearchForm,
 } from '@white-label-airline/store';
 import { format, parse } from 'date-fns';
@@ -21,7 +21,7 @@ const formatQueryParamsDate = (date: string | Date): string => {
 };
 
 const transformSearchFormValuesToQuotesQueryParams = (
-  searchForm: SearchFormInterface
+  searchForm: WlaSearchForm
 ): QuotesQueryParams => {
   const quotesQueryParams = {
     country: searchForm.country.Code,
@@ -41,7 +41,7 @@ const transformSearchFormValuesToQuotesQueryParams = (
 
 const transfromQuotesQueryParamsToSearchFormValues = (
   quotesQueryParams: QuotesQueryParams
-): SearchFormInterface => {
+): WlaSearchForm => {
   return mergeDeepRight(defaultSearchForm, {
     country: {
       Code: quotesQueryParams.country,

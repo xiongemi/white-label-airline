@@ -1,6 +1,6 @@
-import { QuotePerLegInterface } from '@white-label-airline/services/quotes';
+import { WlaQuotePerLeg } from '@white-label-airline/services/quotes';
 
-export interface SelectedQuotesStateInterface {
-  outbound: QuotePerLegInterface;
-  inbound?: QuotePerLegInterface;
+export interface WlaSelectedQuotesState {
+  outbound: WlaQuotePerLeg;
+  inbound?: WlaQuotePerLeg;
 }

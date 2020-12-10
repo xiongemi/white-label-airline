@@ -5,7 +5,7 @@ import { FetchStatus } from '../models/fetch-status.enum';
 import { GetQuotesPayload } from './models/get-quotes-payload.interface';
 import { GetQuotesSuccessPayload } from './models/get-quotes-success-payload.interface';
 import { initialQuotesState } from './models/quotes-state.initial';
-import { QuotesStateInterface } from './models/quotes-state.interface';
+import { WlaQuotesState } from './models/quotes-state.interface';
 
 export const quotesSlice = createSlice({
   name: 'quotes',
@@ -25,7 +25,7 @@ export const quotesSlice = createSlice({
       },
     },
     getQuotesSuccess(
-      state: QuotesStateInterface,
+      state: WlaQuotesState,
       action: PayloadAction<GetQuotesSuccessPayload>
     ) {
       if (action.payload.isOutbound) {

@@ -1,6 +1,6 @@
 import { Action } from '@reduxjs/toolkit';
 import {
-  CurrenciesResponseInterface,
+  WlaCurrenciesResponse,
   currenciesService,
 } from '@white-label-airline/services/currencies';
 import { ActionsObservable, Epic, ofType } from 'redux-observable';
@@ -16,7 +16,7 @@ export const getCurrenciesEpic = (action$: ActionsObservable<Action>) =>
     ofType(currenciesSlice.actions.getCurrencies.type),
     switchMap(() => {
       return from(currenciesService.getCurrencies()).pipe(
-        map((response: CurrenciesResponseInterface) =>
+        map((response: WlaCurrenciesResponse) =>
           currenciesSlice.actions.getCurrenciesSuccess(response.Currencies)
         ),
         catchError((error) =>

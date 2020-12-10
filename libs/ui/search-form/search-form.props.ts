@@ -1,12 +1,12 @@
 import { Dispatch } from '@reduxjs/toolkit';
 import {
   searchFormSlice,
-  SearchFormInterface,
+  WlaSearchForm,
   searchFormSelectors,
-  RootStateInterface,
+  WlaRootState,
 } from '@white-label-airline/store';
 
-export const mapStateToProps = (state: RootStateInterface) => {
+export const mapStateToProps = (state: WlaRootState) => {
   return {
     searchFormValues: searchFormSelectors.getSearchFormValues(state),
   };
@@ -14,7 +14,7 @@ export const mapStateToProps = (state: RootStateInterface) => {
 
 export const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
-    setSearchFormValues(searchFormValue: SearchFormInterface) {
+    setSearchFormValues(searchFormValue: WlaSearchForm) {
       dispatch(searchFormSlice.actions.setSearchFormValues(searchFormValue));
     },
     resetSearchFromValues() {
@@ -28,6 +28,6 @@ type mapDispatchToPropsType = ReturnType<typeof mapDispatchToProps>;
 
 export type SearchProps = mapStateToPropsType &
   mapDispatchToPropsType & {
-    initSearchForm: SearchFormInterface;
-    submitSearch: (values: SearchFormInterface) => void;
+    initSearchForm: WlaSearchForm;
+    submitSearch: (values: WlaSearchForm) => void;
   };

@@ -1,5 +1,5 @@
-import { PlaceInterface } from './place.interface';
+import { WlaPlace } from './place.interface';
 
-export interface PlacesResponseInterface {
-  Places: PlaceInterface[];
+export interface WlaPlaceResponse {
+  Places: WlaPlace[];
 }

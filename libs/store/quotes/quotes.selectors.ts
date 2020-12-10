@@ -1,29 +1,27 @@
 import {
-  QuotePerLegInterface,
-  QuotesPerTripInterface,
+  WlaQuotePerLeg,
+  WlaQuotePerTrip,
 } from '@white-label-airline/services/quotes';
 
 import { FetchStatus } from '../models/fetch-status.enum';
-import { RootStateInterface } from '../root';
+import { WlaRootState } from '../root';
 
-import { QuotesStateInterface } from './models/quotes-state.interface';
+import { WlaQuotesState } from './models/quotes-state.interface';
 
-const getQuotesState = (rootState: RootStateInterface): QuotesStateInterface =>
+const getQuotesState = (rootState: WlaRootState): WlaQuotesState =>
   rootState.quotes;
 
-const getQuotesFetchStatus = (rootState: RootStateInterface): FetchStatus =>
+const getQuotesFetchStatus = (rootState: WlaRootState): FetchStatus =>
   getQuotesState(rootState).fetchStatus;
 
-const getQuotes = (rootState: RootStateInterface): QuotesPerTripInterface =>
+const getQuotes = (rootState: WlaRootState): WlaQuotePerTrip =>
   getQuotesState(rootState).quotes;
 
-const getOutboundQuotes = (
-  rootState: RootStateInterface
-): QuotePerLegInterface[] => getQuotes(rootState).outbound;
+const getOutboundQuotes = (rootState: WlaRootState): WlaQuotePerLeg[] =>
+  getQuotes(rootState).outbound;
 
-const getInboundQuotes = (
-  rootState: RootStateInterface
-): QuotePerLegInterface[] => getQuotes(rootState).inbound;
+const getInboundQuotes = (rootState: WlaRootState): WlaQuotePerLeg[] =>
+  getQuotes(rootState).inbound;
 
 export const quotesSelectors = {
   getQuotesFetchStatus,

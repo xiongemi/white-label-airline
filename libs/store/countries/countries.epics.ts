@@ -1,6 +1,6 @@
 import { Action } from '@reduxjs/toolkit';
 import {
-  CountriesResponse,
+  WlaCountriesResponse,
   countriesService,
 } from '@white-label-airline/services/countries';
 import { getCurrentLanguage } from '@white-label-airline/services/i18n';
@@ -17,7 +17,7 @@ export const getCountriesEpic = (action$: ActionsObservable<Action>) =>
     ofType(countriesSlice.actions.getCountries.type),
     switchMap(() => {
       return from(countriesService.getCountries(getCurrentLanguage())).pipe(
-        map((response: CountriesResponse) =>
+        map((response: WlaCountriesResponse) =>
           countriesSlice.actions.getCountriesSuccess(response.Countries)
         ),
         catchError((error) =>

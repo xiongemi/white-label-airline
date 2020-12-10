@@ -1,18 +1,17 @@
 import { CurrencyInterface } from '@white-label-airline/services/currencies';
 
 import { FetchStatus } from '../models/fetch-status.enum';
-import { RootStateInterface } from '../root/root-state.interface';
+import { WlaRootState } from '../root/root-state.interface';
 
-import { CurrenciesStateInterface } from './models/currencies-state.interface';
+import { WlaCurrenciesState } from './models/currencies-state.interface';
 
-const getCurrenciesState = (
-  rootState: RootStateInterface
-): CurrenciesStateInterface => rootState.currencies;
+const getCurrenciesState = (rootState: WlaRootState): WlaCurrenciesState =>
+  rootState.currencies;
 
-const getCurrencies = (rootState: RootStateInterface): CurrencyInterface[] =>
+const getCurrencies = (rootState: WlaRootState): CurrencyInterface[] =>
   getCurrenciesState(rootState).currencies;
 
-const getCurrenciesFetchStatus = (rootState: RootStateInterface): FetchStatus =>
+const getCurrenciesFetchStatus = (rootState: WlaRootState): FetchStatus =>
   getCurrenciesState(rootState).fetchStatus;
 
 export const currenciesSelectors = { getCurrencies, getCurrenciesFetchStatus };

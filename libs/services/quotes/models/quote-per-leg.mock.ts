@@ -1,6 +1,6 @@
-import { QuotePerLegInterface } from './quote-per-leg.interface';
+import { WlaQuotePerLeg } from './quote-per-leg.interface';
 
-export const mockQuotePerLeg: QuotePerLegInterface = {
+export const mockQuotePerLeg: WlaQuotePerLeg = {
   id: 1,
   minPrice: 273,
   direct: false,

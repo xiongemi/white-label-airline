@@ -1,7 +1,7 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { getCurrentLanguage } from '@white-label-airline/services/i18n';
 import {
-  PlacesResponseInterface,
+  WlaPlaceResponse,
   placesService,
 } from '@white-label-airline/services/places';
 import { equals } from 'ramda';
@@ -36,7 +36,7 @@ export const getPlacesEpic = (
           payload.query
         )
       ).pipe(
-        map((response: PlacesResponseInterface) =>
+        map((response: WlaPlaceResponse) =>
           placesSlice.actions.getPlacesSuccess(response.Places)
         ),
         catchError((error) => of(errorSlice.actions.handleError(error)))

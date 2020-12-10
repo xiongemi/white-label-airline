@@ -1,4 +1,4 @@
-export interface CarrierInterface {
+export interface WlaCarrier {
   CarrierId: number;
   Name: string;
 }

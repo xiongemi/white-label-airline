@@ -1,5 +1,5 @@
-import { SelectedQuotesStateInterface } from './selected-quotes-state.interface';
+import { WlaSelectedQuotesState } from './selected-quotes-state.interface';
 
-export const initialSelectedQuotesState: SelectedQuotesStateInterface = {
+export const initialSelectedQuotesState: WlaSelectedQuotesState = {
   outbound: null,
 };

@@ -1,15 +1,15 @@
-import { CountryInterface } from '@white-label-airline/services/countries';
+import { WlaCountry } from '@white-label-airline/services/countries';
 import { CurrencyInterface } from '@white-label-airline/services/currencies';
-import { PlaceInterface } from '@white-label-airline/services/places';
+import { WlaPlace } from '@white-label-airline/services/places';
 
 import { TripTypeEnum } from './trip-type.enum';
 
-export interface SearchFormInterface {
-  country: CountryInterface;
+export interface WlaSearchForm {
+  country: WlaCountry;
   tripType: TripTypeEnum;
   currency: CurrencyInterface;
-  from: PlaceInterface;
+  from: WlaPlace;
   departDate: Date | string;
-  to: PlaceInterface;
+  to: WlaPlace;
   returnDate: Date | string;
 }

@@ -1,7 +1,7 @@
 import DateFnsUtils from '@date-io/date-fns';
 import { Button, Grid, Box } from '@material-ui/core';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
-import { SearchFormInterface, TripTypeEnum } from '@white-label-airline/store';
+import { WlaSearchForm, TripTypeEnum } from '@white-label-airline/store';
 import { Form, Field, getIn, withFormik, FormikProps } from 'formik';
 import { KeyboardDatePicker } from 'formik-material-ui-pickers';
 import React, { useEffect } from 'react';
@@ -27,7 +27,7 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
   values,
   errors,
   setSubmitting,
-}: SearchProps & FormikProps<SearchFormInterface>) => {
+}: SearchProps & FormikProps<WlaSearchForm>) => {
   const { t } = useTranslation();
 
   const isScreenSizeSm = IsScreenSizeSm();
@@ -136,11 +136,11 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
 const SearchFormik = withFormik({
   displayName: 'SearchForm',
   enableReinitialize: true,
-  mapPropsToValues: (props: SearchProps): SearchFormInterface => {
+  mapPropsToValues: (props: SearchProps): WlaSearchForm => {
     return props.searchFormValues || props.initSearchForm;
   },
   validationSchema: searchFormSchema,
-  handleSubmit: (searchForm: SearchFormInterface, { props }) => {
+  handleSubmit: (searchForm: WlaSearchForm, { props }) => {
     props.submitSearch(searchForm);
     props.setSearchFormValues(searchForm);
   },

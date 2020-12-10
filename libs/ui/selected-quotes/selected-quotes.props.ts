@@ -1,11 +1,11 @@
 import {
-  RootStateInterface,
+  WlaRootState,
   selectedQuotesSelectors,
 } from '@white-label-airline/store';
 
 import { QuotesQueryParams } from '../models/quotes-query-params.interface';
 
-export const mapStateToProps = (state: RootStateInterface) => {
+export const mapStateToProps = (state: WlaRootState) => {
   return {
     selectedQuotes: selectedQuotesSelectors.getSelectedQuotesState(state),
   };

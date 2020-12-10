@@ -1,5 +1,5 @@
-import { PlacePerQuoteInterface } from './models/place-per-quote.interface';
-import { QuotePerLegInterface } from './models/quote-per-leg.interface';
+import { WlaPlacePerQuote } from './models/place-per-quote.interface';
+import { WlaQuotePerLeg } from './models/quote-per-leg.interface';
 import { QuoteResponseInterface } from './models/quote-response.interface';
 import { QuotesResponseInterface } from './models/quotes-response.interface';
 
@@ -7,15 +7,15 @@ import { QuotesResponseInterface } from './models/quotes-response.interface';
  * Convert quotes response to quotes used by the app
  * @param quotesResponse response got from quotes
  * @param isOutbound whether is search for is outbound or not
- * @return { QuotePerLegInterface[] }
+ * @return { WlaQuotePerLeg[] }
  */
 const transformQuotesResponseToQuotes = (
   quotesResponse: QuotesResponseInterface
-): QuotePerLegInterface[] => {
+): WlaQuotePerLeg[] => {
   const carriers = quotesResponse.Carriers;
   const places = quotesResponse.Places;
   return quotesResponse.Quotes.map(
-    (quote: QuoteResponseInterface): QuotePerLegInterface => {
+    (quote: QuoteResponseInterface): WlaQuotePerLeg => {
       const leg = quote.OutboundLeg;
       return {
         id: quote.QuoteId,
@@ -26,10 +26,10 @@ const transformQuotesResponseToQuotes = (
             carriers.find((carrier) => carrier.CarrierId === carrierId)?.Name
         ),
         origin: places.find(
-          (place: PlacePerQuoteInterface) => place.PlaceId === leg.OriginId
+          (place: WlaPlacePerQuote) => place.PlaceId === leg.OriginId
         ),
         destination: places.find(
-          (place: PlacePerQuoteInterface) => place.PlaceId === leg.DestinationId
+          (place: WlaPlacePerQuote) => place.PlaceId === leg.DestinationId
         ),
       };
     }

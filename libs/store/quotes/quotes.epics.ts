@@ -1,7 +1,7 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { getCurrentLanguage } from '@white-label-airline/services/i18n';
 import {
-  QuotePerLegInterface,
+  WlaQuotePerLeg,
   quotesDataTransfrom,
   quotesService,
 } from '@white-label-airline/services/quotes';
@@ -35,7 +35,7 @@ export const getQuotesEpic = (
         map((response) =>
           quotesDataTransfrom.transformQuotesResponseToQuotes(response)
         ),
-        map((quotes: QuotePerLegInterface[]) =>
+        map((quotes: WlaQuotePerLeg[]) =>
           quotesSlice.actions.getQuotesSuccess({
             quotes,
             isOutbound: payload.isOutbound,

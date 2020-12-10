@@ -1,5 +1,5 @@
-import { SearchFormInterface } from '@white-label-airline/store';
+import { WlaSearchForm } from '@white-label-airline/store';
 
 export interface SearchPageProps {
-  initSearchForm?: SearchFormInterface;
+  initSearchForm?: WlaSearchForm;
 }

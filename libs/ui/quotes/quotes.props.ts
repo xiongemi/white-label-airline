@@ -1,7 +1,7 @@
 import { Dispatch } from '@reduxjs/toolkit';
-import { QuotePerLegInterface } from '@white-label-airline/services/quotes';
+import { WlaQuotePerLeg } from '@white-label-airline/services/quotes';
 import {
-  RootStateInterface,
+  WlaRootState,
   quotesSelectors,
   quotesSlice,
   GetQuotesPayload,
@@ -10,7 +10,7 @@ import {
 
 import { QuotesQueryParams } from '../models/quotes-query-params.interface';
 
-export const mapStateToProps = (state: RootStateInterface) => {
+export const mapStateToProps = (state: WlaRootState) => {
   return {
     quotes: quotesSelectors.getQuotes(state),
     quotesFetchStatus: quotesSelectors.getQuotesFetchStatus(state),
@@ -22,10 +22,10 @@ export const mapDispatchToProps = (dispatch: Dispatch) => {
     getQuotes(getQuotesPayload: GetQuotesPayload) {
       dispatch(quotesSlice.actions.getQuotes(getQuotesPayload));
     },
-    selectOutboundQuote(quote: QuotePerLegInterface) {
+    selectOutboundQuote(quote: WlaQuotePerLeg) {
       dispatch(selectedQuotesSlice.actions.selectOutboundQuote(quote));
     },
-    selectInboundQuote(quote: QuotePerLegInterface) {
+    selectInboundQuote(quote: WlaQuotePerLeg) {
       dispatch(selectedQuotesSlice.actions.selectInboundQuote(quote));
     },
   };
@@ -39,5 +39,5 @@ export type QuotesProps = mapStateToPropsType &
     queryParams: QuotesQueryParams;
     modifySearch?: () => void;
     isOutbound: boolean;
-    selectQuote: (quote: QuotePerLegInterface) => void;
+    selectQuote: (quote: WlaQuotePerLeg) => void;
   };

@@ -1,13 +1,13 @@
 import { Dispatch } from '@reduxjs/toolkit';
 import {
-  RootStateInterface,
+  WlaRootState,
   currenciesSelectors,
   currenciesSlice,
 } from '@white-label-airline/store';
 
 import { FormFieldProps } from '../../../models/form-field-props.interface';
 
-export const mapStateToProps = (state: RootStateInterface) => {
+export const mapStateToProps = (state: WlaRootState) => {
   return {
     currencies: currenciesSelectors.getCurrencies(state),
     currenciesFetchStatus: currenciesSelectors.getCurrenciesFetchStatus(state),

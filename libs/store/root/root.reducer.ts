@@ -10,10 +10,10 @@ import { quotesSlice } from '../quotes/quotes.slice';
 import { searchFormSlice } from '../search-form';
 import { selectedQuotesSlice } from '../selected-quotes/selected-quotes.slice';
 
-import { RootStateInterface } from './root-state.interface';
+import { WlaRootState } from './root-state.interface';
 
 export const createRootReducer = (history: History) =>
-  combineReducers<RootStateInterface>({
+  combineReducers<WlaRootState>({
     router: connectRouter(history),
     countries: countriesSlice.reducer,
     currencies: currenciesSlice.reducer,

@@ -1,6 +1,6 @@
-import { PlaceInterface } from './place.interface';
+import { WlaPlace } from './place.interface';
 
-export const mockPlace: PlaceInterface = {
+export const mockPlace: WlaPlace = {
   PlaceId: 'ARN-sky',
   PlaceName: 'Stockholm Arlanda',
   CountryId: 'SE-sky',

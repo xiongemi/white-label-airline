@@ -1,8 +1,8 @@
 import { FetchStatus } from '../../models/fetch-status.enum';
 
-import { CountriesStateInterface } from './countries-state.interface';
+import { WlaCountriesState } from './countries-state.interface';
 
-export const initialCountriesState: CountriesStateInterface = {
+export const initialCountriesState: WlaCountriesState = {
   fetchStatus: FetchStatus.Initial,
   countries: [],
 };
