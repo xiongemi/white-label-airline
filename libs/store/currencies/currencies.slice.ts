@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CurrencyInterface } from '@white-label-airline/services/currencies';
+import { WlaCurrency } from '@white-label-airline/services/currencies';
 
 import { FetchStatus } from '../models/fetch-status.enum';
 
@@ -16,7 +16,7 @@ export const currenciesSlice = createSlice({
         currencies: [],
       };
     },
-    getCurrenciesSuccess(_, action: PayloadAction<CurrencyInterface[]>) {
+    getCurrenciesSuccess(_, action: PayloadAction<WlaCurrency[]>) {
       return {
         fetchStatus: FetchStatus.Success,
         currencies: action.payload,

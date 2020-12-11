@@ -1,8 +1,7 @@
 import { WlaRootState } from '../root';
 
-import { PlacesStateInterface } from './models/places-state.interface';
+import { WlaPlacesState } from './models/places-state.interface';
 
-const getPlaces = (rootState: WlaRootState): PlacesStateInterface =>
-  rootState.places;
+const getPlaces = (rootState: WlaRootState): WlaPlacesState => rootState.places;
 
 export const placesSelectors = { getPlaces };

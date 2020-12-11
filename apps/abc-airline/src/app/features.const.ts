@@ -1,6 +1,6 @@
-import { FeatureToggleNames } from '@white-label-airline/ui/models/feature-toggle-names.enum';
+import { FeatureName } from '@white-label-airline/ui/feature';
 
 export const features = {
-  [FeatureToggleNames.ShowCountry]: false,
-  [FeatureToggleNames.ShowCurrency]: false,
+  [FeatureName.ShowCountry]: false,
+  [FeatureName.ShowCurrency]: false,
 };

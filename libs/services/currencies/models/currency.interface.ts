@@ -1,4 +1,4 @@
-export interface CurrencyInterface {
+export interface WlaCurrency {
   Code: string;
   Symbol: string;
   ThousandsSeparator: string;

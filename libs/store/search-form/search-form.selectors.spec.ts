@@ -1,4 +1,4 @@
-import { mockInitialRootState } from '../root/root-state.mock';
+import { mockInitialRootState } from '../root/models/root-state.mock';
 
 import { searchFormSelectors } from './search-form.selectors';
 

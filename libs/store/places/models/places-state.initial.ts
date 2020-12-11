@@ -1,6 +1,6 @@
-import { PlacesStateInterface } from './places-state.interface';
+import { WlaPlacesState } from './places-state.interface';
 
-export const initialPlacesState: PlacesStateInterface = {
+export const initialPlacesState: WlaPlacesState = {
   query: null,
   results: [],
 };

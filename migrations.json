@@ -1,18 +1,18 @@
 {
   "migrations": [
     {
-      "version": "10.1.0-beta.0",
-      "description": "Migrate .eslintrc files to use tsconfig with a wildcard",
-      "factory": "./src/migrations/update-10-1-0/migrate-eslintrc-tsconfig-wildcard",
+      "version": "10.4.5",
+      "description": "Update the 'update' npm script to invoke nx migrate",
+      "factory": "./src/migrations/update-10-4-0/update-script-to-invoke-nx-migrate",
       "package": "@nrwl/workspace",
-      "name": "migrate-eslintrc-tsconfig-wildcard"
+      "name": "update-script-to-invoke-nx-migrate"
     },
     {
-      "version": "10.1.0-beta.4",
-      "description": "Update jest to v26",
-      "factory": "./src/migrations/update-10-1-0/update-10-1-0",
-      "package": "@nrwl/jest",
-      "name": "update-10.1.0"
+      "version": "10.4.6",
+      "description": "Update the decoration script when using Angular CLI",
+      "factory": "./src/migrations/update-10-4-0/update-decorate-angular-cli",
+      "package": "@nrwl/workspace",
+      "name": "update-decorate-angular-cli"
     }
   ]
 }

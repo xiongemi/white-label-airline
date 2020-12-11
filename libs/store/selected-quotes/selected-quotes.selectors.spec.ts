@@ -1,4 +1,4 @@
-import { mockInitialRootState } from '../root/root-state.mock';
+import { mockInitialRootState } from '../root/models/root-state.mock';
 
 import { initialSelectedQuotesState } from './models/selected-quotes-state.initial';
 import { selectedQuotesSelectors } from './selected-quotes.selectors';

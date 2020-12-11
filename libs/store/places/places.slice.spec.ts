@@ -1,6 +1,6 @@
 import { mockPlace } from '@white-label-airline/services/places';
 
-import { initialPlacesState } from './models/places-state-initial.const';
+import { initialPlacesState } from './models/places-state.initial';
 import { placesSlice } from './places.slice';
 
 describe('Places Slice', () => {

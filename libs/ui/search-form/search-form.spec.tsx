@@ -6,13 +6,13 @@ import {
 } from '@white-label-airline/store';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { FeatureToggleProvider } from 'react-feature-toggles';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 
 import '@white-label-airline/services/i18n/i18n.mock';
 
-import { defaultFeatureTogges } from '../models/feature-toggles.default';
+import { FeaturesProvider } from '../feature';
+import { defaultFeatureNames } from '../feature/models/feature-names.default';
 
 import SearchForm from './search-form';
 
@@ -29,14 +29,14 @@ describe('Search Form', () => {
 
   it('should not submit invalid form', async () => {
     const { queryByTestId } = render(
-      <FeatureToggleProvider featureToggleList={defaultFeatureTogges}>
+      <FeaturesProvider value={defaultFeatureNames}>
         <Provider store={store}>
           <SearchForm
             initSearchForm={defaultSearchForm}
             submitSearch={submitSearch}
           />
         </Provider>
-      </FeatureToggleProvider>
+      </FeaturesProvider>
     );
 
     await act(async () => {
@@ -48,14 +48,14 @@ describe('Search Form', () => {
 
   it('should submit valid form', async () => {
     const { queryByTestId } = render(
-      <FeatureToggleProvider featureToggleList={defaultFeatureTogges}>
+      <FeaturesProvider value={defaultFeatureNames}>
         <Provider store={store}>
           <SearchForm
             initSearchForm={mockSearchForm}
             submitSearch={submitSearch}
           />
         </Provider>
-      </FeatureToggleProvider>
+      </FeaturesProvider>
     );
 
     await act(async () => {

@@ -96,9 +96,7 @@ describe('Currency', () => {
         </Provider>
       );
 
-      expect((queryByLabelText('currency') as HTMLInputElement).value).toEqual(
-        mockCurrency.Code
-      );
+      expect(queryByLabelText('currency')).toHaveValue(mockCurrency.Code);
     });
   });
 });

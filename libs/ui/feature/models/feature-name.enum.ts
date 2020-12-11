@@ -1,4 +1,4 @@
-export enum FeatureToggleNames {
+export enum FeatureName {
   ShowCountry = 'ShowCountry',
   ShowCurrency = 'ShowCurrency',
 }

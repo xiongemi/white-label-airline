@@ -1,6 +1,6 @@
 import { Dispatch } from '@reduxjs/toolkit';
 import { WlaCountry } from '@white-label-airline/services/countries';
-import { CurrencyInterface } from '@white-label-airline/services/currencies';
+import { WlaCurrency } from '@white-label-airline/services/currencies';
 import { WlaPlace } from '@white-label-airline/services/places';
 import {
   WlaRootState,
@@ -24,7 +24,7 @@ export const mapDispatchToProps = (dispatch: Dispatch) => {
       query,
     }: {
       country: WlaCountry;
-      currency: CurrencyInterface;
+      currency: WlaCurrency;
       query: string;
     }) {
       dispatch(
@@ -45,6 +45,6 @@ export type PlaceProps = mapStateToPropsType &
   mapDispatchToPropsType &
   FormFieldProps & {
     country: WlaCountry;
-    currency: CurrencyInterface;
+    currency: WlaCurrency;
     invalidPlaces?: WlaPlace[];
   };

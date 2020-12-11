@@ -1,5 +1,5 @@
 import { FetchStatus } from '../models/fetch-status.enum';
-import { mockInitialRootState } from '../root/root-state.mock';
+import { mockInitialRootState } from '../root/models/root-state.mock';
 
 import { currenciesSelectors } from './currencies.selectors';
 

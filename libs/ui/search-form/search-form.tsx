@@ -5,12 +5,11 @@ import { WlaSearchForm, TripTypeEnum } from '@white-label-airline/store';
 import { Form, Field, getIn, withFormik, FormikProps } from 'formik';
 import { KeyboardDatePicker } from 'formik-material-ui-pickers';
 import React, { useEffect } from 'react';
-import { FeatureToggle } from 'react-feature-toggles';
 import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 
+import { Feature, FeatureName } from '../feature';
 import { IsScreenSizeSm } from '../hooks/screen-size.hook';
-import { FeatureToggleNames } from '../models/feature-toggle-names.enum';
 
 import Country from './components/country/country';
 import Currency from './components/currency/currency';
@@ -40,17 +39,17 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Form>
         <Grid container spacing={3}>
-          <FeatureToggle featureName={FeatureToggleNames.ShowCountry}>
+          <Feature name={FeatureName.ShowCountry}>
             <Grid item xs={12} sm={6} md={3}>
               <Country name="country" label={t('search.country')} />
             </Grid>
-          </FeatureToggle>
+          </Feature>
 
-          <FeatureToggle featureName={FeatureToggleNames.ShowCurrency}>
+          <Feature name={FeatureName.ShowCurrency}>
             <Grid item xs={12} sm={6} md={3}>
               <Currency name="currency" label={t('search.currency')} />
             </Grid>
-          </FeatureToggle>
+          </Feature>
 
           <Grid item xs={12} sm={6} md={3}>
             <TripType name="tripType" label={t('search.tripType')}></TripType>

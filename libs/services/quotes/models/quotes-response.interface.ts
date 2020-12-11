@@ -1,4 +1,4 @@
-import { CurrencyInterface } from '../../currencies';
+import { WlaCurrency } from '../../currencies';
 
 import { WlaCarrier } from './carrier.interface';
 import { WlaPlacePerQuote } from './place-per-quote.interface';
@@ -8,5 +8,5 @@ export interface QuotesResponseInterface {
   Quotes: QuoteResponseInterface[];
   Places: WlaPlacePerQuote[];
   Carriers: WlaCarrier[];
-  Currencies: CurrencyInterface[];
+  Currencies: WlaCurrency[];
 }

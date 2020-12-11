@@ -63,9 +63,7 @@ describe('Country', () => {
         </Provider>
       );
 
-      expect((queryByLabelText('country') as HTMLInputElement).value).toEqual(
-        ''
-      );
+      expect(queryByLabelText('country')).toHaveValue('');
     });
   });
 
@@ -104,9 +102,7 @@ describe('Country', () => {
         </Provider>
       );
 
-      expect((queryByLabelText('country') as HTMLInputElement).value).toEqual(
-        mockCountry.Name
-      );
+      expect(queryByLabelText('country')).toHaveValue(mockCountry.Name);
     });
   });
 });
