@@ -44,7 +44,10 @@
       {
         "selector": "interface",
         "format": ["PascalCase"],
-        "prefix": ["Wla", "Abc"]
+        "custom": {
+          "regex": "^(Wla|Abc)?[A-Z]",
+          "match": true
+        }
       }
     ],
     "no-console": "warn",

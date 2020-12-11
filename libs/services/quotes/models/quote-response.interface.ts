@@ -1,6 +1,6 @@
 import { WlaLeg } from './leg.interface';
 
-export interface QuoteResponseInterface {
+export interface WlaQuoteResponse {
   QuoteId: number;
   MinPrice: number;
   Direct: boolean;

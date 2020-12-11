@@ -1,5 +1,3 @@
-import { FeaturesContext } from './feature-context';
-
 export * from './feature';
 export * from './feature-context';
 export * from './models/feature-name.enum';

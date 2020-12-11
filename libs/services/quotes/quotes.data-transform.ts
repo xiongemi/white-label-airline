@@ -1,7 +1,7 @@
 import { WlaPlacePerQuote } from './models/place-per-quote.interface';
 import { WlaQuotePerLeg } from './models/quote-per-leg.interface';
-import { QuoteResponseInterface } from './models/quote-response.interface';
-import { QuotesResponseInterface } from './models/quotes-response.interface';
+import { WlaQuoteResponse } from './models/quote-response.interface';
+import { WlaQuotesResponse } from './models/quotes-response.interface';
 
 /**
  * Convert quotes response to quotes used by the app
@@ -10,12 +10,12 @@ import { QuotesResponseInterface } from './models/quotes-response.interface';
  * @return { WlaQuotePerLeg[] }
  */
 const transformQuotesResponseToQuotes = (
-  quotesResponse: QuotesResponseInterface
+  quotesResponse: WlaQuotesResponse
 ): WlaQuotePerLeg[] => {
   const carriers = quotesResponse.Carriers;
   const places = quotesResponse.Places;
   return quotesResponse.Quotes.map(
-    (quote: QuoteResponseInterface): WlaQuotePerLeg => {
+    (quote: WlaQuoteResponse): WlaQuotePerLeg => {
       const leg = quote.OutboundLeg;
       return {
         id: quote.QuoteId,

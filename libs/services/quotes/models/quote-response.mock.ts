@@ -1,6 +1,6 @@
-import { QuoteResponseInterface } from './quote-response.interface';
+import { WlaQuoteResponse } from './quote-response.interface';
 
-export const mockQuoteResponse: QuoteResponseInterface = {
+export const mockQuoteResponse: WlaQuoteResponse = {
   QuoteId: 1,
   MinPrice: 336,
   Direct: true,
