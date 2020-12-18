@@ -1,6 +1,6 @@
 import TextField from '@material-ui/core/TextField';
 import { WlaCurrency } from '@white-label-airline/services/currencies';
-import { FetchStatus } from '@white-label-airline/store';
+import { FetchStatus } from '@white-label-airline/store/models';
 import { Field } from 'formik';
 import {
   Autocomplete,

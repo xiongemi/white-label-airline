@@ -1,15 +1,17 @@
-import { WlaSearchForm } from '@white-label-airline/store';
-import React from 'react';
+import { WlaSearchForm } from '@white-label-airline/store/search-form';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import { useQueryParamsAsSearchForm } from '../../../hooks/use-query-params.hook';
 import SearchForm, { searchFormDataTransform } from '../../../search-form';
 import { RoutesPath } from '../../models/routes-path.enum';
 
-import { SearchPageProps } from './search-page.props';
+import { mapDispatchToProps, SearchPageProps } from './search-page.props';
 
 const SearchPage: React.FunctionComponent<SearchPageProps> = ({
   initSearchForm,
+  resetSelectedQuotes,
 }: SearchPageProps) => {
   const history = useHistory();
   const { searchForm } = useQueryParamsAsSearchForm();
@@ -28,6 +30,10 @@ const SearchPage: React.FunctionComponent<SearchPageProps> = ({
     });
   };
 
+  useEffect(() => {
+    resetSelectedQuotes();
+  }, [resetSelectedQuotes]);
+
   return (
     <SearchForm
       initSearchForm={searchForm || initSearchForm}
@@ -36,4 +42,4 @@ const SearchPage: React.FunctionComponent<SearchPageProps> = ({
   );
 };
 
-export default SearchPage;
+export default connect(null, mapDispatchToProps)(SearchPage);

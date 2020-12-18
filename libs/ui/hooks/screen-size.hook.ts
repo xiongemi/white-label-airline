@@ -1,9 +1,15 @@
 import { useTheme, useMediaQuery, Theme } from '@material-ui/core';
 
+export function IsScreenSizeXs() {
+  const theme: Theme = useTheme();
+
+  return useMediaQuery(theme.breakpoints.down('xs'));
+}
+
 export function IsScreenSizeSm() {
   const theme: Theme = useTheme();
 
-  return useMediaQuery(theme.breakpoints.down('sm'));
+  return useMediaQuery(theme.breakpoints.between('xs', 'sm'));
 }
 
 export function IsScreenSizeMd() {

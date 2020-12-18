@@ -10,4 +10,7 @@ export const theme = createMuiTheme({
       main: green[500],
     },
   },
+  typography: {
+    fontFamily: 'Roboto, Helvetica, sans-serif',
+  },
 });

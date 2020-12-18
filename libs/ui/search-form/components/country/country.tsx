@@ -1,6 +1,6 @@
 import { TextField } from '@material-ui/core';
 import { WlaCountry } from '@white-label-airline/services/countries';
-import { FetchStatus } from '@white-label-airline/store';
+import { FetchStatus } from '@white-label-airline/store/models';
 import { Field } from 'formik';
 import {
   Autocomplete,

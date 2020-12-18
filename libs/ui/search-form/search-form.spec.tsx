@@ -12,7 +12,7 @@ import configureStore from 'redux-mock-store';
 import '@white-label-airline/services/i18n/i18n.mock';
 
 import { FeaturesProvider } from '../feature';
-import { defaultFeatureNames } from '../feature/models/feature-names.default';
+import { defaultFeatureName } from '../feature/models/feature-name.default';
 
 import SearchForm from './search-form';
 
@@ -29,7 +29,7 @@ describe('Search Form', () => {
 
   it('should not submit invalid form', async () => {
     const { queryByTestId } = render(
-      <FeaturesProvider value={defaultFeatureNames}>
+      <FeaturesProvider value={defaultFeatureName}>
         <Provider store={store}>
           <SearchForm
             initSearchForm={defaultSearchForm}
@@ -48,7 +48,7 @@ describe('Search Form', () => {
 
   it('should submit valid form', async () => {
     const { queryByTestId } = render(
-      <FeaturesProvider value={defaultFeatureNames}>
+      <FeaturesProvider value={defaultFeatureName}>
         <Provider store={store}>
           <SearchForm
             initSearchForm={mockSearchForm}

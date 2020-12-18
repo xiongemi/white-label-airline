@@ -1,9 +1,6 @@
 import { Dispatch } from '@reduxjs/toolkit';
-import {
-  errorSelectors,
-  errorSlice,
-  WlaRootState,
-} from '@white-label-airline/store';
+import { errorSelectors, errorSlice } from '@white-label-airline/store/error';
+import { WlaRootState } from '@white-label-airline/store/root';
 
 export const mapStateToProps = (state: WlaRootState) => {
   return {

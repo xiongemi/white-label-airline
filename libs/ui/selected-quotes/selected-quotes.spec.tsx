@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import { mockQuotePerLeg } from '@white-label-airline/services/quotes';
-import { initialSelectedQuotesState } from '@white-label-airline/store';
+import { initialSelectedQuotesState } from '@white-label-airline/store/selected-quotes';
 import { axe } from 'jest-axe';
 import React from 'react';
 import { Provider } from 'react-redux';

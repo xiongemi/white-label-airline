@@ -1,4 +1,4 @@
-import { TripTypeEnum } from '@white-label-airline/store';
+import { TripTypeEnum } from '@white-label-airline/store/search-form';
 
 export interface GetQuotesPayload {
   country: string;

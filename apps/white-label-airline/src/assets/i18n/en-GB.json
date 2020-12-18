@@ -34,7 +34,8 @@
     },
     "modifySearch": "Modify Search",
     "selectDepartFlight": "Select your departing flight",
-    "selectReturnFlight": "Select your returning flight"
+    "selectReturnFlight": "Select your returning flight",
+    "totalPriceFrom": "Total price from"
   },
   "language": {
     "en-GB": "English",

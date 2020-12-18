@@ -1,4 +1,4 @@
-import { FetchStatus } from '@white-label-airline/store';
+import { FetchStatus } from '@white-label-airline/store/models';
 import React from 'react';
 
 import Loading from '../loading/loading';

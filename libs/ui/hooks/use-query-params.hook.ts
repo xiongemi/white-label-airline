@@ -1,4 +1,4 @@
-import { WlaSearchForm } from '@white-label-airline/store';
+import { WlaSearchForm } from '@white-label-airline/store/search-form';
 import { parse } from 'query-string';
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';

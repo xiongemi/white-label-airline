@@ -1,4 +1,7 @@
-import { WlaSearchForm, TripTypeEnum } from '@white-label-airline/store';
+import {
+  WlaSearchForm,
+  TripTypeEnum,
+} from '@white-label-airline/store/search-form';
 
 export const initSearchForm: WlaSearchForm = {
   country: { Code: 'CA', Name: 'Canada' },

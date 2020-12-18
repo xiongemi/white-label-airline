@@ -11,6 +11,7 @@ import React, { Suspense } from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
+import logo from '../assets/images/logo.png';
 import { initSearchForm } from '../models/search-form-init.const';
 
 import { features } from './features.const';
@@ -29,7 +30,7 @@ export const App: React.FunctionComponent = () => {
       <FeaturesProvider value={features}>
         <Provider store={store}>
           <PersistGate loading={<Loading />} persistor={persistor}>
-            <Header />
+            <Header logoImage={logo} />
             <Box mt={3} component={Container}>
               <WhiteLabelRoutes
                 initSearchForm={initSearchForm}

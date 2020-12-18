@@ -23,10 +23,8 @@
     },
     "modifySearch": "修改搜索",
     "selectDepartFlights": "请选择你出发的航班",
-    "selectReturnFlights": "请选择你返回的航班"
-  },
-  "booking": {
-    "title": "Booking"
+    "selectReturnFlights": "请选择你返回的航班",
+    "totalPriceFrom": "最低价"
   },
   "messages": {
     "required": "请填写{{ field }}",

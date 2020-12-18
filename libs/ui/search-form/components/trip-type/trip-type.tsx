@@ -1,7 +1,7 @@
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import { TripTypeEnum } from '@white-label-airline/store';
+import { TripTypeEnum } from '@white-label-airline/store/search-form';
 import { Field } from 'formik';
 import { Select } from 'formik-material-ui';
 import React from 'react';

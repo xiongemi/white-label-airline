@@ -23,10 +23,8 @@
     },
     "modifySearch": "Modify Search",
     "selectDepartFlights": "Select your departing flights",
-    "selectReturnFlights": "Select your return flights"
-  },
-  "booking": {
-    "title": "Booking"
+    "selectReturnFlights": "Select your return flights",
+    "totalPriceFrom": "Total price from"
   },
   "messages": {
     "required": "{{ field }} is required.",
