@@ -4,4 +4,5 @@ import { History } from 'history';
 export interface WhiteLabelRoutesProps {
   initSearchForm?: WlaSearchForm;
   history: History;
+  locale?: Locale;
 }

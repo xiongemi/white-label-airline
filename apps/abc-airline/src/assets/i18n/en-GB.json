@@ -2,6 +2,12 @@
   "header": {
     "title": "ABC Airline"
   },
+  "breadcrumbs": {
+    "search": "Search",
+    "departFlight": "Departing Flight",
+    "returnFlight": "Returning Flight",
+    "booking": "Booking"
+  },
   "search": {
     "country": "Country",
     "currency": "Currency",
@@ -12,7 +18,13 @@
     "departDate": "Depart Date",
     "returnDate": "Return Date",
     "from": "From",
-    "to": "To"
+    "to": "To",
+    "changeDate": "Change Date",
+    "reset": "Reset"
+  },
+  "quote": {
+    "selectFlight": "Select Flight",
+    "changeFlight": "Change Flight"
   },
   "quotes": {
     "direct": "Direct",
@@ -22,17 +34,18 @@
       "description": "No flights found for this route and date combination."
     },
     "modifySearch": "Modify Search",
-    "selectDepartFlights": "Select your departing flights",
-    "selectReturnFlights": "Select your return flights",
+    "selectDepartFlight": "Select your departing flight",
+    "selectReturnFlight": "Select your returning flight",
     "totalPriceFrom": "Total price from"
   },
-  "messages": {
-    "required": "{{ field }} is required.",
-    "minDate": "{{ returnDate }} should be before {{ departDate }}."
-  },
-  "loading": "Loading...",
   "language": {
     "en-GB": "English",
     "zh-CN": "中文"
-  }
+  },
+  "messages": {
+    "required": "{{ field }} is required.",
+    "minDate": "{{ returnDate }} should be before {{ departDate }}.",
+    "error": "Oops~ Something went wrong. Please refresh the page."
+  },
+  "loading": "Loading..."
 }

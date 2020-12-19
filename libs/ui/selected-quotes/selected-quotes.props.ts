@@ -5,7 +5,7 @@ import {
 
 import { QuotesQueryParams } from '../models/quotes-query-params.interface';
 
-export const mapStateToProps = (state: WlaRootState) => {
+const mapStateToProps = (state: WlaRootState) => {
   return {
     selectedQuotes: selectedQuotesSelectors.getSelectedQuotesState(state),
   };
@@ -13,8 +13,10 @@ export const mapStateToProps = (state: WlaRootState) => {
 
 type mapStateToPropsType = ReturnType<typeof mapStateToProps>;
 
-export type SelectedQuotesProps = mapStateToPropsType & {
+type SelectedQuotesProps = mapStateToPropsType & {
   queryParams: QuotesQueryParams;
   modifyOutboundQuote: () => void;
   modifyInboundQuote: () => void;
 };
+
+export { mapStateToProps, SelectedQuotesProps };

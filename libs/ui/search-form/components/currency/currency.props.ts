@@ -7,14 +7,14 @@ import {
 
 import { FormFieldProps } from '../../../models/form-field-props.interface';
 
-export const mapStateToProps = (state: WlaRootState) => {
+const mapStateToProps = (state: WlaRootState) => {
   return {
     currencies: currenciesSelectors.getCurrencies(state),
     currenciesFetchStatus: currenciesSelectors.getCurrenciesFetchStatus(state),
   };
 };
 
-export const mapDispatchToProps = (dispatch: Dispatch) => {
+const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
     getCurrencies() {
       dispatch(currenciesSlice.actions.getCurrencies());
@@ -25,6 +25,8 @@ export const mapDispatchToProps = (dispatch: Dispatch) => {
 type mapStateToPropsType = ReturnType<typeof mapStateToProps>;
 type mapDispatchToPropsType = ReturnType<typeof mapDispatchToProps>;
 
-export type CurrencyProps = mapStateToPropsType &
+type CurrencyProps = mapStateToPropsType &
   mapDispatchToPropsType &
   FormFieldProps;
+
+export { mapStateToProps, mapDispatchToProps, CurrencyProps };

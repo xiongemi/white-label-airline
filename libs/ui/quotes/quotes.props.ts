@@ -10,14 +10,14 @@ import {
 
 import { QuotesQueryParams } from '../models/quotes-query-params.interface';
 
-export const mapStateToProps = (state: WlaRootState) => {
+const mapStateToProps = (state: WlaRootState) => {
   return {
     quotes: quotesSelectors.getQuotes(state),
     quotesFetchStatus: quotesSelectors.getQuotesFetchStatus(state),
   };
 };
 
-export const mapDispatchToProps = (dispatch: Dispatch) => {
+const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
     getQuotes(getQuotesPayload: GetQuotesPayload) {
       dispatch(quotesSlice.actions.getQuotes(getQuotesPayload));
@@ -34,10 +34,12 @@ export const mapDispatchToProps = (dispatch: Dispatch) => {
 type mapStateToPropsType = ReturnType<typeof mapStateToProps>;
 type mapDispatchToPropsType = ReturnType<typeof mapDispatchToProps>;
 
-export type QuotesProps = mapStateToPropsType &
+type QuotesProps = mapStateToPropsType &
   mapDispatchToPropsType & {
     queryParams: QuotesQueryParams;
     modifySearch?: () => void;
     isOutbound: boolean;
     selectQuote: (quote: WlaQuotePerLeg) => void;
   };
+
+export { mapStateToProps, mapDispatchToProps, QuotesProps };

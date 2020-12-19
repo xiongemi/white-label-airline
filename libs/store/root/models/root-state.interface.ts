@@ -12,6 +12,7 @@ export interface WlaRootState {
   countries?: WlaCountriesState;
   currencies?: WlaCurrenciesState;
   error?: string | Error;
+  language?: string;
   places?: WlaPlacesState;
   quotes: WlaQuotesState;
   searchForm: WlaSearchForm;

@@ -26,6 +26,9 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
   values,
   errors,
   setSubmitting,
+  locale,
+  resetForm,
+  resetSearchFromValues,
 }: SearchProps & FormikProps<WlaSearchForm>) => {
   const { t } = useTranslation();
 
@@ -35,9 +38,29 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
     setSubmitting(false);
   }, [setSubmitting]);
 
+  const reset = () => {
+    // resetForm();
+    resetSearchFromValues();
+  };
+
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+    <MuiPickersUtilsProvider utils={DateFnsUtils} locale={locale}>
       <Form>
+        <Feature name={FeatureName.ShowReset}>
+          <Box mb={3} textAlign="right">
+            <Button
+              data-testid="search-form-reset"
+              variant="contained"
+              type="reset"
+              fullWidth={isScreenSizeSm}
+              color="secondary"
+              onClick={reset}
+            >
+              {t('search.reset')}
+            </Button>
+          </Box>
+        </Feature>
+
         <Grid container spacing={3}>
           <Feature name={FeatureName.ShowCountry}>
             <Grid item xs={12} sm={6} md={3}>

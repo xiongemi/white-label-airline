@@ -6,13 +6,13 @@ import {
   WlaRootState,
 } from '@white-label-airline/store';
 
-export const mapStateToProps = (state: WlaRootState) => {
+const mapStateToProps = (state: WlaRootState) => {
   return {
     searchFormValues: searchFormSelectors.getSearchFormValues(state),
   };
 };
 
-export const mapDispatchToProps = (dispatch: Dispatch) => {
+const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
     setSearchFormValues(searchFormValue: WlaSearchForm) {
       dispatch(searchFormSlice.actions.setSearchFormValues(searchFormValue));
@@ -26,8 +26,11 @@ export const mapDispatchToProps = (dispatch: Dispatch) => {
 type mapStateToPropsType = ReturnType<typeof mapStateToProps>;
 type mapDispatchToPropsType = ReturnType<typeof mapDispatchToProps>;
 
-export type SearchProps = mapStateToPropsType &
+type SearchProps = mapStateToPropsType &
   mapDispatchToPropsType & {
     initSearchForm: WlaSearchForm;
     submitSearch: (values: WlaSearchForm) => void;
+    locale: Locale;
   };
+
+export { mapStateToProps, mapDispatchToProps, SearchProps };

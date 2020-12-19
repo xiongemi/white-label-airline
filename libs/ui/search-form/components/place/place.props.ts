@@ -10,13 +10,13 @@ import {
 
 import { FormFieldProps } from '../../../models/form-field-props.interface';
 
-export const mapStateToProps = (state: WlaRootState) => {
+const mapStateToProps = (state: WlaRootState) => {
   return {
     places: placesSelectors.getPlaces(state),
   };
 };
 
-export const mapDispatchToProps = (dispatch: Dispatch) => {
+const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
     getPlaces({
       country,
@@ -41,10 +41,12 @@ export const mapDispatchToProps = (dispatch: Dispatch) => {
 type mapStateToPropsType = ReturnType<typeof mapStateToProps>;
 type mapDispatchToPropsType = ReturnType<typeof mapDispatchToProps>;
 
-export type PlaceProps = mapStateToPropsType &
+type PlaceProps = mapStateToPropsType &
   mapDispatchToPropsType &
   FormFieldProps & {
     country: WlaCountry;
     currency: WlaCurrency;
     invalidPlaces?: WlaPlace[];
   };
+
+export { mapDispatchToProps, mapStateToProps, PlaceProps };

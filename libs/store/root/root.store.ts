@@ -3,7 +3,7 @@ import { History } from 'history';
 import logger from 'redux-logger';
 import { createEpicMiddleware } from 'redux-observable';
 import { persistReducer, persistStore } from 'redux-persist';
-import sessionStorage from 'redux-persist/lib/storage/session'; // defaults to localStorage for web
+import sessionStorage from 'redux-persist/lib/storage/session';
 
 import { WlaRootState } from './models/root-state.interface';
 import { rootEpic } from './root.epic';
@@ -15,7 +15,7 @@ const isDevelopment = process.env.NODE_ENV === 'development';
 const persistConfig = {
   key: 'root',
   storage: sessionStorage,
-  whitelist: ['searchForm', 'selectedQuotes'],
+  whitelist: ['searchForm', 'selectedQuotes', 'language'],
 };
 
 export function configureAppStore(

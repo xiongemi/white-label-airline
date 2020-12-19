@@ -7,14 +7,14 @@ import {
 
 import { FormFieldProps } from '../../../models/form-field-props.interface';
 
-export const mapStateToProps = (state: WlaRootState) => {
+const mapStateToProps = (state: WlaRootState) => {
   return {
     countries: countriesSelectors.getCountries(state),
     countriesFetchStatus: countriesSelectors.getCountriesFetchStatus(state),
   };
 };
 
-export const mapDispatchToProps = (dispatch: Dispatch) => {
+const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
     getCountries() {
       dispatch(countriesSlice.actions.getCountries());
@@ -25,6 +25,8 @@ export const mapDispatchToProps = (dispatch: Dispatch) => {
 type mapStateToPropsType = ReturnType<typeof mapStateToProps>;
 type mapDispatchToPropsType = ReturnType<typeof mapDispatchToProps>;
 
-export type CountryProps = mapStateToPropsType &
+type CountryProps = mapStateToPropsType &
   mapDispatchToPropsType &
   FormFieldProps;
+
+export { mapDispatchToProps, mapStateToProps, CountryProps };

@@ -1,17 +1,20 @@
 import { AppBar, Toolbar, Typography, Box } from '@material-ui/core';
 import {
   getSupportedLanguages,
-  changeLanguage,
   getCurrentLanguage,
 } from '@white-label-airline/services/i18n';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { connect } from 'react-redux';
+
+import { Feature, FeatureName } from '../feature';
 
 import Language from './components/language/language';
-import { HeaderProps } from './header.props';
+import { mapDispatchToProps, HeaderProps } from './header.props';
 
 const Header: React.FunctionComponent<HeaderProps> = ({
   logoImage,
+  changeLanguage,
 }: HeaderProps) => {
   const { t } = useTranslation();
 
@@ -27,15 +30,17 @@ const Header: React.FunctionComponent<HeaderProps> = ({
               {t('header.title')}
             </Typography>
           </Box>
-          <Language
-            supportedLanguages={getSupportedLanguages()}
-            currentLanguage={getCurrentLanguage()}
-            changeLanguage={changeLanguage}
-          ></Language>
+          <Feature name={FeatureName.SupportChangeLanguage}>
+            <Language
+              supportedLanguages={getSupportedLanguages()}
+              currentLanguage={getCurrentLanguage()}
+              changeLanguage={changeLanguage}
+            ></Language>
+          </Feature>
         </Box>
       </Toolbar>
     </AppBar>
   );
 };
 
-export default Header;
+export default connect(null, mapDispatchToProps)(Header);

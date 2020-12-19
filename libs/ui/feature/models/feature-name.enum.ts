@@ -1,4 +1,6 @@
 export enum FeatureName {
-  ShowCountry = 'ShowCountry',
-  ShowCurrency = 'ShowCurrency',
+  ShowCountry,
+  ShowCurrency,
+  SupportChangeLanguage,
+  ShowReset,
 }

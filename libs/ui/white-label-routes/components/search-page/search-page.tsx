@@ -12,6 +12,7 @@ import { mapDispatchToProps, SearchPageProps } from './search-page.props';
 const SearchPage: React.FunctionComponent<SearchPageProps> = ({
   initSearchForm,
   resetSelectedQuotes,
+  locale,
 }: SearchPageProps) => {
   const history = useHistory();
   const { searchForm } = useQueryParamsAsSearchForm();
@@ -38,6 +39,7 @@ const SearchPage: React.FunctionComponent<SearchPageProps> = ({
     <SearchForm
       initSearchForm={searchForm || initSearchForm}
       submitSearch={submitSearch}
+      locale={locale}
     />
   );
 };

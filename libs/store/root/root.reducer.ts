@@ -5,6 +5,7 @@ import { History } from 'history';
 import { countriesSlice } from '../countries/countries.slice';
 import { currenciesSlice } from '../currencies/currencies.slice';
 import { errorSlice } from '../error/error.slice';
+import { languageSlice } from '../language/language.slice';
 import { placesSlice } from '../places/places.slice';
 import { quotesSlice } from '../quotes/quotes.slice';
 import { searchFormSlice } from '../search-form';
@@ -17,8 +18,9 @@ export const createRootReducer = (history: History) =>
     router: connectRouter(history),
     countries: countriesSlice.reducer,
     currencies: currenciesSlice.reducer,
-    places: placesSlice.reducer,
     error: errorSlice.reducer,
+    language: languageSlice.reducer,
+    places: placesSlice.reducer,
     quotes: quotesSlice.reducer,
     searchForm: searchFormSlice.reducer,
     selectedQuotes: selectedQuotesSlice.reducer,

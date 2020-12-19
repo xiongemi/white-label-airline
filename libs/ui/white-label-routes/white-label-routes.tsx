@@ -11,6 +11,7 @@ import { WhiteLabelRoutesProps } from './white-label-routes.props';
 export const WhiteLabelRoutes: React.FunctionComponent<WhiteLabelRoutesProps> = ({
   initSearchForm,
   history,
+  locale,
 }: WhiteLabelRoutesProps) => {
   return (
     <ConnectedRouter history={history}>
@@ -25,7 +26,7 @@ export const WhiteLabelRoutes: React.FunctionComponent<WhiteLabelRoutesProps> = 
           <SelectedQuotesPage />
         </Route>
         <Route path={RoutesPath.Search}>
-          <SearchPage initSearchForm={initSearchForm} />
+          <SearchPage initSearchForm={initSearchForm} locale={locale} />
         </Route>
         <Redirect from="/" to={RoutesPath.Search} />
         <Route render={() => <Redirect to={RoutesPath.Search} />} />
