@@ -1,108 +1,77 @@
 import { render } from '@testing-library/react';
-import { mockQuotePerLeg } from '@white-label-airline/services/quotes';
-import { initialSelectedQuotesState } from '@white-label-airline/store/selected-quotes';
+import { mockQuotePerLeg } from '@white-label-airline/models/quotes';
+import { mockSearchForm } from '@white-label-airline/models/search-form';
+import { WlaSelectedQuotes } from '@white-label-airline/models/selected-quotes';
 import { axe } from 'jest-axe';
 import React from 'react';
-import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
-
-import { mockQuotesQueryParams } from '../models/quotes-query-params.mock';
 
 import SelectedQuotes from './selected-quotes';
 
-const mockStore = configureStore([]);
-
 describe('Selected Quotes', () => {
-  let store;
+  it('should not have accessibility violations', async () => {
+    const mockSelectedQuotes = {
+      outbound: mockQuotePerLeg,
+      inbound: mockQuotePerLeg,
+    };
+    const { container } = render(
+      <SelectedQuotes
+        searchForm={mockSearchForm}
+        selectedQuotes={mockSelectedQuotes}
+        modifyOutboundQuote={jest.fn()}
+        modifyInboundQuote={jest.fn()}
+      />
+    );
 
-  describe('initial state', () => {
-    beforeEach(() => {
-      store = mockStore({
-        selectedQuotes: initialSelectedQuotesState,
-      });
-
-      store.dispatch = jest.fn();
-    });
-
-    it('should not have accessibility violations', async () => {
-      const { container } = render(
-        <Provider store={store}>
-          <SelectedQuotes
-            queryParams={mockQuotesQueryParams}
-            modifyOutboundQuote={jest.fn()}
-            modifyInboundQuote={jest.fn()}
-          />
-        </Provider>
-      );
-
-      expect(await axe(container)).toHaveNoViolations();
-    });
-
-    it('should not show any quote', () => {
-      const { queryAllByTestId } = render(
-        <Provider store={store}>
-          <SelectedQuotes
-            queryParams={mockQuotesQueryParams}
-            modifyOutboundQuote={jest.fn()}
-            modifyInboundQuote={jest.fn()}
-          />
-        </Provider>
-      );
-
-      expect(queryAllByTestId('quote-list-item').length).toEqual(0);
-    });
+    expect(await axe(container)).toHaveNoViolations();
   });
 
-  describe('state with outboound flights selected', () => {
-    beforeEach(() => {
-      store = mockStore({
-        selectedQuotes: {
-          outbound: mockQuotePerLeg,
-        },
-      });
+  it('should not show any quote with no quotes selected', () => {
+    const mockSelectedQuotes: WlaSelectedQuotes = {
+      outbound: null,
+    };
 
-      store.dispatch = jest.fn();
-    });
+    const { queryAllByTestId } = render(
+      <SelectedQuotes
+        searchForm={mockSearchForm}
+        selectedQuotes={mockSelectedQuotes}
+        modifyOutboundQuote={jest.fn()}
+        modifyInboundQuote={jest.fn()}
+      />
+    );
 
-    it('should show outbound quote', () => {
-      const { queryAllByTestId } = render(
-        <Provider store={store}>
-          <SelectedQuotes
-            queryParams={mockQuotesQueryParams}
-            modifyOutboundQuote={jest.fn()}
-            modifyInboundQuote={jest.fn()}
-          />
-        </Provider>
-      );
-
-      expect(queryAllByTestId('quote-list-item').length).toEqual(1);
-    });
+    expect(queryAllByTestId('quote-list-item').length).toEqual(0);
   });
 
-  describe('state with both inbound and outbound flights selected', () => {
-    beforeEach(() => {
-      store = mockStore({
-        selectedQuotes: {
-          outbound: mockQuotePerLeg,
-          inbound: mockQuotePerLeg,
-        },
-      });
+  it('should show outbound quote', () => {
+    const mockSelectedQuotes: WlaSelectedQuotes = {
+      outbound: mockQuotePerLeg,
+    };
+    const { queryAllByTestId } = render(
+      <SelectedQuotes
+        searchForm={mockSearchForm}
+        selectedQuotes={mockSelectedQuotes}
+        modifyOutboundQuote={jest.fn()}
+        modifyInboundQuote={jest.fn()}
+      />
+    );
 
-      store.dispatch = jest.fn();
-    });
+    expect(queryAllByTestId('quote-list-item').length).toEqual(1);
+  });
 
-    it('should show both inbound and outbound quote', () => {
-      const { queryAllByTestId } = render(
-        <Provider store={store}>
-          <SelectedQuotes
-            queryParams={mockQuotesQueryParams}
-            modifyOutboundQuote={jest.fn()}
-            modifyInboundQuote={jest.fn()}
-          />
-        </Provider>
-      );
+  it('should show both inbound and outbound quote', () => {
+    const mockSelectedQuotes: WlaSelectedQuotes = {
+      outbound: mockQuotePerLeg,
+      inbound: mockQuotePerLeg,
+    };
+    const { queryAllByTestId } = render(
+      <SelectedQuotes
+        searchForm={mockSearchForm}
+        selectedQuotes={mockSelectedQuotes}
+        modifyOutboundQuote={jest.fn()}
+        modifyInboundQuote={jest.fn()}
+      />
+    );
 
-      expect(queryAllByTestId('quote-list-item').length).toEqual(2);
-    });
+    expect(queryAllByTestId('quote-list-item').length).toEqual(2);
   });
 });

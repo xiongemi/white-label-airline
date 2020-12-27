@@ -1,7 +1,7 @@
 import {
   WlaQuotePerLeg,
   WlaQuotePerTrip,
-} from '@white-label-airline/services/quotes';
+} from '@white-label-airline/models/quotes';
 
 import { FetchStatus } from '../models/fetch-status.enum';
 import { WlaRootState } from '../root';

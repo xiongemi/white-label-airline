@@ -1,8 +1,8 @@
-import { parse } from 'query-string';
+import { WlaTripType } from '@white-label-airline/models/search-form';
 import React, { useEffect, useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Redirect, useHistory } from 'react-router-dom';
 
-import { QuotesQueryParams } from '../../../models/quotes-query-params.interface';
 import { BreadcrumbLink, SearchBreadcrumbs } from '../../../search-breadcrumbs';
 import SelectedQuotes from '../../../selected-quotes';
 import {
@@ -13,26 +13,21 @@ import {
 } from '../../models/breadcrumbs.const';
 import { RoutesPath } from '../../models/routes-path.enum';
 
-const SelectedQuotesPage: React.FunctionComponent = () => {
+import {
+  mapStateToProps,
+  SelectedQuotesPageProps,
+} from './selected-quotes-page.props';
+
+const SelectedQuotesPage: React.FunctionComponent<SelectedQuotesPageProps> = ({
+  searchForm,
+  selectedQuotes,
+}: SelectedQuotesPageProps) => {
   const history = useHistory();
-  const { search } = useLocation();
-  const [queryParams, setQueryParams] = useState<QuotesQueryParams>();
-  const [isRoundtrip, setIsRoundtrip] = useState<boolean>(true);
   const [breadcrumbs, setBreadcrumbs] = useState<BreadcrumbLink[]>([]);
 
   useEffect(() => {
-    setQueryParams((parse(search) as unknown) as QuotesQueryParams);
-  }, [search]);
-
-  useEffect(() => {
-    if (queryParams) {
-      setIsRoundtrip(Boolean(queryParams.returnDate));
-    }
-  }, [queryParams]);
-
-  useEffect(() => {
     setBreadcrumbs(
-      isRoundtrip
+      searchForm.tripType === WlaTripType.RoundTrip
         ? [
             searchBreadcrumb,
             outboundBreadcrumb,
@@ -41,34 +36,35 @@ const SelectedQuotesPage: React.FunctionComponent = () => {
           ]
         : [searchBreadcrumb, outboundBreadcrumb, bookingBreadcrumb]
     );
-  }, [isRoundtrip]);
+  }, [searchForm]);
 
   const modifyOutboundQuote = () => {
     history.push({
       pathname: RoutesPath.Outbound,
-      search: search,
     });
   };
 
   const modifyInboundQuote = () => {
     history.push({
       pathname: RoutesPath.Inbound,
-      search: search,
     });
   };
 
-  return (
+  return searchForm && selectedQuotes ? (
     <>
       {breadcrumbs && breadcrumbs.length && (
         <SearchBreadcrumbs breadcrumbs={breadcrumbs} />
       )}
       <SelectedQuotes
-        queryParams={queryParams}
+        searchForm={searchForm}
+        selectedQuotes={selectedQuotes}
         modifyOutboundQuote={modifyOutboundQuote}
         modifyInboundQuote={modifyInboundQuote}
       />
     </>
+  ) : (
+    <Redirect to={RoutesPath.Search} />
   );
 };
 
-export default SelectedQuotesPage;
+export default connect(mapStateToProps, null)(SelectedQuotesPage);

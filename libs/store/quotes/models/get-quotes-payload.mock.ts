@@ -1,4 +1,4 @@
-import { TripTypeEnum } from '@white-label-airline/store';
+import { WlaTripType } from '@white-label-airline/models/search-form';
 
 import { GetQuotesPayload } from './get-quotes-payload.interface';
 
@@ -9,6 +9,6 @@ export const mockGetQuotesPayload: GetQuotesPayload = {
   from: 'YTOA-sky',
   returnDate: '2020-11-13',
   to: 'NYCA-sky',
-  tripType: TripTypeEnum.RoundTrip,
+  tripType: WlaTripType.RoundTrip,
   isOutbound: true,
 };

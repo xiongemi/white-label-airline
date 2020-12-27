@@ -1,43 +1,40 @@
 import { Typography } from '@material-ui/core';
+import { WlaQuotePerLeg } from '@white-label-airline/models/quotes';
 import { getCurrentLanguage } from '@white-label-airline/services/i18n';
-import { WlaQuotePerLeg } from '@white-label-airline/services/quotes';
-import { FetchStatus } from '@white-label-airline/store';
+import { FetchStatus } from '@white-label-airline/store/models';
+import { searchFormDataTransform } from '@white-label-airline/store/search-form';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { connect } from 'react-redux';
 
 import LoadingFetchStatus from '../loading-fetch-status/loading-fetch-status';
 
 import QuotesList from './components/quotes-list/quotes-list';
-import {
-  QuotesProps,
-  mapStateToProps,
-  mapDispatchToProps,
-} from './quotes.props';
+import { QuotesProps } from './quotes.props';
 
 const Quotes: React.FunctionComponent<QuotesProps> = ({
   quotes,
-  queryParams,
+  searchForm,
   modifySearch,
   getQuotes,
   quotesFetchStatus,
   isOutbound,
   selectOutboundQuote,
   selectInboundQuote,
-  selectQuote,
 }: QuotesProps) => {
   const { t } = useTranslation();
   const language = getCurrentLanguage();
   const [quotesList, setQuotesList] = useState<WlaQuotePerLeg[]>([]);
 
   useEffect(() => {
-    if (queryParams) {
-      getQuotes({
-        ...queryParams,
-        isOutbound,
-      });
+    if (searchForm) {
+      getQuotes(
+        searchFormDataTransform.transfromSearchFormValueToGetQuotesPayload(
+          searchForm,
+          isOutbound
+        )
+      );
     }
-  }, [getQuotes, queryParams, isOutbound]);
+  }, [getQuotes, searchForm, isOutbound]);
 
   useEffect(() => {
     if (quotesFetchStatus === FetchStatus.Success) {
@@ -51,7 +48,6 @@ const Quotes: React.FunctionComponent<QuotesProps> = ({
     } else {
       selectInboundQuote(quote);
     }
-    selectQuote(quote);
   };
 
   return (
@@ -64,7 +60,7 @@ const Quotes: React.FunctionComponent<QuotesProps> = ({
       </Typography>
       <QuotesList
         language={language}
-        currency={queryParams?.currency}
+        currency={searchForm?.currency?.Code}
         modifySearch={modifySearch}
         quotes={quotesList}
         selectQuote={onSelectQuote}
@@ -73,4 +69,4 @@ const Quotes: React.FunctionComponent<QuotesProps> = ({
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Quotes);
+export default Quotes;

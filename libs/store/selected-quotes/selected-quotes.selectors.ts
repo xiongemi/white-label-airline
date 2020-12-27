@@ -1,9 +1,8 @@
+import { WlaSelectedQuotes } from '@white-label-airline/models/selected-quotes';
+
 import { WlaRootState } from '../root/models/root-state.interface';
 
-import { WlaSelectedQuotesState } from './models/selected-quotes-state.interface';
-
-const getSelectedQuotesState = (
-  rootState: WlaRootState
-): WlaSelectedQuotesState => rootState.selectedQuotes;
+const getSelectedQuotesState = (rootState: WlaRootState): WlaSelectedQuotes =>
+  rootState.selectedQuotes;
 
 export const selectedQuotesSelectors = { getSelectedQuotesState };

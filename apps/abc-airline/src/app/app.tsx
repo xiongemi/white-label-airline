@@ -1,4 +1,4 @@
-import { configureAppStore } from '@white-label-airline/store';
+import { configureAppStore } from '@white-label-airline/store/root';
 import { FeaturesProvider } from '@white-label-airline/ui/feature';
 import Loading from '@white-label-airline/ui/loading';
 import { createHashHistory, History } from 'history';

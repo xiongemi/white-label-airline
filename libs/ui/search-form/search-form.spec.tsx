@@ -1,15 +1,8 @@
 import { fireEvent, render } from '@testing-library/react';
-import {
-  defaultSearchForm,
-  mockInitialRootState,
-  mockSearchForm,
-} from '@white-label-airline/store';
+import { mockSearchForm } from '@white-label-airline/models/search-form';
+import { enGB } from 'date-fns/locale';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
-
-import '@white-label-airline/services/i18n/i18n.mock';
 
 import { FeaturesProvider } from '../feature';
 import { defaultFeatureName } from '../feature/models/feature-name.default';
@@ -17,25 +10,18 @@ import { defaultFeatureName } from '../feature/models/feature-name.default';
 import SearchForm from './search-form';
 
 describe('Search Form', () => {
-  const mockStore = configureStore([]);
   const submitSearch = jest.fn();
-  let store;
-
-  beforeEach(() => {
-    store = mockStore(mockInitialRootState);
-
-    store.dispatch = jest.fn();
-  });
+  const resetSearch = jest.fn();
 
   it('should not submit invalid form', async () => {
     const { queryByTestId } = render(
       <FeaturesProvider value={defaultFeatureName}>
-        <Provider store={store}>
-          <SearchForm
-            initSearchForm={defaultSearchForm}
-            submitSearch={submitSearch}
-          />
-        </Provider>
+        <SearchForm
+          searchFormValues={null}
+          submitSearchForm={submitSearch}
+          resetSearchForm={resetSearch}
+          locale={enGB}
+        />
       </FeaturesProvider>
     );
 
@@ -49,12 +35,12 @@ describe('Search Form', () => {
   it('should submit valid form', async () => {
     const { queryByTestId } = render(
       <FeaturesProvider value={defaultFeatureName}>
-        <Provider store={store}>
-          <SearchForm
-            initSearchForm={mockSearchForm}
-            submitSearch={submitSearch}
-          />
-        </Provider>
+        <SearchForm
+          searchFormValues={mockSearchForm}
+          submitSearchForm={submitSearch}
+          resetSearchForm={resetSearch}
+          locale={enGB}
+        />
       </FeaturesProvider>
     );
 

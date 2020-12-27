@@ -1,7 +1,9 @@
-import { WlaPlacePerQuote } from './models/place-per-quote.interface';
-import { WlaQuotePerLeg } from './models/quote-per-leg.interface';
-import { WlaQuoteResponse } from './models/quote-response.interface';
-import { WlaQuotesResponse } from './models/quotes-response.interface';
+import { WlaQuotePerLeg } from '@white-label-airline/models/quotes';
+import {
+  WlaQuotesResponse,
+  WlaPlacePerQuote,
+  WlaQuoteResponse,
+} from '@white-label-airline/services/quotes';
 
 /**
  * Convert quotes response to quotes used by the app

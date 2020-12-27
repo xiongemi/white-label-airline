@@ -1,9 +1,9 @@
-import { WlaSelectedQuotesState } from '@white-label-airline/store/selected-quotes';
-import { QuotesQueryParams } from '@white-label-airline/ui/models/quotes-query-params.interface';
+import { WlaSearchForm } from '@white-label-airline/models/search-form';
+import { WlaSelectedQuotes } from '@white-label-airline/models/selected-quotes';
 
 export interface SelectedQuotesSummaryProps {
-  selectedQuotes: WlaSelectedQuotesState;
-  queryParams: QuotesQueryParams;
+  selectedQuotes: WlaSelectedQuotes;
+  searchForm: WlaSearchForm;
   currency: string;
   language: string;
 }

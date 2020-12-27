@@ -6,6 +6,7 @@ import { persistReducer, persistStore } from 'redux-persist';
 import sessionStorage from 'redux-persist/lib/storage/session';
 
 import { WlaRootState } from './models/root-state.interface';
+import { transformSearchFormToPersist } from './persist-transform';
 import { rootEpic } from './root.epic';
 import { createRootReducer } from './root.reducer';
 
@@ -16,6 +17,7 @@ const persistConfig = {
   key: 'root',
   storage: sessionStorage,
   whitelist: ['searchForm', 'selectedQuotes', 'language'],
+  transforms: [transformSearchFormToPersist],
 };
 
 export function configureAppStore(

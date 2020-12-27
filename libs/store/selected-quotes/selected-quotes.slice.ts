@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { WlaQuotePerLeg } from '@white-label-airline/services/quotes';
+import { WlaQuotePerLeg } from '@white-label-airline/models/quotes';
 
 import { initialSelectedQuotesState } from './models/selected-quotes-state.initial';
 

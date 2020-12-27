@@ -1,4 +1,4 @@
-import { TripTypeEnum } from '@white-label-airline/store/search-form';
+import { WlaTripType } from '@white-label-airline/models/search-form';
 import * as yup from 'yup';
 
 export const searchFormSchema = yup.object().shape({
@@ -11,7 +11,7 @@ export const searchFormSchema = yup.object().shape({
     .string()
     .nullable()
     .required('messages.required')
-    .oneOf([TripTypeEnum.OneWay, TripTypeEnum.RoundTrip])
+    .oneOf([WlaTripType.OneWay, WlaTripType.RoundTrip])
     .typeError('messages.required'),
   currency: yup
     .object()
@@ -33,7 +33,7 @@ export const searchFormSchema = yup.object().shape({
     .date()
     .nullable()
     .when('tripType', {
-      is: TripTypeEnum.RoundTrip,
+      is: WlaTripType.RoundTrip,
       then: yup.date().required('messages.required'),
     }),
 });

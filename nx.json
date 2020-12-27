@@ -29,6 +29,13 @@
       "tags": [],
       "implicitDependencies": ["white-label-airline"]
     },
+    "abc-airline": {
+      "tags": []
+    },
+    "abc-airline-e2e": {
+      "tags": [],
+      "implicitDependencies": ["abc-airline"]
+    },
     "store": {
       "tags": []
     },
@@ -38,12 +45,8 @@
     "services": {
       "tags": []
     },
-    "abc-airline": {
+    "models": {
       "tags": []
-    },
-    "abc-airline-e2e": {
-      "tags": [],
-      "implicitDependencies": ["abc-airline"]
     }
   }
 }

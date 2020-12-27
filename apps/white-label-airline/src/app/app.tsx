@@ -1,6 +1,6 @@
 import { Container, Box } from '@material-ui/core';
 import { initI18n } from '@white-label-airline/services/i18n';
-import { configureAppStore } from '@white-label-airline/store';
+import { configureAppStore } from '@white-label-airline/store/root';
 import ErrorSnackbar from '@white-label-airline/ui/error-snackbar';
 import { FeaturesProvider } from '@white-label-airline/ui/feature';
 import Header from '@white-label-airline/ui/header';

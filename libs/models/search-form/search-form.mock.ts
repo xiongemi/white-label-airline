@@ -1,9 +1,9 @@
 import { WlaSearchForm } from './search-form.interface';
-import { TripTypeEnum } from './trip-type.enum';
+import { WlaTripType } from './trip-type.enum';
 
 export const mockSearchForm: WlaSearchForm = {
   country: { Code: 'CA', Name: 'Canada' },
-  tripType: TripTypeEnum.RoundTrip,
+  tripType: WlaTripType.RoundTrip,
   currency: {
     Code: 'CAD',
     DecimalDigits: 2,
@@ -22,7 +22,7 @@ export const mockSearchForm: WlaSearchForm = {
     CityId: 'YTOA-sky',
     CountryName: 'Canada',
   },
-  departDate: '2020-11-24T03:19:00.000Z',
+  departDate: new Date('2020-11-24T03:19:00.000Z'),
   to: {
     PlaceId: 'NYCA-sky',
     PlaceName: 'New York',
@@ -31,5 +31,5 @@ export const mockSearchForm: WlaSearchForm = {
     CityId: 'NYCA-sky',
     CountryName: 'United States',
   },
-  returnDate: '2020-11-29T03:19:00.000Z',
+  returnDate: new Date('2020-11-29T03:19:00.000Z'),
 };

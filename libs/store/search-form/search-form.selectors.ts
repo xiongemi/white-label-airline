@@ -1,6 +1,6 @@
-import { WlaRootState } from '../root/models/root-state.interface';
+import { WlaSearchForm } from '@white-label-airline/models/search-form';
 
-import { WlaSearchForm } from './models/search-form.interface';
+import { WlaRootState } from '../root/models/root-state.interface';
 
 const getSearchFormValues = (rootState: WlaRootState): WlaSearchForm =>
   rootState.searchForm;

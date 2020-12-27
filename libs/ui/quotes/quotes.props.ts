@@ -1,45 +1,20 @@
-import { Dispatch } from '@reduxjs/toolkit';
-import { WlaQuotePerLeg } from '@white-label-airline/services/quotes';
 import {
-  WlaRootState,
-  quotesSelectors,
-  quotesSlice,
-  GetQuotesPayload,
-  selectedQuotesSlice,
-} from '@white-label-airline/store';
+  WlaQuotePerLeg,
+  WlaQuotePerTrip,
+} from '@white-label-airline/models/quotes';
+import { WlaSearchForm } from '@white-label-airline/models/search-form';
+import { FetchStatus } from '@white-label-airline/store/models';
+import { GetQuotesPayload } from '@white-label-airline/store/quotes';
 
-import { QuotesQueryParams } from '../models/quotes-query-params.interface';
+interface QuotesProps {
+  searchForm: WlaSearchForm;
+  quotes: WlaQuotePerTrip;
+  quotesFetchStatus: FetchStatus;
+  isOutbound: boolean;
+  getQuotes: (getQuotesPayload: GetQuotesPayload) => void;
+  selectOutboundQuote: (quote: WlaQuotePerLeg) => void;
+  selectInboundQuote: (quote: WlaQuotePerLeg) => void;
+  modifySearch?: () => void;
+}
 
-const mapStateToProps = (state: WlaRootState) => {
-  return {
-    quotes: quotesSelectors.getQuotes(state),
-    quotesFetchStatus: quotesSelectors.getQuotesFetchStatus(state),
-  };
-};
-
-const mapDispatchToProps = (dispatch: Dispatch) => {
-  return {
-    getQuotes(getQuotesPayload: GetQuotesPayload) {
-      dispatch(quotesSlice.actions.getQuotes(getQuotesPayload));
-    },
-    selectOutboundQuote(quote: WlaQuotePerLeg) {
-      dispatch(selectedQuotesSlice.actions.selectOutboundQuote(quote));
-    },
-    selectInboundQuote(quote: WlaQuotePerLeg) {
-      dispatch(selectedQuotesSlice.actions.selectInboundQuote(quote));
-    },
-  };
-};
-
-type mapStateToPropsType = ReturnType<typeof mapStateToProps>;
-type mapDispatchToPropsType = ReturnType<typeof mapDispatchToProps>;
-
-type QuotesProps = mapStateToPropsType &
-  mapDispatchToPropsType & {
-    queryParams: QuotesQueryParams;
-    modifySearch?: () => void;
-    isOutbound: boolean;
-    selectQuote: (quote: WlaQuotePerLeg) => void;
-  };
-
-export { mapStateToProps, mapDispatchToProps, QuotesProps };
+export { QuotesProps };

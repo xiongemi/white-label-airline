@@ -58,7 +58,6 @@
     "i18next": "^19.8.4",
     "i18next-browser-languagedetector": "^6.0.1",
     "i18next-http-backend": "^1.0.21",
-    "query-string": "^6.13.7",
     "ramda": "^0.27.1",
     "react": "^16.14.0",
     "react-dom": "16.13.1",

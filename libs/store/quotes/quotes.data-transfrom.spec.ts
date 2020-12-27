@@ -1,4 +1,5 @@
-import { mockQuotesResponse } from './models/quotes-response.mock';
+import { mockQuotesResponse } from '@white-label-airline/services/quotes';
+
 import { quotesDataTransfrom } from './quotes.data-transform';
 
 describe('Quotes Data Transfrom', () => {

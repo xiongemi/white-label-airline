@@ -1,33 +1,31 @@
-import { WlaSearchForm } from '@white-label-airline/store/search-form';
+import { WlaSearchForm } from '@white-label-airline/models/search-form';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import { useQueryParamsAsSearchForm } from '../../../hooks/use-query-params.hook';
-import SearchForm, { searchFormDataTransform } from '../../../search-form';
+import SearchForm from '../../../search-form';
 import { RoutesPath } from '../../models/routes-path.enum';
 
-import { mapDispatchToProps, SearchPageProps } from './search-page.props';
+import {
+  mapStateToProps,
+  mapDispatchToProps,
+  SearchPageProps,
+} from './search-page.props';
 
 const SearchPage: React.FunctionComponent<SearchPageProps> = ({
   initSearchForm,
   resetSelectedQuotes,
   locale,
+  searchFormValues,
+  setSearchFormValues,
+  resetSearchFromValues,
 }: SearchPageProps) => {
   const history = useHistory();
-  const { searchForm } = useQueryParamsAsSearchForm();
 
-  const submitSearch = (searchFormValues: WlaSearchForm) => {
-    const searchParams = new URLSearchParams();
-    const query = searchFormDataTransform.transformSearchFormValuesToQuotesQueryParams(
-      searchFormValues
-    );
-    for (const key in query) {
-      searchParams.set(key, query[key]);
-    }
+  const submitSearchForm = (values: WlaSearchForm) => {
+    setSearchFormValues(values);
     history.push({
       pathname: RoutesPath.Outbound,
-      search: searchParams.toString(),
     });
   };
 
@@ -37,11 +35,12 @@ const SearchPage: React.FunctionComponent<SearchPageProps> = ({
 
   return (
     <SearchForm
-      initSearchForm={searchForm || initSearchForm}
-      submitSearch={submitSearch}
+      searchFormValues={searchFormValues || initSearchForm}
+      submitSearchForm={submitSearchForm}
+      resetSearchForm={resetSearchFromValues}
       locale={locale}
     />
   );
 };
 
-export default connect(null, mapDispatchToProps)(SearchPage);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchPage);

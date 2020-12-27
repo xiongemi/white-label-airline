@@ -1,4 +1,4 @@
-import { WlaPlacePerQuote } from './place-per-quote.interface';
+import { WlaPlacePerQuote } from '@white-label-airline/services/quotes';
 
 export interface WlaQuotePerLeg {
   id: number;

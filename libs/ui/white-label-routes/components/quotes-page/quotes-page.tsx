@@ -1,7 +1,10 @@
+import { WlaQuotePerLeg } from '@white-label-airline/models/quotes';
+import { WlaTripType } from '@white-label-airline/models/search-form';
+import { searchFormDataTransform } from '@white-label-airline/store/search-form';
 import React, { useEffect, useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Redirect, useHistory, useLocation } from 'react-router-dom';
 
-import { useQueryParamsAsSearchForm } from '../../../hooks/use-query-params.hook';
 import Quotes from '../../../quotes';
 import { BreadcrumbLink, SearchBreadcrumbs } from '../../../search-breadcrumbs';
 import {
@@ -11,13 +14,34 @@ import {
 } from '../../models/breadcrumbs.const';
 import { RoutesPath } from '../../models/routes-path.enum';
 
-const QuotesPage: React.FunctionComponent = () => {
+import {
+  QuotesPageProps,
+  mapStateToProps,
+  mapDispatchToProps,
+} from './quotes-page.props';
+
+const QuotesPage: React.FunctionComponent<QuotesPageProps> = ({
+  searchForm,
+  selectedQuotes,
+  quotes,
+  quotesFetchStatus,
+  getQuotes,
+  selectOutboundQuote,
+  selectInboundQuote,
+}: QuotesPageProps) => {
   const history = useHistory();
-  const { search, pathname } = useLocation();
+  const { pathname } = useLocation();
   const [isOutbound, setIsOutbound] = useState<boolean>(true);
   const [breadcrumbs, setBreadcrumbs] = useState<BreadcrumbLink[]>([]);
 
-  const { queryParams } = useQueryParamsAsSearchForm();
+  useEffect(() => {
+    getQuotes(
+      searchFormDataTransform.transfromSearchFormValueToGetQuotesPayload(
+        searchForm,
+        isOutbound
+      )
+    );
+  }, [getQuotes, searchForm, isOutbound]);
 
   useEffect(() => {
     setIsOutbound(pathname === RoutesPath.Outbound);
@@ -34,37 +58,52 @@ const QuotesPage: React.FunctionComponent = () => {
   const modifySearch = () => {
     history.push({
       pathname: RoutesPath.Search,
-      search: search,
     });
   };
 
-  const selectQuote = () => {
-    if (queryParams.returnDate && isOutbound) {
+  const onSelectOutboundQuotes = (quote: WlaQuotePerLeg) => {
+    selectOutboundQuote(quote);
+    if (
+      searchForm.tripType === WlaTripType.RoundTrip &&
+      isOutbound &&
+      !selectedQuotes.inbound
+    ) {
       history.push({
         pathname: RoutesPath.Inbound,
-        search,
       });
     } else {
       history.push({
         pathname: RoutesPath.Booking,
-        search,
       });
     }
   };
 
-  return (
+  const onSelectInboundQuotes = (quote: WlaQuotePerLeg) => {
+    selectInboundQuote(quote);
+    history.push({
+      pathname: RoutesPath.Booking,
+    });
+  };
+
+  return searchForm ? (
     <>
       {breadcrumbs && breadcrumbs.length && (
         <SearchBreadcrumbs breadcrumbs={breadcrumbs} />
       )}
       <Quotes
+        searchForm={searchForm}
+        quotes={quotes}
+        quotesFetchStatus={quotesFetchStatus}
         modifySearch={modifySearch}
-        queryParams={queryParams}
         isOutbound={isOutbound}
-        selectQuote={selectQuote}
+        getQuotes={getQuotes}
+        selectOutboundQuote={onSelectOutboundQuotes}
+        selectInboundQuote={onSelectInboundQuotes}
       />
     </>
+  ) : (
+    <Redirect to={RoutesPath.Search} />
   );
 };
 
-export default QuotesPage;
+export default connect(mapStateToProps, mapDispatchToProps)(QuotesPage);

@@ -1,12 +1,14 @@
 import DateFnsUtils from '@date-io/date-fns';
 import { Button, Grid, Box } from '@material-ui/core';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
-import { WlaSearchForm, TripTypeEnum } from '@white-label-airline/store';
+import {
+  WlaSearchForm,
+  WlaTripType,
+} from '@white-label-airline/models/search-form';
 import { Form, Field, getIn, withFormik, FormikProps } from 'formik';
 import { KeyboardDatePicker } from 'formik-material-ui-pickers';
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { connect } from 'react-redux';
 
 import { Feature, FeatureName } from '../feature';
 import { IsScreenSizeSm } from '../hooks/screen-size.hook';
@@ -16,19 +18,14 @@ import Currency from './components/currency/currency';
 import Place from './components/place/place';
 import TripType from './components/trip-type/trip-type';
 import { searchFormSchema } from './models/search-form.schema';
-import {
-  SearchProps,
-  mapStateToProps,
-  mapDispatchToProps,
-} from './search-form.props';
+import { SearchProps } from './search-form.props';
 
 const SearchForm: React.FunctionComponent<SearchProps> = ({
   values,
   errors,
   setSubmitting,
   locale,
-  resetForm,
-  resetSearchFromValues,
+  resetSearchForm,
 }: SearchProps & FormikProps<WlaSearchForm>) => {
   const { t } = useTranslation();
 
@@ -37,11 +34,6 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
   useEffect(() => {
     setSubmitting(false);
   }, [setSubmitting]);
-
-  const reset = () => {
-    // resetForm();
-    resetSearchFromValues();
-  };
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils} locale={locale}>
@@ -54,7 +46,7 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
               type="reset"
               fullWidth={isScreenSizeSm}
               color="secondary"
-              onClick={reset}
+              onClick={resetSearchForm}
             >
               {t('search.reset')}
             </Button>
@@ -84,8 +76,8 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
             <Place
               label={t('search.from')}
               name="from"
-              country={values.country}
-              currency={values.currency}
+              country={values?.country}
+              currency={values?.currency}
             />
           </Grid>
 
@@ -93,9 +85,9 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
             <Place
               label={t('search.to')}
               name="to"
-              country={values.country}
-              currency={values.currency}
-              invalidPlaces={values.from && [values.from]}
+              country={values?.country}
+              currency={values?.currency}
+              invalidPlaces={values?.from && [values?.from]}
             />
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
@@ -114,7 +106,7 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
               }}
             />
           </Grid>
-          {values.tripType === TripTypeEnum.RoundTrip && (
+          {values?.tripType === WlaTripType.RoundTrip && (
             <Grid item xs={12} sm={6} md={3}>
               <Field
                 aria-label={t('search.returnDate')}
@@ -122,7 +114,7 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
                 component={KeyboardDatePicker}
                 name="returnDate"
                 label={t('search.returnDate')}
-                minDate={values.departDate}
+                minDate={values?.departDate}
                 minDateMessage={t('messages.minDate', {
                   departDate: t('search.departDate'),
                   returnDate: t('search.returnDate'),
@@ -159,13 +151,12 @@ const SearchFormik = withFormik({
   displayName: 'SearchForm',
   enableReinitialize: true,
   mapPropsToValues: (props: SearchProps): WlaSearchForm => {
-    return props.searchFormValues || props.initSearchForm;
+    return props.searchFormValues;
   },
   validationSchema: searchFormSchema,
   handleSubmit: (searchForm: WlaSearchForm, { props }) => {
-    props.submitSearch(searchForm);
-    props.setSearchFormValues(searchForm);
+    props.submitSearchForm(searchForm);
   },
 })(SearchForm);
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchFormik);
+export default SearchFormik;

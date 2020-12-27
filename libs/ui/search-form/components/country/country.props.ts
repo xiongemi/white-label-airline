@@ -1,9 +1,9 @@
 import { Dispatch } from '@reduxjs/toolkit';
 import {
-  WlaRootState,
   countriesSelectors,
   countriesSlice,
-} from '@white-label-airline/store';
+} from '@white-label-airline/store/countries';
+import { WlaRootState } from '@white-label-airline/store/root';
 
 import { FormFieldProps } from '../../../models/form-field-props.interface';
 

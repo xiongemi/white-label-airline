@@ -1,8 +1,11 @@
-import { WlaSearchForm, TripTypeEnum } from '@white-label-airline/store';
+import {
+  WlaSearchForm,
+  WlaTripType,
+} from '@white-label-airline/models/search-form';
 
 export const initSearchForm: WlaSearchForm = {
   country: { Code: 'CA', Name: 'Canada' },
-  tripType: TripTypeEnum.RoundTrip,
+  tripType: WlaTripType.RoundTrip,
   currency: {
     Code: 'CAD',
     DecimalDigits: 2,

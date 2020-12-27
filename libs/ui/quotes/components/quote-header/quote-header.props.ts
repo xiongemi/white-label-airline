@@ -1,4 +1,4 @@
-import { WlaQuotePerLeg } from '@white-label-airline/services/quotes';
+import { WlaQuotePerLeg } from '@white-label-airline/models/quotes';
 
 export interface QuoteHeaderProps {
   quote: WlaQuotePerLeg;

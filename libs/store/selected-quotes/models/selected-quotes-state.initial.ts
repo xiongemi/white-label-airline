@@ -1,5 +1,5 @@
-import { WlaSelectedQuotesState } from './selected-quotes-state.interface';
+import { WlaSelectedQuotes } from '@white-label-airline/models/selected-quotes';
 
-export const initialSelectedQuotesState: WlaSelectedQuotesState = {
+export const initialSelectedQuotesState: WlaSelectedQuotes = {
   outbound: null,
 };

@@ -3,10 +3,10 @@ import { WlaCountry } from '@white-label-airline/services/countries';
 import { WlaCurrency } from '@white-label-airline/services/currencies';
 import { WlaPlace } from '@white-label-airline/services/places';
 import {
-  WlaRootState,
   placesSelectors,
   placesSlice,
-} from '@white-label-airline/store';
+} from '@white-label-airline/store/places';
+import { WlaRootState } from '@white-label-airline/store/root';
 
 import { FormFieldProps } from '../../../models/form-field-props.interface';
 

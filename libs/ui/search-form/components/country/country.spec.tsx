@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react';
+import { mockSearchForm } from '@white-label-airline/models/search-form';
 import { mockCountry } from '@white-label-airline/services/countries';
 import {
   countriesSlice,
-  defaultSearchForm,
-  FetchStatus,
   initialCountriesState,
-} from '@white-label-airline/store';
+} from '@white-label-airline/store/countries';
+import { FetchStatus } from '@white-label-airline/store/models';
 import { Formik } from 'formik';
 import { axe } from 'jest-axe';
 import React from 'react';
@@ -31,7 +31,7 @@ describe('Country', () => {
     it('should not have accessibility violations', async () => {
       const { container } = render(
         <Provider store={store}>
-          <Formik initialValues={defaultSearchForm} onSubmit={jest.fn()}>
+          <Formik initialValues={mockSearchForm} onSubmit={jest.fn()}>
             <Country name="country" label="country" />
           </Formik>
         </Provider>
@@ -43,7 +43,7 @@ describe('Country', () => {
     it('should dispatch action to get countries', () => {
       render(
         <Provider store={store}>
-          <Formik initialValues={defaultSearchForm} onSubmit={jest.fn()}>
+          <Formik initialValues={mockSearchForm} onSubmit={jest.fn()}>
             <Country name="country" label="country" />
           </Formik>
         </Provider>
@@ -57,13 +57,15 @@ describe('Country', () => {
     it('should not set the input value if form initial value is empty', () => {
       const { queryByLabelText } = render(
         <Provider store={store}>
-          <Formik initialValues={defaultSearchForm} onSubmit={jest.fn()}>
+          <Formik initialValues={mockSearchForm} onSubmit={jest.fn()}>
             <Country name="country" label="country" />
           </Formik>
         </Provider>
       );
 
-      expect(queryByLabelText('country')).toHaveValue('');
+      expect(queryByLabelText('country')).toHaveValue(
+        mockSearchForm.country.Code
+      );
     });
   });
 

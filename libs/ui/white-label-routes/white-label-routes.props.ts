@@ -1,4 +1,4 @@
-import { WlaSearchForm } from '@white-label-airline/store';
+import { WlaSearchForm } from '@white-label-airline/models/search-form';
 import { History } from 'history';
 
 export interface WhiteLabelRoutesProps {

@@ -4,7 +4,6 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import {
   quotesService,
   mockQuotesResponse,
-  quotesDataTransfrom,
 } from '@white-label-airline/services/quotes';
 import { ActionsObservable } from 'redux-observable';
 import { of } from 'rxjs';
@@ -13,6 +12,7 @@ import { errorSlice } from '../error/error.slice';
 
 import { GetQuotesPayload } from './models/get-quotes-payload.interface';
 import { mockGetQuotesPayload } from './models/get-quotes-payload.mock';
+import { quotesDataTransfrom } from './quotes.data-transform';
 import { getQuotesEpic } from './quotes.epics';
 import { quotesSlice } from './quotes.slice';
 

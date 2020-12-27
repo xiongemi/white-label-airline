@@ -1,22 +1,10 @@
-import {
-  WlaRootState,
-  selectedQuotesSelectors,
-} from '@white-label-airline/store';
-
-import { QuotesQueryParams } from '../models/quotes-query-params.interface';
-
-const mapStateToProps = (state: WlaRootState) => {
-  return {
-    selectedQuotes: selectedQuotesSelectors.getSelectedQuotesState(state),
-  };
-};
-
-type mapStateToPropsType = ReturnType<typeof mapStateToProps>;
-
-type SelectedQuotesProps = mapStateToPropsType & {
-  queryParams: QuotesQueryParams;
+import { WlaSearchForm } from '@white-label-airline/models/search-form';
+import { WlaSelectedQuotes } from '@white-label-airline/models/selected-quotes';
+interface SelectedQuotesProps {
   modifyOutboundQuote: () => void;
   modifyInboundQuote: () => void;
-};
+  searchForm: WlaSearchForm;
+  selectedQuotes: WlaSelectedQuotes;
+}
 
-export { mapStateToProps, SelectedQuotesProps };
+export { SelectedQuotesProps };

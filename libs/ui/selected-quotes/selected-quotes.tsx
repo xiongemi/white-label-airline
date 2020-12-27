@@ -1,30 +1,27 @@
 import { Divider, List } from '@material-ui/core';
 import { getCurrentLanguage } from '@white-label-airline/services/i18n';
 import React from 'react';
-import { connect } from 'react-redux';
 
-import Loading from '../loading';
 import Quote from '../quote/quote';
-import { searchFormDataTransform } from '../search-form/search-form.data-transform';
 
 import SelectedQuoteHeader from './components/selected-quote-header/selected-quote-header';
 import SelectedQuotesSummary from './components/selected-quotes-summary/selected-quotes-summary';
-import { SelectedQuotesProps, mapStateToProps } from './selected-quotes.props';
+import { SelectedQuotesProps } from './selected-quotes.props';
 
 const SelectedQuotes: React.FunctionComponent<SelectedQuotesProps> = ({
   selectedQuotes,
-  queryParams,
+  searchForm,
   modifyOutboundQuote,
   modifyInboundQuote,
 }: SelectedQuotesProps) => {
   const language = getCurrentLanguage();
 
-  return queryParams && selectedQuotes ? (
+  return (
     <>
       <SelectedQuotesSummary
-        queryParams={queryParams}
+        searchForm={searchForm}
         language={language}
-        currency={queryParams?.currency}
+        currency={searchForm.currency?.Code}
         selectedQuotes={selectedQuotes}
       />
       <List>
@@ -36,10 +33,8 @@ const SelectedQuotes: React.FunctionComponent<SelectedQuotesProps> = ({
                 <SelectedQuoteHeader
                   quote={selectedQuotes.outbound}
                   language={language}
-                  currency={queryParams?.currency}
-                  date={searchFormDataTransform.parseQueryParamsDate(
-                    queryParams?.departDate
-                  )}
+                  currency={searchForm.currency?.Code}
+                  date={searchForm.departDate}
                   buttonClick={modifyOutboundQuote}
                 />
               }
@@ -55,10 +50,8 @@ const SelectedQuotes: React.FunctionComponent<SelectedQuotesProps> = ({
                 <SelectedQuoteHeader
                   quote={selectedQuotes.inbound}
                   language={language}
-                  currency={queryParams?.currency}
-                  date={searchFormDataTransform.parseQueryParamsDate(
-                    queryParams?.returnDate
-                  )}
+                  currency={searchForm?.currency?.Code}
+                  date={searchForm?.returnDate}
                   buttonClick={modifyInboundQuote}
                 />
               }
@@ -68,9 +61,7 @@ const SelectedQuotes: React.FunctionComponent<SelectedQuotesProps> = ({
         )}
       </List>
     </>
-  ) : (
-    <Loading />
   );
 };
 
-export default connect(mapStateToProps, null)(SelectedQuotes);
+export default SelectedQuotes;

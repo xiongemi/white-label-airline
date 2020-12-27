@@ -1,4 +1,4 @@
-import { WlaQuotePerLeg } from '@white-label-airline/services/quotes';
+import { WlaQuotePerLeg } from '@white-label-airline/models/quotes';
 import React from 'react';
 
 export interface QuoteProps {

@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react';
+import { mockSearchForm } from '@white-label-airline/models/search-form';
 import { mockCurrency } from '@white-label-airline/services/currencies';
 import {
   currenciesSlice,
-  defaultSearchForm,
-  FetchStatus,
   initialCurrenciesState,
-} from '@white-label-airline/store';
+} from '@white-label-airline/store/currencies';
+import { FetchStatus } from '@white-label-airline/store/models';
 import { Formik } from 'formik';
 import { axe } from 'jest-axe';
 import React from 'react';
@@ -31,7 +31,7 @@ describe('Currency', () => {
     it('should not have accessibility violations', async () => {
       const { container } = render(
         <Provider store={store}>
-          <Formik initialValues={defaultSearchForm} onSubmit={jest.fn()}>
+          <Formik initialValues={mockSearchForm} onSubmit={jest.fn()}>
             <Currency name="currency" label="currency" />
           </Formik>
         </Provider>
@@ -40,10 +40,10 @@ describe('Currency', () => {
       expect(await axe(container)).toHaveNoViolations();
     });
 
-    it('should dipatch action to get currencies', () => {
+    it('should dispatch action to get currencies', () => {
       render(
         <Provider store={store}>
-          <Formik initialValues={defaultSearchForm} onSubmit={jest.fn()}>
+          <Formik initialValues={mockSearchForm} onSubmit={jest.fn()}>
             <Currency name="currency" label="currency" />
           </Formik>
         </Provider>
