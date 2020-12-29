@@ -1,4 +1,4 @@
-export interface WlaLeg {
+export interface LegResponse {
   CarrierIds: number[];
   OriginId: number;
   DestinationId: number;

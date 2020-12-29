@@ -1,6 +1,6 @@
-import { WlaCountriesResponse } from './countries-response.interface';
-import { mockCountry } from './country.mock';
+import { CountriesResponse } from './countries-response.interface';
+import { mockCountryResponse } from './country-response.mock';
 
-export const mockCountriesResponse: WlaCountriesResponse = {
-  Countries: [mockCountry],
+export const mockCountriesResponse: CountriesResponse = {
+  Countries: [mockCountryResponse],
 };

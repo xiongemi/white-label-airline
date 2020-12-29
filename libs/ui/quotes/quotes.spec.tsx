@@ -2,18 +2,10 @@ import { render } from '@testing-library/react';
 import { mockQuotesPerTrip } from '@white-label-airline/models/quotes';
 import { mockSearchForm } from '@white-label-airline/models/search-form';
 import { FetchStatus } from '@white-label-airline/store/models';
-import {
-  initialQuotesState,
-  quotesSlice,
-} from '@white-label-airline/store/quotes';
 import { axe } from 'jest-axe';
 import React from 'react';
-import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
 
 import Quotes from './quotes';
-
-const mockStore = configureStore([]);
 
 describe('Quotes', () => {
   describe('initial fetch status', () => {

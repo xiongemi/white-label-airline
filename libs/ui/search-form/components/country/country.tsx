@@ -1,5 +1,5 @@
 import { TextField } from '@material-ui/core';
-import { WlaCountry } from '@white-label-airline/services/countries';
+import { WlaCountry } from '@white-label-airline/models/country';
 import { FetchStatus } from '@white-label-airline/store/models';
 import { Field } from 'formik';
 import {
@@ -42,9 +42,9 @@ const Country: React.FunctionComponent<CountryProps> = ({
       loading={!countries || !countries.length}
       component={Autocomplete}
       options={countries}
-      getOptionLabel={(option: WlaCountry) => option.Name || option.Code}
+      getOptionLabel={(option: WlaCountry) => option.name || option.code}
       getOptionSelected={(option: WlaCountry, value: WlaCountry) =>
-        option.Code === value.Code
+        option.code === value.code
       }
       name={name}
       renderInput={(params: AutocompleteRenderInputParams) => (

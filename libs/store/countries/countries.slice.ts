@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { WlaCountry } from '@white-label-airline/services/countries';
+import { WlaCountry } from '@white-label-airline/models/country';
 
 import { FetchStatus } from '../models/fetch-status.enum';
 

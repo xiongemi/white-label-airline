@@ -54,7 +54,7 @@ const SelectedQuoteHeader: React.FunctionComponent<SelectedQuoteHeaderProps> = (
           height={1}
         >
           <Typography variant="subtitle2">
-            {quote.origin.IataCode} - {quote.destination.IataCode}
+            {quote.origin.code} - {quote.destination.code}
           </Typography>
           <Typography variant="subtitle2">
             {t(quote.direct ? 'quotes.direct' : 'quotes.layover')}

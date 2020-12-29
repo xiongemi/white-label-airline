@@ -1,6 +1,7 @@
 import { Action } from '@reduxjs/toolkit';
+import { WlaCurrency } from '@white-label-airline/models/currency';
 import {
-  WlaCurrenciesResponse,
+  CurrenciesResponse,
   currenciesService,
 } from '@white-label-airline/services/currencies';
 import { ActionsObservable, Epic, ofType } from 'redux-observable';
@@ -9,6 +10,7 @@ import { catchError, map, switchMap } from 'rxjs/operators';
 
 import { errorSlice } from '../error/error.slice';
 
+import { currenciesDataTransform } from './currencies.data-transform';
 import { currenciesSlice } from './currencies.slice';
 
 export const getCurrenciesEpic = (action$: ActionsObservable<Action>) =>
@@ -16,8 +18,13 @@ export const getCurrenciesEpic = (action$: ActionsObservable<Action>) =>
     ofType(currenciesSlice.actions.getCurrencies.type),
     switchMap(() => {
       return from(currenciesService.getCurrencies()).pipe(
-        map((response: WlaCurrenciesResponse) =>
-          currenciesSlice.actions.getCurrenciesSuccess(response.Currencies)
+        map((response: CurrenciesResponse) =>
+          currenciesDataTransform.transformCurrenciesResponseToCurrencies(
+            response
+          )
+        ),
+        map((currencies: WlaCurrency[]) =>
+          currenciesSlice.actions.getCurrenciesSuccess(currencies)
         ),
         catchError((error) =>
           from([

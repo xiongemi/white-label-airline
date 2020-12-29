@@ -1,7 +1,8 @@
 import { PayloadAction } from '@reduxjs/toolkit';
+import { WlaPlace } from '@white-label-airline/models/place';
 import { getCurrentLanguage } from '@white-label-airline/services/i18n';
 import {
-  WlaPlaceResponse,
+  PlacesResponse,
   placesService,
 } from '@white-label-airline/services/places';
 import { equals } from 'ramda';
@@ -17,6 +18,7 @@ import {
 
 import { errorSlice } from '../error/error.slice';
 
+import { placesDataTransform } from './places.data-transform';
 import { GetPlacesPayload, placesSlice } from './places.slice';
 
 export const getPlacesEpic = (
@@ -36,8 +38,11 @@ export const getPlacesEpic = (
           payload.query
         )
       ).pipe(
-        map((response: WlaPlaceResponse) =>
-          placesSlice.actions.getPlacesSuccess(response.Places)
+        map((response: PlacesResponse) =>
+          placesDataTransform.transformPlacesResponseToPlaces(response)
+        ),
+        map((places: WlaPlace[]) =>
+          placesSlice.actions.getPlacesSuccess(places)
         ),
         catchError((error) => of(errorSlice.actions.handleError(error)))
       );

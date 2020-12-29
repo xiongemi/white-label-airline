@@ -60,7 +60,7 @@ const Quotes: React.FunctionComponent<QuotesProps> = ({
       </Typography>
       <QuotesList
         language={language}
-        currency={searchForm?.currency?.Code}
+        currency={searchForm?.currency?.code}
         modifySearch={modifySearch}
         quotes={quotesList}
         selectQuote={onSelectQuote}

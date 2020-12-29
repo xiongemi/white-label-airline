@@ -1,5 +1,5 @@
 import TextField from '@material-ui/core/TextField';
-import { WlaCurrency } from '@white-label-airline/services/currencies';
+import { WlaCurrency } from '@white-label-airline/models/currency';
 import { FetchStatus } from '@white-label-airline/store/models';
 import { Field } from 'formik';
 import {
@@ -42,9 +42,9 @@ const Currency: React.FunctionComponent<CurrencyProps> = ({
       loading={!currencies || !currencies.length}
       component={Autocomplete}
       options={currencies}
-      getOptionLabel={(option: WlaCurrency) => option.Code}
+      getOptionLabel={(option: WlaCurrency) => option.code}
       getOptionSelected={(option: WlaCurrency, value: WlaCurrency) =>
-        option.Code === value.Code
+        option.code === value.code
       }
       name={name}
       renderInput={(params: AutocompleteRenderInputParams) => (

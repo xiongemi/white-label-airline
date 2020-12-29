@@ -1,4 +1,4 @@
-import { WlaCurrency } from '@white-label-airline/services/currencies';
+import { WlaCurrency } from '@white-label-airline/models/currency';
 
 import { FetchStatus } from '../models/fetch-status.enum';
 import { WlaRootState } from '../root/models/root-state.interface';

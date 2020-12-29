@@ -4,13 +4,16 @@ This project is a sample flight search app generated using [Nx](https://nx.dev).
 
 ## Structure
 
-- libs: commonly shared files
-  - services: API services, response models, or wrapper for third-party libraries (i18n)
-  - store: state management related files
-  - ui: commonly shared UI components
-- apps: applications that consume, in this example
-  - white-label-airline: a sample app with all feature toggles and en-GB as default locale
-  - abc-airline: a sample app with all feature toggles off and zh-CN as default locale
+```
+libs: commonly shared files
+|__services: API services, response models, or wrapper for third-party libraries (i18n)
+|__models: commonly shared models that are independent of backend API response models
+|__store: state management related files
+|__ui: commonly shared UI comopnents
+apps: applications that consume libs, in this example
+|__white-label-airline: a sample app with all feature toggles and en-GB as default locale
+|__abc-airline: a sample app with all feature toggles off and zh-CN as default locale
+```
 
 ## Commands
 

@@ -1,6 +1,6 @@
-import { WlaCurrenciesResponse } from './currencies-response.interface';
-import { mockCurrency } from './currency.mock';
+import { CurrenciesResponse } from './currencies-response.interface';
+import { mockCurrencyResponse } from './currency-response.mock';
 
-export const mockCurrenciesResponse: WlaCurrenciesResponse = {
-  Currencies: [mockCurrency],
+export const mockCurrenciesResponse: CurrenciesResponse = {
+  Currencies: [mockCurrencyResponse],
 };

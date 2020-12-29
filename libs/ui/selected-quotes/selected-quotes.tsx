@@ -21,7 +21,7 @@ const SelectedQuotes: React.FunctionComponent<SelectedQuotesProps> = ({
       <SelectedQuotesSummary
         searchForm={searchForm}
         language={language}
-        currency={searchForm.currency?.Code}
+        currency={searchForm.currency?.code}
         selectedQuotes={selectedQuotes}
       />
       <List>
@@ -33,7 +33,7 @@ const SelectedQuotes: React.FunctionComponent<SelectedQuotesProps> = ({
                 <SelectedQuoteHeader
                   quote={selectedQuotes.outbound}
                   language={language}
-                  currency={searchForm.currency?.Code}
+                  currency={searchForm.currency?.code}
                   date={searchForm.departDate}
                   buttonClick={modifyOutboundQuote}
                 />
@@ -50,7 +50,7 @@ const SelectedQuotes: React.FunctionComponent<SelectedQuotesProps> = ({
                 <SelectedQuoteHeader
                   quote={selectedQuotes.inbound}
                   language={language}
-                  currency={searchForm?.currency?.Code}
+                  currency={searchForm?.currency?.code}
                   date={searchForm?.returnDate}
                   buttonClick={modifyInboundQuote}
                 />

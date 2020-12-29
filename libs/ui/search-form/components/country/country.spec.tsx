@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
+import { mockCountry } from '@white-label-airline/models/country';
 import { mockSearchForm } from '@white-label-airline/models/search-form';
-import { mockCountry } from '@white-label-airline/services/countries';
 import {
   countriesSlice,
   initialCountriesState,
@@ -64,7 +64,7 @@ describe('Country', () => {
       );
 
       expect(queryByLabelText('country')).toHaveValue(
-        mockSearchForm.country.Code
+        mockSearchForm.country.code
       );
     });
   });
@@ -104,7 +104,7 @@ describe('Country', () => {
         </Provider>
       );
 
-      expect(queryByLabelText('country')).toHaveValue(mockCountry.Name);
+      expect(queryByLabelText('country')).toHaveValue(mockCountry.name);
     });
   });
 });

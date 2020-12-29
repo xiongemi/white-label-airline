@@ -1,7 +1,7 @@
 import { Dispatch } from '@reduxjs/toolkit';
-import { WlaCountry } from '@white-label-airline/services/countries';
-import { WlaCurrency } from '@white-label-airline/services/currencies';
-import { WlaPlace } from '@white-label-airline/services/places';
+import { WlaCountry } from '@white-label-airline/models/country';
+import { WlaCurrency } from '@white-label-airline/models/currency';
+import { WlaPlace } from '@white-label-airline/models/place';
 import {
   placesSelectors,
   placesSlice,
@@ -29,8 +29,8 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
     }) {
       dispatch(
         placesSlice.actions.getPlaces({
-          country: country.Code,
-          currency: currency.Code,
+          country: country.code,
+          currency: currency.code,
           query,
         })
       );

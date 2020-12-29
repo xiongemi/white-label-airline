@@ -1,6 +1,6 @@
-import { WlaCountry } from '@white-label-airline/services/countries';
-import { WlaCurrency } from '@white-label-airline/services/currencies';
-import { WlaPlace } from '@white-label-airline/services/places';
+import { WlaCountry } from '../country';
+import { WlaCurrency } from '../currency';
+import { WlaPlace } from '../place';
 
 import { WlaTripType } from './trip-type.enum';
 

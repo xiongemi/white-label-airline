@@ -15,10 +15,10 @@ const transfromSearchFormValueToGetQuotesPayload = (
   isOutbound: boolean
 ): GetQuotesPayload => {
   return {
-    country: searchForm.country.Code,
-    currency: searchForm.currency.Code,
-    from: searchForm.from.PlaceId,
-    to: searchForm.to.PlaceId,
+    country: searchForm.country.code,
+    currency: searchForm.currency.code,
+    from: searchForm.from.id,
+    to: searchForm.to.id,
     departDate: formatDate(searchForm.departDate),
     returnDate: searchForm.returnDate
       ? formatDate(searchForm.returnDate)

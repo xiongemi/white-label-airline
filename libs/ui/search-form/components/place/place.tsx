@@ -1,5 +1,5 @@
 import TextField from '@material-ui/core/TextField';
-import { WlaPlace } from '@white-label-airline/services/places';
+import { WlaPlace } from '@white-label-airline/models/place';
 import { Field } from 'formik';
 import {
   Autocomplete,
@@ -43,11 +43,9 @@ const Place: React.FunctionComponent<PlaceProps> = ({
   useEffect(() => {
     if (places.query === query) {
       if (invalidPlaces && invalidPlaces.length) {
-        const invalidPlacesIds = invalidPlaces.map((place) => place.PlaceId);
+        const invalidPlacesIds = invalidPlaces.map((place) => place.id);
         setFilteredPlaces(
-          places.results.filter(
-            (place) => !invalidPlacesIds.includes(place.PlaceId)
-          )
+          places.results.filter((place) => !invalidPlacesIds.includes(place.id))
         );
       } else {
         setFilteredPlaces(places.results);
@@ -62,12 +60,10 @@ const Place: React.FunctionComponent<PlaceProps> = ({
       disabled={!currency || !country || isSubmitting}
       options={filteredPlaces}
       getOptionLabel={(option: WlaPlace) =>
-        option.PlaceName
-          ? `${option.PlaceName} (${option.PlaceId})`
-          : option.PlaceId
+        option.name ? `${option.name} (${option.id})` : option.id
       }
       getOptionSelected={(option: WlaPlace, value: WlaPlace) =>
-        option?.PlaceId === value?.PlaceId
+        option?.id === value?.id
       }
       name={name}
       loadingText={t('loading')}

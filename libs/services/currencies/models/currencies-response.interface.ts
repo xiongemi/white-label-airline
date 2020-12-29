@@ -1,5 +1,5 @@
-import { WlaCurrency } from './currency.interface';
+import { CurrencyResponse } from './currency-response.interface';
 
-export interface WlaCurrenciesResponse {
-  Currencies: WlaCurrency[];
+export interface CurrenciesResponse {
+  Currencies: CurrencyResponse[];
 }

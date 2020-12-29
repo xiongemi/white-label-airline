@@ -1,9 +1,23 @@
 import { WlaQuotePerLeg } from '@white-label-airline/models/quotes';
+import { WlaPlacePerQuote } from '@white-label-airline/models/quotes/place-per-quote.interface';
 import {
-  WlaQuotesResponse,
-  WlaPlacePerQuote,
-  WlaQuoteResponse,
+  QuotesResponse,
+  PlacePerQuoteResponse,
+  QuoteResponse,
 } from '@white-label-airline/services/quotes';
+
+const transformPlacePerQuoteResponseToPlacePerQuote = (
+  placePerQuoteResponse: PlacePerQuoteResponse
+): WlaPlacePerQuote => {
+  return placePerQuoteResponse
+    ? {
+        id: placePerQuoteResponse.PlaceId,
+        name: placePerQuoteResponse.Name,
+        code: placePerQuoteResponse.IataCode,
+        cityName: placePerQuoteResponse.CityName,
+      }
+    : null;
+};
 
 /**
  * Convert quotes response to quotes used by the app
@@ -12,13 +26,19 @@ import {
  * @return { WlaQuotePerLeg[] }
  */
 const transformQuotesResponseToQuotes = (
-  quotesResponse: WlaQuotesResponse
+  quotesResponse: QuotesResponse
 ): WlaQuotePerLeg[] => {
   const carriers = quotesResponse.Carriers;
   const places = quotesResponse.Places;
   return quotesResponse.Quotes.map(
-    (quote: WlaQuoteResponse): WlaQuotePerLeg => {
+    (quote: QuoteResponse): WlaQuotePerLeg => {
       const leg = quote.OutboundLeg;
+      const origin = places.find(
+        (place: PlacePerQuoteResponse) => place.PlaceId === leg.OriginId
+      );
+      const destination = places.find(
+        (place: PlacePerQuoteResponse) => place.PlaceId === leg.DestinationId
+      );
       return {
         id: quote.QuoteId,
         minPrice: quote.MinPrice,
@@ -27,12 +47,8 @@ const transformQuotesResponseToQuotes = (
           (carrierId) =>
             carriers.find((carrier) => carrier.CarrierId === carrierId)?.Name
         ),
-        origin: places.find(
-          (place: WlaPlacePerQuote) => place.PlaceId === leg.OriginId
-        ),
-        destination: places.find(
-          (place: WlaPlacePerQuote) => place.PlaceId === leg.DestinationId
-        ),
+        origin: transformPlacePerQuoteResponseToPlacePerQuote(origin),
+        destination: transformPlacePerQuoteResponseToPlacePerQuote(destination),
       };
     }
   );

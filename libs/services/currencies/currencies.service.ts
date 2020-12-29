@@ -1,10 +1,10 @@
 import { getApiHeaders } from '../api/api.service';
 
-import { WlaCurrenciesResponse } from './models/currencies-response.interface';
+import { CurrenciesResponse } from './models/currencies-response.interface';
 
 declare const process;
 
-async function getCurrencies(): Promise<WlaCurrenciesResponse> {
+async function getCurrencies(): Promise<CurrenciesResponse> {
   const response = await fetch(process.env.NX_API_CURRENCIES_URL, {
     headers: getApiHeaders(),
   });

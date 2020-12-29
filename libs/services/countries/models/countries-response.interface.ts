@@ -1,5 +1,5 @@
-import { WlaCountry } from './country.interface';
+import { CountryResponse } from './country-response.interface';
 
-export interface WlaCountriesResponse {
-  Countries: WlaCountry[];
+export interface CountriesResponse {
+  Countries: CountryResponse[];
 }

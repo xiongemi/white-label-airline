@@ -1,12 +1,12 @@
-import { WlaCurrency } from '../../currencies';
+import { CurrencyResponse } from '@white-label-airline/services/currencies';
 
-import { WlaCarrier } from './carrier.interface';
-import { WlaPlacePerQuote } from './place-per-quote.interface';
-import { WlaQuoteResponse } from './quote-response.interface';
+import { CarrierResponse } from './carrier-response.interface';
+import { PlacePerQuoteResponse } from './place-per-quote-response.interface';
+import { QuoteResponse } from './quote-response.interface';
 
-export interface WlaQuotesResponse {
-  Quotes: WlaQuoteResponse[];
-  Places: WlaPlacePerQuote[];
-  Carriers: WlaCarrier[];
-  Currencies: WlaCurrency[];
+export interface QuotesResponse {
+  Quotes: QuoteResponse[];
+  Places: PlacePerQuoteResponse[];
+  Carriers: CarrierResponse[];
+  Currencies: CurrencyResponse[];
 }

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { WlaCurrency } from '@white-label-airline/services/currencies';
+import { WlaCurrency } from '@white-label-airline/models/currency';
 
 import { FetchStatus } from '../models/fetch-status.enum';
 

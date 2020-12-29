@@ -1,6 +1,6 @@
-import { WlaCurrency } from './currency.interface';
+import { CurrencyResponse } from './currency-response.interface';
 
-export const mockCurrency: WlaCurrency = {
+export const mockCurrencyResponse: CurrencyResponse = {
   Code: 'ZAR',
   Symbol: 'R',
   ThousandsSeparator: ',',

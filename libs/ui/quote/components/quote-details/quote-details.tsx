@@ -9,10 +9,10 @@ const QuoteDetails: React.FunctionComponent<QuoteDetailsProps> = ({
   return (
     <>
       <Typography variant="body2">
-        {quote.origin.CityName} ({quote.origin.IataCode})
+        {quote.origin.cityName} ({quote.origin.code})
       </Typography>
       <Typography variant="body2">
-        {quote.destination.CityName} ({quote.destination.IataCode})
+        {quote.destination.cityName} ({quote.destination.code})
       </Typography>
     </>
   );

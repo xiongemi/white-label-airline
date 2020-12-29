@@ -1,4 +1,4 @@
 export interface WlaCountry {
-  Name: string;
-  Code: string;
+  name: string;
+  code: string;
 }

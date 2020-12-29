@@ -1,4 +1,4 @@
-export interface WlaPlacePerQuote {
+export interface PlacePerQuoteResponse {
   CityId: string;
   CityName: string;
   CountryName: string;

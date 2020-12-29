@@ -1,6 +1,6 @@
 import { getApiHeaders } from '../api/api.service';
 
-import { WlaPlaceResponse } from './models/places-response.interface';
+import { PlacesResponse } from './models/places-response.interface';
 
 declare const process;
 
@@ -9,7 +9,7 @@ async function getPlaces(
   currency: string,
   locale: string,
   query: string
-): Promise<WlaPlaceResponse> {
+): Promise<PlacesResponse> {
   const url = new URL(
     `${process.env.NX_API_PLACES_URL}/${country}/${currency}/${locale}/`
   );

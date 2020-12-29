@@ -4,17 +4,10 @@ import {
 } from '@white-label-airline/models/search-form';
 
 export const initSearchForm: WlaSearchForm = {
-  country: { Code: 'CA', Name: 'Canada' },
+  country: { code: 'CA', name: 'Canada' },
   tripType: WlaTripType.RoundTrip,
   currency: {
-    Code: 'CAD',
-    DecimalDigits: 2,
-    DecimalSeparator: '.',
-    RoundingCoefficient: 0,
-    SpaceBetweenAmountAndSymbol: false,
-    Symbol: 'C$',
-    SymbolOnLeft: true,
-    ThousandsSeparator: ',',
+    code: 'CAD',
   },
   from: null,
   departDate: new Date(),
