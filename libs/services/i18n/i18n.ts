@@ -8,8 +8,8 @@ let appSupportedLanguages: string[];
 
 function initI18n(
   loadPath: string,
-  defaultLanguage = 'en-GB',
-  supportedLanguages: string[] = ['en-GB']
+  defaultLanguage,
+  supportedLanguages: string[] = []
 ) {
   appSupportedLanguages = supportedLanguages;
   return i18n
@@ -36,4 +36,14 @@ function changeLanguage(language: string) {
   return i18n.changeLanguage(language);
 }
 
-export { initI18n, getCurrentLanguage, getSupportedLanguages, changeLanguage };
+function onLanguageChanged(callback: (language: string) => void) {
+  return i18n.on('languageChanged', callback);
+}
+
+export {
+  initI18n,
+  getCurrentLanguage,
+  getSupportedLanguages,
+  changeLanguage,
+  onLanguageChanged,
+};

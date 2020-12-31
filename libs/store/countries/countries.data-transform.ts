@@ -7,7 +7,7 @@ import {
 const transformCountriesResponseToCountries = (
   countriesResponse: CountriesResponse
 ): WlaCountry[] => {
-  return countriesResponse.Countries.map(
+  return countriesResponse?.Countries?.map(
     (countryResponse: CountryResponse) => ({
       name: countryResponse.Name,
       code: countryResponse.Code,
@@ -15,4 +15,4 @@ const transformCountriesResponseToCountries = (
   );
 };
 
-export const countriesDataTransfrom = { transformCountriesResponseToCountries };
+export const countriesDataTransform = { transformCountriesResponseToCountries };

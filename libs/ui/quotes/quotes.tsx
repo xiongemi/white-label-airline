@@ -1,6 +1,5 @@
 import { Typography } from '@material-ui/core';
 import { WlaQuotePerLeg } from '@white-label-airline/models/quotes';
-import { getCurrentLanguage } from '@white-label-airline/services/i18n';
 import { FetchStatus } from '@white-label-airline/store/models';
 import { searchFormDataTransform } from '@white-label-airline/store/search-form';
 import React, { useEffect, useState } from 'react';
@@ -20,9 +19,9 @@ const Quotes: React.FunctionComponent<QuotesProps> = ({
   isOutbound,
   selectOutboundQuote,
   selectInboundQuote,
+  language,
 }: QuotesProps) => {
   const { t } = useTranslation();
-  const language = getCurrentLanguage();
   const [quotesList, setQuotesList] = useState<WlaQuotePerLeg[]>([]);
 
   useEffect(() => {

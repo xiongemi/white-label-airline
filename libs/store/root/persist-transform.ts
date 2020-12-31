@@ -8,12 +8,14 @@ const transformSearchFormToPersist = createTransform(
   },
   // transform state being rehydrated
   (outboundState: WlaSearchForm) => {
-    return {
-      ...outboundState,
-      departDate: new Date(outboundState.departDate),
-      returnDate:
-        outboundState.returnDate && new Date(outboundState.returnDate),
-    };
+    return outboundState
+      ? {
+          ...outboundState,
+          departDate: new Date(outboundState.departDate),
+          returnDate:
+            outboundState.returnDate && new Date(outboundState.returnDate),
+        }
+      : outboundState;
   },
   // define which reducers this transform gets called for.
   { whitelist: ['searchForm'] }

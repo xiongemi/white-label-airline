@@ -16,7 +16,7 @@ const transformPlacePerQuoteResponseToPlacePerQuote = (
         code: placePerQuoteResponse.IataCode,
         cityName: placePerQuoteResponse.CityName,
       }
-    : null;
+    : undefined;
 };
 
 /**
@@ -28,15 +28,15 @@ const transformPlacePerQuoteResponseToPlacePerQuote = (
 const transformQuotesResponseToQuotes = (
   quotesResponse: QuotesResponse
 ): WlaQuotePerLeg[] => {
-  const carriers = quotesResponse.Carriers;
-  const places = quotesResponse.Places;
-  return quotesResponse.Quotes.map(
+  const carriers = quotesResponse?.Carriers;
+  const places = quotesResponse?.Places;
+  return quotesResponse?.Quotes?.map(
     (quote: QuoteResponse): WlaQuotePerLeg => {
       const leg = quote.OutboundLeg;
-      const origin = places.find(
+      const origin = places?.find(
         (place: PlacePerQuoteResponse) => place.PlaceId === leg.OriginId
       );
-      const destination = places.find(
+      const destination = places?.find(
         (place: PlacePerQuoteResponse) => place.PlaceId === leg.DestinationId
       );
       return {

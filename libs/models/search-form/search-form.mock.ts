@@ -11,10 +11,10 @@ export const mockSearchForm: WlaSearchForm = {
     id: 'YTOA-sky',
     name: 'Toronto',
   },
-  departDate: new Date('2020-11-24T03:19:00.000Z'),
+  departDate: new Date('2020-11-24T00:00:00.000Z'),
   to: {
     id: 'NYCA-sky',
     name: 'New York',
   },
-  returnDate: new Date('2020-11-29T03:19:00.000Z'),
+  returnDate: new Date('2020-11-29T00:00:00.000Z'),
 };

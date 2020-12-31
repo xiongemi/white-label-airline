@@ -7,7 +7,7 @@ import {
 const transformPlacesResponseToPlaces = (
   placesResponse: PlacesResponse
 ): WlaPlace[] => {
-  return placesResponse.Places.map((placeReponse: PlaceResponse) => ({
+  return placesResponse?.Places?.map((placeReponse: PlaceResponse) => ({
     id: placeReponse.PlaceId,
     name: placeReponse.PlaceName,
   }));

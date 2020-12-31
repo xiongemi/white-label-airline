@@ -9,6 +9,7 @@ import '@white-label-airline/services/i18n/i18n.mock';
 
 import { errorSlice } from '../error/error.slice';
 
+import { currenciesDataTransform } from './currencies.data-transform';
 import { getCurrenciesEpic } from './currencies.epics';
 import { currenciesSlice } from './currencies.slice';
 
@@ -34,7 +35,9 @@ describe('Currencies Epics', () => {
           expect(currenciesService.getCurrencies).toHaveBeenCalled();
           expect(action).toEqual(
             currenciesSlice.actions.getCurrenciesSuccess(
-              mockCurrenciesResponse.Currencies
+              currenciesDataTransform.transformCurrenciesResponseToCurrencies(
+                mockCurrenciesResponse
+              )
             )
           );
           done();

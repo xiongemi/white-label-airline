@@ -11,6 +11,7 @@ export const mockInitialRootState: WlaRootState = {
   countries: initialCountriesState,
   currencies: initialCurrenciesState,
   error: null,
+  language: null,
   places: initialPlacesState,
   quotes: initialQuotesState,
   searchForm: null,

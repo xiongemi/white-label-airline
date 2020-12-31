@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
+import { mockCurrency } from '@white-label-airline/models/currency';
 import { mockSearchForm } from '@white-label-airline/models/search-form';
-import { mockCurrency } from '@white-label-airline/services/currencies';
 import {
   currenciesSlice,
   initialCurrenciesState,
@@ -96,7 +96,7 @@ describe('Currency', () => {
         </Provider>
       );
 
-      expect(queryByLabelText('currency')).toHaveValue(mockCurrency.Code);
+      expect(queryByLabelText('currency')).toHaveValue(mockCurrency.code);
     });
   });
 });

@@ -1,3 +1,4 @@
+import { WlaQuotePerLeg } from '@white-label-airline/models/quotes';
 import { mockQuotesResponse } from '@white-label-airline/services/quotes';
 
 import { quotesDataTransfrom } from './quotes.data-transform';
@@ -7,31 +8,23 @@ describe('Quotes Data Transfrom', () => {
     const actual = quotesDataTransfrom.transformQuotesResponseToQuotes(
       mockQuotesResponse
     );
-    const expected = [
+    const expected: WlaQuotePerLeg[] = [
       {
         id: 1,
         minPrice: 273,
         direct: false,
         carriers: ['Finnair'],
         origin: {
-          PlaceId: 96474,
-          IataCode: 'YYZ',
-          Name: 'Toronto Pearson International',
-          Type: 'Station',
-          SkyscannerCode: 'YYZ',
-          CityName: 'Toronto',
-          CityId: 'YTOA',
-          CountryName: 'Canada',
+          id: 96474,
+          code: 'YYZ',
+          name: 'Toronto Pearson International',
+          cityName: 'Toronto',
         },
         destination: {
-          PlaceId: 50290,
-          IataCode: 'EWR',
-          Name: 'New York Newark',
-          Type: 'Station',
-          SkyscannerCode: 'EWR',
-          CityName: 'New York',
-          CityId: 'NYCA',
-          CountryName: 'United States',
+          id: 50290,
+          code: 'EWR',
+          name: 'New York Newark',
+          cityName: 'New York',
         },
       },
       {
@@ -40,27 +33,25 @@ describe('Quotes Data Transfrom', () => {
         direct: true,
         carriers: ['Air Canada'],
         origin: {
-          PlaceId: 96474,
-          IataCode: 'YYZ',
-          Name: 'Toronto Pearson International',
-          Type: 'Station',
-          SkyscannerCode: 'YYZ',
-          CityName: 'Toronto',
-          CityId: 'YTOA',
-          CountryName: 'Canada',
+          id: 96474,
+          code: 'YYZ',
+          name: 'Toronto Pearson International',
+          cityName: 'Toronto',
         },
         destination: {
-          PlaceId: 65633,
-          IataCode: 'LGA',
-          Name: 'New York LaGuardia',
-          Type: 'Station',
-          SkyscannerCode: 'LGA',
-          CityName: 'New York',
-          CityId: 'NYCA',
-          CountryName: 'United States',
+          id: 65633,
+          code: 'LGA',
+          name: 'New York LaGuardia',
+          cityName: 'New York',
         },
       },
     ];
+    expect(actual).toEqual(expected);
+  });
+
+  it('should handle null response', () => {
+    const actual = quotesDataTransfrom.transformQuotesResponseToQuotes(null);
+    const expected = undefined;
     expect(actual).toEqual(expected);
   });
 });

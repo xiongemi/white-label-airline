@@ -1,5 +1,4 @@
 import { Divider, List } from '@material-ui/core';
-import { getCurrentLanguage } from '@white-label-airline/services/i18n';
 import React from 'react';
 
 import Quote from '../quote/quote';
@@ -13,9 +12,8 @@ const SelectedQuotes: React.FunctionComponent<SelectedQuotesProps> = ({
   searchForm,
   modifyOutboundQuote,
   modifyInboundQuote,
+  language,
 }: SelectedQuotesProps) => {
-  const language = getCurrentLanguage();
-
   return (
     <>
       <SelectedQuotesSummary

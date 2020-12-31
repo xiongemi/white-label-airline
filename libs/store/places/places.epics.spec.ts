@@ -1,5 +1,3 @@
-/* eslint-disable import/first */
-jest.mock('@white-label-airline/services/places');
 import { PayloadAction } from '@reduxjs/toolkit';
 import {
   placesService,
@@ -10,8 +8,11 @@ import { of } from 'rxjs';
 
 import { errorSlice } from '../error/error.slice';
 
+import { placesDataTransform } from './places.data-transform';
 import { getPlacesEpic } from './places.epics';
 import { GetPlacesPayload, placesSlice } from './places.slice';
+
+jest.mock('@white-label-airline/services/places');
 
 describe('Currencies Epics', () => {
   describe('getPlacesEpic', () => {
@@ -38,7 +39,11 @@ describe('Currencies Epics', () => {
         next: (action) => {
           expect(placesService.getPlaces).toHaveBeenCalled();
           expect(action).toEqual(
-            placesSlice.actions.getPlacesSuccess(mockPlacesResponse.Places)
+            placesSlice.actions.getPlacesSuccess(
+              placesDataTransform.transformPlacesResponseToPlaces(
+                mockPlacesResponse
+              )
+            )
           );
           done();
         },

@@ -10,15 +10,14 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 
-import { RoutesPath } from '../../models/routes-path.enum';
-
 import QuotesPage from './quotes-page';
 
 const mockStore = configureStore([]);
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
-  useLocation: jest.fn().mockReturnValue({ pathanme: RoutesPath.Outbound }),
+  Link: ({ children }) => <div>{children}</div>,
+  useLocation: jest.fn().mockReturnValue({ pathanme: '/outbound' }),
 }));
 
 describe('QuotesPage', () => {

@@ -1,8 +1,13 @@
 import { MenuItem, Select, withStyles } from '@material-ui/core';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { connect } from 'react-redux';
 
-import { LanguageProps } from './language.props';
+import {
+  LanguageProps,
+  mapStateToProps,
+  mapDispatchToProps,
+} from './language.props';
 
 const InheritColorSelect = withStyles({
   icon: {
@@ -14,8 +19,15 @@ const Language: React.FunctionComponent<LanguageProps> = ({
   supportedLanguages,
   currentLanguage,
   changeLanguage,
+  defaultLanguage,
 }: LanguageProps) => {
   const { t } = useTranslation();
+
+  useEffect(() => {
+    if (currentLanguage && defaultLanguage !== currentLanguage) {
+      changeLanguage(currentLanguage);
+    }
+  }, [changeLanguage, currentLanguage, defaultLanguage]);
 
   const handleChange = (event) => {
     changeLanguage(event.target.value);
@@ -24,7 +36,7 @@ const Language: React.FunctionComponent<LanguageProps> = ({
   return (
     <InheritColorSelect
       className="colorInherit"
-      value={currentLanguage}
+      value={currentLanguage || defaultLanguage}
       onChange={handleChange}
       style={{ color: 'inherit' }}
       disableUnderline
@@ -38,4 +50,4 @@ const Language: React.FunctionComponent<LanguageProps> = ({
   );
 };
 
-export default Language;
+export default connect(mapStateToProps, mapDispatchToProps)(Language);

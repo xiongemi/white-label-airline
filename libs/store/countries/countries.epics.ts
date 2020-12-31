@@ -11,7 +11,7 @@ import { catchError, map, switchMap } from 'rxjs/operators';
 
 import { errorSlice } from '../error/error.slice';
 
-import { countriesDataTransfrom } from './countries.data-transform';
+import { countriesDataTransform } from './countries.data-transform';
 import { countriesSlice } from './countries.slice';
 
 export const getCountriesEpic = (action$: ActionsObservable<Action>) =>
@@ -20,7 +20,7 @@ export const getCountriesEpic = (action$: ActionsObservable<Action>) =>
     switchMap(() => {
       return from(countriesService.getCountries(getCurrentLanguage())).pipe(
         map((response: CountriesResponse) =>
-          countriesDataTransfrom.transformCountriesResponseToCountries(response)
+          countriesDataTransform.transformCountriesResponseToCountries(response)
         ),
         map((countries: WlaCountry[]) =>
           countriesSlice.actions.getCountriesSuccess(countries)

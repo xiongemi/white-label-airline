@@ -28,6 +28,7 @@ const QuotesPage: React.FunctionComponent<QuotesPageProps> = ({
   getQuotes,
   selectOutboundQuote,
   selectInboundQuote,
+  language,
 }: QuotesPageProps) => {
   const history = useHistory();
   const { pathname } = useLocation();
@@ -99,6 +100,7 @@ const QuotesPage: React.FunctionComponent<QuotesPageProps> = ({
         getQuotes={getQuotes}
         selectOutboundQuote={onSelectOutboundQuotes}
         selectInboundQuote={onSelectInboundQuotes}
+        language={language}
       />
     </>
   ) : (

@@ -12,6 +12,7 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import logo from '../assets/images/logo.png';
+import { useLocale } from '../hooks/use-locale.hook';
 import { initSearchForm } from '../models/search-form-init.const';
 
 import { features } from './features.const';
@@ -25,16 +26,23 @@ const history: History = createHashHistory();
 const { store, persistor } = configureAppStore(history);
 
 export const App: React.FunctionComponent = () => {
+  const { dateLocale } = useLocale();
+
   return (
     <Suspense fallback={<Loading />}>
       <FeaturesProvider value={features}>
         <Provider store={store}>
           <PersistGate loading={<Loading />} persistor={persistor}>
-            <Header logoImage={logo} />
+            <Header
+              logoImage={logo}
+              supportedLanguages={supportedLanguages}
+              defaultLanguage={defaultLanguage}
+            />
             <Box mt={3} component={Container}>
               <WhiteLabelRoutes
                 initSearchForm={initSearchForm}
                 history={history}
+                locale={dateLocale}
               />
             </Box>
             <ErrorSnackbar />

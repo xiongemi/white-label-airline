@@ -1,4 +1,4 @@
-import { mockCountry } from '@white-label-airline/services/countries';
+import { mockCountry } from '@white-label-airline/models/country';
 
 import { FetchStatus } from '../models/fetch-status.enum';
 

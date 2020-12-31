@@ -6,6 +6,7 @@ import {
 import { ActionsObservable } from 'redux-observable';
 import { of } from 'rxjs';
 
+import { countriesDataTransform } from './countries.data-transform';
 import { getCountriesEpic } from './countries.epics';
 import { countriesSlice } from './countries.slice';
 
@@ -31,7 +32,9 @@ describe('Countries Epics', () => {
           expect(countriesService.getCountries).toHaveBeenCalled();
           expect(action).toEqual(
             countriesSlice.actions.getCountriesSuccess(
-              mockCountriesResponse.Countries
+              countriesDataTransform.transformCountriesResponseToCountries(
+                mockCountriesResponse
+              )
             )
           );
           done();

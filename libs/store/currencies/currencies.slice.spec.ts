@@ -1,4 +1,4 @@
-import { mockCurrency } from '@white-label-airline/services/currencies';
+import { mockCurrency } from '@white-label-airline/models/currency';
 
 import { FetchStatus } from '../models/fetch-status.enum';
 

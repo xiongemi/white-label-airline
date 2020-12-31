@@ -7,6 +7,7 @@ import '@white-label-airline/services/i18n/i18n.mock';
 import QuotesList from './quotes-list';
 
 describe('Quotes List', () => {
+  // disable below test due to accessilibity error for Material ui's List
   xit('should not have accessibility violations', async () => {
     const quotes = [mockQuotePerLeg];
     const { container } = render(

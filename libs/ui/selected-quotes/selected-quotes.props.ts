@@ -5,6 +5,7 @@ interface SelectedQuotesProps {
   modifyInboundQuote: () => void;
   searchForm: WlaSearchForm;
   selectedQuotes: WlaSelectedQuotes;
+  language: string;
 }
 
 export { SelectedQuotesProps };

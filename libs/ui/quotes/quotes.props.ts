@@ -15,6 +15,7 @@ interface QuotesProps {
   selectOutboundQuote: (quote: WlaQuotePerLeg) => void;
   selectInboundQuote: (quote: WlaQuotePerLeg) => void;
   modifySearch?: () => void;
+  language: string;
 }
 
 export { QuotesProps };

@@ -1,4 +1,4 @@
-import { mockQuotePerLeg } from '@white-label-airline/services/quotes';
+import { mockQuotePerLeg } from '@white-label-airline/models/quotes';
 
 import { initialSelectedQuotesState } from './models/selected-quotes-state.initial';
 import { selectedQuotesSlice } from './selected-quotes.slice';

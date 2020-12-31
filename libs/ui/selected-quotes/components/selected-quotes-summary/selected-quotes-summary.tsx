@@ -21,8 +21,8 @@ const SelectedQuotesSummary: React.FunctionComponent<SelectedQuotesSummaryProps>
   useEffect(() => {
     setTotalPrice(
       selectedQuotes.inbound
-        ? selectedQuotes.outbound.minPrice + selectedQuotes.inbound.minPrice
-        : selectedQuotes.outbound.minPrice
+        ? selectedQuotes.outbound?.minPrice + selectedQuotes.inbound.minPrice
+        : selectedQuotes.outbound?.minPrice
     );
   }, [selectedQuotes]);
 
@@ -37,8 +37,8 @@ const SelectedQuotesSummary: React.FunctionComponent<SelectedQuotesSummaryProps>
           )}
         </Typography>
         <Typography variant="h4">
-          {selectedQuotes.outbound.origin.cityName} -{' '}
-          {selectedQuotes.outbound.destination.cityName}
+          {selectedQuotes.outbound?.origin?.cityName} -{' '}
+          {selectedQuotes.outbound?.destination?.cityName}
         </Typography>
       </Grid>
       <Grid item xs={12} sm={6}>

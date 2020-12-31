@@ -7,7 +7,7 @@ import {
 const transformCurrenciesResponseToCurrencies = (
   currenciesResponse: CurrenciesResponse
 ): WlaCurrency[] => {
-  return currenciesResponse.Currencies.map(
+  return currenciesResponse?.Currencies?.map(
     (currencyResponse: CurrencyResponse) => ({
       code: currencyResponse.Code,
     })

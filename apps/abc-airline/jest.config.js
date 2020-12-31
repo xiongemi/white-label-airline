@@ -10,4 +10,5 @@ module.exports = {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: '../../coverage/apps/abc-airline',
+  setupFilesAfterEnv: ['./jest.setup.js'],
 };

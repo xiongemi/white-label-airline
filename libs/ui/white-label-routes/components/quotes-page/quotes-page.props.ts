@@ -1,5 +1,6 @@
 import { Dispatch } from '@reduxjs/toolkit';
 import { WlaQuotePerLeg } from '@white-label-airline/models/quotes';
+import { languageSelectors } from '@white-label-airline/store/language';
 import {
   quotesSelectors,
   quotesSlice,
@@ -18,6 +19,7 @@ const mapStateToProps = (state: WlaRootState) => {
     quotes: quotesSelectors.getQuotes(state),
     quotesFetchStatus: quotesSelectors.getQuotesFetchStatus(state),
     selectedQuotes: selectedQuotesSelectors.getSelectedQuotesState(state),
+    language: languageSelectors.getLanguage(state),
   };
 };
 

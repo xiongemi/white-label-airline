@@ -53,20 +53,6 @@ describe('Country', () => {
         countriesSlice.actions.getCountries()
       );
     });
-
-    it('should not set the input value if form initial value is empty', () => {
-      const { queryByLabelText } = render(
-        <Provider store={store}>
-          <Formik initialValues={mockSearchForm} onSubmit={jest.fn()}>
-            <Country name="country" label="country" />
-          </Formik>
-        </Provider>
-      );
-
-      expect(queryByLabelText('country')).toHaveValue(
-        mockSearchForm.country.code
-      );
-    });
   });
 
   describe('state with success fetch status', () => {

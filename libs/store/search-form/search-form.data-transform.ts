@@ -12,20 +12,22 @@ const formatDate = (date: string | Date): string => {
 
 const transfromSearchFormValueToGetQuotesPayload = (
   searchForm: WlaSearchForm,
-  isOutbound: boolean
+  isOutbound = true
 ): GetQuotesPayload => {
-  return {
-    country: searchForm.country.code,
-    currency: searchForm.currency.code,
-    from: searchForm.from.id,
-    to: searchForm.to.id,
-    departDate: formatDate(searchForm.departDate),
-    returnDate: searchForm.returnDate
-      ? formatDate(searchForm.returnDate)
-      : null,
-    tripType: searchForm.tripType,
-    isOutbound,
-  };
+  return searchForm
+    ? {
+        country: searchForm.country.code,
+        currency: searchForm.currency.code,
+        from: searchForm.from.id,
+        to: searchForm.to.id,
+        departDate: formatDate(searchForm.departDate),
+        returnDate: searchForm.returnDate
+          ? formatDate(searchForm.returnDate)
+          : undefined,
+        tripType: searchForm.tripType,
+        isOutbound,
+      }
+    : undefined;
 };
 
 export const searchFormDataTransform = {
