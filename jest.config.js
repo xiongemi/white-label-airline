@@ -10,11 +10,13 @@ module.exports = {
   collectCoverageFrom: [
     '**/*.{ts,tsx}',
     '!**/node_modules/**',
-    '!**/index.ts',
     '!**/models/**',
+    '!**/environment/**',
+    '!**/index.ts',
     '!**/*.interface.ts',
     '!**/*.enum.ts',
     '!**/*.mock.ts',
+    '!**/*.props.ts',
   ],
   coverageThreshold: {
     global: {

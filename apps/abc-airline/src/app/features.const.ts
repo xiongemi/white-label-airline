@@ -4,5 +4,5 @@ export const features = {
   [FeatureName.ShowCountry]: false,
   [FeatureName.ShowCurrency]: false,
   [FeatureName.SupportChangeLanguage]: true,
-  [FeatureName.ShowReset]: true,
+  [FeatureName.ShowReset]: false,
 };

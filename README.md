@@ -2,6 +2,8 @@
 
 This project is a sample flight search app generated using [Nx](https://nx.dev).
 
+![alt text](https://github.com/xiongemi/white-label-airline/blob/master/images/white%20lable%20airline%20mobile.png?raw=true)
+
 ## Structure
 
 ```
@@ -32,6 +34,10 @@ apps: applications that consume libs, in this example
 
 - run lint for all libraries and applications: `npm run lint`
 - run lint with fix for all libraries and applications: `npm run lint:fix`
+
+### i18n
+
+- extract translation keys: `npm run i18n:<app name>`. For example, `i18n:abc-airline` will extract translation key for app `abc-airline`
 
 ---
 
