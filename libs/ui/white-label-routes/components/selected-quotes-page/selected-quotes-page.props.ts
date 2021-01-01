@@ -13,6 +13,8 @@ const mapStateToProps = (state: WlaRootState) => {
 
 type mapStateToPropsType = ReturnType<typeof mapStateToProps>;
 
-type SelectedQuotesPageProps = mapStateToPropsType;
+type SelectedQuotesPageProps = mapStateToPropsType & {
+  locale: Locale;
+};
 
 export { mapStateToProps, SelectedQuotesPageProps };

@@ -2,7 +2,7 @@
 
 This project is a sample flight search app generated using [Nx](https://nx.dev).
 
-![alt text](https://github.com/xiongemi/white-label-airline/blob/master/images/white%20lable%20airline%20mobile.png?raw=true)
+![alt text](https://github.com/xiongemi/white-label-airline/blob/master/images/white%20label%20airline%20mobile.png?raw=true)
 
 ## Structure
 

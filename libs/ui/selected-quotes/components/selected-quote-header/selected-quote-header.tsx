@@ -11,6 +11,7 @@ const SelectedQuoteHeader: React.FunctionComponent<SelectedQuoteHeaderProps> = (
   currency,
   buttonClick,
   date,
+  locale,
 }: SelectedQuoteHeaderProps) => {
   const { t } = useTranslation();
 
@@ -29,7 +30,7 @@ const SelectedQuoteHeader: React.FunctionComponent<SelectedQuoteHeaderProps> = (
           height={1}
         >
           <Typography variant="subtitle1">
-            {format(date, 'E, MMM d')}
+            {format(date, 'E, MMM d', { locale })}
           </Typography>
         </Box>
       </Grid>

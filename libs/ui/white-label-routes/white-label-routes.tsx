@@ -23,7 +23,7 @@ export const WhiteLabelRoutes: React.FunctionComponent<WhiteLabelRoutesProps> = 
           <QuotesPage />
         </Route>
         <Route path={RoutesPath.Booking}>
-          <SelectedQuotesPage />
+          <SelectedQuotesPage locale={locale} />
         </Route>
         <Route path={RoutesPath.Search}>
           <SearchPage initSearchForm={initSearchForm} locale={locale} />

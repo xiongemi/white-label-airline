@@ -22,6 +22,7 @@ const SelectedQuotesPage: React.FunctionComponent<SelectedQuotesPageProps> = ({
   searchForm,
   selectedQuotes,
   language,
+  locale,
 }: SelectedQuotesPageProps) => {
   const history = useHistory();
   const [breadcrumbs, setBreadcrumbs] = useState<BreadcrumbLink[]>([]);
@@ -65,6 +66,7 @@ const SelectedQuotesPage: React.FunctionComponent<SelectedQuotesPageProps> = ({
         modifyOutboundQuote={modifyOutboundQuote}
         modifyInboundQuote={modifyInboundQuote}
         language={language}
+        locale={locale}
       />
     </>
   ) : (

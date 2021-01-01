@@ -20,7 +20,7 @@ import { features } from './features.const';
 const defaultLanguage = 'en-GB';
 const supportedLanguages = [defaultLanguage, 'zh-CN'];
 
-initI18n('./assets/i18n/{{lng}}.json', defaultLanguage, supportedLanguages);
+initI18n('./assets/i18n/{{lng}}.json', defaultLanguage);
 const history: History = createHashHistory();
 
 const { store, persistor } = configureAppStore(history);

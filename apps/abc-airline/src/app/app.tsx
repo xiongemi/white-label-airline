@@ -24,7 +24,7 @@ const { store, persistor } = configureAppStore(history);
 const defaultLanguage = 'zh-CN';
 const supportedLanguages = [defaultLanguage, 'en-GB'];
 
-initI18n('./assets/i18n/{{lng}}.json', defaultLanguage, supportedLanguages);
+initI18n('./assets/i18n/{{lng}}.json', defaultLanguage);
 
 export const App: React.FunctionComponent = () => {
   const { dateLocale, materialLocale } = useLocale();

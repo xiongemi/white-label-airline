@@ -11,8 +11,6 @@ import { act } from 'react-dom/test-utils';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 
-import '@white-label-airline/services/i18n/i18n.mock';
-
 import { FeaturesProvider } from '../feature';
 import { defaultFeatureName } from '../feature/models/feature-name.default';
 

@@ -13,6 +13,7 @@ const SelectedQuotes: React.FunctionComponent<SelectedQuotesProps> = ({
   modifyOutboundQuote,
   modifyInboundQuote,
   language,
+  locale,
 }: SelectedQuotesProps) => {
   return (
     <>
@@ -34,6 +35,7 @@ const SelectedQuotes: React.FunctionComponent<SelectedQuotesProps> = ({
                   currency={searchForm.currency?.code}
                   date={searchForm.departDate}
                   buttonClick={modifyOutboundQuote}
+                  locale={locale}
                 />
               }
             />
@@ -51,6 +53,7 @@ const SelectedQuotes: React.FunctionComponent<SelectedQuotesProps> = ({
                   currency={searchForm?.currency?.code}
                   date={searchForm?.returnDate}
                   buttonClick={modifyInboundQuote}
+                  locale={locale}
                 />
               }
             />

@@ -6,4 +6,5 @@ export interface SelectedQuoteHeaderProps {
   language: string;
   date: Date;
   buttonClick: (quote: WlaQuotePerLeg) => void;
+  locale: Locale;
 }

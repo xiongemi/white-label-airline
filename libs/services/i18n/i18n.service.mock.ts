@@ -10,6 +10,5 @@ jest.mock('react-i18next', () => ({
 
 jest.mock('@white-label-airline/services/i18n', () => ({
   getCurrentLanguage: () => 'en',
-  getSupportedLanguages: () => ['en'],
   changeLanguage: (language: string) => language,
 }));

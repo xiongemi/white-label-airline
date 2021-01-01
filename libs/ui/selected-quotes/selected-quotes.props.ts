@@ -6,6 +6,7 @@ interface SelectedQuotesProps {
   searchForm: WlaSearchForm;
   selectedQuotes: WlaSelectedQuotes;
   language: string;
+  locale: Locale;
 }
 
 export { SelectedQuotesProps };
