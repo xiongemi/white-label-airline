@@ -32,6 +32,12 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
   const isScreenSizeSm = IsScreenSizeSm();
 
   useEffect(() => {
+    if (values.tripType === WlaTripType.OneWay && values.returnDate) {
+      values.returnDate = null;
+    }
+  }, [values]);
+
+  useEffect(() => {
     setSubmitting(false);
   }, [setSubmitting]);
 
@@ -115,10 +121,7 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
                 name="returnDate"
                 label={t('search.returnDate')}
                 minDate={values?.departDate}
-                minDateMessage={t('messages.minDate', {
-                  departDate: t('search.departDate'),
-                  returnDate: t('search.returnDate'),
-                })}
+                minDateMessage={t('messages.minDate')}
                 helperText={t(getIn(errors, 'returnDate'), {
                   field: t('search.returnDate'),
                 })}

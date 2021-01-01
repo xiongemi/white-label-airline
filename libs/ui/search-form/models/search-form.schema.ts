@@ -32,6 +32,7 @@ export const searchFormSchema = yup.object().shape({
   returnDate: yup
     .date()
     .nullable()
+    .min(yup.ref('departDate'), 'messages.minDate')
     .when('tripType', {
       is: WlaTripType.RoundTrip,
       then: yup.date().required('messages.required'),
