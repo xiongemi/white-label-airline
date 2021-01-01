@@ -27,6 +27,9 @@ const SelectedQuotesPage: React.FunctionComponent<SelectedQuotesPageProps> = ({
   const [breadcrumbs, setBreadcrumbs] = useState<BreadcrumbLink[]>([]);
 
   useEffect(() => {
+    if (!searchForm) {
+      return;
+    }
     setBreadcrumbs(
       searchForm.tripType === WlaTripType.RoundTrip
         ? [

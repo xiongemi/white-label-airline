@@ -33,7 +33,9 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "predeploy": "npm run build -- --prod --baseHref=/white-label-airline/",
-    "deploy": "gh-pages -d dist/apps/white-label-airline"
+    "deploy": "gh-pages -d dist/apps/white-label-airline",
+    "i18n:abc-airline": "i18next 'apps/abc-airline/**/*.{ts,tsx}' 'libs/**/*.{ts,tsx}' -c 'apps/abc-airline/i18next-parser.config.js'",
+    "i18n:white-label-airline": "i18next 'apps/white-label-airline/**/*.{ts,tsx}' 'libs/**/*.{ts,tsx}' -c 'apps/white-label-airline/i18next-parser.config.js'"
   },
   "private": false,
   "dependencies": {
@@ -109,6 +111,7 @@
     "eslint-plugin-testing-library": "^3.10.1",
     "gh-pages": "^3.1.0",
     "husky": "^4.3.5",
+    "i18next-parser": "^3.6.0",
     "immutable": "^4.0.0-rc.12",
     "jest": "26.2.2",
     "jest-axe": "^4.1.0",

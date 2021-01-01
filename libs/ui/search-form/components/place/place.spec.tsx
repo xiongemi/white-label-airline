@@ -2,12 +2,6 @@ import { render } from '@testing-library/react';
 import { mockCountry } from '@white-label-airline/models/country';
 import { mockCurrency } from '@white-label-airline/models/currency';
 import { mockSearchForm } from '@white-label-airline/models/search-form';
-import {
-  countriesSlice,
-  initialCountriesState,
-} from '@white-label-airline/store/countries';
-import { FetchStatus } from '@white-label-airline/store/models';
-import { placesSlice } from '@white-label-airline/store/places';
 import { initialPlacesState } from '@white-label-airline/store/places/models/places-state.initial';
 import { Formik } from 'formik';
 import { axe } from 'jest-axe';

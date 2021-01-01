@@ -1,6 +1,7 @@
 import { WlaQuotePerLeg } from '@white-label-airline/models/quotes';
 import { WlaTripType } from '@white-label-airline/models/search-form';
 import { searchFormDataTransform } from '@white-label-airline/store/search-form';
+import LoadingFetchStatus from '@white-label-airline/ui/loading-fetch-status';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, useHistory, useLocation } from 'react-router-dom';
@@ -36,12 +37,14 @@ const QuotesPage: React.FunctionComponent<QuotesPageProps> = ({
   const [breadcrumbs, setBreadcrumbs] = useState<BreadcrumbLink[]>([]);
 
   useEffect(() => {
-    getQuotes(
-      searchFormDataTransform.transfromSearchFormValueToGetQuotesPayload(
-        searchForm,
-        isOutbound
-      )
-    );
+    if (searchForm) {
+      getQuotes(
+        searchFormDataTransform.transfromSearchFormValueToGetQuotesPayload(
+          searchForm,
+          isOutbound
+        )
+      );
+    }
   }, [getQuotes, searchForm, isOutbound]);
 
   useEffect(() => {
@@ -91,17 +94,17 @@ const QuotesPage: React.FunctionComponent<QuotesPageProps> = ({
       {breadcrumbs && breadcrumbs.length && (
         <SearchBreadcrumbs breadcrumbs={breadcrumbs} />
       )}
-      <Quotes
-        searchForm={searchForm}
-        quotes={quotes}
-        quotesFetchStatus={quotesFetchStatus}
-        modifySearch={modifySearch}
-        isOutbound={isOutbound}
-        getQuotes={getQuotes}
-        selectOutboundQuote={onSelectOutboundQuotes}
-        selectInboundQuote={onSelectInboundQuotes}
-        language={language}
-      />
+      <LoadingFetchStatus fetchStatus={quotesFetchStatus}>
+        <Quotes
+          searchForm={searchForm}
+          quotes={quotes}
+          modifySearch={modifySearch}
+          isOutbound={isOutbound}
+          selectOutboundQuote={onSelectOutboundQuotes}
+          selectInboundQuote={onSelectInboundQuotes}
+          language={language}
+        />
+      </LoadingFetchStatus>
     </>
   ) : (
     <Redirect to={RoutesPath.Search} />

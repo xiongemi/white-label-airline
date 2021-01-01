@@ -16,7 +16,7 @@ const ErrorSnackbar: React.FunctionComponent<ErrorSnackbarProps> = ({
 }: ErrorSnackbarProps) => {
   const { t } = useTranslation();
 
-  const [errorMessage, setErrorMessage] = useState<string>('messages.error');
+  const [errorMessage, setErrorMessage] = useState<string>();
 
   useEffect(() => {
     if (error && typeof error === 'string') {
@@ -31,7 +31,7 @@ const ErrorSnackbar: React.FunctionComponent<ErrorSnackbarProps> = ({
       onClose={clearError}
     >
       <Alert severity="error" onClose={clearError}>
-        {t(errorMessage)}
+        {t(errorMessage || 'messages.error')}
       </Alert>
     </Snackbar>
   );

@@ -37,7 +37,7 @@ const SearchForm: React.FunctionComponent<SearchProps> = ({
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils} locale={locale}>
-      <Form>
+      <Form data-testid="search-form">
         <Feature name={FeatureName.ShowReset}>
           <Box mb={3} textAlign="right">
             <Button

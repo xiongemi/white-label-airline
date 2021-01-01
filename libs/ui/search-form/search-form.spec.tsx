@@ -82,4 +82,25 @@ describe('Search Form', () => {
 
     expect(submitSearchForm).toBeCalled();
   });
+
+  it('should reset form', async () => {
+    const { queryByTestId } = render(
+      <FeaturesProvider value={defaultFeatureName}>
+        <Provider store={store}>
+          <SearchForm
+            searchFormValues={mockSearchForm}
+            submitSearchForm={submitSearchForm}
+            resetSearchForm={resetSearchForm}
+            locale={enGB}
+          />
+        </Provider>
+      </FeaturesProvider>
+    );
+
+    await act(async () => {
+      fireEvent.click(queryByTestId('search-form-reset'));
+    });
+
+    expect(resetSearchForm).toBeCalled();
+  });
 });

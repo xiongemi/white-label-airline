@@ -1,6 +1,43 @@
 {
   "header": {
+    "logo": "",
     "title": "ABC Airline"
+  },
+  "loading": "Loading...",
+  "messages": {
+    "minDate": "{{ returnDate }} should be before {{ departDate }}.",
+    "required": "{{ field }} is required.",
+    "error": "Oops~ Something went wrong. Please refresh the page."
+  },
+  "quote": {
+    "changeFlight": "Change Flight",
+    "selectFlight": "Select Flight"
+  },
+  "quotes": {
+    "modifySearch": "Modify Search",
+    "noFlightsFound": {
+      "description": "No flights found for this route and date combination.",
+      "title": "No Flights Found!"
+    },
+    "totalPriceFrom": "Total price from",
+    "direct": "Direct",
+    "layover": "Layover",
+    "selectDepartFlight": "Select your departing flight",
+    "selectReturnFlight": "Select your returning flight"
+  },
+  "search": {
+    "changeDate": "Change Date",
+    "country": "Country",
+    "currency": "Currency",
+    "departDate": "Depart Date",
+    "from": "From",
+    "reset": "Reset",
+    "returnDate": "Return Date",
+    "search": "Search",
+    "to": "To",
+    "tripType": "Trip Type",
+    "oneWay": "One Way",
+    "roundTrip": "Round Trip"
   },
   "breadcrumbs": {
     "search": "Search",
@@ -8,44 +45,8 @@
     "returnFlight": "Returning Flight",
     "booking": "Booking"
   },
-  "search": {
-    "country": "Country",
-    "currency": "Currency",
-    "search": "Search",
-    "oneWay": "One Way",
-    "roundTrip": "Round Trip",
-    "tripType": "Trip Type",
-    "departDate": "Depart Date",
-    "returnDate": "Return Date",
-    "from": "From",
-    "to": "To",
-    "changeDate": "Change Date",
-    "reset": "Reset"
-  },
-  "quote": {
-    "selectFlight": "Select Flight",
-    "changeFlight": "Change Flight"
-  },
-  "quotes": {
-    "direct": "Direct",
-    "layover": "Layover",
-    "noFlightsFound": {
-      "title": "No Flights Found!",
-      "description": "No flights found for this route and date combination."
-    },
-    "modifySearch": "Modify Search",
-    "selectDepartFlight": "Select your departing flight",
-    "selectReturnFlight": "Select your returning flight",
-    "totalPriceFrom": "Total price from"
-  },
   "language": {
     "en-GB": "English",
     "zh-CN": "中文"
-  },
-  "messages": {
-    "required": "{{ field }} is required.",
-    "minDate": "{{ returnDate }} should be before {{ departDate }}.",
-    "error": "Oops~ Something went wrong. Please refresh the page."
-  },
-  "loading": "Loading..."
+  }
 }

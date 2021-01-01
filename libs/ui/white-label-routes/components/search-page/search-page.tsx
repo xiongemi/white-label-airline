@@ -1,5 +1,5 @@
 import { WlaSearchForm } from '@white-label-airline/models/search-form';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
@@ -23,15 +23,12 @@ const SearchPage: React.FunctionComponent<SearchPageProps> = ({
   const history = useHistory();
 
   const submitSearchForm = (values: WlaSearchForm) => {
+    resetSelectedQuotes();
     setSearchFormValues(values);
     history.push({
       pathname: RoutesPath.Outbound,
     });
   };
-
-  useEffect(() => {
-    resetSelectedQuotes();
-  }, [resetSelectedQuotes]);
 
   return (
     <SearchForm
