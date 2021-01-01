@@ -1,49 +1,52 @@
 {
   "header": {
+    "logo": "贴牌航空",
     "title": "贴牌航空"
+  },
+  "loading": "加载中……",
+  "messages": {
+    "minDate": "{{ returnDate }}必须在{{ departDate }}前",
+    "required": "请填写{{ field }}",
+    "error": "出现问题了～请刷新页面从新再试一次。"
+  },
+  "quote": {
+    "changeFlight": "更换航班",
+    "selectFlight": "选择航班"
+  },
+  "quotes": {
+    "modifySearch": "修改搜索",
+    "noFlightsFound": {
+      "description": "没有找到所选日期的航班。",
+      "title": "没有找到航班"
+    },
+    "totalPriceFrom": "最低价",
+    "direct": "直飞",
+    "layover": "转飞",
+    "selectDepartFlight": "请选择你出发的航班",
+    "selectReturnFlight": "请选择你返回的航班"
+  },
+  "search": {
+    "changeDate": "更换日期",
+    "country": "国家",
+    "currency": "货币",
+    "departDate": "出发日",
+    "from": "出发地",
+    "reset": "清空",
+    "returnDate": "回来日",
+    "search": "搜索",
+    "to": "到达地",
+    "tripType": "旅行种类",
+    "oneWay": "单程",
+    "roundTrip": "往返"
   },
   "breadcrumbs": {
     "search": "搜索",
     "departFlight": "出发的航班",
     "returnFlight": "返回的航班",
-    "booking": "Booking"
-  },
-  "search": {
-    "country": "国家",
-    "currency": "货币",
-    "search": "搜索",
-    "oneWay": "单程",
-    "roundTrip": "往返",
-    "tripType": "旅行种类",
-    "departDate": "出发日",
-    "returnDate": "回来日",
-    "from": "出发地",
-    "to": "到达地",
-    "changeDate": "更换日期"
-  },
-  "quote": {
-    "selectFlight": "选择航班",
-    "changeFlight": "更换航班"
-  },
-  "quotes": {
-    "direct": "直飞",
-    "layover": "转飞",
-    "noFlightsFound": {
-      "title": "没有找到航班",
-      "description": "没有找到所选日期的航班。"
-    },
-    "modifySearch": "修改搜索",
-    "selectDepartFlight": "请选择你出发的航班",
-    "selectReturnFlight": "请选择你返回的航班"
+    "booking": "选择的航班"
   },
   "language": {
     "en-GB": "English",
     "zh-CN": "中文"
-  },
-  "messages": {
-    "required": "请填写{{ field }}",
-    "minDate": "{{ returnDate }}必须在{{ departDate }}前",
-    "error": "出现问题了～请刷新页面从新再试一次。"
-  },
-  "loading": "加载中……"
+  }
 }
