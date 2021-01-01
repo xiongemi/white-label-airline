@@ -5,7 +5,7 @@
   },
   "loading": "加载中……",
   "messages": {
-    "minDate": "{{ returnDate }}必须在{{ departDate }}前",
+    "minDate": "回来日必须在出发日前",
     "required": "请填写{{ field }}",
     "error": "出现问题了～请刷新页面从新再试一次。"
   },
