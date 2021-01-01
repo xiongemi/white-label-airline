@@ -24,8 +24,8 @@ const Language: React.FunctionComponent<LanguageProps> = ({
   const { t } = useTranslation();
 
   useEffect(() => {
-    if (currentLanguage && defaultLanguage !== currentLanguage) {
-      changeLanguage(currentLanguage);
+    if (defaultLanguage !== currentLanguage) {
+      changeLanguage(currentLanguage || defaultLanguage);
     }
   }, [changeLanguage, currentLanguage, defaultLanguage]);
 

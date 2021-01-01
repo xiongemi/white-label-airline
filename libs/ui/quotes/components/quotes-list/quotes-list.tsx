@@ -1,4 +1,5 @@
 import { List, Divider } from '@material-ui/core';
+import { WlaQuotePerLeg } from '@white-label-airline/models/quotes';
 import React from 'react';
 
 import Quote from '../../../quote/quote';
@@ -16,7 +17,7 @@ const QuotesList: React.FunctionComponent<QuotesListProps> = ({
 }: QuotesListProps) => {
   return quotes && quotes.length ? (
     <List data-testid="quotes-list">
-      {quotes.map((quote) => {
+      {quotes.map((quote: WlaQuotePerLeg) => {
         return (
           <div key={quote.id}>
             <Quote
