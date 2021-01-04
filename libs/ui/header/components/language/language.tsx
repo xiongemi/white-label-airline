@@ -1,5 +1,5 @@
 import { MenuItem, Select, withStyles } from '@material-ui/core';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 
@@ -24,8 +24,8 @@ const Language: React.FunctionComponent<LanguageProps> = ({
   const { t } = useTranslation();
 
   useEffect(() => {
-    if (defaultLanguage !== currentLanguage) {
-      changeLanguage(currentLanguage || defaultLanguage);
+    if (!currentLanguage && defaultLanguage) {
+      changeLanguage(defaultLanguage);
     }
   }, [changeLanguage, currentLanguage, defaultLanguage]);
 
