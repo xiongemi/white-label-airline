@@ -14,7 +14,7 @@ const mapStateToProps = (state: WlaRootState) => {
 const mapDispatchToProps = (dispatch: Dispatch) => {
   return {
     changeLanguage(language: string) {
-      dispatch(languageSlice.actions.setLanguage(language));
+      dispatch(languageSlice.actions.changeLanguage(language));
     },
   };
 };

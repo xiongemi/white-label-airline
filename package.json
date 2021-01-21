@@ -34,6 +34,7 @@
     "help": "nx help",
     "predeploy": "npm run build -- --prod --baseHref=/white-label-airline/",
     "deploy": "gh-pages -d dist/apps/white-label-airline",
+    "i18n": "npm-run-all --parallel i18n:*",
     "i18n:abc-airline": "i18next 'apps/abc-airline/**/*.{ts,tsx}' 'libs/**/*.{ts,tsx}' -c 'apps/abc-airline/i18next-parser.config.js'",
     "i18n:white-label-airline": "i18next 'apps/white-label-airline/**/*.{ts,tsx}' 'libs/**/*.{ts,tsx}' -c 'apps/white-label-airline/i18next-parser.config.js'"
   },
@@ -112,6 +113,7 @@
     "jest": "26.2.2",
     "jest-axe": "^4.1.0",
     "jest-fetch-mock": "^3.0.3",
+    "npm-run-all": "^4.1.5",
     "prettier": "2.0.4",
     "react-test-renderer": "^17.0.1",
     "redux-mock-store": "^1.5.4",
@@ -124,7 +126,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run affected:lint",
-      "pre-push": "npm run lint && npm run test"
+      "pre-push": "npm run lint && npm run test && npm run i18n"
     }
   }
 }
