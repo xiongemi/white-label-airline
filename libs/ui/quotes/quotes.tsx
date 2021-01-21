@@ -1,6 +1,5 @@
 import { Typography } from '@material-ui/core';
 import { WlaQuotePerLeg } from '@white-label-airline/models/quotes';
-import { FetchStatus } from '@white-label-airline/store/models';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 

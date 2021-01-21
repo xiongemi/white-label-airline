@@ -1,5 +1,5 @@
 import { MenuItem, Select, withStyles } from '@material-ui/core';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 
