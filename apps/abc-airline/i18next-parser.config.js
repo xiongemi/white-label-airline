@@ -10,7 +10,7 @@ module.exports = {
   defaultNamespace: 'translation',
   // Default namespace used in your i18next config
 
-  defaultValue: '',
+  defaultValue: '__NOT_TRANSLATED__',
   // Default value to give to empty keys
 
   indentation: 2,

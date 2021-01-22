@@ -126,7 +126,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run affected:lint",
-      "pre-push": "npm run lint && npm run test && npm run i18n"
+      "pre-push": "npm run lint && npm run i18n && npm run test"
     }
   }
 }

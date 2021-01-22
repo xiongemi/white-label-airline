@@ -10,6 +10,7 @@
     "error": "Oops~ Something went wrong. Please refresh the page."
   },
   "quote": {
+    "changeFlight": "Change Flight",
     "selectFlight": "Select Flight"
   },
   "quotes": {
