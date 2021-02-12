@@ -19,7 +19,9 @@
               "apps/white-label-airline/src/favicon.ico",
               "apps/white-label-airline/src/assets"
             ],
-            "styles": ["apps/white-label-airline/src/styles.css"],
+            "styles": [
+              "apps/white-label-airline/src/styles.css"
+            ],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -46,7 +48,10 @@
                 }
               ]
             }
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "serve": {
           "builder": "@nrwl/web:dev-server",
@@ -67,16 +72,21 @@
               "apps/white-label-airline/tsconfig.app.json",
               "apps/white-label-airline/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/white-label-airline/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/white-label-airline/**/*"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/white-label-airline/jest.config.js",
-            "tsConfig": "apps/white-label-airline/tsconfig.spec.json",
             "passWithNoTests": true
-          }
+          },
+          "outputs": [
+            "coverage/apps/white-label-airline"
+          ]
         }
       }
     },
@@ -102,7 +112,9 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "tsConfig": ["apps/white-label-airline-e2e/tsconfig.e2e.json"],
+            "tsConfig": [
+              "apps/white-label-airline-e2e/tsconfig.e2e.json"
+            ],
             "exclude": [
               "**/node_modules/**",
               "!apps/white-label-airline-e2e/**/*"
@@ -125,16 +137,21 @@
               "libs/store/tsconfig.lib.json",
               "libs/store/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/store/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/store/**/*"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/store/jest.config.js",
-            "tsConfig": "libs/store/tsconfig.spec.json",
             "passWithNoTests": true
-          }
+          },
+          "outputs": [
+            "coverage/libs/store"
+          ]
         }
       }
     },
@@ -152,16 +169,21 @@
               "libs/ui/tsconfig.lib.json",
               "libs/ui/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/ui/**/*"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/ui/jest.config.js",
-            "tsConfig": "libs/ui/tsconfig.spec.json",
             "passWithNoTests": true
-          }
+          },
+          "outputs": [
+            "coverage/libs/ui"
+          ]
         }
       }
     },
@@ -179,16 +201,21 @@
               "libs/services/tsconfig.lib.json",
               "libs/services/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/services/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/services/**/*"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/services/jest.config.js",
-            "tsConfig": "libs/services/tsconfig.spec.json",
             "passWithNoTests": true
-          }
+          },
+          "outputs": [
+            "coverage/libs/services"
+          ]
         }
       }
     },
@@ -210,7 +237,9 @@
               "apps/abc-airline/src/favicon.ico",
               "apps/abc-airline/src/assets"
             ],
-            "styles": ["apps/abc-airline/src/styles.css"],
+            "styles": [
+              "apps/abc-airline/src/styles.css"
+            ],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -237,7 +266,10 @@
                 }
               ]
             }
-          }
+          },
+          "outputs": [
+            "{options.outputPath}"
+          ]
         },
         "serve": {
           "builder": "@nrwl/web:dev-server",
@@ -253,7 +285,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/abc-airline/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "apps/abc-airline/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
@@ -261,7 +295,10 @@
           "options": {
             "jestConfig": "apps/abc-airline/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": [
+            "coverage/apps/abc-airline"
+          ]
         }
       }
     },
@@ -286,7 +323,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/abc-airline-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/abc-airline-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -300,7 +339,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/models/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "libs/models/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
@@ -308,7 +349,10 @@
           "options": {
             "jestConfig": "libs/models/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": [
+            "coverage/libs/models"
+          ]
         }
       }
     }
