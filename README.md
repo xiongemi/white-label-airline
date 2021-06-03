@@ -4,6 +4,8 @@ This project is a sample flight search app generated using [Nx](https://nx.dev).
 
 ![alt text](https://github.com/xiongemi/white-label-airline/blob/master/images/white%20label%20airline%20mobile.png?raw=true)
 
+Medium Blog: [https://medium.com/swlh/how-to-create-a-white-label-react-app-137c06ae24ad](https://medium.com/swlh/how-to-create-a-white-label-react-app-137c06ae24ad)
+
 ## Structure
 
 ```
