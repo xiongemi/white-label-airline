@@ -1,0 +1,76 @@
+{
+  "root": "apps/white-label-airline",
+  "sourceRoot": "apps/white-label-airline/src",
+  "projectType": "application",
+  "generators": {},
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "options": {
+        "outputPath": "dist/apps/white-label-airline",
+        "index": "apps/white-label-airline/src/index.html",
+        "main": "apps/white-label-airline/src/main.tsx",
+        "polyfills": "apps/white-label-airline/src/polyfills.ts",
+        "tsConfig": "apps/white-label-airline/tsconfig.app.json",
+        "assets": [
+          "apps/white-label-airline/src/favicon.ico",
+          "apps/white-label-airline/src/assets"
+        ],
+        "styles": ["apps/white-label-airline/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/white-label-airline/src/environments/environment.ts",
+              "with": "apps/white-label-airline/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "extractCss": true,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "2mb",
+              "maximumError": "5mb"
+            }
+          ]
+        }
+      },
+      "outputs": ["{options.outputPath}"]
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "white-label-airline:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "white-label-airline:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/white-label-airline/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "apps/white-label-airline/jest.config.js",
+        "passWithNoTests": true
+      },
+      "outputs": ["coverage/apps/white-label-airline"]
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,28 @@
+{
+  "root": "apps/abc-airline-e2e",
+  "sourceRoot": "apps/abc-airline-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/abc-airline-e2e/cypress.json",
+        "tsConfig": "apps/abc-airline-e2e/tsconfig.e2e.json",
+        "devServerTarget": "abc-airline:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "abc-airline:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/abc-airline-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["abc-airline"]
+}
