@@ -1,3 +1,5 @@
+const { getJestProjects } = require('@nrwl/jest');
+
 module.exports = {
   testMatch: ['**/+(*.)+(spec|test).+(ts|js)?(x)'],
   transform: {
@@ -26,4 +28,5 @@ module.exports = {
       statements: 60,
     },
   },
+  projects: getJestProjects(),
 };

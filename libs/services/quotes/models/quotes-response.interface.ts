@@ -1,4 +1,4 @@
-import { CurrencyResponse } from '@white-label-airline/services/currencies';
+import { CurrencyResponse } from '../../currencies/models/currency-response.interface';
 
 import { CarrierResponse } from './carrier-response.interface';
 import { PlacePerQuoteResponse } from './place-per-quote-response.interface';

@@ -1,11 +1,11 @@
 import { WlaQuotePerLeg } from '@white-label-airline/models/quotes';
 import { WlaTripType } from '@white-label-airline/models/search-form';
 import { searchFormDataTransform } from '@white-label-airline/store/search-form';
-import LoadingFetchStatus from '@white-label-airline/ui/loading-fetch-status';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, useHistory, useLocation } from 'react-router-dom';
 
+import LoadingFetchStatus from '../../../loading-fetch-status';
 import Quotes from '../../../quotes';
 import { BreadcrumbLink, SearchBreadcrumbs } from '../../../search-breadcrumbs';
 import {

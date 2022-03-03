@@ -1,6 +1,7 @@
 import { WlaSearchForm } from '@white-label-airline/models/search-form';
-import { GetQuotesPayload } from '@white-label-airline/store/quotes';
 import { format } from 'date-fns';
+
+import { GetQuotesPayload } from '../quotes';
 
 const dateFormat = 'yyyy-MM-dd';
 

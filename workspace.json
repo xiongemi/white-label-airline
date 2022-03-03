@@ -1,224 +1,6 @@
 {
   "version": 1,
   "projects": {
-    "white-label-airline": {
-      "root": "apps/white-label-airline",
-      "sourceRoot": "apps/white-label-airline/src",
-      "projectType": "application",
-      "schematics": {},
-      "architect": {
-        "build": {
-          "builder": "@nrwl/web:build",
-          "options": {
-            "outputPath": "dist/apps/white-label-airline",
-            "index": "apps/white-label-airline/src/index.html",
-            "main": "apps/white-label-airline/src/main.tsx",
-            "polyfills": "apps/white-label-airline/src/polyfills.ts",
-            "tsConfig": "apps/white-label-airline/tsconfig.app.json",
-            "assets": [
-              "apps/white-label-airline/src/favicon.ico",
-              "apps/white-label-airline/src/assets"
-            ],
-            "styles": [
-              "apps/white-label-airline/src/styles.css"
-            ],
-            "scripts": [],
-            "webpackConfig": "@nrwl/react/plugins/webpack"
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "apps/white-label-airline/src/environments/environment.ts",
-                  "with": "apps/white-label-airline/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
-            }
-          },
-          "outputs": [
-            "{options.outputPath}"
-          ]
-        },
-        "serve": {
-          "builder": "@nrwl/web:dev-server",
-          "options": {
-            "buildTarget": "white-label-airline:build"
-          },
-          "configurations": {
-            "production": {
-              "buildTarget": "white-label-airline:build:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:lint",
-          "options": {
-            "linter": "eslint",
-            "tsConfig": [
-              "apps/white-label-airline/tsconfig.app.json",
-              "apps/white-label-airline/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/white-label-airline/**/*"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "apps/white-label-airline/jest.config.js",
-            "passWithNoTests": true
-          },
-          "outputs": [
-            "coverage/apps/white-label-airline"
-          ]
-        }
-      }
-    },
-    "white-label-airline-e2e": {
-      "root": "apps/white-label-airline-e2e",
-      "sourceRoot": "apps/white-label-airline-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/white-label-airline-e2e/cypress.json",
-            "tsConfig": "apps/white-label-airline-e2e/tsconfig.e2e.json",
-            "devServerTarget": "white-label-airline:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "white-label-airline:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:lint",
-          "options": {
-            "linter": "eslint",
-            "tsConfig": [
-              "apps/white-label-airline-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/white-label-airline-e2e/**/*"
-            ]
-          }
-        }
-      }
-    },
-    "store": {
-      "root": "libs/store",
-      "sourceRoot": "libs/store",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:lint",
-          "options": {
-            "linter": "eslint",
-            "tsConfig": [
-              "libs/store/tsconfig.lib.json",
-              "libs/store/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/store/**/*"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/store/jest.config.js",
-            "passWithNoTests": true
-          },
-          "outputs": [
-            "coverage/libs/store"
-          ]
-        }
-      }
-    },
-    "ui": {
-      "root": "libs/ui",
-      "sourceRoot": "libs/ui",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:lint",
-          "options": {
-            "linter": "eslint",
-            "tsConfig": [
-              "libs/ui/tsconfig.lib.json",
-              "libs/ui/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/ui/**/*"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/ui/jest.config.js",
-            "passWithNoTests": true
-          },
-          "outputs": [
-            "coverage/libs/ui"
-          ]
-        }
-      }
-    },
-    "services": {
-      "root": "libs/services",
-      "sourceRoot": "libs/services",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:lint",
-          "options": {
-            "linter": "eslint",
-            "tsConfig": [
-              "libs/services/tsconfig.lib.json",
-              "libs/services/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/services/**/*"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/services/jest.config.js",
-            "passWithNoTests": true
-          },
-          "outputs": [
-            "coverage/libs/services"
-          ]
-        }
-      }
-    },
     "abc-airline": {
       "root": "apps/abc-airline",
       "sourceRoot": "apps/abc-airline/src",
@@ -237,9 +19,7 @@
               "apps/abc-airline/src/favicon.ico",
               "apps/abc-airline/src/assets"
             ],
-            "styles": [
-              "apps/abc-airline/src/styles.css"
-            ],
+            "styles": ["apps/abc-airline/src/styles.css"],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -267,9 +47,7 @@
               ]
             }
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         },
         "serve": {
           "builder": "@nrwl/web:dev-server",
@@ -285,9 +63,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/abc-airline/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["apps/abc-airline/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
@@ -296,11 +72,10 @@
             "jestConfig": "apps/abc-airline/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/apps/abc-airline"
-          ]
+          "outputs": ["coverage/apps/abc-airline"]
         }
-      }
+      },
+      "tags": []
     },
     "abc-airline-e2e": {
       "root": "apps/abc-airline-e2e",
@@ -323,12 +98,12 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/abc-airline-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/abc-airline-e2e/**/*.{js,ts}"]
           }
         }
-      }
+      },
+      "tags": [],
+      "implicitDependencies": ["abc-airline"]
     },
     "models": {
       "root": "libs/models",
@@ -339,9 +114,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/models/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["libs/models/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
@@ -350,80 +123,208 @@
             "jestConfig": "libs/models/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/models"
-          ]
+          "outputs": ["coverage/libs/models"]
         }
-      }
+      },
+      "tags": []
+    },
+    "services": {
+      "root": "libs/services",
+      "sourceRoot": "libs/services",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/services/tsconfig.lib.json",
+              "libs/services/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/services/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/services/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/services"]
+        }
+      },
+      "tags": []
+    },
+    "store": {
+      "root": "libs/store",
+      "sourceRoot": "libs/store",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/store/tsconfig.lib.json",
+              "libs/store/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/store/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/store/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/store"]
+        }
+      },
+      "tags": []
+    },
+    "ui": {
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "libs/ui/tsconfig.lib.json",
+              "libs/ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ui/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/ui"]
+        }
+      },
+      "tags": []
+    },
+    "white-label-airline": {
+      "root": "apps/white-label-airline",
+      "sourceRoot": "apps/white-label-airline/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:build",
+          "options": {
+            "outputPath": "dist/apps/white-label-airline",
+            "index": "apps/white-label-airline/src/index.html",
+            "main": "apps/white-label-airline/src/main.tsx",
+            "polyfills": "apps/white-label-airline/src/polyfills.ts",
+            "tsConfig": "apps/white-label-airline/tsconfig.app.json",
+            "assets": [
+              "apps/white-label-airline/src/favicon.ico",
+              "apps/white-label-airline/src/assets"
+            ],
+            "styles": ["apps/white-label-airline/src/styles.css"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/white-label-airline/src/environments/environment.ts",
+                  "with": "apps/white-label-airline/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          },
+          "outputs": ["{options.outputPath}"]
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "white-label-airline:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "white-label-airline:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "apps/white-label-airline/tsconfig.app.json",
+              "apps/white-label-airline/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/white-label-airline/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/white-label-airline/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/apps/white-label-airline"]
+        }
+      },
+      "tags": []
+    },
+    "white-label-airline-e2e": {
+      "root": "apps/white-label-airline-e2e",
+      "sourceRoot": "apps/white-label-airline-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/white-label-airline-e2e/cypress.json",
+            "tsConfig": "apps/white-label-airline-e2e/tsconfig.e2e.json",
+            "devServerTarget": "white-label-airline:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "white-label-airline:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": ["apps/white-label-airline-e2e/tsconfig.e2e.json"],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/white-label-airline-e2e/**/*"
+            ]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["white-label-airline"]
     }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/react"
-  },
-  "schematics": {
-    "@nrwl/workspace": {
-      "library": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/cypress": {
-      "cypress-project": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/react": {
-      "application": {
-        "style": "css",
-        "linter": "eslint",
-        "babel": true
-      },
-      "library": {
-        "style": "css",
-        "linter": "eslint"
-      },
-      "storybook-configuration": {
-        "linter": "eslint"
-      },
-      "component": {
-        "style": "css"
-      }
-    },
-    "@nrwl/next": {
-      "application": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/web": {
-      "application": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/node": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/nx-plugin": {
-      "plugin": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/nest": {
-      "application": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/express": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      }
-    }
-  },
-  "defaultProject": "white-label-airline"
+  }
 }

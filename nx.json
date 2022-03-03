@@ -21,32 +21,81 @@
       }
     }
   },
-  "projects": {
-    "white-label-airline": {
-      "tags": []
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
+  "generators": {
+    "@nrwl/workspace": {
+      "library": {
+        "linter": "eslint"
+      }
     },
-    "white-label-airline-e2e": {
-      "tags": [],
-      "implicitDependencies": ["white-label-airline"]
+    "@nrwl/cypress": {
+      "cypress-project": {
+        "linter": "eslint"
+      }
     },
-    "abc-airline": {
-      "tags": []
+    "@nrwl/react": {
+      "application": {
+        "style": "css",
+        "linter": "eslint",
+        "babel": true
+      },
+      "library": {
+        "style": "css",
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      },
+      "component": {
+        "style": "css"
+      }
     },
-    "abc-airline-e2e": {
-      "tags": [],
-      "implicitDependencies": ["abc-airline"]
+    "@nrwl/next": {
+      "application": {
+        "linter": "eslint"
+      }
     },
-    "store": {
-      "tags": []
+    "@nrwl/web": {
+      "application": {
+        "linter": "eslint"
+      }
     },
-    "ui": {
-      "tags": []
+    "@nrwl/node": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      }
     },
-    "services": {
-      "tags": []
+    "@nrwl/nx-plugin": {
+      "plugin": {
+        "linter": "eslint"
+      }
     },
-    "models": {
-      "tags": []
+    "@nrwl/nest": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/express": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      }
     }
+  },
+  "defaultProject": "white-label-airline",
+  "targetDependencies": {
+    "build": [
+      {
+        "target": "build",
+        "projects": "dependencies"
+      }
+    ]
   }
 }
