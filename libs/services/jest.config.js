@@ -1,13 +1,10 @@
 module.exports = {
-  name: 'services',
-  preset: '../../jest.config.js',
-  globals: {
-    'ts-jest': { tsconfig: '<rootDir>/tsconfig.spec.json' },
-  },
+  displayName: 'services',
+  preset: '../../jest.preset.js',
   transform: {
-    '^.+\\.[tj]sx?$': 'ts-jest',
+    '^.+\\.[tj]sx?$': 'babel-jest',
   },
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'html'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: '../../coverage/libs/services',
   setupFilesAfterEnv: ['./jest.setup.ts'],
 };

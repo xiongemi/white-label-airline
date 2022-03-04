@@ -2,7 +2,11 @@
 
 NOTE: the API skyscanner API NO longer works.
 
-Blog Post: https://medium.com/swlh/how-to-create-a-white-label-react-app-137c06ae24ad
+Blog Post:
+
+- https://medium.com/swlh/how-to-create-a-white-label-react-app-137c06ae24ad
+- https://javascript.plainenglish.io/how-to-add-react-i18next-3d6ace7cf58e
+- https://betterprogramming.pub/my-react-app-unit-testing-strategies-18ebe55cd078
 
 This project is a sample flight search app generated using [Nx](https://nx.dev).
 
